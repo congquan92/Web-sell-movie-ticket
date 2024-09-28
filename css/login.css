@@ -1,0 +1,159 @@
+/* body {
+  background: url(../img/login/backgroup_login.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+} */
+* {
+  box-sizing: border-box;
+}
+* {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700; /* Điều chỉnh lại giá trị hợp lệ, ví dụ: 400 */
+  font-style: normal;
+}
+
+/* css login */
+
+#logo {
+  height: 80px;
+  padding-top: 10px;
+  border-radius: 50px;
+}
+/* loading  */
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+#loading .dots {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loading .dots span {
+  animation: blink 1.4s infinite both;
+}
+
+#loading .dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+#loading .dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+/* navbar  */
+.header {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* align-content: center; */
+  padding: 10px 80px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 100%;
+  /* lam dinh thanh navbar  */
+  /* position: sticky;
+    top: 0; */
+  /* Đặt navbar cố định */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: top 0.3s ease; /* Hiệu ứng chuyển tiếp */
+  z-index: 1000; /* Đảm bảo navbar luôn nằm trên cùng */
+}
+#navbar {
+  /* display: flex; */
+  padding: 25px 0px;
+}
+#navbar li {
+  display: inline-block;
+  padding: 0 20px;
+}
+#navbar li a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 610;
+  color: #3b47b1;
+  transition: 0.3s ease; /* tao hieu ung chuyen dong khi nhan link  */
+}
+/* navbar */
+#navbar li a:hover,
+#navbar li a.active {
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  background-clip: text;
+  color: transparent;
+  border: 2px solid aqua;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 610;
+  transition: 0.3s ease;
+}
+/* Ẩn navbar khi vuốt xuống */
+
+.header.hidden {
+  /* js */
+  top: -100px; /* Di chuyển navbar ra khỏi màn hình */
+  transition: top 0.3s ease;
+}
+/* Hiển thị navbar khi hover */
+.header:hover {
+  top: 0;
+  transition: top 0.3s ease;
+}
+
+/* cai dang nhap  */
+.logo-login,
+.logo-shopping {
+  display: inline-block;
+  padding: 8px;
+  margin-top: 25px;
+  margin-right: 20px;
+}
+.logo-login a i,
+.logo-shopping a i {
+  color: #3b47b1;
+}
+.logo-login :hover,
+.logo-shopping :hover {
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
