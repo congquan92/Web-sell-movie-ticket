@@ -1,3 +1,9 @@
+/* body {
+  background: url(../img/login/backgroup_login.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+} */
 * {
   box-sizing: border-box;
 }
@@ -6,6 +12,9 @@
   font-weight: 700; /* Điều chỉnh lại giá trị hợp lệ, ví dụ: 400 */
   font-style: normal;
 }
+
+/* css login */
+
 #logo {
   height: 80px;
   padding-top: 10px;
@@ -116,9 +125,10 @@
   transition: 0.3s ease;
 }
 /* Ẩn navbar khi vuốt xuống */
+
 .header.hidden {
   /* js */
-  top: 100px; /* Di chuyển navbar ra khỏi màn hình */
+  top: -100px; /* Di chuyển navbar ra khỏi màn hình */
   transition: top 0.3s ease;
 }
 /* Hiển thị navbar khi hover */
@@ -126,12 +136,13 @@
   top: 0;
   transition: top 0.3s ease;
 }
+
+/* cai dang nhap  */
 .logo-login,
 .logo-shopping {
   display: inline-block;
   padding: 8px;
-  margin-top: 37px;
-  font-size: 20px;
+  margin-top: 25px;
   margin-right: 20px;
 }
 .logo-login a i,
@@ -139,11 +150,77 @@
   color: #3b47b1;
 }
 .logo-login :hover,
-.logo-shopping :hover {
+.logo-shopping :hover,
+#active {
   background-color: #0093e9;
   background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
   background-clip: text;
   color: transparent;
-  font-size: 20px;
   transition: all 0.3s ease;
+}
+
+/* toats*/
+.toats {
+  display: flex;
+  padding: 20px;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.toats-text a {
+  text-decoration: none;
+  padding: 5px;
+  font-style: italic;
+  font-weight: 300;
+}
+.none:hover,
+.toats-active {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+  transition: all 0.4s ease-out;
+}
+/* quan ao */
+.both {
+  display: flex; /* Đặt các phần tử theo hàng ngang */
+  justify-content: space-between; /* Tạo khoảng cách đều giữa các phần */
+}
+
+.option {
+  width: 250px; /* Đặt chiều rộng cố định cho phần option */
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-right: 1px solid #ddd; /* Tạo viền cho phần option */
+}
+
+.cloth {
+  flex: 1; /* Phần cloth sẽ chiếm không gian còn lại của trang */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Khoảng cách giữa các sản phẩm */
+  padding: 20px;
+}
+
+.cloth-item {
+  width: calc(33.333% - 20px); /* Mỗi item chiếm 1/3 chiều rộng */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.cloth-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.cloth-title {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cloth-price {
+  color: #3b47b1;
+  font-weight: bold;
 }

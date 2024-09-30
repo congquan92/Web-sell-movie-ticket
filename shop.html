@@ -1,61 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./css/shop.css" />
-    <link rel="shortcut icon" href="./img/cat.ico" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Kali | Shop</title>
-  </head>
-  <body>
-    <!-- loading  -->
-    <div id="loading">
-      <div class="dots">
-        <span>.</span>
-        <span>.</span>
-        <span>.</span>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/shop.css">
+    <title>Shop</title>
+</head>
+</head>
+<body>
+  <!-- loading  -->
+  <div id="loading">
+    <div class="dots">
+      <span>.</span>
+      <span>.</span>
+      <span>.</span>
     </div>
-    <div class="header">
-      <!-- logo -->
-      <a href="#"><img src="./img/New Clothes.gif" alt="" id="logo" /></a>
-      <!-- navbar -->
-      <div class="nav">
+  </div>
+  <div class="header">
+    <!-- logo -->
+    <a href="#"><img src="./img/New Clothes.gif" alt="" id="logo"></a>
+    <!-- navbar -->
+    <div class="nav">
         <ul id="navbar">
-          <li><a href="./index.html" target="_self">Home</a></li>
-          <li><a href="./shop.html" class="active" target="_self">Shop</a></li>
-          <li><a href="./blog.html" target="_self">Blog</a></li>
-          <li><a href="./about.html" target="_self">About</a></li>
-          <li><a href="./contact.html" target="_self">Contact</a></li>
+            <li><a href="./index.html"  target="_self">Home</a></li>
+            <li><a href="./shop.html" class="active" target="_self">Shop</a></li>
+            <li><a href="./blog.html" target="_self">Blog</a></li>
+            <li><a href="./about.html" target="_self">About</a></li>
+            <li><a href="./contact.html" target="_self">Contact</a></li>
         </ul>
+    </div>
+    <!-- login  -->
+    <div class="login">
+        <div class="logo-login"><a href="./login.html"><i class="fa-solid fa-user" ></i></a></div>
+        <div class="logo-shopping"><a href="./cart.html"><i class="fa-solid fa-cart-shopping" ></i></a></div>
+    </div>
+</div>
+<!-- cai nay dung de che cap thanh navbar -->
+  <div style="height: 120px"></div> 
+<!-- ----------------------------quan ao --------------------------------- -->
+ <!-- dieu huong -->
+<div class="toats">
+  <div class="toats-text" ><a class="none" href="./index.html">Trang Chu</a></div>
+  <div class="toats-text" style="font-weight: 100;">/</div>
+  <div class="toats-text" ><a href="#" class="toats-active">San pham</a></div>
+</div>
+<hr>
+<!-- chung---- -->
+ <div class="both">
+  <!-- bo loc -->
+ <div class="khung">
+    <div class="option">
+      <div class="option-title">
+        <div id="t1">Bo loc</div>
+        <div id="t2">19</div>
       </div>
-      <!-- login  -->
-      <div class="login">
-        <div class="logo-login">
-          <a href="./login.html"><i class="fa-solid fa-user"></i></a>
-        </div>
-        <div class="logo-shopping">
-          <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+      <div class="optionFilter">
+        <h5>Thuoc</h5>
+        <div class="optionType">
+          <div class="type">
+            <input type="checkbox" value="0">
+            <span>Ao thun</span>
+  
+          </div>
+          <div class="type">
+            <input type="checkbox" value="0">
+            <span>Polo</span>
+  
+          </div>
+          <div class="type">
+            <input type="checkbox" value="0">
+            <span>So mi</span>
+  
+          </div>
+          <div class="type">
+            <input type="checkbox" value="0">
+            <span>Hoodie</span>
+  
+          </div>
+          <div class="type">
+            <input type="checkbox" value="0">
+            <span>Sweater</span>
+  
+          </div>
+          <div class="type">
+            <input type="checkbox" value="0">
+            <span>Ao khoac</span>
+          </div>
+          <h5>Khoang gia</h5>
+          <div class="optionPrice">
+            <input type="text" id="nodePrice_1">
+            <span>-</span>
+            <input type="text" id="nodePrice_2">
+          </div>
+          <div class="loc"><span>Loc</span></div>
+          <div style="border-bottom: 1px solid #0e0101;"></div>
+  
         </div>
       </div>
+  
+  
+  
+    <!-- ------ -->
+    </div>
+ </div>
+  <div class="cloth">
+     <!-- thanh sap xep  -->
+
+
+
+     <!-- item quan ao -->
+    <div class="cloth-item">
+      <div class="cloth-img"><img src="./img/products/p2-1.png" alt=""></div>
+      <div class="cloth-color">
+        <div class="cloth-color-hv"></div>
+        <div class="cloth-color-hv"></div>
+      </div>
+      <div class="cloth-title"></div>
+      <div class="cloth-price"></div>
+    </div>
+    <div class="cloth-item">
+      <div class="cloth-img"><img src="./img/products/p2-1.png" alt=""></div>
+      <div class="cloth-color">
+        <div class="cloth-color-hv"></div>
+        <div class="cloth-color-hv"></div>
+      </div>
+      <div class="cloth-title"></div>
+      <div class="cloth-price"></div>
+    </div>
+    <div class="cloth-item">
+      <div class="cloth-img"><img src="./img/products/p2-1.png" alt=""></div>
+      <div class="cloth-color">
+        <div class="cloth-color-hv"></div>
+        <div class="cloth-color-hv"></div>
+      </div>
+      <div class="cloth-title"></div>
+      <div class="cloth-price"></div>
+    </div>
+    <div class="cloth-item">
+      <div class="cloth-img"><img src="./img/products/p2-1.png" alt=""></div>
+      <div class="cloth-color">
+        <div class="cloth-color-hv"></div>
+        <div class="cloth-color-hv"></div>
+      </div>
+      <div class="cloth-title"></div>
+      <div class="cloth-price"></div>
+    </div>
+    <div class="cloth-item">
+      <div class="cloth-img"><img src="./img/products/p2-1.png" alt=""></div>
+      <div class="cloth-color">
+        <div class="cloth-color-hv"></div>
+        <div class="cloth-color-hv"></div>
+      </div>
+      <div class="cloth-title"></div>
+      <div class="cloth-price"></div>
+    </div>
+    <div class="cloth-item">
+      <div class="cloth-img"><img src="./img/products/p2-1.png" alt=""></div>
+      <div class="cloth-color">
+        <div class="cloth-color-hv"></div>
+        <div class="cloth-color-hv"></div>
+      </div>
+      <div class="cloth-title"></div>
+      <div class="cloth-price"></div>
+    </div>
+    <div class="cloth-item">
+      <div class="cloth-img"><img src="./img/products/p2-1.png" alt=""></div>
+      <div class="cloth-color">
+        <div class="cloth-color-hv"></div>
+        <div class="cloth-color-hv"></div>
+      </div>
+      <div class="cloth-title"></div>
+      <div class="cloth-price"></div>
+    </div>
+    <div class="cloth-item">
+      <div class="cloth-img"><img src="./img/products/p2-1.png" alt=""></div>
+      <div class="cloth-color">
+        <div class="cloth-color-hv"></div>
+        <div class="cloth-color-hv"></div>
+      </div>
+      <div class="cloth-title"></div>
+      <div class="cloth-price"></div>
+    </div>
+    <div class="cloth-item">
+      <div class="cloth-img"><img src="./img/products/p2-1.png" alt=""></div>
+      <div class="cloth-color">
+        <div class="cloth-color-hv"></div>
+        <div class="cloth-color-hv"></div>
+      </div>
+      <div class="cloth-title"></div>
+      <div class="cloth-price"></div>
+    </div>
+    <div class="cloth-item">
+      <div class="cloth-img"><img src="./img/products/p2-1.png" alt=""></div>
+      <div class="cloth-color">
+        <div class="cloth-color-hv"></div>
+        <div class="cloth-color-hv"></div>
+      </div>
+      <div class="cloth-title"></div>
+      <div class="cloth-price"></div>
+    </div>
+    <div class="cloth-item">
+      <div class="cloth-img"><img src="./img/products/p2-1.png" alt=""></div>
+      <div class="cloth-color">
+        <div class="cloth-color-hv"></div>
+        <div class="cloth-color-hv"></div>
+      </div>
+      <div class="cloth-title"></div>
+      <div class="cloth-price"></div>
     </div>
 
-    <script src="./js/loading.js"></script>
-    <script src="./js/hiddenNavbar.js"></script>
-  </body>
+
+
+    <!-- -------- -->
+  </div>
+ </div>
+
+
+  <script src="./js/loading.js"></script>
+  <script src="./js/hiddenNavbar.js"></script>
+</body>
 </html>
