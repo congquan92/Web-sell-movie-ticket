@@ -1,69 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/reset.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="shortcut icon" href="./img/cat.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <title>Kali | Home</title>
-</head>
-<body>
-  <!-- loading  -->
-  <div id="loading">
-    <div class="dots">
-      <span>.</span>
-      <span>.</span>
-      <span>.</span>
-    </div>
-  </div>
-  <div class="header">
-    <!-- logo -->
-    <a href="#"><img src="./img/New Clothes.gif" alt="" id="logo"></a>
-    <!-- navbar -->
-    <div class="nav">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="./img/logo/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="./img/logo/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="./img/logo/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./img/logo/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="./img/logo/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="./img/logo/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="./img/logo/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./img/logo/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./img/logo/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./img/logo/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/logo/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./img/logo/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./img/logo/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./img/logo/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content=".img/logo/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <title>New Clothes | Home</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  </head>
+  <body>
+    <header>
+      <a href="#"><img src="./img/New Clothes.gif" alt="" id="logo" /></a>
+      <div class="nav">
         <ul id="navbar">
-            <li><a href="./index.html" class="active" target="_self">Home</a></li>
-            <li><a href="./shop.html" target="_self">Shop</a></li>
-            <li><a href="./blog.html" target="_self">Blog</a></li>
-            <li><a href="./about.html" target="_self">About</a></li>
-            <li><a href="./contact.html" target="_self">Contact</a></li>
+          <li><a class="active" href="index.html" target="_self" >Home</a></li>
+          <li><a href="shop.html" target="_self">Shop</a></li>
+          <li><a href="blog.html" target="_self">Blog</a></li>
+          <li><a href="about.html" target="_self">About</a></li>
+          <li><a href="contact.html" target="_self">Contact</a></li>
         </ul>
-    </div>
-    <!-- login  -->
-    <div class="login">
-        <div class="logo-login"><a href="./login.html"><i class="fa-solid fa-user"></i></a></div>
-        <div class="logo-shopping"><a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
-    </div>
-</div>
-<!-- cai nay dung de che cap thanh navbar -->
-  <div style="height: 120px;"></div> 
-    <!-- video  -->
-<div class="embed-responsive embed-responsive-item" id="head">
-    <video src="./img/videoIntroduce.mp4"  
+      </div>
+      <div id="login">
+        <div id="login-btn">
+          <a class="login-active" href="login.html">
+            <i class="fa-solid fa-user">
+            </i>
+          </a>
+          <ul class="tooluser">
+            <li><a class="tooluser-item" href="">Thông tin</a></li>
+            <li><a class="tooluser-item" href="">Đơn mua</a></li>
+            <li><a class="tooluser-item" href="">Đăng xuất</a></li>
+          </ul>
+        </div>
+        <a id="logo-shopping"  href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </header>
+    <div class="embed-responsive embed-responsive-16by9" id="head"></div>
+      <video
+        class="embed-responsive-item"
+        src="./img/videoIntroduce.mp4"
         autoplay
         loop
-        muted>
-    </video>
-</div>
-
-<!-- xu huong  -->
-<div class="trending">
-  <div id="xuhuong"><h2">XU HƯỚNG</h2></div>
-  <div id="box-trend">
-    <div class="div-trend">
-      <div id="img-trend"><img src="./img/jisoo_and_jiwon/jisoo_1.jpg" alt=""><p class="content-title">Phong cách</p></div>
-      <div id="img-trend"><img src="./img/jisoo_and_jiwon/jisoo_2.jpg" alt=""><p class="content-title">Thời Trang</p></div>
-      <div id="img-trend"><img src="./img/jisoo_and_jiwon/jisoo_3.jpg" alt=""><p class="content-title">Cá Tính</p></div>
-      <div id="img-trend"><img src="./img/jisoo_and_jiwon/jisoo_4.jpg" alt=""><p class="content-title">Năng Động</p></div>
+        muted
+      ></video>
     </div>
-  </div>
-</div>
-  <script src="./js/loading.js"></script>
-  <script src="./js/hiddenNavbar.js"></script>
-</body>
+    <div class="sale">
+      <h2>SIÊU KHUYẾN MÃI</h2>
+        <div class="clothes-sale">
+          <div class="clothes-sale1">
+            <img src="./img/products/p1-2.jpg" alt="" class="sale-id">
+          </div>
+          <div class="clothes-sale2"><img src="./img/products/p4-2.jpg" alt="" class="sale-id"></div>
+          <div class="clothes-sale3"><img src="./img/products/p13-2.jpg" alt="" class="sale-id"></div>
+          <div class="clothes-sale4"><img src="./img/products/p7-1.jpg" alt="" class="sale-id"></div>
+          <div class="clothes-sale5"><img src="./img/products/p9-1.jpg" alt="" class="sale-id"></div>
+        </div>
+    </div>
+  </body>
 </html>
