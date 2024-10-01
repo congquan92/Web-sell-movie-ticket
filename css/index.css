@@ -106,10 +106,11 @@ embed-responsive {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0px 90px;
+  margin-left: 90px;
   position: relative;
+  width: 75%;
 }
-@property --angle {
+/* @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
@@ -148,19 +149,41 @@ embed-responsive {
   to {
     --angle: 360deg;
   }
+} */
+clothes-sale-item{
+  border: 5px solid black;
 }
-.clothes-sale div {
+.clothes-sale .clothes-sale-item {
   width: 20%;
+  position: relative;
 }
-.clothes-sale div img {
+.percentSale{
+  position: absolute;
+  background-color :#facf19;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding: 5px;
+}
+
+.percentSale i{
+  font-size: 24px;
+  padding-bottom: 5px;
+}
+.percentSale span{
+  font-size:16px;
+}
+.clothes-sale .clothes-sale-item img {
   width: 100%;
+  height: 300px;
+  object-fit: contain;
 }
 .sale {
   margin: 50px 0px;
 }
 .sale h2 {
-  text-align: center;
-  margin-bottom: 50px;
+  margin:50px 0px 50px 100px;
+  font-family: inherit;
 }
 .login-active {
   position: relative;
