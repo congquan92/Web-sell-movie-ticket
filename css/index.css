@@ -72,119 +72,8 @@ header {
 
 #logo {
   height: 80px;
-  padding-top: 10px;
 }
 
-embed-responsive {
-  width: 100%;
-}
-.embed-responsive-item {
-  height: auto;
-  width: 100%;
-}
-#login {
-  display: flex;
-  padding: 30px 0;
-  justify-content: space-between;
-  align-items: center;
-}
-#logo-shopping {
-  font-size: 20px;
-  margin-left: 20px;
-  color: #1a1a1a;
-}
-.login-active {
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 600;
-  color: #1a1a1a;
-}
-
-/* Body */
-.clothes-sale {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 90px;
-  position: relative;
-  width: 75%;
-}
-/* @property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-.clothes-sale::after,
-.clothes-sale::before {
-  --angle: 0deg;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: conic-gradient(
-    from var(--angle),
-    transparent 70%,
-    #ff4545,
-    #00ff99,
-    #006aff,
-    #ff0095
-  );
-  top: 50%;
-  left: 50%;
-  /* left: 100px; */
-  translate: -50% -50%;
-  z-index: -10;
-  padding: 3px;
-  animation: 3s spin linear infinite;
-}
-.clothes-sale::before {
-  filter: blur(1.5rem);
-  opacity: 0.5;
-}
-@keyframes spin {
-  from {
-    --angle: 0deg;
-  }
-  to {
-    --angle: 360deg;
-  }
-} */
-clothes-sale-item{
-  border: 5px solid black;
-}
-.clothes-sale .clothes-sale-item {
-  width: 20%;
-  position: relative;
-}
-.percentSale{
-  position: absolute;
-  background-color :#facf19;
-  top: 0;
-  left: 0;
-  text-align: center;
-  padding: 5px;
-}
-
-.percentSale i{
-  font-size: 24px;
-  padding-bottom: 5px;
-}
-.percentSale span{
-  font-size:16px;
-}
-.clothes-sale .clothes-sale-item img {
-  width: 100%;
-  height: 300px;
-  object-fit: contain;
-}
-.sale {
-  margin: 50px 0px;
-}
-.sale h2 {
-  margin:50px 0px 50px 100px;
-  font-family: inherit;
-}
 .login-active {
   position: relative;
 }
@@ -216,3 +105,71 @@ clothes-sale-item{
 .tooluser li:hover {
   color: #088178;
 }
+
+embed-responsive {
+  width: 100%;
+}
+.embed-responsive-item {
+  height: auto;
+  width: 100%;
+}
+#login {
+  display: flex;
+  padding: 30px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+#logo-shopping {
+  font-size: 20px;
+  margin-left: 20px;
+  color: #1a1a1a;
+}
+.login-active {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Body */
+
+/* @property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.clothes-sale::after,
+.clothes-sale::before {
+  --angle: 0deg;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 70%,
+    #ff4545,
+    #00ff99,
+    #006aff,
+    #ff0095
+  );
+  top: 50%;
+  left: 50%;
+  /* left: 100px; */
+  translate: -50% -50%;
+  z-index: -10;
+  padding: 3px;
+  animation: 3s spin linear infinite;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+} */
+
+
