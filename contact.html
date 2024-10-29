@@ -12,40 +12,31 @@
 </head>
 </head>
 <body>
-  <!-- loading  -->
-  <div id="loading">
-    <div class="dots">
-      <span>.</span>
-      <span>.</span>
-      <span>.</span>
-    </div>
-  </div>
-  <div class="header">
-    <!-- logo -->
-    <a href="#"><img src="./img/New Clothes.gif" alt="" id="logo"></a>
-    <!-- navbar -->
-    <div class="nav">
+  <header>
+      <a href="#"><img src="./img/New Clothes.gif" alt="" id="logo" /></a>
+      <div class="nav">
         <ul id="navbar">
-            <li><a href="./index.html"  target="_self">Home</a></li>
-            <li><a href="./shop.html" target="_self">Shop</a></li>
-            <li><a href="./blog.html" target="_self">Blog</a></li>
-            <li><a href="./about.html" target="_self">About</a></li>
-            <li><a href="./contact.html" class="active" target="_self">Contact</a></li>
+          <li><a  href="index.html" target="_self" >Home</a></li>
+          <li><a href="shop.html" target="_self">Shop</a></li>
+          <li><a href="blog.html" target="_self">Blog</a></li>
+          <li><a href="about.html" target="_self">About</a></li>
+          <li><a class="active" href="contact.html" target="_self">Contact</a></li>
         </ul>
-    </div>
-    <!-- login  -->
-    <div class="login">
-        <div class="logo-login"><a href="./login.html"><i class="fa-solid fa-user"></i></a></div>
-        <div class="logo-shopping"><a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
-    </div>
-</div>
-<!-- cai nay dung de che cap thanh navbar -->
-  <div style="height: 120px;"></div> 
-<!-- ----------------------------Form box --------------------------------- -->
- 
-
-
-  <script src="./js/loading.js"></script>
-  <script src="./js/hiddenNavbar.js"></script>
+      </div>
+      <div id="login">
+        <div id="login-btn">
+          <a class="login-active" href="login.html">
+            <i class="fa-solid fa-user">
+            </i>
+          </a>
+          <ul class="tooluser">
+            <li><a class="tooluser-item" href="">Thông tin</a></li>
+            <li><a class="tooluser-item" href="">Đơn mua</a></li>
+            <li><a class="tooluser-item" href="">Đăng xuất</a></li>
+          </ul>
+        </div>
+        <a id="logo-shopping"  href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </header>
 </body>
 </html>
