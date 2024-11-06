@@ -7,7 +7,7 @@ registerLink.addEventListener("click", () => {
 loginLink.addEventListener("click", () => {
   logregBox.classList.remove("active");
 });
-const login = document.querySelector(".login-active");
+const login = document.querySelector(".login-btn");
 const formlogin = document.querySelector(".box-login");
 const midcontent = document.querySelector(".mid-content");
 login.addEventListener("click", () => {
@@ -24,4 +24,13 @@ closeloginbox.forEach((element) => {
     formlogin.style.display = "none";
     midcontent.style.display = "block";
   });
+});
+const close_nav = document.querySelector(".close-nav");
+const menu = document.querySelector(".menu");
+const header_responsive = document.querySelector(".header1");
+menu.addEventListener("click", () => {
+  header_responsive.classList.add("active");
+});
+close_nav.addEventListener("click", () => {
+  header_responsive.classList.remove("active");
 });
