@@ -88,48 +88,127 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     />
     <title>New Clothes | Home</title>
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="/css/shop.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
   </head>
+
   <body>
+    <!-- Nav-login -->
     <div class="header">
-      <a href="#" id="logo"
-        ><img src="./img/New Clothes.gif" alt="" id="logo"
-      /></a>
-      <div class="menu-responsive"><i class="bx bx-menu"></i></div>
-      <div class="nav">
-        <ul id="navbar">
-          <li><a class="active" href="index.html" target="_self">Home</a></li>
-          <li><a href="shop.html" target="_self">Shop</a></li>
-          <li><a href="blog.html" target="_self">Blog</a></li>
-          <li><a href="about.html" target="_self">About</a></li>
-          <li><a href="contact.html" target="_self">Contact</a></li>
-          <li><a href="contact.html" target="_self">Login</a></li>
-          <li><a href="contact.html" target="_self">Shoping</a></li>
-        </ul>
+      <div class="logo"><img src="./img/New Clothes.gif" alt="" /></div>
+      <div class="navbar" id="navbar-responsive-close">
+        <div id="home">Home</div>
+        <div id="shop">Shop</div>
+        <div id="blog">Blog</div>
+        <div id="contact">Contact</div>
+        <div id="Shoping">Shoping</div>
+        <div class="login-btn">Login</div>
+      </div>
+      <div class="menu"><i class="bx bx-menu"></i></div>
+    </div>
+    <div class="header header1">
+      <div class="close-nav"><i class="bx bx-x"></i></div>
+      <div class="navbar">
+        <div>Home</div>
+        <div>Shop</div>
+        <div>Blog</div>
+        <div>Contact</div>
+        <div>Shoping</div>
+        <div class="login-btn">Login</div>
       </div>
     </div>
-    <!-- <div class="mid-content">
-      <div class="embed-responsive embed-responsive-16by9" id="head">
-        <video
-          class="embed-responsive-item"
-          src="./img/videoIntroduce.mp4"
-          autoplay
-          loop
-          muted
-        ></video>
+    <!-- shope -->
+    <div class="mid-content">
+      <div class="toats">
+        <div class="toats-text">
+          <a class="none" href="./index.html">Trang Chu</a>
+        </div>
+        <div class="toats-text" style="font-weight: 100">/</div>
+        <div class="toats-text">
+          <a href="#" class="toats-active">San pham</a>
+        </div>
       </div>
-    </div> -->
+
+      <!-- quan ao---- -->
+      <div class="both">
+        <div class="left">
+          <div class="control">
+            <div class="title">
+              <h4>Bộ lọc</h4>
+              <h3 id="totalResult"></h3>
+            </div>
+            <div class="ee"><h4>Thuộc</h4></div>
+            <div class="type">
+              <input type="checkbox" value="0" /><span>Áo thun</span>
+            </div>
+            <div class="type">
+              <input type="checkbox" value="0" /><span>Polo</span>
+            </div>
+            <div class="type">
+              <input type="checkbox" value="0" /><span>Sơ mi</span>
+            </div>
+            <div class="type">
+              <input type="checkbox" value="0" /><span>Hoodie</span>
+            </div>
+            <div class="type">
+              <input type="checkbox" value="0" /><span>Sweater</span>
+            </div>
+            <div class="type">
+              <input type="checkbox" value="0" /><span>Áo khoác</span>
+            </div>
+            <div class="optionFilter">
+              <h5>KHOẢNG GIÁ</h5>
+            </div>
+            <div class="filterPrice">
+              <input type="text" id="nodePrice_1" />
+              <span style="margin: 5px">-</span>
+              <input type="text" id="nodePrice_2" />
+            </div>
+            <div class="loc"><a href="#" class="cc">Lọc</a></div>
+          </div>
+        </div>
+        <div style="clear: both"></div>
+        <div class="right">
+          <div class="cloth">
+            <div class="sort">
+              <label for="sort"><h4>Sắp xếp</h4></label>
+              <select name="" id="sort">
+                <option value="Sắp xếp theo" disabled="disabled">
+                  Sắp xếp theo
+                </option>
+                <option value="3">Phổ biến</option>
+                <option value="1">Giá từ thấp đến cao</option>
+                <option value="2">Giá từ cao đến thấp</option>
+              </select>
+            </div>
+
+            <div class="all-item" id="all-item"></div>
+
+            <div class="widePagination">
+              <div id="body-widePagination">
+                <a href="#" class="pagination_item act" id="span1"
+                  ><span>1</span></a
+                >
+                <a href="#" class="pagination_item" id="span2"
+                  ><span>2</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="box-login">
       <div class="container">
         <div class="content">
           <h2>New Clothes</h2>
           <div class="text-sci">
-            <h2 class="logo">Welcome! <br /><span>To Our Website</span></h2>
-
+            <h2 class="logo-form">
+              Welcome! <br /><span>To Our Website</span>
+            </h2>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias,
               impedit?
@@ -170,7 +249,6 @@
           </div>
           <div class="form-box register">
             <form action="#">
-              <div class="close-loginbox"><i class="bx bx-x"></i></div>
               <h2>Sign Up</h2>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i></span>
@@ -210,6 +288,103 @@
         </div>
       </div>
     </div>
+    <!-- Footer -->
+    <div class="footer">
+      <div id="left-footer">
+        <h2>Hệ Thống Cửa Hàng</h2>
+        <p id="footer-paragraph">
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hồ Chí Minh<br />
+          <span class="location"
+            ><strong>TP. Thủ Đức</strong> - Quận 9 - Tầng 2 TTTM Vincom Mega
+            Mall Vinhomes GrandPark.</span
+          ><br />
+          <span class="location"
+            ><strong>Quận 1</strong> - 160 Nguyễn Cư Trinh, Phường Nguyễn Cư
+            Trinh.</span
+          ><br />
+          <span class="location"
+            ><strong>Quận 10</strong> - 561 Sư Vạn Hạnh, Phường 13.</span
+          ><br />
+          <span class="location"
+            ><strong>Quận 1</strong> - The New Playground 26 Lý Tự Trọng, Phường
+            Bến Nghé.</span
+          ><br />
+          <span class="location"
+            ><strong>Quận Gò Vấp</strong> - 326 Quang Trung, Phường 10.</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Biên Hòa:<br />
+          <span class="location"
+            ><strong>TP. Biên Hòa</strong> - 151A Phan Trung, Phường Tân
+            Mai.</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Bình Dương:<br />
+          <span class="location"
+            ><strong>TP. Thủ Dầu Một</strong> - 28 Yersin, Phường Hiệp
+            Thành.</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Cần Thơ:<br />
+          <span class="location"
+            ><strong>Quận Ninh Kiều</strong> - 52 Mậu Thân, Phường An Phú.</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hà Nội:<br />
+          <span class="location"
+            ><strong>Đống Đa</strong> - 49-51 Hồ Đắc Di, Phường Nam Đồng.</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hưng Yên:<br />
+          <span class="location"
+            ><strong>Văn Giang</strong> - PT.TV 136 - Mega Grand World - Ocean
+            Park</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hải Phòng:<br />
+          <span class="location"
+            ><strong>Lê Chân</strong> - Tầng 2 TTTM Aeon Mall Hải Phòng Lê Chân
+            số 10 Võ Nguyên Giáp, Phường Kênh Dương</span
+          ><br />
+        </p>
+      </div>
+      <div id="right-footer">
+        <h2>Mạng Xã Hội</h2>
+        <ul id="footer-social-ul">
+          <li class="footer-social-li">
+            <a href="#" class="social-icons"><i class="bx bxl-facebook"></i></a>
+          </li>
+          <li class="footer-social-li">
+            <a href="#" class="social-icons"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#" class="social-icons"><i class="bx bxl-twitter"></i></a>
+          </li>
+        </ul>
+        <h2>Chính Sách</h2>
+        <ul id="footer-policy-ul">
+          <li>
+            <a href="#" class="footer-policy-a">Chính sách bảo mật</a>
+          </li>
+          <li>
+            <a href="#" class="footer-policy-a">FAQ</a>
+          </li>
+          <li>
+            <a href="#" class="footer-policy-a">Chính sách Thẻ Thành viên</a>
+          </li>
+          <li>
+            <a href="#" class="footer-policy-a"
+              >Chính sách Bảo hành & Đổi trả</a
+            >
+          </li>
+          <li>
+            <a href="#" class="footer-policy-a">Chính sách giao hàng hỏa tốc</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="bottom-footer">
+      <p id="bottom-paragraph">
+        Copyright © 2023 Shop Studio. Powered by ManUtd
+      </p>
+    </div>
     <script src="./js/index.js"></script>
+    <script src="/js/shop.js"></script>
   </body>
 </html>
