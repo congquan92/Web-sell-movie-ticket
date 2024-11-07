@@ -4,9 +4,11 @@
   margin: 0;
   padding: 0;
 }
+
 ul {
   margin: 0;
 }
+
 /* Header */
 
 .header {
@@ -29,15 +31,18 @@ ul {
   height: 50px;
   object-fit: contain;
 }
+
 .menu {
   display: none;
 }
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 5px 0;
 }
+
 .navbar div {
   position: relative;
   padding: 0 20px;
@@ -47,6 +52,7 @@ ul {
   color: #1a1a1a;
   transition: 0.3 ease;
 }
+
 .navbar div:hover::after {
   content: "";
   position: absolute;
@@ -60,9 +66,11 @@ ul {
 #logo {
   height: 80px;
 }
+
 .mid-content {
   position: relative;
 }
+
 .login-active {
   position: relative;
 }
@@ -71,21 +79,26 @@ ul {
   width: 100%;
   height: 600px;
 }
+
 .embed-responsive-item {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .header1 {
   display: none;
 }
+
 .header1 .navbar {
   display: flex;
   flex-direction: column;
 }
+
 .header1 .navbar div {
   margin-bottom: 20px;
 }
+
 .header1 .navbar div:hover::after,
 .header1 .navbar div:hover {
   content: none;
@@ -104,6 +117,7 @@ ul {
   transform: scale(0);
   transition: transform 0.5s ease;
 }
+
 .container {
   position: absolute;
   background: url("../img/login/login-background-1024x576.jpg") no-repeat;
@@ -117,6 +131,7 @@ ul {
   border-radius: 10px;
   display: flex;
 }
+
 .container .content {
   width: 58%;
   height: 100%;
@@ -127,35 +142,43 @@ ul {
   justify-content: space-between;
   flex-direction: column;
 }
+
 .container .logreg-box {
   width: calc(100% - 58%);
   height: 100%;
   background-color: transparent;
   overflow: hidden;
 }
+
 .content.logo {
   font-size: 30px;
 }
+
 .text-sci h2 {
   font-size: 40px;
   line-height: 1;
 }
+
 .text-sci h2 span {
   font-size: 25px;
 }
+
 .text-sci p {
   font-size: 16px;
   margin: 20px 0px;
 }
+
 .social-icons a i {
   font-size: 22px;
   color: #e4e4e4;
   margin-right: 10px;
   transition: 0.5s ease;
 }
+
 .social-icons a:hover i {
   transform: scale(1.2);
 }
+
 .logreg-box .form-box {
   display: flex;
   justify-content: center;
@@ -169,10 +192,12 @@ ul {
   color: #e4e4e4;
   position: relative;
 }
+
 .form-box h2 {
   font-size: 32px;
   text-align: center;
 }
+
 .form-box .input-box {
   position: relative;
   width: 340px;
@@ -180,6 +205,7 @@ ul {
   border-bottom: 2px solid #e4e4e4;
   margin: 30px 0px;
 }
+
 .input-box input {
   width: 100%;
   height: 100%;
@@ -189,6 +215,7 @@ ul {
   font-size: 16px;
   color: #e4e4e4;
 }
+
 .input-box label {
   position: absolute;
   top: 50%;
@@ -199,10 +226,12 @@ ul {
   transition: 0.5s ease;
   pointer-events: none;
 }
-.input-box input:focus ~ label,
-.input-box input:valid ~ label {
+
+.input-box input:focus~label,
+.input-box input:valid~label {
   top: -5px;
 }
+
 .input-box .icon {
   position: absolute;
   right: 0;
@@ -218,19 +247,23 @@ ul {
   justify-content: space-between;
   align-items: center;
 }
+
 .remember-forgot label input {
   margin-right: 3px;
 }
+
 .remember-forgot a {
   text-decoration: none;
   color: black;
   font-size: 14.5px;
   font-weight: 600;
 }
+
 .remember-forgot a:hover,
 .login-register a:hover {
   text-decoration: underline;
 }
+
 .btn {
   width: 100%;
   height: 45px;
@@ -243,12 +276,14 @@ ul {
   font-size: 16px;
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
 }
+
 .form-box .login-register {
   font-size: 14.5px;
   font-weight: 500;
   text-align: center;
   margin-top: 25px;
 }
+
 .login-register a {
   font-size: 14.5px;
   text-decoration: none;
@@ -260,14 +295,17 @@ ul {
   transform: translateX(0);
   transition: transform 0.6s ease;
 }
+
 .logreg-box.active .login {
   transform: translateX(500px);
   transition-delay: 0s;
 }
+
 .logreg-box .register {
   transform: translate(550px, -550px);
   transition: transform 0.6s ease;
 }
+
 .logreg-box.active .register {
   transform: translate(0, -550px);
   transition-delay: 0s;
@@ -278,11 +316,67 @@ ul {
   transform: scale(1);
 }
 
+.footer {
+  height: 100vh;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  background-color: white;
+  display: flex;
+}
+
+#footer-paragraph {
+  line-height: 1.8;
+}
+
+.location {
+  padding-left: 20px;
+}
+
+#footer-social-ul {
+  list-style-type: none;
+  display: flex;
+  height: 7%;
+  align-items: center;
+}
+
+.footer-social-li {
+  margin-right: 15px;
+}
+
+.footer-social-a {
+  border: 2px solid black;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+#footer-policy-ul {
+  line-height: 1.8;
+}
+
+.footer-policy-a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer-policy-a:hover {
+  color: rgb(0, 0, 0, 0.7);
+}
+
+#bottom-footer {
+  text-align: center;
+  height: 10vh;
+}
+
+#bottom-paragraph {
+  position: relative;
+  top: 25px
+}
+
 /* Responsive */
 @media (max-width: 599px) {
   .navbar div {
     font-size: 10px;
   }
+
   .embed-responsive {
     width: 100%;
     height: 300px;
@@ -303,40 +397,49 @@ ul {
     transform: translateX(400px);
     transition: transform 0.6s ease;
   }
+
   .menu {
     display: block;
     font-size: 22px;
     margin-top: 10px;
   }
+
   .header1.active {
     transform: translateX(0);
     transition: transform 0.6s ease;
   }
+
   .header1 .navbar {
     display: flex;
     flex-direction: column;
   }
+
   .header1 .navbar div {
     margin-bottom: 20px;
   }
+
   .header1 .navbar div:hover::after,
   .header1 .navbar div:hover {
     content: none;
     color: #088178;
   }
+
   #navbar-responsive-close {
     display: none;
   }
 }
+
 @media (min-width: 600px) and (max-width: 899px) {
   .logo img {
     width: 40px;
     height: 40px;
   }
+
   .embed-responsive {
     width: 100%;
     height: 400px;
   }
+
   .header1 {
     width: 25%;
     display: flex;
@@ -353,36 +456,44 @@ ul {
     transform: translateX(400px);
     transition: transform 0.6s ease;
   }
+
   .menu {
     display: block;
     font-size: 22px;
     margin-top: 10px;
   }
+
   .header1.active {
     transform: translateX(0);
     transition: transform 0.6s ease;
   }
+
   .header1 .navbar {
     display: flex;
     flex-direction: column;
   }
+
   .header1 .navbar div {
     margin-bottom: 20px;
   }
+
   .header1 .navbar div:hover::after,
   .header1 .navbar div:hover {
     content: none;
     color: #088178;
   }
+
   #navbar-responsive-close {
     display: none;
   }
 }
+
 @media (min-width: 900px) and (max-width: 1199px) {
   .logo img {
     width: 40px;
     height: 40px;
   }
+
   .embed-responsive {
     width: 100%;
     height: 400px;
