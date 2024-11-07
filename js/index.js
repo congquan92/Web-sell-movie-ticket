@@ -1,5 +1,6 @@
 //Huy
 const logregBox = document.querySelector(".logreg-box");
+const logonav = document.querySelector(".logo");
 const loginLink = document.querySelector(".login-link");
 const registerLink = document.querySelector(".register-link");
 const home = document.querySelector("#home"); //nut Home tren nav
@@ -9,12 +10,15 @@ registerLink.addEventListener("click", () => {
 loginLink.addEventListener("click", () => {
   logregBox.classList.remove("active");
 });
-const login = document.querySelector(".login-btn");
+const login = document.querySelectorAll(".login-btn");
 const formlogin = document.querySelector(".box-login");
 const midcontent = document.querySelector(".mid-content");
-login.addEventListener("click", () => {
-  midcontent.style.display = "none";
-  formlogin.classList.add("active");
+login.forEach(function (e) {
+  e.addEventListener("click", () => {
+    midcontent.style.display = "none";
+    formlogin.style.height = "100%";
+    formlogin.classList.add("active");
+  });
 });
 const close_nav = document.querySelector(".close-nav");
 const menu = document.querySelector(".menu");
@@ -27,5 +31,9 @@ close_nav.addEventListener("click", () => {
 });
 
 home.addEventListener("click", () => {
+  location.reload();
+});
+
+logonav.addEventListener("click", () => {
   location.reload();
 });
