@@ -526,10 +526,12 @@ sort.onchange = (e) => {
       break;
     case "1":
       SXtang();
+      page1.style.display = "none";
       page2.style.display = "none";
       break;
     case "2":
       SXgiam();
+      page1.style.display = "none";
       page2.style.display = "none";
       break;
   }
@@ -539,7 +541,7 @@ function SXtang() {
   let arr = [...ProductArrBoth];
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
-      if (arr[i].price < arr[j].price) {
+      if (arr[i].price > arr[j].price) {
         let temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -553,7 +555,7 @@ function SXgiam() {
   let arr = [...ProductArrBoth];
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
-      if (arr[i].price > arr[j].price) {
+      if (arr[i].price < arr[j].price) {
         let temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -640,6 +642,8 @@ loc.onclick = (e) => {
     !checkSweater
   ) {
     loadSP(ProductArrFirst);
+    page1.classList.add("act");
+    page2.classList.remove("act");
     page2.style.display = "inline";
     page1.style.display = "inline";
     return;
