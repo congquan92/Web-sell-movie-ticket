@@ -7,6 +7,9 @@ const ProductArrFirst = [
     colorr1: "gray",
     colorr2: "red",
     colorr3: "unset",
+    img1: "./img/products/p1-1.png",
+    img2: "./img/products/p1-2.jpg",
+    img3: "./img/products/p1-2.jpg",
   },
   {
     nameSP: "LEVENTS® | DORAEMON COLLAB TEE",
@@ -16,6 +19,9 @@ const ProductArrFirst = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p2-1.png",
+    img2: "./img/products/p2-2.png",
+    img3: "./img/products/p2-2.png",
   },
   {
     nameSP: "LEVENTS® DINOSAUR TEE",
@@ -25,6 +31,9 @@ const ProductArrFirst = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "blue",
+    img1: "./img/products/p3-1.jpg",
+    img2: "./img/products/p3-2.jpg",
+    img3: "./img/products/p3-3.jpg",
   },
   {
     nameSP: "LEVENTS® INSIDE OUT TEE",
@@ -34,6 +43,9 @@ const ProductArrFirst = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p4-1.jpg",
+    img2: "./img/products/p4-2.jpg",
+    img3: "./img/products/p4-2.jpg",
   },
   {
     nameSP: "LEVENTS® LOVEYOU300K SPECIAL TEE",
@@ -43,6 +55,9 @@ const ProductArrFirst = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "unset",
     colorr3: "unset",
+    img1: "./img/products/p5-1.jpg",
+    img2: "./img/products/p5-1.jpg",
+    img3: "./img/products/p5-1.jpg",
   },
   {
     nameSP: "LEVENTS® FUNNY CROCODILE TEE",
@@ -52,6 +67,9 @@ const ProductArrFirst = [
     colorr1: "blue",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p6-1.jpg",
+    img2: "./img/products/p6.jpg",
+    img3: "./img/products/p6-2.jpg",
   },
   {
     nameSP: "LEVENTS® PUNCH VARSITY",
@@ -61,6 +79,9 @@ const ProductArrFirst = [
     colorr1: "brown",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p7-1.jpg",
+    img2: "./img/products/p7-2.jpg",
+    img3: "./img/products/p7-2.jpg",
   },
   {
     nameSP: "LEVENTS® SELFLOVE BOXY TEE",
@@ -70,6 +91,9 @@ const ProductArrFirst = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p8-1.jpg",
+    img2: "./img/products/p8-2.jpg",
+    img3: "./img/products/p8-1.jpg",
   },
   {
     nameSP: "LEVENTS® | DORAEMON MINI CAT POLO",
@@ -79,6 +103,9 @@ const ProductArrFirst = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p9-1.jpg",
+    img2: "./img/products/p9-2.jpg",
+    img3: "./img/products/p9-2.jpg",
   },
   {
     nameSP: "LEVENTS® MINI POPULAR POLO",
@@ -88,6 +115,9 @@ const ProductArrFirst = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p10-1.jpg",
+    img2: "./img/products/p10-2.jpg",
+    img3: "./img/products/p10-2.jpg",
   },
   {
     nameSP: "LEVENTS® STRIPE POLO",
@@ -97,6 +127,9 @@ const ProductArrFirst = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p11-1.jpg",
+    img2: "./img/products/p11-2.jpg",
+    img3: "./img/products/p11-2.jpg",
   },
   {
     nameSP: "LEVENTS® CINEMA SHIRT",
@@ -106,6 +139,9 @@ const ProductArrFirst = [
     colorr1: "brown",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p12-1.jpg",
+    img2: "./img/products/p12-2.jpg",
+    img3: "./img/products/p12-2.jpg",
   },
 ];
 const ProductArrSecond = [
@@ -117,6 +153,9 @@ const ProductArrSecond = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p13-1.jpg",
+    img2: "./img/products/p13-2.jpg",
+    img3: "./img/products/p13-2.jpg",
   },
   {
     nameSP: "LEVENTS® | DORAEMON COLLAB ZIPPER HOODIE",
@@ -126,15 +165,21 @@ const ProductArrSecond = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "gray",
     colorr3: "unset",
+    img1: "./img/products/p14-1.jpg",
+    img2: "./img/products/p14-2.jpg",
+    img3: "./img/products/p14-2.jpg",
   },
   {
     nameSP: "LEVENTS® POPULAR LOGO 2.0 HOODIE",
     img: "./img/products/p15-1.jpg",
     price: 590000,
     nametag: "hoodie",
-    colorr1: "rgb(238, 208, 150)",
+    colorr1: "yellow",
     colorr2: "gray",
     colorr3: "black",
+    img1: "./img/products/p15-1.jpg",
+    img2: "./img/products/p15-2.jpg",
+    img3: "./img/products/p15-3.jpg",
   },
   {
     nameSP: "LEVENTS® MINI LOGO ZIPPER HOODIE",
@@ -144,6 +189,9 @@ const ProductArrSecond = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "gray",
     colorr3: "unset",
+    img1: "./img/products/p16-1.jpg",
+    img2: "./img/products/p16-2.jpg",
+    img3: "./img/products/p16-2.jpg",
   },
   {
     nameSP: "LEVENTS® | DORAEMON COLLAB HOODIE",
@@ -153,6 +201,9 @@ const ProductArrSecond = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p17-1.jpg",
+    img2: "./img/products/p17-2.jpg",
+    img3: "./img/products/p17-2.jpg",
   },
   {
     nameSP: "LEVENTS® BASIC SWEATER",
@@ -162,6 +213,9 @@ const ProductArrSecond = [
     colorr1: "gray",
     colorr2: "red",
     colorr3: "unset",
+    img1: "./img/products/p18-1.jpg",
+    img2: "./img/products/p18-2.jpg",
+    img3: "./img/products/p18-2.jpg",
   },
   {
     nameSP: "LEVENTS® FUNNY CROCODILE SWEATER",
@@ -171,6 +225,9 @@ const ProductArrSecond = [
     colorr1: "brown",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p19-1.jpg",
+    img2: "./img/products/p19-2.jpg",
+    img3: "./img/products/p19-2.jpg",
   },
 ];
 
@@ -183,6 +240,9 @@ const ProductArrBoth = [
     colorr1: "gray",
     colorr2: "red",
     colorr3: "unset",
+    img1: "./img/products/p1-1.png",
+    img2: "./img/products/p1-2.jpg",
+    img3: "./img/products/p1-2.jpg",
   },
   {
     nameSP: "LEVENTS® | DORAEMON COLLAB TEE",
@@ -192,6 +252,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p2-1.png",
+    img2: "./img/products/p2-2.png",
+    img3: "./img/products/p2-2.png",
   },
   {
     nameSP: "LEVENTS® DINOSAUR TEE",
@@ -201,6 +264,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "blue",
+    img1: "./img/products/p3-1.jpg",
+    img2: "./img/products/p3-2.jpg",
+    img3: "./img/products/p3-3.jpg",
   },
   {
     nameSP: "LEVENTS® INSIDE OUT TEE",
@@ -210,6 +276,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p4-1.jpg",
+    img2: "./img/products/p4-2.jpg",
+    img3: "./img/products/p4-2.jpg",
   },
   {
     nameSP: "LEVENTS® LOVEYOU300K SPECIAL TEE",
@@ -219,6 +288,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "unset",
     colorr3: "unset",
+    img1: "./img/products/p5-1.jpg",
+    img2: "./img/products/p5-1.jpg",
+    img3: "./img/products/p5-1.jpg",
   },
   {
     nameSP: "LEVENTS® FUNNY CROCODILE TEE",
@@ -228,6 +300,9 @@ const ProductArrBoth = [
     colorr1: "blue",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p6-1.jpg",
+    img2: "./img/products/p6.jpg",
+    img3: "./img/products/p6-2.jpg",
   },
   {
     nameSP: "LEVENTS® PUNCH VARSITY",
@@ -237,6 +312,9 @@ const ProductArrBoth = [
     colorr1: "brown",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p7-1.jpg",
+    img2: "./img/products/p7-2.jpg",
+    img3: "./img/products/p7-2.jpg",
   },
   {
     nameSP: "LEVENTS® SELFLOVE BOXY TEE",
@@ -246,6 +324,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p8-1.jpg",
+    img2: "./img/products/p8-2.jpg",
+    img3: "./img/products/p8-1.jpg",
   },
   {
     nameSP: "LEVENTS® | DORAEMON MINI CAT POLO",
@@ -255,6 +336,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p9-1.jpg",
+    img2: "./img/products/p9-2.jpg",
+    img3: "./img/products/p9-2.jpg",
   },
   {
     nameSP: "LEVENTS® MINI POPULAR POLO",
@@ -264,6 +348,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p10-1.jpg",
+    img2: "./img/products/p10-2.jpg",
+    img3: "./img/products/p10-2.jpg",
   },
   {
     nameSP: "LEVENTS® STRIPE POLO",
@@ -273,6 +360,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p11-1.jpg",
+    img2: "./img/products/p11-2.jpg",
+    img3: "./img/products/p11-2.jpg",
   },
   {
     nameSP: "LEVENTS® CINEMA SHIRT",
@@ -282,6 +372,9 @@ const ProductArrBoth = [
     colorr1: "brown",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p12-1.jpg",
+    img2: "./img/products/p12-2.jpg",
+    img3: "./img/products/p12-2.jpg",
   },
   {
     nameSP: "LEVENTS® CITIES SHIRT",
@@ -291,6 +384,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p13-1.jpg",
+    img2: "./img/products/p13-2.jpg",
+    img3: "./img/products/p13-2.jpg",
   },
   {
     nameSP: "LEVENTS® | DORAEMON COLLAB ZIPPER HOODIE",
@@ -300,6 +396,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "gray",
     colorr3: "unset",
+    img1: "./img/products/p14-1.jpg",
+    img2: "./img/products/p14-2.jpg",
+    img3: "./img/products/p14-2.jpg",
   },
   {
     nameSP: "LEVENTS® POPULAR LOGO 2.0 HOODIE",
@@ -309,6 +408,9 @@ const ProductArrBoth = [
     colorr1: "yellow",
     colorr2: "gray",
     colorr3: "black",
+    img1: "./img/products/p15-1.jpg",
+    img2: "./img/products/p15-2.jpg",
+    img3: "./img/products/p15-3.jpg",
   },
   {
     nameSP: "LEVENTS® MINI LOGO ZIPPER HOODIE",
@@ -318,6 +420,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "gray",
     colorr3: "unset",
+    img1: "./img/products/p16-1.jpg",
+    img2: "./img/products/p16-2.jpg",
+    img3: "./img/products/p16-2.jpg",
   },
   {
     nameSP: "LEVENTS® | DORAEMON COLLAB HOODIE",
@@ -327,6 +432,9 @@ const ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p17-1.jpg",
+    img2: "./img/products/p17-2.jpg",
+    img3: "./img/products/p17-2.jpg",
   },
   {
     nameSP: "LEVENTS® BASIC SWEATER",
@@ -336,6 +444,9 @@ const ProductArrBoth = [
     colorr1: "gray",
     colorr2: "red",
     colorr3: "unset",
+    img1: "./img/products/p18-1.jpg",
+    img2: "./img/products/p18-2.jpg",
+    img3: "./img/products/p18-2.jpg",
   },
   {
     nameSP: "LEVENTS® FUNNY CROCODILE SWEATER",
@@ -345,6 +456,9 @@ const ProductArrBoth = [
     colorr1: "brown",
     colorr2: "black",
     colorr3: "unset",
+    img1: "./img/products/p19-1.jpg",
+    img2: "./img/products/p19-2.jpg",
+    img3: "./img/products/p19-2.jpg",
   },
 ];
 
@@ -367,11 +481,11 @@ function loadSP(arr) {
       currency: "VND",
     });
     s += `<div class="item_1">
-              <div class="img-item"><img src="${i.img}" alt=""></div>
+              <div class="img-item"><img class="srcimg" src="${i.img}" alt=""></div>
               <div class="listColor" id="listColor_item1">
-                <div class="itemColor1" style ="background-color : ${i.colorr1}" ></div>
-                <div class="itemColor2" style ="background-color : ${i.colorr2}"  ></div>
-                <div class="itemColor3" style ="background-color : ${i.colorr3}" ></div>
+                <div onclick="clickC1(this)" class="itemColor1" data-src="${i.img1}" style ="background-color : ${i.colorr1}" ></div>
+                <div onclick="clickC1(this)" class="itemColor2" data-src="${i.img2}" style ="background-color : ${i.colorr2}"  ></div>
+                <div onclick="clickC1(this)" class="itemColor3" data-src="${i.img3}" style ="background-color : ${i.colorr3}" ></div>
               </div>
                 <div class="inf-item">
                   <h4>${i.nameSP}</h4>
@@ -533,3 +647,9 @@ loc.onclick = (e) => {
 
   loadSP(arr);
 };
+
+function clickC1(e) {
+  const newSrc = e.getAttribute("data-src"); //data-src chứa URL của hình ảnh tương ứng với màu đó.
+  const imgElement = e.closest(".item_1").querySelector(".srcimg"); // tìm phần tử cha gần nhất có lớp item_1 ếp tục tìm phần tử ảnh bên trong phần tử cha item_1
+  imgElement.setAttribute("src", newSrc);
+}
