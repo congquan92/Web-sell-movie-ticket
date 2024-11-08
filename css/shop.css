@@ -591,7 +591,6 @@ ul {
     border-radius: 0%;
   }
 }
-
 /* shop */
 .toats {
   display: flex;
@@ -852,6 +851,20 @@ ul {
     width: 100%;
     height: 100%;
   }
+  /* shop */
+  .item_1 {
+    width: 100%;
+  }
+  .both {
+    display: block;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+    border: unset;
+  }
 }
 
 @media (min-width: 750px) and (max-width: 899px) {
@@ -916,6 +929,20 @@ ul {
   .container .logreg-box {
     width: calc(100% - 40%);
   }
+  /* shop */
+  .item_1 {
+    width: 50%;
+  }
+  .both {
+    display: block;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+    border: unset;
+  }
 }
 @media (min-width: 900px) and (max-width: 1199px) {
   .logo {
@@ -930,5 +957,29 @@ ul {
   .container {
     width: 100%;
     border-radius: 0%;
+  }
+  /* shop */
+  .item_1 {
+    width: 50%;
+  }
+  .left {
+    width: 20%;
+  }
+  .right {
+    width: 80%;
+    border: unset;
+  }
+}
+
+/* shop */
+@media (min-width: 1200px) and (max-width: 1404px) {
+  .item_1 {
+    width: 33.3%;
+  }
+  .left {
+    width: 20%;
+  }
+  .right {
+    width: 80%;
   }
 }
