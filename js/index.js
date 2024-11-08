@@ -84,3 +84,16 @@ policy_btn.addEventListener("click", () => {
     flag_policy_btn = 0;
   }
 });
+
+// Midcontent
+const img_improptu = document.querySelectorAll(".imgsrc-impromptu");
+
+img_improptu.forEach((img, index) => {
+  img.addEventListener("mouseover", () => {
+    img.src = `./img/products/body_${index + 1}_1.jpg`;
+  });
+
+  img.addEventListener("mouseout", () => {
+    img.src = `./img/products/body_${index + 1}.jpg`;
+  });
+});

@@ -297,7 +297,7 @@ ul {
   background-color: white;
   display: flex;
   justify-content: space-between;
-  padding: 30px;
+  padding: 40px;
 }
 
 #footer-paragraph {
@@ -339,16 +339,109 @@ ul {
 }
 
 #bottom-footer {
-  text-align: center;
-  margin-top: 10px;
   padding: 10px;
+  text-align: center;
 }
 
 #bottom-paragraph {
-  position: relative;
-  top: 25px;
+  text-align: center;
 }
-
+.address-btn span i,
+.policy-btn span i,
+.social-btn span i {
+  visibility: hidden;
+}
+/* mid-content */
+.mid-content-info {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+.trend h2 {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  text-align: center;
+  padding: 6px;
+}
+.content-trend {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.16);
+}
+.content-trend-item {
+  position: relative;
+  width: 25%;
+  height: 400px;
+  object-fit: cover;
+  margin: 5px;
+}
+.content-trend-item img {
+  width: 100%;
+  height: 100%;
+}
+.text-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transition: 0.7s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+.text-effect .text {
+  color: white;
+  font-size: 20px;
+  transition: 0.7s ease;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(400px);
+}
+.content-trend-item:hover .text-effect {
+  opacity: 1;
+}
+.content-trend-item:hover .text-effect .text {
+  transform: translateY(0);
+  opacity: 1;
+}
+.impromptu h2 {
+  text-align: center;
+}
+.content-impromptu {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+.content-impromptu-item {
+  width: calc(50% - 8px);
+  padding: 10px;
+  margin: 4px;
+}
+.content-impromptu-item .img-content-impromptu {
+  width: 100%;
+  height: 880px;
+  object-fit: contain;
+}
+.img-content-impromptu img {
+  width: 100%;
+  height: 100%;
+  /* transition: opacity 0.5s ease-in-out; */
+}
+.img-info {
+  padding: 4px;
+  text-align: center;
+  margin: 0 auto;
+  border: 2px solid black;
+  width: 260px;
+  color: white;
+  background-color: #1a1a1a;
+}
 /* Responsive */
 @media (min-width: 300px) and (max-width: 750px) {
   .logo {
@@ -493,6 +586,11 @@ ul {
   .footer {
     display: block;
     text-align: center;
+  }
+  .address-btn span i,
+  .policy-btn span i,
+  .social-btn span i {
+    visibility: visible;
   }
   #footer-social-ul {
     justify-content: center;
