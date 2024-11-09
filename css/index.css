@@ -304,6 +304,58 @@ body {
   position: relative;
   transform: scale(1);
 }
+
+/* Policy */
+#privacy-policy {
+  display: none;
+}
+
+#FAQ-policy {
+  display: none;
+}
+
+#membership-card-policy {
+  display: none;
+}
+
+#exchange-card-policy {
+  display: none;
+}
+
+#ship-card-policy {
+  display: none;
+}
+
+.policy-content {
+  line-height: 1.8;
+  margin-left: 80px;
+}
+
+#policy-contact {
+  display: flex;
+  background-color: #e6e6fa;
+  height: 7vh;
+  display: none;
+}
+
+#policy-contact-h3 {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.policy-contact-a {
+  text-decoration: none;
+  color: red;
+  display: flex;
+  align-items: center;
+}
+
+#before {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
 /* Footer */
 .footer {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);

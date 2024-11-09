@@ -110,3 +110,30 @@ img_improptu.forEach((img, index) => {
     img.src = `./img/products/body_${index + 1}.jpg`;
   });
 });
+//vinh policy
+let getPrivacyPolicy = document.querySelector("#privacy-policy");
+let getFAQPolicy = document.querySelector("#FAQ-policy");
+let getMembershipCardPolicy = document.querySelector("#membership-card-policy");
+let getExchangeCardPolicy = document.querySelector("#exchange-card-policy");
+let getShipCardPolicy = document.querySelector("#ship-card-policy");
+let getPolicyContact = document.querySelector("#policy-contact");
+let getPolices = document.getElementsByClassName("footer-policy-a");
+let infoPolices = [
+  getPrivacyPolicy,
+  getFAQPolicy,
+  getMembershipCardPolicy,
+  getExchangeCardPolicy,
+  getShipCardPolicy,
+];
+
+for (let i = 0; i < getPolices.length; i++) {
+  getPolices[i].addEventListener("click", (e) => {
+    e.preventDefault();
+    midcontent.style.display = "none";
+    infoPolices.forEach((policy) => {
+      policy.style.display = "none";
+    });
+    infoPolices[i].style.display = "block";
+    getPolicyContact.style.display = "flex";
+  });
+}
