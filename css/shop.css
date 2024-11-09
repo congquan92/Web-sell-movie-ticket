@@ -890,6 +890,107 @@ body {
   color: #fff !important;
 }
 
+/* product */
+.both_ {
+  padding: 10px;
+  display: flex;
+}
+.left_ {
+  float: left;
+  width: 50%;
+}
+.right_ {
+  float: right;
+  width: 50%;
+  padding: 10px;
+  clear: both;
+  position: relative;
+}
+
+.img_ {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.img_ img {
+  width: 100%;
+  height: 100%;
+}
+.content_ h2 {
+  padding: 10px;
+}
+.groupPrice h3 {
+  padding: 10px;
+  font-style: italic;
+}
+.content_ h4 {
+  padding: 10px;
+}
+.countProduct {
+  display: flex;
+}
+.countProduct li {
+  list-style: none;
+  margin: 10px 5px;
+}
+.countProduct input[type="text"] {
+  border: unset;
+}
+.choiceSize {
+  display: flex;
+  padding: 10px;
+}
+.choiceSize select {
+  width: 40%;
+  margin: 0px 10px;
+}
+.addToCart {
+  border: 0.5px solid #020202a4;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  color: #fff;
+  background-color: black;
+}
+.addToCart:hover {
+  background-color: rgb(238, 180, 180);
+  color: black;
+  transition: all 0.3;
+}
+.content_infoProduct {
+  white-space: nowrap;
+  padding: 10px;
+}
+.content_infoProduct h3 {
+  padding: 10px;
+}
+.content_guideSize {
+  white-space: nowrap;
+  padding: 10px;
+}
+.content_guideSize h3 {
+  padding: 10px;
+}
+.content_guideSize span img {
+  padding: 10px;
+  width: 80%;
+  height: 100%;
+  object-fit: contain;
+}
+.back {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+.back:hover {
+  color: #0093e9;
+}
+.fa-arrow-left {
+  padding: 10px;
+}
+
 /* Responsive */
 @media (min-width: 300px) and (max-width: 750px) {
   .logo {
@@ -1094,5 +1195,34 @@ body {
   }
   .right {
     width: 80%;
+  }
+}
+/* product */
+
+@media (min-width: 1000px) and (max-width: 1608px) {
+  .content_infoProduct {
+    white-space: wrap;
+  }
+  .content_guideSize {
+    white-space: wrap;
+  }
+}
+@media (min-width: 300px) and (max-width: 1470px) {
+  .both_ {
+    display: block;
+  }
+  .left_ {
+    width: 100%;
+    height: 50%;
+  }
+  .right_ {
+    width: 100%;
+    height: 50%;
+  }
+  .content_infoProduct {
+    white-space: wrap;
+  }
+  .content_guideSize {
+    white-space: wrap;
   }
 }
