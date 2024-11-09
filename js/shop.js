@@ -634,7 +634,7 @@ loc.onclick = (e) => {
   const s2 = parseFloat(document.getElementById("nodePrice_2").value);
   arr.push(
     ...ProductArrBoth.filter((i) => {
-      return i.price < s2 && i.price > s1; // Sử dụng return để đảm bảo rằng điều kiện lọc trả về đúng giá trị boolean.
+      return i.price <= s2 && i.price >= s1; // Sử dụng return để đảm bảo rằng điều kiện lọc trả về đúng giá trị boolean.
     })
   );
 
@@ -644,7 +644,9 @@ loc.onclick = (e) => {
     !checkHoodie &&
     !checkPolo &&
     !checkSomi &&
-    !checkSweater
+    !checkSweater &&
+    isNaN(s1) &&
+    isNaN(s2)
   ) {
     loadSP(ProductArrFirst);
     page1.classList.add("act");

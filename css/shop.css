@@ -732,6 +732,7 @@ body {
 .left {
   float: left;
   width: 20%;
+ border-right:0.5px solid rgba(0, 0, 0, 0.445) ;
 }
 .right {
   float: left;
@@ -739,11 +740,13 @@ body {
   padding: 10px;
   height: fit-content;
   border: 0.5px solid rgba(0, 0, 0, 0.445);
+  border-left: unset;
 }
 .control {
-  border: 0.5px solid rgba(0, 0, 0, 0.445);
-  border-right: 0px solid;
   padding-bottom: 20px;
+  border: 0.5px solid rgba(0, 0, 0, 0.445);
+  margin-right:-0.75px ;
+  
 }
 .title {
   padding: 15px;
