@@ -498,9 +498,9 @@ function loadSP(arr) {
                   <p style="font-style: italic; text-decoration: l;">Giá khuyến mãi : <span style="font-size: larger; font-style: italic;">${salePrice}</span></p>
                 </div>
               <div class="buy"><i class="fa-solid fa-wallet"></i>Mua Ngay</div>
-              <div onclick='loadSingleProduct(${JSON.stringify(
+              <a href="#" style="text-decoration : none; color : black;" onclick='loadSingleProduct(${JSON.stringify(
                 i
-              )})' class="buy"><i class="fa-solid fa-circle-info"></i>Chi Tiết</div>
+              )})' class="buy"><i class="fa-solid fa-circle-info"></i>Chi Tiết</a>
           </div>`;
   });
   document.getElementById("all-item").innerHTML = s;
