@@ -742,7 +742,7 @@ function loadSingleProduct(e) {
                                     <li>Size C: Chiều cao từ 1m70 - 1m77, cân nặng dưới 80kg </li> 
                                     <li>Size D: Chiều cao trên 1m72, cân nặng dưới 95kg.</li>
                                 </ul>
-                                <img src="../img/SizeChart.jpg" alt="">
+                                <img src="./img/SizeChart.jpg" alt="">
                                 <div class="back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i>Trở Lại</div>
                             </span>
                         </div>
