@@ -8,7 +8,19 @@ ul {
   margin: 0;
 }
 /* Header */
-
+body {
+  position: relative;
+}
+.backgroud-menu-respon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+  display: none;
+}
 .header {
   width: 100%;
   display: flex;
@@ -91,6 +103,7 @@ ul {
 }
 .header1 {
   display: none;
+  z-index: 999999;
 }
 .header1 .navbar {
   display: flex;

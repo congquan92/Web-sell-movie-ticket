@@ -3,8 +3,8 @@ const logregBox = document.querySelector(".logreg-box");
 const logonav = document.querySelector(".logo");
 const loginLink = document.querySelector(".login-link");
 const registerLink = document.querySelector(".register-link");
-const home = document.querySelector("#home"); //nut Home tren nav
-const shop = document.querySelector("#shop");
+const home = document.querySelectorAll(".home"); //nut Home tren nav
+const shop = document.querySelectorAll(".shop");
 const address_btn = document.querySelector(".address-btn");
 const content_addressbtn = document.querySelector("#footer-paragraph");
 const social_btn = document.querySelector(".social-btn");
@@ -25,18 +25,36 @@ login.forEach(function (e) {
     midcontent.style.display = "none";
     formlogin.style.height = "100%";
     formlogin.classList.add("active");
+    header_responsive.classList.remove("active");
+    backgroud_menu_respon.style.display = "none";
+  });
+});
+home.forEach(function (e) {
+  e.addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+});
+shop.forEach(function (e) {
+  e.addEventListener("click", () => {
+    window.location.href = "shop.html";
   });
 });
 const close_nav = document.querySelector(".close-nav");
 const menu = document.querySelector(".menu");
 const header_responsive = document.querySelector(".header1");
+const backgroud_menu_respon = document.querySelector(".backgroud-menu-respon");
 menu.addEventListener("click", () => {
   header_responsive.classList.add("active");
+  backgroud_menu_respon.style.display = "block";
 });
 close_nav.addEventListener("click", () => {
   header_responsive.classList.remove("active");
+  backgroud_menu_respon.style.display = "none";
 });
-
+backgroud_menu_respon.addEventListener("click", () => {
+  header_responsive.classList.remove("active");
+  backgroud_menu_respon.style.display = "none";
+});
 home.addEventListener("click", () => {
   window.location.href = "index.html";
 });
