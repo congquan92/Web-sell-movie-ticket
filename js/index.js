@@ -55,16 +55,11 @@ backgroud_menu_respon.addEventListener("click", () => {
   header_responsive.classList.remove("active");
   backgroud_menu_respon.style.display = "none";
 });
-home.addEventListener("click", () => {
-  window.location.href = "index.html";
-});
 
 logonav.addEventListener("click", () => {
   window.location.href = "index.html";
 });
-shop.addEventListener("click", () => {
-  window.location.href = "shop.html";
-});
+
 //  footer
 let flag_address_btn = 0;
 address_btn.addEventListener("click", () => {
