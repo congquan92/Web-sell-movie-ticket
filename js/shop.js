@@ -227,330 +227,6 @@ const ProductArrBoth = [
     img2: "./img/products/p19-2.jpg",
     img3: "./img/products/p19-2.jpg",
   },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1dsadasd.jpg",
-    price: 490000,
-    nametag: "Sweater",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
 ];
 const sale = 0.5;
 
@@ -561,11 +237,7 @@ let max_page = 0;
 // Hàm tạo sản phẩm trên trang
 function makeSP(trang, sosptrongtrang, arr) {
   sp = "";
-  for (
-    let i = (trang - 1) * sosptrongtrang;
-    i < (trang - 1) * sosptrongtrang + sosptrongtrang;
-    i++
-  ) {
+  for (let i = (trang - 1) * sosptrongtrang;i < (trang - 1) * sosptrongtrang + sosptrongtrang;i++){
     if (i >= arr.length) break;
 
     const originalPrice = (arr[i].price + arr[i].price * sale).toLocaleString(
@@ -581,19 +253,11 @@ function makeSP(trang, sosptrongtrang, arr) {
     });
     sp += `
       <div class="item_1">
-        <div class="img-item"><img class="srcimg" src="${
-          arr[i].img
-        }" alt=""></div>
+        <div class="img-item"><img class="srcimg" src="${arr[i].img}" alt=""></div>
         <div class="listColor" id="listColor_item1">
-          <div onclick="clickC1(this)" class="itemColor1" data-src="${
-            arr[i].img1
-          }" style="background-color: ${arr[i].colorr1};"></div>
-          <div onclick="clickC1(this)" class="itemColor2" data-src="${
-            arr[i].img2
-          }" style="background-color: ${arr[i].colorr2};"></div>
-          <div onclick="clickC1(this)" class="itemColor3" data-src="${
-            arr[i].img3
-          }" style="background-color: ${arr[i].colorr3};"></div>
+          <div onclick="clickC1(this)" class="itemColor1" data-src="${arr[i].img1}" style="background-color: ${arr[i].colorr1};"></div>
+          <div onclick="clickC1(this)" class="itemColor2" data-src="${arr[i].img2}" style="background-color: ${arr[i].colorr2};"></div>
+          <div onclick="clickC1(this)" class="itemColor3" data-src="${arr[i].img3}" style="background-color: ${arr[i].colorr3};"></div>
         </div>
         <div class="inf-item">
           <h4>${arr[i].nameSP}</h4>
@@ -601,9 +265,7 @@ function makeSP(trang, sosptrongtrang, arr) {
           <p style="font-style: italic;">Giá khuyến mãi: <span style="font-size: larger; font-style: italic;">${salePrice}</span></p>
         </div>
         <div class="buy"><i class="fa-solid fa-wallet"></i>Mua Ngay</div>
-        <a href="#" style="text-decoration: none; color: black;" onclick='loadSingleProduct(${JSON.stringify(
-          arr[i]
-        )})' class="buy"><i class="fa-solid fa-circle-info"></i>Chi Tiết</a>
+        <a href="#" style="text-decoration: none; color: black;" onclick='loadSingleProduct(${JSON.stringify(arr[i])})' class="buy"><i class="fa-solid fa-circle-info"></i>Chi Tiết</a>
       </div>
     `;
   }
@@ -625,14 +287,10 @@ function makeselectpage(index, arr) {
   `;
 
   if (index + 1 <= max_page) {
-    s += `<a href="#" class="pagination_item" id="span2"><span>${
-      index + 1
-    }</span></a>`;
+    s += `<a href="#" class="pagination_item" id="span2"><span>${index + 1}</span></a>`;
   }
   if (index + 2 <= max_page) {
-    s += `<a href="#" class="pagination_item" id="span3"><span>${
-      index + 2
-    }</span></a>`;
+    s += `<a href="#" class="pagination_item" id="span3"><span>${index + 2}</span></a>`;
   }
   s += `<a href="#" class="pagination_item" id="next"><span><i class='bx bx-right-arrow-alt'></i></span></a></div>`;
 
@@ -756,10 +414,17 @@ const radio_btn = document.querySelectorAll(".radio-btn");
 radio_btn.forEach((i) => {
   i.addEventListener("change", () => {
     if (i.checked) {
-      let span = i.nextElementSibling.textContent.trim();
+      let span = i.nextElementSibling.textContent.trim(); // doc ptu span
       let filteredProducts = mangproduct_radio(span, ProductArrBoth);
       makeSP(1, sosptrongtrang, filteredProducts);
       makeselectpage(1, filteredProducts);
     }
   });
 });
+
+//doi mau sac quan ao
+function clickC1(e){
+  const newSrc = e.getAttribute("data-src"); //data-src chứa URL của hình ảnh tương ứng với màu đó.
+  const imgElement = e.closest(".item_1").querySelector(".srcimg"); // tìm phần tử cha gần nhất có lớp item_1 ếp tục tìm phần tử ảnh bên trong phần tử cha item_1
+  imgElement.setAttribute("src", newSrc);
+}
