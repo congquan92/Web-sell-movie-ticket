@@ -240,17 +240,8 @@ function makeSP(trang, sosptrongtrang, arr) {
   for (let i = (trang - 1) * sosptrongtrang;i < (trang - 1) * sosptrongtrang + sosptrongtrang;i++){
     if (i >= arr.length) break;
 
-    const originalPrice = (arr[i].price + arr[i].price * sale).toLocaleString(
-      "vi-VN",
-      {
-        style: "currency",
-        currency: "VND",
-      }
-    );
-    const salePrice = arr[i].price.toLocaleString("vi-VN", {
-      style: "currency",
-      currency: "VND",
-    });
+    const originalPrice = (arr[i].price + arr[i].price * sale).toLocaleString("vi-VN",{style: "currency",currency: "VND",});
+    const salePrice = arr[i].price.toLocaleString("vi-VN", {style: "currency",currency: "VND",});
     sp += `
       <div class="item_1">
         <div class="img-item"><img class="srcimg" src="${arr[i].img}" alt=""></div>
@@ -320,7 +311,7 @@ function makeselectpage(index, arr) {
 
   if (page2) {
     page2.addEventListener("click", () => {
-      let page2content = parseInt(page2.textContent);
+      let page2content = parseInt(page2.textContent); // lay so trang
       makeSP(page2content, sosptrongtrang, arr);
       makeselectpage(page2content, arr);
     });
@@ -427,4 +418,90 @@ function clickC1(e){
   const newSrc = e.getAttribute("data-src"); //data-src chứa URL của hình ảnh tương ứng với màu đó.
   const imgElement = e.closest(".item_1").querySelector(".srcimg"); // tìm phần tử cha gần nhất có lớp item_1 ếp tục tìm phần tử ảnh bên trong phần tử cha item_1
   imgElement.setAttribute("src", newSrc);
+}
+
+//chi tiet sp
+function loadSingleProduct(e){
+  const originalPrice = (e.price + e.price * sale).toLocaleString("vi-VN", {style: "currency",currency: "VND",});
+  const salePrice = e.price.toLocaleString("vi-VN", {style: "currency",currency: "VND",});
+  const s = `<div class="both_">
+               <div class="left_">
+                    <div class="img_" id="imgMain">
+                        <img class="srcimg" src="${e.img}" alt="">
+                    </div>
+               </div>
+             
+                <div class="right_">
+                    <div class="content_">
+                        <h2 id="name">${e.nameSP}</h2>
+                        <div class="groupPrice">
+                            <h3>GIÁ GỐC : <span style="text-decoration: line-through; font-style: italic;">${originalPrice}</span></h3>
+                            <h3>GIÁ KHUYẾN MÃI : <span style="font-weight: bolder; font-style: italic;">${salePrice}</span></h3>
+                        </div>
+                        
+                        <h4 id="color">Màu sắc: XANH LÁ</h4>
+                        <div id="listColor_pdt" class="listColor">
+                            <div onclick="clickC_1(this)" class="itemColor1" data-src="${e.img1}" style="background-color: ${e.colorr1};"></div>
+                            <div onclick="clickC_1(this)" class="itemColor2" data-src="${e.img2}" style="background-color: ${e.colorr2};"></div>
+                            <div onclick="clickC_1(this)" class="itemColor3" data-src="${e.img3}" style="background-color: ${e.colorr3};"></div>
+                        </div>
+                        <div class="countProduct">
+                            <h4>Số lượng: </h4> 
+                            <li><i class="fa-solid fa-minus"></i></li>
+                            <input type="text" min="min" max="max" readonly="readonly" id="counteInp"> 
+                            <li><i class="fa-solid fa-plus"></i></li>
+                        </div>
+                        <div class="choiceSize">
+                            <h3>Size: </h3>
+                            <select name="" id="size">
+                                <option value="">Chọn size</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                            </select>
+                        </div>
+                        <div class="addToCart">
+                            <p>Thêm vào giỏ</p>
+                        </div>
+                        <div class="content_infoProduct">
+                            <h3>THÔNG TIN SẢN PHẨM</h3>
+                            <span id="contentInfo">${e.nameSP}
+                                <br>
+                                MATERIAL: LÌ VEN ORIGINAL - Phiên bản bề mặt vải không đổ lông mang cảm giác thoáng mát
+                                <br>
+                                SIZE: A/B/C/D
+                                <br>
+                                Sản phẩm thuộc Special Collection “Make everything popular” DORAEMON | LEVENTS®
+                            </span>
+                        </div>
+                        <div class="content_guideSize">
+                            <h3>QUY ƯỚC KÍCH THƯỚC</h3> 
+                            <span id="contentGuide">Form áo được Fit size theo form và tiêu chuẩn tương đối của người Việt Nam, nếu bạn đang cân nhắc giữa hai size, nên chọn size lớn hơn.
+                                <ul>
+                                    <li>Size A: Chiều cao từ 1m50 - 1m65, cân nặng trên 55kg</li>
+                                    <li>Size B: Chiều cao từ 1m65 - 1m72, cân nặng dưới 65kg</li>
+                                    <li>Size C: Chiều cao từ 1m70 - 1m77, cân nặng dưới 80kg </li> 
+                                    <li>Size D: Chiều cao trên 1m72, cân nặng dưới 95kg.</li>
+                                </ul>
+                                <img src="./img/SizeChart.jpg" alt="">
+                                <div class="back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i>Trở Lại</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>    
+            </div>`;
+  document.getElementsByClassName("both")[0].innerHTML = s;
+}
+
+//nut tro lai
+function goBack(){
+  window.location.href = "shop.html";
+}
+
+//doi mau sac quan ao trong chi textIndent
+function clickC_1(e){
+ const dataimg = e.getAttribute('data-src');
+ const srcold = e.closest(".both_").querySelector(".srcimg"); //tim phan tu cha -> con co class srcimg
+ srcold.setAttribute("src", dataimg);
 }
