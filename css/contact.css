@@ -272,3 +272,190 @@ ul {
     top: 100%;
   }
 }
+
+
+
+/* contact */
+
+.wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  /* margin-left: -15px;
+  margin-right: -15px; */
+}
+
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left_contact .contact_section {
+  text-align: center;
+  margin: 16px;
+}
+
+.contact_section .header_contact_section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_contact_section h1 {
+  color: #555;
+}
+
+.header_contact_section h1:hover {
+  color: #444;
+  cursor: pointer;
+}
+
+.body_contact_section {
+  margin: 20px 0 10px;
+}
+
+.socials_list {
+  margin-top: 10px;
+}
+
+.socials_list i {
+  color: #111;
+  background-color: #ddd;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 0 1px;
+  font-size: 20px;
+  transition: background-color 1s ease, color 1s ease, opacity 1s ease;
+}
+
+.socials_list i:hover {
+  color: #fff;
+  background-color: #333;
+  opacity: 1;
+}
+
+.postOthers {
+  margin-top: 5px;
+}
+
+.pots_list {
+  margin-top: 15px;
+}
+
+.col {
+  float: left;
+  width: 33.333333%;
+}
+
+.post_img {
+  padding-right: 15px;
+  padding-left: 15px;;
+}
+
+.postOthers img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: 0.5s ease-in-out;
+}
+
+.postOthers img:hover {
+  transform: scale(1.2); 
+  cursor: pointer;
+}
+
+.contact_infor li {
+  list-style: none;
+  line-height: 1.6;
+}
+
+.contact_infor a {
+  text-decoration: none;
+  color: #555;
+  margin-left: 10px;
+}
+
+
+/* xem cua hang */
+/*
+.model {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+.model.open {
+  display: flex;
+}
+
+.model_wrapper {
+  width: 900px;
+  position: relative;
+  padding: 15px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.title h3 {
+  margin: 0 !important;
+}
+
+.store_wrapper {
+  display: grid;
+  grid-template-columns: 1fr calc(100%* 360 / 1920);
+  grid-gap: 2rem;
+  margin-bottom: 2.4rem;
+}
+
+.store_main {
+  
+}
+
+
+.store_main img {
+  max-width: 100%;
+}
+
+.store_thumb {
+  height: 100%;
+  width: 100%;
+}
+
+.store_lists {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.store_list_item {
+
+} */
