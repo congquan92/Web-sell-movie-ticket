@@ -733,6 +733,7 @@ function makeselectpage(index, arr) {
   if (page1) {
     page1.addEventListener("click", () => {
       const page1content = parseInt(page1.textContent);
+      saveCurrentPage(page1content);
       makeSP(page1content, sosptrongtrang, arr);
       makeselectpage(page1content, arr);
     });
@@ -741,6 +742,7 @@ function makeselectpage(index, arr) {
   if (page2) {
     page2.addEventListener("click", () => {
       const page2content = parseInt(page2.textContent);
+      saveCurrentPage(page2content)
       makeSP(page2content, sosptrongtrang, arr);
       makeselectpage(page2content, arr);
     });
@@ -749,6 +751,7 @@ function makeselectpage(index, arr) {
   if (page3) {
     page3.addEventListener("click", () => {
       const page3content = parseInt(page3.textContent);
+      saveCurrentPage(page3content);
       makeSP(page3content, sosptrongtrang, arr);
       makeselectpage(page3content, arr);
     });
@@ -775,10 +778,19 @@ function makeselectpage(index, arr) {
   }
 }
 
+// Hàm để lưu số trang hiện tại vào localStorage
+function saveCurrentPage(page) {
+  localStorage.setItem('currentPage', page);
+}
+// Hàm để lấy số trang hiện tại từ localStorage
+function getCurrentPage() {
+  return parseInt(localStorage.getItem('currentPage')) || 1; // Mặc định là trang 1 nếu không có giá trị
+}
+
 // Hàm chạy khi trang tải
 window.onload = function () {
-  makeSP(1, sosptrongtrang, ProductArrBoth);
-  makeselectpage(1, ProductArrBoth);
+  makeSP(getCurrentPage(), sosptrongtrang, ProductArrBoth);
+  makeselectpage(getCurrentPage(), ProductArrBoth);
 };
 
 // sort
