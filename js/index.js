@@ -194,10 +194,22 @@ getRegisterButton.addEventListener('click', (e) => {
   }
 })
 
-let ID = 1;
+// lưu user vào localStorage khi ấn sign-up button
+
+function getCurrentID() {
+  let nextID = parseInt(localStorage.getItem('currentID'));
+  if(nextID) {
+    localStorage.setItem('currentID', ++nextID);
+    return parseInt(localStorage.getItem('currentID'));
+  } else {
+    localStorage.setItem('currentID', 1);
+    return parseInt(localStorage.getItem('currentID'));
+  }
+}
+
 function saveUser(user) {
-  user.userID = ID;
-  localStorage.setItem(ID++, JSON.stringify(user));
+  user.userID = getCurrentID();
+  localStorage.setItem(user.userID, JSON.stringify(user));
 }
 
 function findUserByEmail(target) {
@@ -205,10 +217,9 @@ function findUserByEmail(target) {
     let user = JSON.parse(localStorage.getItem(i + 1));
     if(user.email === target) {
       return user;
-    } else {
-      return null;
     }
   }
+  return null;
 }
 
 // vinh sign in form
@@ -245,5 +256,6 @@ getSignInButton.addEventListener('click', (e) => {
   getEmailSignIn.value = '';
   getPasswordSignIn.value = '';
   getContainer.classList.remove('active');
+  getContainer.style.height = "0";
   midcontent.style.display = 'block';
 });
