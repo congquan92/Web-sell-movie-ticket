@@ -27,6 +27,7 @@ login.forEach(function (e) {
     formlogin.classList.add("active");
     header_responsive.classList.remove("active");
     backgroud_menu_respon.style.display = "none";
+    window.location.hash = "#login";
   });
 });
 home.forEach(function (e) {
