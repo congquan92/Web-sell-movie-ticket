@@ -1,8 +1,8 @@
 //Huy
-const logregBox = document.querySelector(".logreg-box");
+let logregBox = "";
+// console.log(logregBox);
 const logonav = document.querySelector(".logo");
 const loginLink = document.querySelector(".login-link");
-const registerLink = document.querySelector(".register-link");
 const home = document.querySelectorAll(".home"); //nut Home tren nav
 const shop = document.querySelectorAll(".shop");
 const address_btn = document.querySelector(".address-btn");
@@ -11,109 +11,115 @@ const social_btn = document.querySelector(".social-btn");
 const content_socialbtn = document.querySelector("#footer-social-ul");
 const policy_btn = document.querySelector(".policy-btn");
 const content_policybtn = document.querySelector("#footer-policy-ul");
-registerLink.addEventListener("click", () => {
+function formregister() {
   logregBox.classList.add("active");
-});
-loginLink.addEventListener("click", () => {
+}
+
+function formlogin() {
   logregBox.classList.remove("active");
-});
+}
 const login = document.querySelectorAll(".login-btn");
-const formlogin = document.querySelector(".box-login");
 const midcontent = document.querySelector(".mid-content");
 login.forEach(function (e) {
   e.addEventListener("click", () => {
-    midcontent.style.display = "none";
-    formlogin.style.height = "100%";
-    formlogin.classList.add("active");
-    header_responsive.classList.remove("active");
-    backgroud_menu_respon.style.display = "none";
-    window.location.hash = "#login";
-  });
-});
-home.forEach(function (e) {
-  e.addEventListener("click", () => {
-    window.location.href = "index.html";
-  });
-});
-const contact=document.querySelectorAll(".contact");
-contact.forEach(function (e) {
-  e.addEventListener("click", () => {
-    midcontent.innerHTML=`<div class="wrapper">
-      <div class="row contact">
-        <div class="left_contact">
-          <div class="contact_section">
-            <div class="header_contact_section">
-              <h1>Hệ thống cửa hàng New Clothes</h1>
-              <p>Đăng bởi:</p>
-            </div>
-            <!-- Địa chỉ -->
-            <div class="body_contact_section">
-              <h3>Chi nhánh Hồ Chí Minh:</h3>
-              <p>Tầng 2 TTTM Vincom Mega Mall Vinhomes GrandPark, Quận 9, Thủ Đức</p>
-              <p>160 Nguyễn Cư Trinh, Phường Nguyễn Cư Trinh, Quận 1.</p>
-              <p>561 Sư Vạn Hạnh, Phường 13, Quận 10.</p>
-              <p>The New Playground 26 Lý Tự Trọng, Phường Bến Nghé, Quận 1.</p>
-              <p>326 Quang Trung, Phường 10, Quận Gò Vấp.</p>
-              <p> --- </p>
-              <h3>Chi nhánh Đồng Nai:</h3>
-              <p>151A Phan Trung, Phường Tân Mai, Tp. Biên Hòa, Tỉnh Đồng Nai.</p>
-              <p>---</p>
-              <h3>Chi nhánh Bình Dương:</h3>
-              <p>28 Yersin, Phường Hiệp Thành, TP. Thủ Dầu Một</p>
-              <p>---</p>
-              <h3>Chi nhánh Hà Nội:</h3>
-              <p>49-51 Hồ Đắc Di, Phường Nam Đồng, Quận Đống Đa.</p>
-              <p> --- </p>
-              <h3>Chi Nhánh Cần Thơ:</h3>
-              <p>52 Mậu Thân, Phường An Phú, Quận Ninh Kiều</p>
-              <p>---</p>
-              <h3>Chi Nhánh Hưng Yên:</h3>
-              <p>PT.TV 136 - Mega Grand World - Ocean Park, Quận Văn Giang.</p>
-              <p>---</p>
-              <h3>Chi Nhánh Hải Phòng:</h3>
-              <p>Tầng 2 TTTM Aeon Mall Hải Phòng Lê Chân số 10 Võ Nguyên Giáp, Phường Kênh Dương, Quận Lê Chân.</p>
-            </div>
-          </div>
-          <div class="contact_socialmedia">
-            <h4>Chia sẻ bài viết</h4>
-            <div class="socials_list">
+    midcontent.innerHTML = `<div class="box-login">
+      <div class="container">
+        <div class="content">
+          <h2>New Clothes</h2>
+          <div class="text-sci">
+            <h2 class="logo-form">
+              Welcome! <br /><span>To Our Website</span>
+            </h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias,
+              impedit?
+            </p>
+            <div class="social-icons">
               <a href="#"><i class="bx bxl-facebook"></i></a>
               <a href="#"><i class="bx bxl-instagram"></i></a>
               <a href="#"><i class="bx bxl-twitter"></i></a>
             </div>
           </div>
-          <hr>  
-          <div class="postOthers">
-            <h4>Bài viết liên quan</h4>
-            <div class="row pots_list">
-              <div class="col post_img">
-                <img src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg" alt="">
-              </div>
-              <div class="col post_img">
-                <img src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg" alt="">
-              </div>
-              <div class="col post_img">
-                <img src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg" alt="">
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="right_contact">
-          <div class="row contact_section">
-            <div class="contact_infor">
-              <h3>Thông tin liên hệ:</h3>
-              <hr>
-              <ul>
-                <li>Hotline:<a href="tel:19001512">19001512</a></li>
-                <li>Email:<a href="mailto:CustomerCare@gmail.com">CustomerCare@gmail.com</a></li>
-                <li>Chatbox:<a href="#">Messenger</a></li>
-              </ul>
-              <hr>
-            </div>
+        <div class="logreg-box">
+          <div class="form-box login">
+            <form action="#">
+              <h2>Sign In</h2>
+              <div class="input-box">
+                <span class="icon"><i class="bx bxs-envelope"></i></span>
+                <input type="email" required />
+                <label>Email</label>
+              </div>
+              <div class="input-box">
+                <span class="icon"
+                  ><i class="fa-regular fa-eye-slash togglePassword"></i
+                ></span>
+                <input type="password" required id="Password" />
+                <label for="Password">Password</label>
+              </div>
+              <div class="remember-forgot">
+                <label for=""><input type="checkbox" /> Remember me</label>
+                <a href="#">Forgot password</a>
+              </div>
+              <button type="submit" class="btn">Sign In</button>
+              <div class="login-register">
+                <p>
+                  Don't have an account?
+                  <a href="#" class="register-link" onclick="formregister();">Sign up</a>
+                </p>
+              </div>
+            </form>
+          </div>
+          <div class="form-box register">
+            <form action="#">
+              <h2>Sign Up</h2>
+              <div class="input-box">
+                <span class="icon"><i class="bx bxs-user"></i></span>
+                <input type="text" required id="name" />
+                <label for="name">Name</label>
+              </div>
+              <div class="input-box">
+                <span class="icon"><i class="bx bxs-envelope"></i></span>
+                <input type="email" required id="email" />
+                <label for="email">Email</label>
+              </div>
+              <div class="input-box">
+                <span class="icon"><i class="bx bxs-lock-alt"></i></span>
+                <input type="password" required />
+                <label>Password</label>
+              </div>
+              <div class="input-box">
+                <span class="icon"><i class="bx bxs-lock-alt"></i></span>
+                <input type="password" required />
+                <label>Re-enter password</label>
+              </div>
+              <div class="remember-forgot">
+                <label for=""
+                  ><input type="checkbox" /> I agree to the terms &
+                  conditions</label
+                >
+              </div>
+              <button type="submit" class="btn">Sign Up</button>
+              <div class="login-register">
+                <p>
+                  Already have an account?
+                  <a href="#" class="login-link" onclick="formlogin();">Sign In</a>
+                </p>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>`;
+    header_responsive.classList.remove("active");
+    backgroud_menu_respon.style.display = "none";
+    logregBox = document.querySelector(".logreg-box");
+    console.log(logregBox);
+  });
+});
+home.forEach(function (e) {
+  e.addEventListener("click", () => {
+    window.location.href = "index.html";
   });
 });
 shop.forEach(function (e) {
@@ -221,70 +227,79 @@ for (let i = 0; i < getPolices.length; i++) {
 }
 
 // vinh sign up form
-let getRegisterButton = document.querySelector('#register-btn');
-let getRegisterName = document.querySelector('#register-name');
-let getRegisterEmail = document.querySelector('#register-email');
-let getRegisterPassword = document.querySelector('#register-password');
-let getRegisterPasswordRetype = document.querySelector('#register-password-retype');
-let getContainer = document.querySelector('.box-login');
-let getAgreeTermsConditions = document.querySelector('#agreeTermsConditions');
+let getRegisterButton = document.querySelector("#register-btn");
+let getRegisterName = document.querySelector("#register-name");
+let getRegisterEmail = document.querySelector("#register-email");
+let getRegisterPassword = document.querySelector("#register-password");
+let getRegisterPasswordRetype = document.querySelector(
+  "#register-password-retype"
+);
+let getContainer = document.querySelector(".box-login");
+let getAgreeTermsConditions = document.querySelector("#agreeTermsConditions");
 
 function checkEmail(str) {
-  let idx = str.indexOf('@');
-  let idxWhiteSpace = str.indexOf(' ');
-  if(idx === -1 || idxWhiteSpace !== -1) {
+  let idx = str.indexOf("@");
+  let idxWhiteSpace = str.indexOf(" ");
+  if (idx === -1 || idxWhiteSpace !== -1) {
     return false;
-  } else if(str.substring(idx) !== '@gmail.com') {
+  } else if (str.substring(idx) !== "@gmail.com") {
     return false;
   }
   return true;
 }
 
-getRegisterButton.addEventListener('click', (e) => {
-  if(getRegisterName.value.trim() === '' || getRegisterPassword.value.trim() === '' || getRegisterPasswordRetype.value.trim() === '') {
-    alert('Vui lòng nhập đầy đủ thông tin!');
+getRegisterButton.addEventListener("click", (e) => {
+  if (
+    getRegisterName.value.trim() === "" ||
+    getRegisterPassword.value.trim() === "" ||
+    getRegisterPasswordRetype.value.trim() === ""
+  ) {
+    alert("Vui lòng nhập đầy đủ thông tin!");
     return;
-  } else if(getRegisterEmail.value.trim() === '' || !getRegisterEmail.value.includes('@') || !(checkEmail(getRegisterEmail.value))) {
-    alert('Vui lòng nhập đúng email!');
+  } else if (
+    getRegisterEmail.value.trim() === "" ||
+    !getRegisterEmail.value.includes("@") ||
+    !checkEmail(getRegisterEmail.value)
+  ) {
+    alert("Vui lòng nhập đúng email!");
     return;
-  } else if(getRegisterPasswordRetype.value !== getRegisterPassword.value) {
-    alert('Mật khẩu xác nhận không khớp!');
+  } else if (getRegisterPasswordRetype.value !== getRegisterPassword.value) {
+    alert("Mật khẩu xác nhận không khớp!");
     return;
-  } else if(!(getAgreeTermsConditions.checked)) {
-    alert('Please agree terms and conditions');
+  } else if (!getAgreeTermsConditions.checked) {
+    alert("Please agree terms and conditions");
     return;
-  } 
-  else {
+  } else {
     let user = {
-      userID: '',
-      name: '',
-      email: '',
-      password: ''
-    }
+      userID: "",
+      name: "",
+      email: "",
+      password: "",
+    };
     user.name = getRegisterName.value;
     user.email = getRegisterEmail.value;
     user.password = getRegisterPassword.value;
     logregBox.classList.remove("active");
     // reset input fields
-    getRegisterName.value = '';
-    getRegisterEmail.value = '';
-    getRegisterPassword.value = '';
-    getRegisterPasswordRetype.value = '';
+    getRegisterName.value = "";
+    getRegisterEmail.value = "";
+    getRegisterPassword.value = "";
+    getRegisterPasswordRetype.value = "";
     getAgreeTermsConditions.checked = false;
     saveUser(user);
   }
-})
+});
 
 // lưu user vào localStorage khi ấn sign-up button
 
 function getCurrentID() {
-  let nextID = parseInt(localStorage.getItem('currentID'));
-  if(nextID) {
-    localStorage.setItem('currentID', ++nextID);
-    return parseInt(localStorage.getItem('currentID'));
+  let nextID = parseInt(localStorage.getItem("currentID"));
+  if (nextID) {
+    localStorage.setItem("currentID", ++nextID);
+    return parseInt(localStorage.getItem("currentID"));
   } else {
-    localStorage.setItem('currentID', 1);
-    return parseInt(localStorage.getItem('currentID'));
+    localStorage.setItem("currentID", 1);
+    return parseInt(localStorage.getItem("currentID"));
   }
 }
 
@@ -294,9 +309,9 @@ function saveUser(user) {
 }
 
 function findUserByEmail(target) {
-  for(let i = 0; i < localStorage.length; i++) {
+  for (let i = 0; i < localStorage.length; i++) {
     let user = JSON.parse(localStorage.getItem(i + 1));
-    if(user.email === target) {
+    if (user.email === target) {
       return user;
     }
   }
@@ -304,39 +319,123 @@ function findUserByEmail(target) {
 }
 
 // vinh sign in form
-let getSignInButton = document.querySelector('#sign-in-button');
-let getEmailSignIn = document.querySelector('#Email');
-let getPasswordSignIn = document.querySelector('#Password');
+let getSignInButton = document.querySelector("#sign-in-button");
+let getEmailSignIn = document.querySelector("#Email");
+let getPasswordSignIn = document.querySelector("#Password");
 // account đang đăng nhập
 let currentUser = {
-  userID: '',
-  name: '',
-  email: '',
-  password: ''
-}
+  userID: "",
+  name: "",
+  email: "",
+  password: "",
+};
 
-getSignInButton.addEventListener('click', (e) => {
-  if(getEmailSignIn.value.trim() === '' || getPasswordSignIn.value.trim() === '') {
-    alert('Vui lòng nhập đầy đủ thông tin!');
+getSignInButton.addEventListener("click", (e) => {
+  if (
+    getEmailSignIn.value.trim() === "" ||
+    getPasswordSignIn.value.trim() === ""
+  ) {
+    alert("Vui lòng nhập đầy đủ thông tin!");
     return;
-  } else if(getEmailSignIn.value.trim() === '' || !getEmailSignIn.value.includes('@') || !(checkEmail(getEmailSignIn.value))) {
-    alert('Vui lòng nhập đúng email');
+  } else if (
+    getEmailSignIn.value.trim() === "" ||
+    !getEmailSignIn.value.includes("@") ||
+    !checkEmail(getEmailSignIn.value)
+  ) {
+    alert("Vui lòng nhập đúng email");
     return;
   }
   let user = findUserByEmail(getEmailSignIn.value);
-  if(user !== null && user.password === getPasswordSignIn.value) {
+  if (user !== null && user.password === getPasswordSignIn.value) {
     currentUser.email = user.email;
     currentUser.password = user.password;
     currentUser.name = user.name;
     currentUser.userID = user.userID;
   } else {
-    alert('Email hoặc mật khẩu không đúng!');
+    alert("Email hoặc mật khẩu không đúng!");
     return;
   }
-  // reset input fields
-  getEmailSignIn.value = '';
-  getPasswordSignIn.value = '';
-  getContainer.classList.remove('active');
-  getContainer.style.height = "0";
-  midcontent.style.display = 'block';
+});
+
+//contact
+const contact = document.querySelectorAll(".contact");
+contact.forEach(function (e) {
+  e.addEventListener("click", () => {
+    midcontent.innerHTML = `<div class="wrapper">
+      <div class="row contact">
+        <div class="left_contact">
+          <div class="contact_section">
+            <div class="header_contact_section">
+              <h1>Hệ thống cửa hàng New Clothes</h1>
+              <p>Đăng bởi:</p>
+            </div>
+            <!-- Địa chỉ -->
+            <div class="body_contact_section">
+              <h3>Chi nhánh Hồ Chí Minh:</h3>
+              <p>Tầng 2 TTTM Vincom Mega Mall Vinhomes GrandPark, Quận 9, Thủ Đức</p>
+              <p>160 Nguyễn Cư Trinh, Phường Nguyễn Cư Trinh, Quận 1.</p>
+              <p>561 Sư Vạn Hạnh, Phường 13, Quận 10.</p>
+              <p>The New Playground 26 Lý Tự Trọng, Phường Bến Nghé, Quận 1.</p>
+              <p>326 Quang Trung, Phường 10, Quận Gò Vấp.</p>
+              <p> --- </p>
+              <h3>Chi nhánh Đồng Nai:</h3>
+              <p>151A Phan Trung, Phường Tân Mai, Tp. Biên Hòa, Tỉnh Đồng Nai.</p>
+              <p>---</p>
+              <h3>Chi nhánh Bình Dương:</h3>
+              <p>28 Yersin, Phường Hiệp Thành, TP. Thủ Dầu Một</p>
+              <p>---</p>
+              <h3>Chi nhánh Hà Nội:</h3>
+              <p>49-51 Hồ Đắc Di, Phường Nam Đồng, Quận Đống Đa.</p>
+              <p> --- </p>
+              <h3>Chi Nhánh Cần Thơ:</h3>
+              <p>52 Mậu Thân, Phường An Phú, Quận Ninh Kiều</p>
+              <p>---</p>
+              <h3>Chi Nhánh Hưng Yên:</h3>
+              <p>PT.TV 136 - Mega Grand World - Ocean Park, Quận Văn Giang.</p>
+              <p>---</p>
+              <h3>Chi Nhánh Hải Phòng:</h3>
+              <p>Tầng 2 TTTM Aeon Mall Hải Phòng Lê Chân số 10 Võ Nguyên Giáp, Phường Kênh Dương, Quận Lê Chân.</p>
+            </div>
+          </div>
+          <div class="contact_socialmedia">
+            <h4>Chia sẻ bài viết</h4>
+            <div class="socials_list">
+              <a href="#"><i class="bx bxl-facebook"></i></a>
+              <a href="#"><i class="bx bxl-instagram"></i></a>
+              <a href="#"><i class="bx bxl-twitter"></i></a>
+            </div>
+          </div>
+          <hr>  
+          <div class="postOthers">
+            <h4>Bài viết liên quan</h4>
+            <div class="row pots_list">
+              <div class="col post_img">
+                <img src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg" alt="">
+              </div>
+              <div class="col post_img">
+                <img src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg" alt="">
+              </div>
+              <div class="col post_img">
+                <img src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right_contact">
+          <div class="row contact_section">
+            <div class="contact_infor">
+              <h3>Thông tin liên hệ:</h3>
+              <hr>
+              <ul>
+                <li>Hotline:<a href="tel:19001512">19001512</a></li>
+                <li>Email:<a href="mailto:CustomerCare@gmail.com">CustomerCare@gmail.com</a></li>
+                <li>Chatbox:<a href="#">Messenger</a></li>
+              </ul>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  });
 });
