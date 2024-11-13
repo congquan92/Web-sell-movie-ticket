@@ -34,6 +34,87 @@ home.forEach(function (e) {
     window.location.href = "index.html";
   });
 });
+const contact=document.querySelectorAll(".contact");
+contact.forEach(function (e) {
+  e.addEventListener("click", () => {
+    midcontent.innerHTML=`<div class="wrapper">
+      <div class="row contact">
+        <div class="left_contact">
+          <div class="contact_section">
+            <div class="header_contact_section">
+              <h1>Hệ thống cửa hàng New Clothes</h1>
+              <p>Đăng bởi:</p>
+            </div>
+            <!-- Địa chỉ -->
+            <div class="body_contact_section">
+              <h3>Chi nhánh Hồ Chí Minh:</h3>
+              <p>Tầng 2 TTTM Vincom Mega Mall Vinhomes GrandPark, Quận 9, Thủ Đức</p>
+              <p>160 Nguyễn Cư Trinh, Phường Nguyễn Cư Trinh, Quận 1.</p>
+              <p>561 Sư Vạn Hạnh, Phường 13, Quận 10.</p>
+              <p>The New Playground 26 Lý Tự Trọng, Phường Bến Nghé, Quận 1.</p>
+              <p>326 Quang Trung, Phường 10, Quận Gò Vấp.</p>
+              <p> --- </p>
+              <h3>Chi nhánh Đồng Nai:</h3>
+              <p>151A Phan Trung, Phường Tân Mai, Tp. Biên Hòa, Tỉnh Đồng Nai.</p>
+              <p>---</p>
+              <h3>Chi nhánh Bình Dương:</h3>
+              <p>28 Yersin, Phường Hiệp Thành, TP. Thủ Dầu Một</p>
+              <p>---</p>
+              <h3>Chi nhánh Hà Nội:</h3>
+              <p>49-51 Hồ Đắc Di, Phường Nam Đồng, Quận Đống Đa.</p>
+              <p> --- </p>
+              <h3>Chi Nhánh Cần Thơ:</h3>
+              <p>52 Mậu Thân, Phường An Phú, Quận Ninh Kiều</p>
+              <p>---</p>
+              <h3>Chi Nhánh Hưng Yên:</h3>
+              <p>PT.TV 136 - Mega Grand World - Ocean Park, Quận Văn Giang.</p>
+              <p>---</p>
+              <h3>Chi Nhánh Hải Phòng:</h3>
+              <p>Tầng 2 TTTM Aeon Mall Hải Phòng Lê Chân số 10 Võ Nguyên Giáp, Phường Kênh Dương, Quận Lê Chân.</p>
+            </div>
+          </div>
+          <div class="contact_socialmedia">
+            <h4>Chia sẻ bài viết</h4>
+            <div class="socials_list">
+              <a href="#"><i class="bx bxl-facebook"></i></a>
+              <a href="#"><i class="bx bxl-instagram"></i></a>
+              <a href="#"><i class="bx bxl-twitter"></i></a>
+            </div>
+          </div>
+          <hr>  
+          <div class="postOthers">
+            <h4>Bài viết liên quan</h4>
+            <div class="row pots_list">
+              <div class="col post_img">
+                <img src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg" alt="">
+              </div>
+              <div class="col post_img">
+                <img src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg" alt="">
+              </div>
+              <div class="col post_img">
+                <img src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right_contact">
+          <div class="row contact_section">
+            <div class="contact_infor">
+              <h3>Thông tin liên hệ:</h3>
+              <hr>
+              <ul>
+                <li>Hotline:<a href="tel:19001512">19001512</a></li>
+                <li>Email:<a href="mailto:CustomerCare@gmail.com">CustomerCare@gmail.com</a></li>
+                <li>Chatbox:<a href="#">Messenger</a></li>
+              </ul>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  });
+});
 shop.forEach(function (e) {
   e.addEventListener("click", () => {
     window.location.href = "shop.html";

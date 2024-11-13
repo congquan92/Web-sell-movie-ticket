@@ -225,29 +225,29 @@
             <!-- Địa chỉ -->
             <div class="body_contact_section">
               <h3>Chi nhánh Hồ Chí Minh:</h3>
-              <p>Tầng 2 TTTM Vincom Mega Mall Vinhomes GrandPark, Quận 9, Thủ Đức</p>
-              <p>160 Nguyễn Cư Trinh, Phường Nguyễn Cư Trinh, Quận 1.</p>
-              <p>561 Sư Vạn Hạnh, Phường 13, Quận 10.</p>
-              <p>The New Playground 26 Lý Tự Trọng, Phường Bến Nghé, Quận 1.</p>
-              <p>326 Quang Trung, Phường 10, Quận Gò Vấp.</p>
+              <p class="addr">Tầng 2 TTTM Vincom Mega Mall Vinhomes GrandPark, Quận 9, Thủ Đức</p>
+              <p class="addr">160 Nguyễn Cư Trinh, Phường Nguyễn Cư Trinh, Quận 1.</p>
+              <p class="addr">561 Sư Vạn Hạnh, Phường 13, Quận 10.</p>
+              <p class="addr">The New Playground 26 Lý Tự Trọng, Phường Bến Nghé, Quận 1.</p>
+              <p class="addr">326 Quang Trung, Phường 10, Quận Gò Vấp.</p>
               <p> --- </p>
               <h3>Chi nhánh Đồng Nai:</h3>
-              <p>151A Phan Trung, Phường Tân Mai, Tp. Biên Hòa, Tỉnh Đồng Nai.</p>
+              <p class="addr">151A Phan Trung, Phường Tân Mai, Tp. Biên Hòa, Tỉnh Đồng Nai.</p>
               <p>---</p>
               <h3>Chi nhánh Bình Dương:</h3>
-              <p>28 Yersin, Phường Hiệp Thành, TP. Thủ Dầu Một</p>
+              <p class="addr">28 Yersin, Phường Hiệp Thành, TP. Thủ Dầu Một</p>
               <p>---</p>
               <h3>Chi nhánh Hà Nội:</h3>
-              <p>49-51 Hồ Đắc Di, Phường Nam Đồng, Quận Đống Đa.</p>
+              <p class="addr">49-51 Hồ Đắc Di, Phường Nam Đồng, Quận Đống Đa.</p>
               <p> --- </p>
               <h3>Chi Nhánh Cần Thơ:</h3>
-              <p>52 Mậu Thân, Phường An Phú, Quận Ninh Kiều</p>
+              <p class="addr">52 Mậu Thân, Phường An Phú, Quận Ninh Kiều</p>
               <p>---</p>
               <h3>Chi Nhánh Hưng Yên:</h3>
-              <p>PT.TV 136 - Mega Grand World - Ocean Park, Quận Văn Giang.</p>
+              <p class="addr">PT.TV 136 - Mega Grand World - Ocean Park, Quận Văn Giang.</p>
               <p>---</p>
               <h3>Chi Nhánh Hải Phòng:</h3>
-              <p>Tầng 2 TTTM Aeon Mall Hải Phòng Lê Chân số 10 Võ Nguyên Giáp, Phường Kênh Dương, Quận Lê Chân.</p>
+              <p class="addr">Tầng 2 TTTM Aeon Mall Hải Phòng Lê Chân số 10 Võ Nguyên Giáp, Phường Kênh Dương, Quận Lê Chân.</p>
             </div>
           </div>
           <div class="contact_socialmedia">
@@ -292,8 +292,8 @@
     </div>
 
     <!-- xem cua hang -->
-     <!-- <div class="model">
-      <div class="model_wrapper">
+     <div class="model js_model">
+      <div class="model_wrapper js_model_wrapper">
         <div class="title">
           <h3>561 Sư Vạn Hạnh, Phường 13, Quận 10, HCM.</h3>
         </div>
@@ -312,11 +312,29 @@
               <div class="store_list_item">
                 <img src="./img/8goryxrx.bmp" alt="">
               </div>
-            </div>
+            </div> 
           </div>
         </div>
       </div>
-     </div> -->
+     </div>
     <script src="./js/index.js"></script>
+    <script>
+      const model = document.querySelector('.js_model')
+      const address = document.querySelectorAll('.addr')
+
+      function showAddress() {
+        model.classList.add('open')
+      }
+      
+      function hideAddress() {
+        model.classList.remove('open')
+      }
+
+      address.forEach(a => {
+        a.addEventListener('click', function() {
+          // showAddress()
+        })
+      })
+    </script>
   </body>
 </html>
