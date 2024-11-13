@@ -47,7 +47,7 @@ login.forEach(function (e) {
               <h2>Sign In</h2>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-envelope"></i></span>
-                <input type="email" required />
+                <input type="email" required id="Email" />
                 <label>Email</label>
               </div>
               <div class="input-box">
@@ -61,7 +61,7 @@ login.forEach(function (e) {
                 <label for=""><input type="checkbox" /> Remember me</label>
                 <a href="#">Forgot password</a>
               </div>
-              <button type="submit" class="btn">Sign In</button>
+              <button type="submit" class="btn" onclick="signinaccount();">Sign In</button>
               <div class="login-register">
                 <p>
                   Don't have an account?
@@ -75,31 +75,31 @@ login.forEach(function (e) {
               <h2>Sign Up</h2>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i></span>
-                <input type="text" required id="name" />
+                <input type="text" required id="register-name" />
                 <label for="name">Name</label>
               </div>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-envelope"></i></span>
-                <input type="email" required id="email" />
+                <input type="email" required id="register-email" />
                 <label for="email">Email</label>
               </div>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i></span>
-                <input type="password" required />
+                <input type="password" required id="register-password" />
                 <label>Password</label>
               </div>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i></span>
-                <input type="password" required />
+                <input type="password" required id="register-password-retype"/>
                 <label>Re-enter password</label>
               </div>
               <div class="remember-forgot">
                 <label for=""
-                  ><input type="checkbox" /> I agree to the terms &
+                  ><input type="checkbox" id="agreeTermsConditions" /> I agree to the terms &
                   conditions</label
                 >
               </div>
-              <button type="submit" class="btn">Sign Up</button>
+              <button type="submit" class="btn" onclick="signupaccount();">Sign Up</button>
               <div class="login-register">
                 <p>
                   Already have an account?
@@ -227,7 +227,7 @@ for (let i = 0; i < getPolices.length; i++) {
 }
 
 // vinh sign up form
-let getRegisterButton = document.querySelector("#register-btn");
+// let getRegisterButton = document.querySelector("#register-btn");
 let getRegisterName = document.querySelector("#register-name");
 let getRegisterEmail = document.querySelector("#register-email");
 let getRegisterPassword = document.querySelector("#register-password");
@@ -248,7 +248,114 @@ function checkEmail(str) {
   return true;
 }
 
-getRegisterButton.addEventListener("click", (e) => {
+// getRegisterButton.addEventListener("click", (e) => {
+// if (
+//   getRegisterName.value.trim() === "" ||
+//   getRegisterPassword.value.trim() === "" ||
+//   getRegisterPasswordRetype.value.trim() === ""
+// ) {
+//   alert("Vui lòng nhập đầy đủ thông tin!");
+//   return;
+// } else if (
+//   getRegisterEmail.value.trim() === "" ||
+//   !getRegisterEmail.value.includes("@") ||
+//   !checkEmail(getRegisterEmail.value)
+// ) {
+//   alert("Vui lòng nhập đúng email!");
+//   return;
+// } else if (getRegisterPasswordRetype.value !== getRegisterPassword.value) {
+//   alert("Mật khẩu xác nhận không khớp!");
+//   return;
+// } else if (!getAgreeTermsConditions.checked) {
+//   alert("Please agree terms and conditions");
+//   return;
+// } else {
+//   let user = {
+//     userID: "",
+//     name: "",
+//     email: "",
+//     password: "",
+//   };
+//   user.name = getRegisterName.value;
+//   user.email = getRegisterEmail.value;
+//   user.password = getRegisterPassword.value;
+//   logregBox.classList.remove("active");
+//   // reset input fields
+//   getRegisterName.value = "";
+//   getRegisterEmail.value = "";
+//   getRegisterPassword.value = "";
+//   getRegisterPasswordRetype.value = "";
+//   getAgreeTermsConditions.checked = false;
+//   saveUser(user);
+// }
+// });
+
+// lưu user vào localStorage khi ấn sign-up button
+
+function getCurrentID() {
+  let nextID = parseInt(localStorage.getItem("currentID"));
+  if (nextID) {
+    localStorage.setItem("currentID", ++nextID);
+    return parseInt(localStorage.getItem("currentID"));
+  } else {
+    localStorage.setItem("currentID", 1);
+    return parseInt(localStorage.getItem("currentID"));
+  }
+}
+
+function saveUser(user) {
+  user.userID = getCurrentID();
+  localStorage.setItem(user.userID, JSON.stringify(user));
+}
+
+function findUserByEmail(target) {
+  for (let i = 0; i < localStorage.length; i++) {
+    let user = JSON.parse(localStorage.getItem(i + 1));
+    if (user.email === target) {
+      return user;
+    }
+  }
+  return null;
+}
+
+// vinh sign in form
+// let getSignInButton = document.querySelector("#sign-in-button");
+let getEmailSignIn = document.querySelector("#Email");
+let getPasswordSignIn = document.querySelector("#Password");
+// // account đang đăng nhập
+let currentUser = {
+  userID: "",
+  name: "",
+  email: "",
+  password: "",
+};
+function signinaccount() {
+  if (
+    getEmailSignIn.value.trim() === "" ||
+    getPasswordSignIn.value.trim() === ""
+  ) {
+    alert("Vui lòng nhập đầy đủ thông tin!");
+    return;
+  } else if (
+    getEmailSignIn.value.trim() === "" ||
+    !getEmailSignIn.value.includes("@") ||
+    !checkEmail(getEmailSignIn.value)
+  ) {
+    alert("Vui lòng nhập đúng email");
+    return;
+  }
+  let user = findUserByEmail(getEmailSignIn.value);
+  if (user !== null && user.password === getPasswordSignIn.value) {
+    currentUser.email = user.email;
+    currentUser.password = user.password;
+    currentUser.name = user.name;
+    currentUser.userID = user.userID;
+  } else {
+    alert("Email hoặc mật khẩu không đúng!");
+    return;
+  }
+}
+function signupaccount() {
   if (
     getRegisterName.value.trim() === "" ||
     getRegisterPassword.value.trim() === "" ||
@@ -288,77 +395,11 @@ getRegisterButton.addEventListener("click", (e) => {
     getAgreeTermsConditions.checked = false;
     saveUser(user);
   }
-});
-
-// lưu user vào localStorage khi ấn sign-up button
-
-function getCurrentID() {
-  let nextID = parseInt(localStorage.getItem("currentID"));
-  if (nextID) {
-    localStorage.setItem("currentID", ++nextID);
-    return parseInt(localStorage.getItem("currentID"));
-  } else {
-    localStorage.setItem("currentID", 1);
-    return parseInt(localStorage.getItem("currentID"));
-  }
 }
-
-function saveUser(user) {
-  user.userID = getCurrentID();
-  localStorage.setItem(user.userID, JSON.stringify(user));
-}
-
-function findUserByEmail(target) {
-  for (let i = 0; i < localStorage.length; i++) {
-    let user = JSON.parse(localStorage.getItem(i + 1));
-    if (user.email === target) {
-      return user;
-    }
-  }
-  return null;
-}
-
-// vinh sign in form
-let getSignInButton = document.querySelector("#sign-in-button");
-let getEmailSignIn = document.querySelector("#Email");
-let getPasswordSignIn = document.querySelector("#Password");
-// account đang đăng nhập
-let currentUser = {
-  userID: "",
-  name: "",
-  email: "",
-  password: "",
-};
-
-getSignInButton.addEventListener("click", (e) => {
-  if (
-    getEmailSignIn.value.trim() === "" ||
-    getPasswordSignIn.value.trim() === ""
-  ) {
-    alert("Vui lòng nhập đầy đủ thông tin!");
-    return;
-  } else if (
-    getEmailSignIn.value.trim() === "" ||
-    !getEmailSignIn.value.includes("@") ||
-    !checkEmail(getEmailSignIn.value)
-  ) {
-    alert("Vui lòng nhập đúng email");
-    return;
-  }
-  let user = findUserByEmail(getEmailSignIn.value);
-  if (user !== null && user.password === getPasswordSignIn.value) {
-    currentUser.email = user.email;
-    currentUser.password = user.password;
-    currentUser.name = user.name;
-    currentUser.userID = user.userID;
-  } else {
-    alert("Email hoặc mật khẩu không đúng!");
-    return;
-  }
-});
 
 //contact
 const contact = document.querySelectorAll(".contact");
+console.log(contact);
 contact.forEach(function (e) {
   e.addEventListener("click", () => {
     midcontent.innerHTML = `<div class="wrapper">
