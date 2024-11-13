@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: "Spartan", sans-serif;
+  font-family: "Sour Gummy", serif;
   margin: 0;
   padding: 0;
 }
@@ -766,6 +766,7 @@ body {
 }
 .optionFilter {
   padding: 10px;
+  text-align: center;
 }
 .filterPrice {
   display: flex;
@@ -774,6 +775,9 @@ body {
 }
 .filterPrice input {
   width: 40%;
+  outline: none;
+  border: none;
+  border-bottom :1px solid #1a1a1a; ;
 }
 .cc {
   display: inline-block;
@@ -878,6 +882,7 @@ body {
 #body-widePagination {
   padding: 40px;
   display: inline-block;
+  white-space: nowrap;
 }
 #body-widePagination a {
   padding: 15px 20px;
@@ -1227,5 +1232,15 @@ body {
   }
   .content_guideSize {
     white-space: wrap;
+  }
+}
+@media (min-width: 400px) and (max-width:487px){
+  body{
+    width: 120%;
+  }
+}
+@media (min-width: 300px) and (max-width:400px){
+  body{
+    width: 157%;
   }
 }
