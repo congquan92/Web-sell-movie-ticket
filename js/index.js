@@ -147,7 +147,103 @@ backgroud_menu_respon.addEventListener("click", () => {
 logonav.addEventListener("click", () => {
   window.location.href = "index.html";
 });
-
+document.querySelector(".footer").innerHTML = `<div id="left-footer">
+        <h2 class="address-btn">
+          Hệ Thống Cửa Hàng <span><i class="bx bx-chevron-down"></i></span>
+        </h2>
+        <p id="footer-paragraph">
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hồ Chí Minh<br />
+          <span class="location"
+            ><strong>TP. Thủ Đức</strong> - Quận 9 - Tầng 2 TTTM Vincom Mega
+            Mall Vinhomes GrandPark.</span
+          ><br />
+          <span class="location"
+            ><strong>Quận 1</strong> - 160 Nguyễn Cư Trinh, Phường Nguyễn Cư
+            Trinh.</span
+          ><br />
+          <span class="location"
+            ><strong>Quận 10</strong> - 561 Sư Vạn Hạnh, Phường 13.</span
+          ><br />
+          <span class="location"
+            ><strong>Quận 1</strong> - The New Playground 26 Lý Tự Trọng, Phường
+            Bến Nghé.</span
+          ><br />
+          <span class="location"
+            ><strong>Quận Gò Vấp</strong> - 326 Quang Trung, Phường 10.</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Biên Hòa:<br />
+          <span class="location"
+            ><strong>TP. Biên Hòa</strong> - 151A Phan Trung, Phường Tân
+            Mai.</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Bình Dương:<br />
+          <span class="location"
+            ><strong>TP. Thủ Dầu Một</strong> - 28 Yersin, Phường Hiệp
+            Thành.</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Cần Thơ:<br />
+          <span class="location"
+            ><strong>Quận Ninh Kiều</strong> - 52 Mậu Thân, Phường An Phú.</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hà Nội:<br />
+          <span class="location"
+            ><strong>Đống Đa</strong> - 49-51 Hồ Đắc Di, Phường Nam Đồng.</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hưng Yên:<br />
+          <span class="location"
+            ><strong>Văn Giang</strong> - PT.TV 136 - Mega Grand World - Ocean
+            Park</span
+          ><br />
+          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hải Phòng:<br />
+          <span class="location"
+            ><strong>Lê Chân</strong> - Tầng 2 TTTM Aeon Mall Hải Phòng Lê Chân
+            số 10 Võ Nguyên Giáp, Phường Kênh Dương</span
+          ><br />
+        </p>
+      </div>
+      <div id="right-footer">
+        <h2 class="social-btn">
+          Mạng Xã Hội <span><i class="bx bx-chevron-down"></i></span>
+        </h2>
+        <ul id="footer-social-ul">
+          <li class="footer-social-li">
+            <a href="#" class="social-icons"><i class="bx bxl-facebook"></i></a>
+          </li>
+          <li class="footer-social-li">
+            <a href="#" class="social-icons"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#" class="social-icons"><i class="bx bxl-twitter"></i></a>
+          </li>
+        </ul>
+        <h2 class="policy-btn">
+          Chính Sách <span><i class="bx bx-chevron-down"></i></span>
+        </h2>
+        <ul id="footer-policy-ul">
+          <li>
+            <a href="#" class="footer-policy-a">Chính sách bảo mật</a>
+          </li>
+          <li>
+            <a href="#" class="footer-policy-a">FAQ</a>
+          </li>
+          <li>
+            <a href="#" class="footer-policy-a">Chính sách Thẻ Thành viên</a>
+          </li>
+          <li>
+            <a href="#" class="footer-policy-a"
+              >Chính sách Bảo hành & Đổi trả</a
+            >
+          </li>
+          <li>
+            <a href="#" class="footer-policy-a">Chính sách giao hàng hỏa tốc</a>
+          </li>
+        </ul>
+      </div>`;
+document.getElementById("bottom-footer").innerHTML = `<p id="bottom-paragraph">
+        Copyright © 2023 Shop Studio. Powered by ManUtd
+      </p>`;
 //  footer
 // let flag_address_btn = 0;
 // address_btn.addEventListener("click", () => {

@@ -380,6 +380,23 @@ function makeFilter() {
             <div class="loc"><a href="#" class="cc">Lọc</a></div>
           </div>`;
   document.querySelector(".left").innerHTML = s;
+  const radio_btn = document.querySelectorAll(".radio-btn");
+  let radiochecked = "";
+  radio_btn.forEach((item, i) => {
+    item.addEventListener("click", (e) => {
+      if (item.checked && radiochecked !== i) {
+        radiochecked = i;
+        let span = item.nextElementSibling.textContent.trim(); // Lấy giá trị span
+        filteredProducts = mangproduct_radio(span, ProductArrBoth);
+      } else if (radiochecked >= 0 && i === radiochecked) {
+        item.checked = false;
+        radiochecked = -1;
+        filteredProducts = ProductArrBoth;
+      }
+      makeSP(1, sosptrongtrang, filteredProducts); // Hiển thị sản phẩm
+      makeselectpage(1, filteredProducts); //Tạo phân trang
+    });
+  });
 }
 
 const sale = 0.5;
@@ -593,26 +610,8 @@ function hienSPTheoFilter(item) {
 // //   });
 // // }
 
-const radio_btn = document.querySelectorAll(".radio-btn");
-radio_btn.forEach((item, i) => {
-  item.addEventListener("click", (e) => {
-    if (item.checked && radiochecked !== i) {
-      radiochecked = i;
-      let span = item.nextElementSibling.textContent.trim(); // Lấy giá trị span
-      filteredProducts = mangproduct_radio(span, ProductArrBoth);
-    } else if (radiochecked >= 0 && i === radiochecked) {
-      item.checked = false;
-      radiochecked = -1;
-      filteredProducts = ProductArrBoth;
-    }
-    makeSP(1, sosptrongtrang, filteredProducts); // Hiển thị sản phẩm
-    makeselectpage(1, filteredProducts); //Tạo phân trang
-  });
-});
-
-const sort = document.querySelector("#sort");
-sort.addEventListener("change", () => {
-  let choice = parseInt(sort.value);
+function Sort(item) {
+  let choice = parseInt(item.value);
 
   // Sử dụng bản sao của mảng gốc để khôi phục khi cần
   let filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts));
@@ -631,7 +630,7 @@ sort.addEventListener("change", () => {
   // Hiển thị mảng sau khi sắp xếp hoặc khôi phục
   makeSP(1, sosptrongtrang, filteredProducts_copy);
   makeselectpage(1, filteredProducts_copy);
-});
+}
 
 //doi mau sac quan ao
 function clickC1(e) {
