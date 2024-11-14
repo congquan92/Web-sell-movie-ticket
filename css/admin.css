@@ -63,4 +63,71 @@
     border-right: 3px solid blue !important;
     color: blueviolet;
 }
+.qlsp{
+    padding: 10px;
+}
+.groupOption{
+    display: flex;
+    justify-content: center;
+}
+.groupOption select{
+    width: 25%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0,0.2);
+    border-radius: 10px;
+    margin-right: 10px;
+    outline: none;
+    border: none;
+    height: fit-content;
+    padding: 10px;
+}
+.box{
+    width: 30%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0,0.2); 
+    border-radius: 10px;
+}
+.contentBox{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.circle{
+    display: inline-block;
+   padding: 12px 14px;
+    background-color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.fa-plus{
+    color: white;
+}
+.fa-star{
+    padding: 20px;
+}
+.titleCol{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid;
+}
+#storage-body{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.list{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    border-bottom: 1px solid rgba(112, 112, 112, 0.3);
+   align-items: center;
+}
+.imgProduct{
+    height: 100%;
+    object-fit: contain;
+}
+
+   
 

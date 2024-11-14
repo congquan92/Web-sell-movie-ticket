@@ -322,16 +322,16 @@ img_improptu.forEach((img, index) => {
 //   });
 // }
 
-// // vinh sign up form
-// // let getRegisterButton = document.querySelector("#register-btn");
-// let getRegisterName = document.querySelector("#register-name");
-// let getRegisterEmail = document.querySelector("#register-email");
-// let getRegisterPassword = document.querySelector("#register-password");
-// let getRegisterPasswordRetype = document.querySelector(
-//   "#register-password-retype"
-// );
-// let getContainer = document.querySelector(".box-login");
-// let getAgreeTermsConditions = document.querySelector("#agreeTermsConditions");
+// vinh sign up form
+let getRegisterButton = document.querySelector("#register-btn");
+let getRegisterName = document.querySelector("#register-name");
+let getRegisterEmail = document.querySelector("#register-email");
+let getRegisterPassword = document.querySelector("#register-password");
+let getRegisterPasswordRetype = document.querySelector(
+  "#register-password-retype"
+);
+let getContainer = document.querySelector(".box-login");
+let getAgreeTermsConditions = document.querySelector("#agreeTermsConditions");
 
 // function checkEmail(str) {
 //   let idx = str.indexOf("@");
@@ -344,47 +344,47 @@ img_improptu.forEach((img, index) => {
 //   return true;
 // }
 
-// // getRegisterButton.addEventListener("click", (e) => {
-// // if (
-// //   getRegisterName.value.trim() === "" ||
-// //   getRegisterPassword.value.trim() === "" ||
-// //   getRegisterPasswordRetype.value.trim() === ""
-// // ) {
-// //   alert("Vui lòng nhập đầy đủ thông tin!");
-// //   return;
-// // } else if (
-// //   getRegisterEmail.value.trim() === "" ||
-// //   !getRegisterEmail.value.includes("@") ||
-// //   !checkEmail(getRegisterEmail.value)
-// // ) {
-// //   alert("Vui lòng nhập đúng email!");
-// //   return;
-// // } else if (getRegisterPasswordRetype.value !== getRegisterPassword.value) {
-// //   alert("Mật khẩu xác nhận không khớp!");
-// //   return;
-// // } else if (!getAgreeTermsConditions.checked) {
-// //   alert("Please agree terms and conditions");
-// //   return;
-// // } else {
-// //   let user = {
-// //     userID: "",
-// //     name: "",
-// //     email: "",
-// //     password: "",
-// //   };
-// //   user.name = getRegisterName.value;
-// //   user.email = getRegisterEmail.value;
-// //   user.password = getRegisterPassword.value;
-// //   logregBox.classList.remove("active");
-// //   // reset input fields
-// //   getRegisterName.value = "";
-// //   getRegisterEmail.value = "";
-// //   getRegisterPassword.value = "";
-// //   getRegisterPasswordRetype.value = "";
-// //   getAgreeTermsConditions.checked = false;
-// //   saveUser(user);
-// // }
-// // });
+getRegisterButton.addEventListener("click", (e) => {
+  if (
+    getRegisterName.value.trim() === "" ||
+    getRegisterPassword.value.trim() === "" ||
+    getRegisterPasswordRetype.value.trim() === ""
+  ) {
+    alert("Vui lòng nhập đầy đủ thông tin!");
+    return;
+  } else if (
+    getRegisterEmail.value.trim() === "" ||
+    !getRegisterEmail.value.includes("@") ||
+    !checkEmail(getRegisterEmail.value)
+  ) {
+    alert("Vui lòng nhập đúng email!");
+    return;
+  } else if (getRegisterPasswordRetype.value !== getRegisterPassword.value) {
+    alert("Mật khẩu xác nhận không khớp!");
+    return;
+  } else if (!getAgreeTermsConditions.checked) {
+    alert("Please agree terms and conditions");
+    return;
+  } else {
+    let user = {
+      userID: "",
+      name: "",
+      email: "",
+      password: "",
+    };
+    user.name = getRegisterName.value;
+    user.email = getRegisterEmail.value;
+    user.password = getRegisterPassword.value;
+    logregBox.classList.remove("active");
+    // reset input fields
+    getRegisterName.value = "";
+    getRegisterEmail.value = "";
+    getRegisterPassword.value = "";
+    getRegisterPasswordRetype.value = "";
+    getAgreeTermsConditions.checked = false;
+    saveUser(user);
+  }
+});
 
 // // lưu user vào localStorage khi ấn sign-up button
 
@@ -414,84 +414,44 @@ img_improptu.forEach((img, index) => {
 //   return null;
 // }
 
-// // vinh sign in form
-// // let getSignInButton = document.querySelector("#sign-in-button");
-// let getEmailSignIn = document.querySelector("#Email");
-// let getPasswordSignIn = document.querySelector("#Password");
-// // // account đang đăng nhập
-// let currentUser = {
-//   userID: "",
-//   name: "",
-//   email: "",
-//   password: "",
-// };
-// function signinaccount() {
-//   if (
-//     getEmailSignIn.value.trim() === "" ||
-//     getPasswordSignIn.value.trim() === ""
-//   ) {
-//     alert("Vui lòng nhập đầy đủ thông tin!");
-//     return;
-//   } else if (
-//     getEmailSignIn.value.trim() === "" ||
-//     !getEmailSignIn.value.includes("@") ||
-//     !checkEmail(getEmailSignIn.value)
-//   ) {
-//     alert("Vui lòng nhập đúng email");
-//     return;
-//   }
-//   let user = findUserByEmail(getEmailSignIn.value);
-//   if (user !== null && user.password === getPasswordSignIn.value) {
-//     currentUser.email = user.email;
-//     currentUser.password = user.password;
-//     currentUser.name = user.name;
-//     currentUser.userID = user.userID;
-//   } else {
-//     alert("Email hoặc mật khẩu không đúng!");
-//     return;
-//   }
-// }
-// function signupaccount() {
-//   if (
-//     getRegisterName.value.trim() === "" ||
-//     getRegisterPassword.value.trim() === "" ||
-//     getRegisterPasswordRetype.value.trim() === ""
-//   ) {
-//     alert("Vui lòng nhập đầy đủ thông tin!");
-//     return;
-//   } else if (
-//     getRegisterEmail.value.trim() === "" ||
-//     !getRegisterEmail.value.includes("@") ||
-//     !checkEmail(getRegisterEmail.value)
-//   ) {
-//     alert("Vui lòng nhập đúng email!");
-//     return;
-//   } else if (getRegisterPasswordRetype.value !== getRegisterPassword.value) {
-//     alert("Mật khẩu xác nhận không khớp!");
-//     return;
-//   } else if (!getAgreeTermsConditions.checked) {
-//     alert("Please agree terms and conditions");
-//     return;
-//   } else {
-//     let user = {
-//       userID: "",
-//       name: "",
-//       email: "",
-//       password: "",
-//     };
-//     user.name = getRegisterName.value;
-//     user.email = getRegisterEmail.value;
-//     user.password = getRegisterPassword.value;
-//     logregBox.classList.remove("active");
-//     // reset input fields
-//     getRegisterName.value = "";
-//     getRegisterEmail.value = "";
-//     getRegisterPassword.value = "";
-//     getRegisterPasswordRetype.value = "";
-//     getAgreeTermsConditions.checked = false;
-//     saveUser(user);
-//   }
-// }
+// vinh sign in form
+let getSignInButton = document.querySelector("#sign-in-button");
+let getEmailSignIn = document.querySelector("#Email");
+let getPasswordSignIn = document.querySelector("#Password");
+// account đang đăng nhập
+let currentUser = {
+  userID: "",
+  name: "",
+  email: "",
+  password: "",
+};
+
+getSignInButton.addEventListener("click", (e) => {
+  if (
+    getEmailSignIn.value.trim() === "" ||
+    getPasswordSignIn.value.trim() === ""
+  ) {
+    alert("Vui lòng nhập đầy đủ thông tin!");
+    return;
+  } else if (
+    getEmailSignIn.value.trim() === "" ||
+    !getEmailSignIn.value.includes("@") ||
+    !checkEmail(getEmailSignIn.value)
+  ) {
+    alert("Vui lòng nhập đúng email");
+    return;
+  }
+  let user = findUserByEmail(getEmailSignIn.value);
+  if (user !== null && user.password === getPasswordSignIn.value) {
+    currentUser.email = user.email;
+    currentUser.password = user.password;
+    currentUser.name = user.name;
+    currentUser.userID = user.userID;
+  } else {
+    alert("Email hoặc mật khẩu không đúng!");
+    return;
+  }
+});
 
 //contact
 const contact = document.querySelectorAll(".contact");

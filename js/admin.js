@@ -24,9 +24,6 @@ QLSP.addEventListener('click',()=>{
     QLSP.classList.add('act');
     QLND.classList.remove('act');
 
-    
-
-
 })
 QLND.addEventListener('click',()=>{
     QLTK.classList.remove('act');
