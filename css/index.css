@@ -58,7 +58,6 @@ body {
   align-content: center;
   justify-content: space-between;
   padding: 10px 10px;
-  background: 0pc;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
   background-color: white;
   z-index: 999;
@@ -452,7 +451,7 @@ body {
 .content-trend-item {
   position: relative;
   width: calc(25% - 10px);
-  height: 400px;
+  height: 450px;
   object-fit: cover;
   margin: 5px;
 }
