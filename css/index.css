@@ -11,6 +11,37 @@ ul {
 body {
   position: relative;
 }
+#loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #979ea3;
+  opacity: 0.7;
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  background-color: rgb(255, 255, 255);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: 500px;
+  margin-right: 5px;
+  display: inline-block;
+  animation: effect 1s ease-in-out infinite alternate;
+}
+
+@keyframes effect {
+  from {
+    transform: translateY(30px);
+    background-color: rgb(0, 0, 0);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 .backgroud-menu-respon {
   position: absolute;
   top: 0;
@@ -52,6 +83,7 @@ body {
 }
 .social-icons i {
   font-size: 20px;
+  color: white;
 }
 .social-icons i:hover {
   transform: scale(1.5);
@@ -300,26 +332,6 @@ body {
 }
 
 /* Policy */
-#privacy-policy {
-  display: none;
-}
-
-#FAQ-policy {
-  display: none;
-}
-
-#membership-card-policy {
-  display: none;
-}
-
-#exchange-card-policy {
-  display: none;
-}
-
-#ship-card-policy {
-  display: none;
-}
-
 .policy-content {
   line-height: 1.8;
   margin-left: 80px;
@@ -329,7 +341,6 @@ body {
   display: flex;
   background-color: #e6e6fa;
   height: 7vh;
-  display: none;
 }
 
 #policy-contact-h3 {
@@ -352,8 +363,8 @@ body {
 
 /* Footer */
 .footer {
+  background-color: rgb(27, 27, 27);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-  background-color: white;
   display: flex;
   justify-content: space-between;
   padding: 40px;
@@ -361,6 +372,7 @@ body {
 
 #footer-paragraph {
   line-height: 1.8;
+  color: white;
 }
 
 .location {
@@ -377,7 +389,9 @@ body {
 .footer-social-li {
   margin-right: 15px;
 }
-
+.footer-social-li a i {
+  color: white;
+}
 .footer-social-a {
   border: 2px solid black;
   border-radius: 50px;
@@ -387,10 +401,12 @@ body {
 #footer-policy-ul {
   line-height: 1.8;
 }
-
+#footer-policy-ul li {
+  color: white;
+}
 .footer-policy-a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .footer-policy-a:hover {
@@ -413,6 +429,7 @@ body {
 #left-footer h2,
 #right-footer h2 {
   margin-bottom: 5px;
+  color: white;
 }
 /* mid-content */
 .mid-content-info {
