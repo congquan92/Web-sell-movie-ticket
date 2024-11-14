@@ -1,11 +1,9 @@
 let ProductArrBoth = [
     {
       nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
-      img: "./img/products/p1-1.png",
+      img: "../img/products/p1-1.png",
       price: 370000,
-      nametag: "aothun#",
-      idproduct: "CAC1",
-      colorr1: "gray",
+      nametag: "aothun#",      colorr1: "gray",
       colorr2: "red",
       colorr3: "unset",
       img1: "./img/products/p1-1.png",
@@ -14,11 +12,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® | DORAEMON COLLAB TEE",
-      img: "./img/products/p2-1.png",
+      img: "../img/products/p2-1.png",
       price: 450000,
-      nametag: "aothun#",
-      idproduct: "CAC2",
-      colorr1: " rgb(235, 232, 226)",
+      nametag: "aothun#",      colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
       img1: "./img/products/p2-1.png",
@@ -27,11 +23,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® DINOSAUR TEE",
-      img: "./img/products/p3-1.jpg",
+      img: "../img/products/p3-1.jpg",
       price: 420000,
-      nametag: "aothun#",
-      idproduct: "CAC3",
-      colorr1: " rgb(235, 232, 226)",
+      nametag: "aothun#",      colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "blue",
       img1: "./img/products/p3-1.jpg",
@@ -40,11 +34,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® INSIDE OUT TEE",
-      img: "./img/products/p4-1.jpg",
+      img: "../img/products/p4-1.jpg",
       price: 390000,
-      nametag: "aothun#",
-      idproduct: "CAC4",
-      colorr1: " rgb(235, 232, 226)",
+      nametag: "aothun#",      colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
       img1: "./img/products/p4-1.jpg",
@@ -53,11 +45,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® LOVEYOU300K SPECIAL TEE",
-      img: "./img/products/p5-1.jpg",
+      img: "../img/products/p5-1.jpg",
       price: 300000,
-      nametag: "aothun#",
-      idproduct: "CAC5",
-      colorr1: " rgb(235, 232, 226)",
+      nametag: "aothun#",      colorr1: " rgb(235, 232, 226)",
       colorr2: "unset",
       colorr3: "unset",
       img1: "./img/products/p5-1.jpg",
@@ -66,11 +56,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® FUNNY CROCODILE TEE",
-      img: "./img/products/p6-1.jpg",
+      img: "../img/products/p6-1.jpg",
       price: 390000,
-      nametag: "aothun#",
-      idproduct: "CAC6",
-      colorr1: "blue",
+      nametag: "aothun#",      colorr1: "blue",
       colorr2: "black",
       colorr3: "unset",
       img1: "./img/products/p6-1.jpg",
@@ -79,11 +67,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® PUNCH VARSITY",
-      img: "./img/products/p7-1.jpg",
+      img: "../img/products/p7-1.jpg",
       price: 890000,
-      nametag: "aokhoac#",
-      idproduct: "CAC7",
-      colorr1: "brown",
+      nametag: "aokhoac#",      colorr1: "brown",
       colorr2: "black",
       colorr3: "unset",
       img1: "./img/products/p7-1.jpg",
@@ -92,11 +78,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® SELFLOVE BOXY TEE",
-      img: "./img/products/p8-1.jpg",
+      img: "../img/products/p8-1.jpg",
       price: 380000,
-      nametag: "aothun#",
-      idproduct: "CAC8",
-      colorr1: " rgb(235, 232, 226)",
+      nametag: "aothun#",      colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
       img1: "./img/products/p8-1.jpg",
@@ -105,10 +89,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® | DORAEMON MINI CAT Polo",
-      img: "./img/products/p9-1.jpg",
+      img: "../img/products/p9-1.jpg",
       price: 405000,
       nametag: "polo#",
-      idproduct: "CAC9", 
       colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
@@ -118,10 +101,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® MINI POPULAR Polo",
-      img: "./img/products/p10-1.jpg",
+      img: "../img/products/p10-1.jpg",
       price: 370000,
-      nametag: "polo#",
-      idproduct: "CAC10", 
+      nametag: "polo#", 
       colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
@@ -131,10 +113,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® STRIPE Polo",
-      img: "./img/products/p11-1.jpg",
+      img: "../img/products/p11-1.jpg",
       price: 420000,
-      nametag: "polo#",
-      idproduct: "CAC11", 
+      nametag: "polo#", 
       colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
@@ -144,10 +125,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® CINEMA SHIRT",
-      img: "./img/products/p12-1.jpg",
+      img: "../img/products/p12-1.jpg",
       price: 420000,
-      nametag: "somi#",
-      idproduct: "CAC12", 
+      nametag: "somi#", 
       colorr1: "brown",
       colorr2: "black",
       colorr3: "unset",
@@ -157,10 +137,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® CITIES SHIRT",
-      img: "./img/products/p13-1.jpg",
+      img: "../img/products/p13-1.jpg",
       price: 420000,
-      nametag: "somi#",
-      idproduct: "CAC13", 
+      nametag: "somi#", 
       colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
@@ -170,10 +149,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® | DORAEMON COLLAB ZIPPER Hoodie",
-      img: "./img/products/p14-1.jpg",
+      img: "../img/products/p14-1.jpg",
       price: 645000,
       nametag: "hoodie#",
-      idproduct: "CAC14",
       colorr1: " rgb(235, 232, 226)",
       colorr2: "gray",
       colorr3: "unset",
@@ -183,10 +161,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® POPULAR LOGO 2.0 Hoodie",
-      img: "./img/products/p15-1.jpg",
+      img: "../img/products/p15-1.jpg",
       price: 590000,
       nametag: "hoodie#",
-      idproduct: "CAC15",
       colorr1: "yellow",
       colorr2: "gray",
       colorr3: "black",
@@ -196,10 +173,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® MINI LOGO ZIPPER Hoodie",
-      img: "./img/products/p16-1.jpg",
+      img: "../img/products/p16-1.jpg",
       price: 620000,
       nametag: "hoodie#",
-      idproduct: "CAC16",
       colorr1: " rgb(235, 232, 226)",
       colorr2: "gray",
       colorr3: "unset",
@@ -209,10 +185,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® | DORAEMON COLLAB Hoodie",
-      img: "./img/products/p17-1.jpg",
+      img: "../img/products/p17-1.jpg",
       price: 620000,
       nametag: "hoodie#",
-      idproduct: "CAC17",
       colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
@@ -222,10 +197,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® BASIC Sweater",
-      img: "./img/products/p18-1.jpg",
+      img: "../img/products/p18-1.jpg",
       price: 490000,
       nametag: "sweater#",
-      idproduct: "CAC18",
       colorr1: "gray",
       colorr2: "red",
       colorr3: "unset",
@@ -235,10 +209,9 @@ let ProductArrBoth = [
     },
     {
       nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-      img: "./img/products/p19-1.jpg",
+      img: "../img/products/p19-1.jpg",
       price: 490000,
       nametag: "sweater#",
-      idproduct: "CAC19",
       colorr1: "brown",
       colorr2: "black",
       colorr3: "unset",
@@ -255,13 +228,37 @@ let ProductArrBoth = [
     { typeid: "sweater#", typename: "Sweater" },
     { typeid: "aokhoac#", typename: "Áo khoác" },
   ];
+
+
   //Hàm tạo id SP
   function makeIDproduct() {
     for (let i = 0; i < ProductArrBoth.length; i++) {
-      ProductArrBoth[i].idproduct =
-        ProductArrBoth[i].nametag + ProductArrBoth[0].nameSP;
+      ProductArrBoth[i].idproduct = ProductArrBoth[i].nametag + (i+1);
     }
   }
+
+//-------------------sp--------------
+  //ham tao list san pham
+  function listSP(){
+    let s =''
+    ProductArrBoth.forEach(index =>{
+      makeIDproduct();
+      const Price_pare = index.price.toLocaleString("vi-VN", {style: "currency", currency: "VND", });
+      s+=`<div id="storage-body">
+                 <div class="list">
+                            <span class="idProduct">${index.idproduct}</span>
+                            <img src="${index.img}" class="imgProduct" alt="Ảnh">
+                            <span class="nameProduct">${index.nameSP}</span>
+                            <span class="colorProduct">XANH LÁ</span>
+                            <span class="countProduct">12</span>
+                            <span class="priceProduct">${Price_pare}</span>
+                            <span class="statusProduct" style="color:#32CD32">CÒN HÀNG</span>
+                  </div>
+            </div>`
+    })
+    return s;
+  }
+  // ----------------------------------
   
 document.addEventListener("DOMContentLoaded", () => {
     const QLTK = document.querySelector('.b1');
@@ -321,7 +318,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     <span class="priceProduct">Đơn giá</span>
                     <span class="statusProduct">Trạng thái</span>
                 </div>`;
-      document.querySelector('.page-right').innerHTML = s; // Thêm nội dung vào phần tử .page-right
+      document.querySelector('.page-right').innerHTML = s +listSP(); 
+
     });
 
     QLND.addEventListener('click', () => {
