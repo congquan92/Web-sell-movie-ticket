@@ -5,12 +5,6 @@ const logonav = document.querySelector(".logo");
 const loginLink = document.querySelector(".login-link");
 const home = document.querySelectorAll(".home"); //nut Home tren nav
 const shop = document.querySelectorAll(".shop");
-const address_btn = document.querySelector(".address-btn");
-const content_addressbtn = document.querySelector("#footer-paragraph");
-const social_btn = document.querySelector(".social-btn");
-const content_socialbtn = document.querySelector("#footer-social-ul");
-const policy_btn = document.querySelector(".policy-btn");
-const content_policybtn = document.querySelector("#footer-policy-ul");
 function formregister() {
   logregBox.classList.add("active");
 }
@@ -43,7 +37,7 @@ login.forEach(function (e) {
         </div>
         <div class="logreg-box">
           <div class="form-box login">
-            <form action="#">
+            <form>
               <h2>Sign In</h2>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-envelope"></i></span>
@@ -51,9 +45,7 @@ login.forEach(function (e) {
                 <label>Email</label>
               </div>
               <div class="input-box">
-                <span class="icon"
-                  ><i class="fa-regular fa-eye-slash togglePassword"></i
-                ></span>
+                <span class="icon"><i class="bx bxs-lock-alt"></i></span>
                 <input type="password" required id="Password" />
                 <label for="Password">Password</label>
               </div>
@@ -61,17 +53,17 @@ login.forEach(function (e) {
                 <label for=""><input type="checkbox" /> Remember me</label>
                 <a href="#">Forgot password</a>
               </div>
-              <button type="submit" class="btn" onclick="signinaccount();">Sign In</button>
+              <button type="submit" class="btn" id="sign-in-button" onclick="signInButton();">Sign In</button>
               <div class="login-register">
                 <p>
                   Don't have an account?
-                  <a href="#" class="register-link" onclick="formregister();">Sign up</a>
+                  <span class="register-link" onclick="formregister();">Sign up</span>
                 </p>
               </div>
             </form>
           </div>
           <div class="form-box register">
-            <form action="#">
+            <form>
               <h2>Sign Up</h2>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i></span>
@@ -85,7 +77,7 @@ login.forEach(function (e) {
               </div>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i></span>
-                <input type="password" required id="register-password" />
+                <input type="password" required id="register-password"/>
                 <label>Password</label>
               </div>
               <div class="input-box">
@@ -95,15 +87,15 @@ login.forEach(function (e) {
               </div>
               <div class="remember-forgot">
                 <label for=""
-                  ><input type="checkbox" id="agreeTermsConditions" /> I agree to the terms &
+                  ><input type="checkbox" id="agreeTermsConditions"/> I agree to the terms &
                   conditions</label
                 >
               </div>
-              <button type="submit" class="btn" onclick="signupaccount();">Sign Up</button>
+              <button type="submit" class="btn" id="register-btn" onclick="registerButton();">Sign Up</button>
               <div class="login-register">
                 <p>
                   Already have an account?
-                  <a href="#" class="login-link" onclick="formlogin();">Sign In</a>
+                  <span class="login-link" onclick="formlogin();">Sign In</span>
                 </p>
               </div>
             </form>
@@ -147,7 +139,8 @@ backgroud_menu_respon.addEventListener("click", () => {
 logonav.addEventListener("click", () => {
   window.location.href = "index.html";
 });
-document.querySelector(".footer").innerHTML = `<div id="left-footer">
+function loadfooter() {
+  document.querySelector(".footer").innerHTML = `<div id="left-footer">
         <h2 class="address-btn">
           Hệ Thống Cửa Hàng <span><i class="bx bx-chevron-down"></i></span>
         </h2>
@@ -241,34 +234,47 @@ document.querySelector(".footer").innerHTML = `<div id="left-footer">
           </li>
         </ul>
       </div>`;
-document.getElementById("bottom-footer").innerHTML = `<p id="bottom-paragraph">
+  document.getElementById(
+    "bottom-footer"
+  ).innerHTML = `<p id="bottom-paragraph">
         Copyright © 2023 Shop Studio. Powered by ManUtd
       </p>`;
-//  footer
-// let flag_address_btn = 0;
-// address_btn.addEventListener("click", () => {
-//   if (flag_address_btn == 0) {
-//     address_btn.classList.add("active");
-//     content_addressbtn.classList.add("active");
-//     flag_address_btn = 1;
-//   } else {
-//     address_btn.classList.remove("active");
-//     content_addressbtn.classList.remove("active");
-//     flag_address_btn = 0;
-//   }
-// });
-// let flag_social_btn = 0;
-// social_btn.addEventListener("click", () => {
-//   if (flag_social_btn == 0) {
-//     social_btn.classList.add("active");
-//     content_socialbtn.classList.add("active");
-//     flag_social_btn = 1;
-//   } else {
-//     social_btn.classList.remove("active");
-//     content_socialbtn.classList.remove("active");
-//     flag_social_btn = 0;
-//   }
-// });
+  const address_btn = document.querySelector(".address-btn");
+  const social_btn = document.querySelector(".social-btn");
+  const content_addressbtn = document.querySelector("#footer-paragraph");
+  const content_socialbtn = document.querySelector("#footer-social-ul");
+  const policy_btn = document.querySelector(".policy-btn");
+  const content_policybtn = document.querySelector("#footer-policy-ul");
+  let flag_address_btn = 0;
+  address_btn.addEventListener("click", () => {
+    if (flag_address_btn == 0) {
+      address_btn.classList.add("active");
+      content_addressbtn.classList.add("active");
+      flag_address_btn = 1;
+    } else {
+      address_btn.classList.remove("active");
+      content_addressbtn.classList.remove("active");
+      flag_address_btn = 0;
+    }
+  });
+  let flag_social_btn = 0;
+  social_btn.addEventListener("click", () => {
+    if (flag_social_btn == 0) {
+      social_btn.classList.add("active");
+      content_socialbtn.classList.add("active");
+      flag_social_btn = 1;
+    } else {
+      social_btn.classList.remove("active");
+      content_socialbtn.classList.remove("active");
+      flag_social_btn = 0;
+    }
+  });
+}
+window.onload = function () {
+  loadfooter();
+};
+// footer
+
 // let flag_policy_btn = 0;
 // policy_btn.addEventListener("click", () => {
 //   if (flag_policy_btn == 0) {
@@ -294,63 +300,104 @@ img_improptu.forEach((img, index) => {
     img.src = `./img/products/body_${index + 1}.jpg`;
   });
 });
-// //vinh policy
-// let getPrivacyPolicy = document.querySelector("#privacy-policy");
-// let getFAQPolicy = document.querySelector("#FAQ-policy");
-// let getMembershipCardPolicy = document.querySelector("#membership-card-policy");
-// let getExchangeCardPolicy = document.querySelector("#exchange-card-policy");
-// let getShipCardPolicy = document.querySelector("#ship-card-policy");
-// let getPolicyContact = document.querySelector("#policy-contact");
-// let getPolices = document.getElementsByClassName("footer-policy-a");
-// let infoPolices = [
-//   getPrivacyPolicy,
-//   getFAQPolicy,
-//   getMembershipCardPolicy,
-//   getExchangeCardPolicy,
-//   getShipCardPolicy,
-// ];
+//vinh policy
+let getPrivacyPolicy = document.querySelector("#privacy-policy");
+let getFAQPolicy = document.querySelector("#FAQ-policy");
+let getMembershipCardPolicy = document.querySelector("#membership-card-policy");
+let getExchangeCardPolicy = document.querySelector("#exchange-card-policy");
+let getShipCardPolicy = document.querySelector("#ship-card-policy");
+let getPolicyContact = document.querySelector("#policy-contact");
+let getPolices = document.getElementsByClassName("footer-policy-a");
+let infoPolices = [
+  getPrivacyPolicy,
+  getFAQPolicy,
+  getMembershipCardPolicy,
+  getExchangeCardPolicy,
+  getShipCardPolicy,
+];
 
-// for (let i = 0; i < getPolices.length; i++) {
-//   getPolices[i].addEventListener("click", (e) => {
-//     e.preventDefault();
-//     midcontent.style.display = "none";
-//     infoPolices.forEach((policy) => {
-//       policy.style.display = "none";
-//     });
-//     infoPolices[i].style.display = "block";
-//     getPolicyContact.style.display = "flex";
-//   });
-// }
+for (let i = 0; i < getPolices.length; i++) {
+  getPolices[i].addEventListener("click", (e) => {
+    e.preventDefault();
+    midcontent.style.display = "none";
+    infoPolices.forEach((policy) => {
+      policy.style.display = "none";
+    });
+    infoPolices[i].style.display = "block";
+    getPolicyContact.style.display = "flex";
+  });
+}
 
 // vinh sign up form
-let getRegisterButton = document.querySelector("#register-btn");
-let getRegisterName = document.querySelector("#register-name");
-let getRegisterEmail = document.querySelector("#register-email");
-let getRegisterPassword = document.querySelector("#register-password");
-let getRegisterPasswordRetype = document.querySelector(
-  "#register-password-retype"
-);
+let getRegisterButton = "";
+let getRegisterName = "";
+let getRegisterEmail = "";
+let getRegisterPassword = "";
+let getRegisterPasswordRetype = "";
+let getAgreeTermsConditions = "";
 let getContainer = document.querySelector(".box-login");
-let getAgreeTermsConditions = document.querySelector("#agreeTermsConditions");
 
-// function checkEmail(str) {
-//   let idx = str.indexOf("@");
-//   let idxWhiteSpace = str.indexOf(" ");
-//   if (idx === -1 || idxWhiteSpace !== -1) {
-//     return false;
-//   } else if (str.substring(idx) !== "@gmail.com") {
-//     return false;
-//   }
-//   return true;
-// }
+function checkEmail(str) {
+  let idx = str.indexOf("@");
+  let idxWhiteSpace = str.indexOf(" ");
+  if (idx === -1 || idxWhiteSpace !== -1) {
+    return false;
+  } else if (str.substring(idx) !== "@gmail.com") {
+    return false;
+  }
+  return true;
+}
 
-getRegisterButton.addEventListener("click", (e) => {
-  if (
-    getRegisterName.value.trim() === "" ||
-    getRegisterPassword.value.trim() === "" ||
-    getRegisterPasswordRetype.value.trim() === ""
-  ) {
-    alert("Vui lòng nhập đầy đủ thông tin!");
+function checkEmailLocalStorage(target) {
+  for (let i = 0; i < localStorage.length; i++) {
+    let user = JSON.parse(localStorage.getItem(i + 1));
+    if (user !== null && user.email === target) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function findUserByEmail(target) {
+  for (let i = 0; i < localStorage.length; i++) {
+    let user = JSON.parse(localStorage.getItem(i + 1));
+    // khi user = null -> truy cập email của null -> lỗi
+    if (user !== null && user.email === target) {
+      return user;
+    }
+  }
+  return null;
+}
+
+function getCurrentID() {
+  let nextID = parseInt(localStorage.getItem("currentID"));
+  if (nextID) {
+    localStorage.setItem("currentID", ++nextID);
+    return parseInt(localStorage.getItem("currentID"));
+  } else {
+    localStorage.setItem("currentID", 1);
+    return parseInt(localStorage.getItem("currentID"));
+  }
+}
+
+// lưu user vào localStorage khi ấn sign-up button
+function saveUser(user) {
+  user.userID = getCurrentID();
+  localStorage.setItem(user.userID, JSON.stringify(user));
+}
+
+function registerButton() {
+  getRegisterButton = document.querySelector("#register-btn");
+  getRegisterName = document.querySelector("#register-name");
+  getRegisterEmail = document.querySelector("#register-email");
+  getRegisterPassword = document.querySelector("#register-password");
+  getRegisterPasswordRetype = document.querySelector(
+    "#register-password-retype"
+  );
+  getAgreeTermsConditions = document.querySelector("#agreeTermsConditions");
+  if (getRegisterName.value.trim() === "") {
+    alert("Vui lòng nhập tên đăng ký!");
+    getRegisterName.focus();
     return;
   } else if (
     getRegisterEmail.value.trim() === "" ||
@@ -358,9 +405,23 @@ getRegisterButton.addEventListener("click", (e) => {
     !checkEmail(getRegisterEmail.value)
   ) {
     alert("Vui lòng nhập đúng email!");
+    getRegisterEmail.focus();
+    return;
+  } else if (!checkEmailLocalStorage(getRegisterEmail.value)) {
+    alert("Email này đã tồn tại!");
+    getRegisterEmail.focus();
+    return;
+  } else if (getRegisterPassword.value.trim() === "") {
+    alert("Vui lòng nhập mật khẩu!");
+    getRegisterPassword.focus();
+    return;
+  } else if (getRegisterPasswordRetype.value.trim() === "") {
+    alert("Vui lòng nhập xác nhận mật khẩu!");
+    getRegisterPasswordRetype.focus();
     return;
   } else if (getRegisterPasswordRetype.value !== getRegisterPassword.value) {
     alert("Mật khẩu xác nhận không khớp!");
+    getRegisterPasswordRetype.focus();
     return;
   } else if (!getAgreeTermsConditions.checked) {
     alert("Please agree terms and conditions");
@@ -384,40 +445,12 @@ getRegisterButton.addEventListener("click", (e) => {
     getAgreeTermsConditions.checked = false;
     saveUser(user);
   }
-});
-
-// // lưu user vào localStorage khi ấn sign-up button
-
-// function getCurrentID() {
-//   let nextID = parseInt(localStorage.getItem("currentID"));
-//   if (nextID) {
-//     localStorage.setItem("currentID", ++nextID);
-//     return parseInt(localStorage.getItem("currentID"));
-//   } else {
-//     localStorage.setItem("currentID", 1);
-//     return parseInt(localStorage.getItem("currentID"));
-//   }
-// }
-
-// function saveUser(user) {
-//   user.userID = getCurrentID();
-//   localStorage.setItem(user.userID, JSON.stringify(user));
-// }
-
-// function findUserByEmail(target) {
-//   for (let i = 0; i < localStorage.length; i++) {
-//     let user = JSON.parse(localStorage.getItem(i + 1));
-//     if (user.email === target) {
-//       return user;
-//     }
-//   }
-//   return null;
-// }
+}
 
 // vinh sign in form
-let getSignInButton = document.querySelector("#sign-in-button");
-let getEmailSignIn = document.querySelector("#Email");
-let getPasswordSignIn = document.querySelector("#Password");
+let getSignInButton = "";
+let getEmailSignIn = "";
+let getPasswordSignIn = "";
 // account đang đăng nhập
 let currentUser = {
   userID: "",
@@ -426,19 +459,21 @@ let currentUser = {
   password: "",
 };
 
-getSignInButton.addEventListener("click", (e) => {
+function signInButton() {
+  getSignInButton = document.querySelector("#sign-in-button");
+  getEmailSignIn = document.querySelector("#Email");
+  getPasswordSignIn = document.querySelector("#Password");
   if (
-    getEmailSignIn.value.trim() === "" ||
-    getPasswordSignIn.value.trim() === ""
-  ) {
-    alert("Vui lòng nhập đầy đủ thông tin!");
-    return;
-  } else if (
     getEmailSignIn.value.trim() === "" ||
     !getEmailSignIn.value.includes("@") ||
     !checkEmail(getEmailSignIn.value)
   ) {
     alert("Vui lòng nhập đúng email");
+    getEmailSignIn.focus();
+    return;
+  } else if (getPasswordSignIn.value.trim() === "") {
+    alert("Vui lòng nhập mật khẩu");
+    getPasswordSignIn.focus();
     return;
   }
   let user = findUserByEmail(getEmailSignIn.value);
@@ -447,12 +482,15 @@ getSignInButton.addEventListener("click", (e) => {
     currentUser.password = user.password;
     currentUser.name = user.name;
     currentUser.userID = user.userID;
+    console.log(currentUser);
   } else {
     alert("Email hoặc mật khẩu không đúng!");
     return;
   }
-});
-
+  // reset input fields
+  getEmailSignIn.value = "";
+  getPasswordSignIn.value = "";
+}
 //contact
 const contact = document.querySelectorAll(".contact");
 contact.forEach(function (e) {

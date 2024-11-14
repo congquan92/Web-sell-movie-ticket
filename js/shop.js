@@ -30,6 +30,7 @@ let ProductArrBoth = [
     img: "./img/products/p3-1.jpg",
     price: 420000,
     nametag: "aothun#",
+    idproduct: "",
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "blue",
@@ -42,6 +43,7 @@ let ProductArrBoth = [
     img: "./img/products/p4-1.jpg",
     price: 390000,
     nametag: "aothun#",
+    idproduct: "",
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
@@ -56,6 +58,7 @@ let ProductArrBoth = [
     nametag: "aothun#",
     colorr1: " rgb(235, 232, 226)",
     colorr2: "unset",
+    idproduct: "",
     colorr3: "unset",
     img1: "./img/products/p5-1.jpg",
     img2: "./img/products/p5-1.jpg",
@@ -67,6 +70,7 @@ let ProductArrBoth = [
     price: 390000,
     nametag: "aothun#",
     colorr1: "blue",
+    idproduct: "",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p6-1.jpg",
@@ -78,6 +82,7 @@ let ProductArrBoth = [
     img: "./img/products/p7-1.jpg",
     price: 890000,
     nametag: "aokhoac#",
+    idproduct: "",
     colorr1: "brown",
     colorr2: "black",
     colorr3: "unset",
@@ -89,6 +94,7 @@ let ProductArrBoth = [
     nameSP: "LEVENTS® SELFLOVE BOXY TEE",
     img: "./img/products/p8-1.jpg",
     price: 380000,
+    idproduct: "",
     nametag: "aothun#",
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
@@ -102,6 +108,7 @@ let ProductArrBoth = [
     img: "./img/products/p9-1.jpg",
     price: 405000,
     nametag: "polo#",
+    idproduct: "",
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
@@ -114,6 +121,7 @@ let ProductArrBoth = [
     img: "./img/products/p10-1.jpg",
     price: 370000,
     nametag: "polo#",
+    idproduct: "",
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
@@ -125,6 +133,7 @@ let ProductArrBoth = [
     nameSP: "LEVENTS® STRIPE Polo",
     img: "./img/products/p11-1.jpg",
     price: 420000,
+    idproduct: "",
     nametag: "polo#",
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
@@ -138,6 +147,7 @@ let ProductArrBoth = [
     img: "./img/products/p12-1.jpg",
     price: 420000,
     nametag: "somi#",
+    idproduct: "",
     colorr1: "brown",
     colorr2: "black",
     colorr3: "unset",
@@ -150,6 +160,7 @@ let ProductArrBoth = [
     img: "./img/products/p13-1.jpg",
     price: 420000,
     nametag: "somi#",
+    idproduct: "",
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
@@ -162,6 +173,7 @@ let ProductArrBoth = [
     img: "./img/products/p14-1.jpg",
     price: 645000,
     nametag: "hoodie#",
+    idproduct: "",
     colorr1: " rgb(235, 232, 226)",
     colorr2: "gray",
     colorr3: "unset",
@@ -176,6 +188,7 @@ let ProductArrBoth = [
     nametag: "hoodie#",
     colorr1: "yellow",
     colorr2: "gray",
+    idproduct: "",
     colorr3: "black",
     img1: "./img/products/p15-1.jpg",
     img2: "./img/products/p15-2.jpg",
@@ -189,6 +202,7 @@ let ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "gray",
     colorr3: "unset",
+    idproduct: "",
     img1: "./img/products/p16-1.jpg",
     img2: "./img/products/p16-2.jpg",
     img3: "./img/products/p16-2.jpg",
@@ -201,6 +215,7 @@ let ProductArrBoth = [
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
+    idproduct: "",
     img1: "./img/products/p17-1.jpg",
     img2: "./img/products/p17-2.jpg",
     img3: "./img/products/p17-2.jpg",
@@ -210,6 +225,7 @@ let ProductArrBoth = [
     img: "./img/products/p18-1.jpg",
     price: 490000,
     nametag: "sweater#",
+    idproduct: "",
     colorr1: "gray",
     colorr2: "red",
     colorr3: "unset",
@@ -223,6 +239,20 @@ let ProductArrBoth = [
     price: 490000,
     nametag: "sweater#",
     colorr1: "brown",
+    idproduct: "",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p19-1.jpg",
+    img2: "./img/products/p19-2.jpg",
+    img3: "./img/products/p19-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
+    img: "./img/products/p19-1sa.jpg",
+    price: 490000,
+    nametag: "sweater#",
+    colorr1: "brown",
+    idproduct: "",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p19-1.jpg",
@@ -236,6 +266,7 @@ let ProductArrBoth = [
     nametag: "sweater#",
     colorr1: "brown",
     colorr2: "black",
+    idproduct: "",
     colorr3: "unset",
     img1: "./img/products/p19-1.jpg",
     img2: "./img/products/p19-2.jpg",
@@ -249,6 +280,7 @@ let ProductArrBoth = [
     colorr1: "brown",
     colorr2: "black",
     colorr3: "unset",
+    idproduct: "",
     img1: "./img/products/p19-1.jpg",
     img2: "./img/products/p19-2.jpg",
     img3: "./img/products/p19-2.jpg",
@@ -259,6 +291,59 @@ let ProductArrBoth = [
     price: 490000,
     nametag: "sweater#",
     colorr1: "brown",
+    idproduct: "",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p19-1.jpg",
+    img2: "./img/products/p19-2.jpg",
+    img3: "./img/products/p19-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
+    img: "./img/products/p19-1sa.jpg",
+    price: 490000,
+    nametag: "sweater#",
+    colorr1: "brown",
+    idproduct: "",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p19-1.jpg",
+    img2: "./img/products/p19-2.jpg",
+    img3: "./img/products/p19-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
+    img: "./img/products/p19-1sa.jpg",
+    price: 490000,
+    nametag: "sweater#",
+    colorr1: "brown",
+    idproduct: "",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p19-1.jpg",
+    img2: "./img/products/p19-2.jpg",
+    img3: "./img/products/p19-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
+    img: "./img/products/p19-1sa.jpg",
+    price: 490000,
+    nametag: "sweater#",
+    colorr1: "brown",
+    idproduct: "",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p19-1.jpg",
+    img2: "./img/products/p19-2.jpg",
+    img3: "./img/products/p19-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
+    img: "./img/products/p19-1sa.jpg",
+    price: 490000,
+    nametag: "sweater#",
+    colorr1: "brown",
+    idproduct: "",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p19-1.jpg",
@@ -272,66 +357,7 @@ let ProductArrBoth = [
     nametag: "sweater#",
     colorr1: "brown",
     colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
+    idproduct: "",
     colorr3: "unset",
     img1: "./img/products/p19-1.jpg",
     img2: "./img/products/p19-2.jpg",
@@ -350,7 +376,7 @@ let typeproducts = [
 function makeIDproduct() {
   for (let i = 0; i < ProductArrBoth.length; i++) {
     ProductArrBoth[i].idproduct =
-      ProductArrBoth[i].nametag + ProductArrBoth[0].nameSP;
+      ProductArrBoth[i].nametag + ProductArrBoth[i].nameSP;
   }
 }
 function makeFilter() {
@@ -440,9 +466,9 @@ function makeSP(trang, sosptrongtrang, arr) {
           <p style="font-style: italic;">Giá khuyến mãi: <span style="font-size: larger; font-style: italic;">${salePrice}</span></p>
         </div>
         <div class="buy"><i class="fa-solid fa-wallet"></i>Mua Ngay</div>
-        <a href="#" style="text-decoration: none; color: black;" onclick='loadSingleProduct(${JSON.stringify(
+        <div style="text-decoration: none; color: black;" onclick='loadSingleProduct(${JSON.stringify(
           arr[i]
-        )})' class="buy"><i class="fa-solid fa-circle-info"></i>Chi Tiết</a>
+        )})' class="buy"><i class="fa-solid fa-circle-info"></i>Chi Tiết</div>
       </div>
     `;
   }
@@ -550,12 +576,6 @@ function getCurrentPage() {
 }
 
 // Hàm chạy khi trang tải
-window.onload = function () {
-  makeIDproduct();
-  makeFilter();
-  makeSP(getCurrentPage(), sosptrongtrang, ProductArrBoth);
-  makeselectpage(getCurrentPage(), ProductArrBoth);
-};
 
 // sort
 function sapxeptang(arr) {
@@ -641,6 +661,11 @@ function clickC1(e) {
 
 //chi tiet sp
 function loadSingleProduct(e) {
+  const urlParams = new URLSearchParams();
+  urlParams.append("productID", e.idproduct);
+  const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+  window.history.pushState({ path: newUrl }, "", newUrl);
+
   const originalPrice = (e.price + e.price * sale).toLocaleString("vi-VN", {
     style: "currency",
     currency: "VND",
@@ -649,6 +674,7 @@ function loadSingleProduct(e) {
     style: "currency",
     currency: "VND",
   });
+
   const s = `<div class="both_">
                <div class="left_">
                     <div class="img_" id="imgMain">
@@ -718,6 +744,22 @@ function loadSingleProduct(e) {
             </div>`;
   document.getElementsByClassName("both")[0].innerHTML = s;
 }
+function timkiemSP(arr, id) {
+  for (let i = 0; i < arr.length; i++) {
+    if (id == arr[i].idproduct) {
+      return arr[i];
+    }
+  }
+  return null;
+}
+function reloadpage() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const productid = urlParams.get("productID");
+  const item = timkiemSP(ProductArrBoth, productid);
+  if (item) {
+    loadSingleProduct(item);
+  }
+}
 
 //nut tro lai
 function goBack() {
@@ -730,3 +772,11 @@ function clickC_1(e) {
   const srcold = e.closest(".both_").querySelector(".srcimg"); //tim phan tu cha -> con co class srcimg
   srcold.setAttribute("src", dataimg);
 }
+
+window.onload = function () {
+  makeIDproduct();
+  makeFilter();
+  makeSP(getCurrentPage(), sosptrongtrang, ProductArrBoth);
+  makeselectpage(getCurrentPage(), ProductArrBoth);
+  reloadpage();
+};

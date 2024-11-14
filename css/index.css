@@ -265,11 +265,14 @@ body {
   text-align: center;
   margin-top: 25px;
 }
-.login-register a {
+.login-register span {
+  cursor: pointer;
   font-size: 14.5px;
-  text-decoration: none;
   color: black;
   font-weight: 600;
+}
+.login-register span:hover {
+  text-decoration: underline;
 }
 
 .logreg-box .login {
@@ -666,6 +669,8 @@ body {
   #left-footer h2,
   #right-footer h2 {
     font-size: 13px;
+    display: flex;
+    justify-content: space-between;
   }
   #left-footer #footer-paragraph,
   #right-footer div,
@@ -778,6 +783,7 @@ body {
   /* footer */
   .footer {
     display: block;
+    padding: 15px;
   }
   .address-btn span i,
   .policy-btn span i,
@@ -866,6 +872,8 @@ body {
   #left-footer h2,
   #right-footer h2 {
     font-size: 15px;
+    display: flex;
+    justify-content: space-between;
   }
   #left-footer #footer-paragraph,
   #right-footer div,
