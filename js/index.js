@@ -1,33 +1,22 @@
 //Huy
 let logregBox = "";
+// console.log(logregBox);
 const logonav = document.querySelector(".logo");
+const loginLink = document.querySelector(".login-link");
 const home = document.querySelectorAll(".home"); //nut Home tren nav
 const shop = document.querySelectorAll(".shop");
-<<<<<<< HEAD
 function formregister() {
   logregBox.classList.add("active");
-=======
-const address_btn = document.querySelector(".address-btn");
-const content_addressbtn = document.querySelector("#footer-paragraph");
-const social_btn = document.querySelector(".social-btn");
-const content_socialbtn = document.querySelector("#footer-social-ul");
-const policy_btn = document.querySelector(".policy-btn");
-const content_policybtn = document.querySelector("#footer-policy-ul");
-function formregister(){
-  logregBox=document.querySelector(".logreg-box");
-   logregBox.classList.add("active");
->>>>>>> bdff6e39245cfeda5711932f9efce250b3b8c7d8
 }
 
-function formlogin(){
-  document.querySelector(".logreg-box");
+function formlogin() {
   logregBox.classList.remove("active");
 }
 const login = document.querySelectorAll(".login-btn");
 const midcontent = document.querySelector(".mid-content");
 login.forEach(function (e) {
   e.addEventListener("click", () => {
-    midcontent.innerHTML=`<div class="box-login">
+    midcontent.innerHTML = `<div class="box-login">
       <div class="container">
         <div class="content">
           <h2>New Clothes</h2>
@@ -48,11 +37,7 @@ login.forEach(function (e) {
         </div>
         <div class="logreg-box">
           <div class="form-box login">
-<<<<<<< HEAD
             <form>
-=======
-            <form action="#" novalidate>
->>>>>>> bdff6e39245cfeda5711932f9efce250b3b8c7d8
               <h2>Sign In</h2>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-envelope"></i></span>
@@ -78,11 +63,7 @@ login.forEach(function (e) {
             </form>
           </div>
           <div class="form-box register">
-<<<<<<< HEAD
             <form>
-=======
-            <form action="#" novalidate>
->>>>>>> bdff6e39245cfeda5711932f9efce250b3b8c7d8
               <h2>Sign Up</h2>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i></span>
@@ -124,6 +105,8 @@ login.forEach(function (e) {
     </div>`;
     header_responsive.classList.remove("active");
     backgroud_menu_respon.style.display = "none";
+    logregBox = document.querySelector(".logreg-box");
+    // console.log(logregBox);
   });
 });
 home.forEach(function (e) {
@@ -185,7 +168,6 @@ img_improptu.forEach((img, index) => {
   });
 });
 //vinh policy
-<<<<<<< HEAD
 let getPrivacyPolicy = document.querySelector("#privacy-policy");
 let getFAQPolicy = document.querySelector("#FAQ-policy");
 let getMembershipCardPolicy = document.querySelector("#membership-card-policy");
@@ -200,22 +182,6 @@ let infoPolices = [
   getExchangeCardPolicy,
   getShipCardPolicy,
 ];
-=======
-// let getPrivacyPolicy = document.querySelector("#privacy-policy");
-// let getFAQPolicy = document.querySelector("#FAQ-policy");
-// let getMembershipCardPolicy = document.querySelector("#membership-card-policy");
-// let getExchangeCardPolicy = document.querySelector("#exchange-card-policy");
-// let getShipCardPolicy = document.querySelector("#ship-card-policy");
-// let getPolicyContact = document.querySelector("#policy-contact");
-// let getPolices = document.getElementsByClassName("footer-policy-a");
-// let infoPolices = [
-//   getPrivacyPolicy,
-//   getFAQPolicy,
-//   getMembershipCardPolicy,
-//   getExchangeCardPolicy,
-//   getShipCardPolicy,
-// ];
->>>>>>> bdff6e39245cfeda5711932f9efce250b3b8c7d8
 
 for (let i = 0; i < getPolices.length; i++) {
   getPolices[i].addEventListener("click", (e) => {
@@ -236,7 +202,6 @@ let getRegisterEmail = "";
 let getRegisterPassword = "";
 let getRegisterPasswordRetype = "";
 let getAgreeTermsConditions = "";
-<<<<<<< HEAD
 let getContainer = document.querySelector(".box-login");
 
 function checkEmail(str) {
@@ -347,113 +312,6 @@ function registerButton() {
     getAgreeTermsConditions.checked = false;
     saveUser(user);
   }
-=======
-let getContainer = document.querySelector('.box-login');
-
-function checkEmail(str) {
-  let idx = str.indexOf('@');
-  let idxWhiteSpace = str.indexOf(' ');
-  if(idx === -1 || idxWhiteSpace !== -1) {
-    return false;
-  } else if(str.substring(idx) !== '@gmail.com') {
-    return false;
-  }
-  return true;
-}
-
-function checkEmailLocalStorage(target) {
-  for(let i = 0; i < localStorage.length; i++) {
-    let user = JSON.parse(localStorage.getItem(i + 1));
-    if(user !== null && user.email === target) {
-      return false;
-    }
-  }
-  return true;
-}
-
-function findUserByEmail(target) {
-  for(let i = 0; i < localStorage.length; i++) {
-    let user = JSON.parse(localStorage.getItem(i + 1));
-    // khi user = null -> truy cập email của null -> lỗi
-    if(user !== null && user.email === target) {
-      return user;
-    }
-  }
-  return null;
-}
-
-function getCurrentID() {
-  let nextID = parseInt(localStorage.getItem('currentID'));
-  if(nextID) {
-    localStorage.setItem('currentID', ++nextID);
-    return parseInt(localStorage.getItem('currentID'));
-  } else {
-    localStorage.setItem('currentID', 1);
-    return parseInt(localStorage.getItem('currentID'));
-  }
-}
-
-// lưu user vào localStorage khi ấn sign-up button
-function saveUser(user) {
-  user.userID = getCurrentID();
-  localStorage.setItem(user.userID, JSON.stringify(user));
-}
-
-function registerButton() {
-    getRegisterButton=document.querySelector('#register-btn');
-    getRegisterName = document.querySelector('#register-name');
-    getRegisterEmail = document.querySelector('#register-email');
-    getRegisterPassword = document.querySelector('#register-password');
-    getRegisterPasswordRetype = document.querySelector('#register-password-retype');
-    getAgreeTermsConditions = document.querySelector('#agreeTermsConditions');
-    if(getRegisterName.value.trim() === '') {
-      alert('Vui lòng nhập tên đăng ký!');
-      getRegisterName.focus();
-      return;
-    } else if(getRegisterEmail.value.trim() === '' || !getRegisterEmail.value.includes('@') || !(checkEmail(getRegisterEmail.value))) {
-      alert('Vui lòng nhập đúng email!');
-      getRegisterEmail.focus();
-      return;
-    } else if(!(checkEmailLocalStorage(getRegisterEmail.value))) {
-      alert("Email này đã tồn tại!");
-      getRegisterEmail.focus();
-      return;
-    } else if(getRegisterPassword.value.trim() === '') {
-      alert('Vui lòng nhập mật khẩu!');
-      getRegisterPassword.focus();
-      return;
-    } else if(getRegisterPasswordRetype.value.trim() === '') {
-      alert('Vui lòng nhập xác nhận mật khẩu!');
-      getRegisterPasswordRetype.focus();
-      return;
-    } else if(getRegisterPasswordRetype.value !== getRegisterPassword.value) {
-      alert('Mật khẩu xác nhận không khớp!');
-      getRegisterPasswordRetype.focus();
-      return;
-    } else if(!(getAgreeTermsConditions.checked)) {
-      alert('Please agree terms and conditions');
-      return;
-    } 
-    else {
-      let user = {
-        userID: '',
-        name: '',
-        email: '',
-        password: ''
-      }
-      user.name = getRegisterName.value;
-      user.email = getRegisterEmail.value;
-      user.password = getRegisterPassword.value;
-      logregBox.classList.remove("active");
-      // reset input fields
-      getRegisterName.value = '';
-      getRegisterEmail.value = '';
-      getRegisterPassword.value = '';
-      getRegisterPasswordRetype.value = '';
-      getAgreeTermsConditions.checked = false;
-      saveUser(user);
-    }
->>>>>>> bdff6e39245cfeda5711932f9efce250b3b8c7d8
 }
 
 // vinh sign in form
@@ -462,13 +320,12 @@ let getEmailSignIn = "";
 let getPasswordSignIn = "";
 // account đang đăng nhập
 let currentUser = {
-  userID: '',
-  name: '',
-  email: '',
-  password: ''
-}
+  userID: "",
+  name: "",
+  email: "",
+  password: "",
+};
 
-<<<<<<< HEAD
 function signInButton() {
   getSignInButton = document.querySelector("#sign-in-button");
   getEmailSignIn = document.querySelector("#Email");
@@ -501,37 +358,6 @@ function signInButton() {
   getEmailSignIn.value = "";
   getPasswordSignIn.value = "";
 }
-=======
-
-function signInButton() {
-    getSignInButton = document.querySelector('#sign-in-button');
-    getEmailSignIn = document.querySelector('#Email');
-    getPasswordSignIn = document.querySelector('#Password');
-    if(getEmailSignIn.value.trim() === '' || !getEmailSignIn.value.includes('@') || !(checkEmail(getEmailSignIn.value))) {
-      alert('Vui lòng nhập đúng email');
-      getEmailSignIn.focus();
-      return;
-    } else if(getPasswordSignIn.value.trim() === '') {
-      alert('Vui lòng nhập mật khẩu');
-      getPasswordSignIn.focus();
-      return;
-    }
-    let user = findUserByEmail(getEmailSignIn.value);
-    if(user !== null && user.password === getPasswordSignIn.value) {
-      currentUser.email = user.email;
-      currentUser.password = user.password;
-      currentUser.name = user.name;
-      currentUser.userID = user.userID;
-    } else {
-      alert('Email hoặc mật khẩu không đúng!');
-      return;
-    }
-    // reset input fields
-    getEmailSignIn.value = '';
-    getPasswordSignIn.value = '';
-}
-
->>>>>>> bdff6e39245cfeda5711932f9efce250b3b8c7d8
 //contact
 const contact = document.querySelectorAll(".contact");
 contact.forEach(function (e) {
