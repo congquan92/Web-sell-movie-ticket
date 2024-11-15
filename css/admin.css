@@ -26,6 +26,15 @@
     width: 80%;
     border: 1px solid #161515;
 }
+.list .nameProduct{
+    width: 20%;
+}
+.list img{
+    width: 6%;
+}
+.list .colorProduct{
+    width: 10%;
+}
 .page-left .F-L{
   
     /* justify-content: flex-start; */
@@ -109,7 +118,11 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    border: 1px solid;
+    /* border: 1px solid; */
+    position: sticky;
+    top :0;
+    z-index: 999;
+    background-color: white;
 }
 #storage-body{
     display: flex;
