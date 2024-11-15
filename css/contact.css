@@ -92,6 +92,10 @@ hr {
   margin: 20px 0 10px;
 }
 
+.socials_list {
+  padding-left: 15px;
+}
+
 .socials_list i {
   color: #111;
   background-color: #ddd;
@@ -106,10 +110,6 @@ hr {
   color: #fff;
   background-color: #333;
   opacity: 1;
-}
-
-.postOthers {
-  /* margin-top: 5px; */
 }
 
 .pots_list {
@@ -139,17 +139,6 @@ hr {
   cursor: pointer;
 }
 
-/* rigth contact */
-/* .contact_infor li {
-  list-style: none;
-  line-height: 1.6;
-}
-
-.contact_infor a {
-  text-decoration: none;
-  color: #555;
-  margin-left: 10px;
-} */
 .title {
   margin-bottom: 20px;
 }
@@ -170,7 +159,7 @@ hr {
   margin: 0 !important;
   line-height: 1.6;
 }
-.contact_button .button,
+.contact_button .buttonSubmit,
 .contact_infor-cta .buttonCta {
   background-color: #111;
   border: none;
@@ -203,17 +192,26 @@ hr {
 
 /* PC */
 @media (min-width: 1024px) {
-
+  
 }
 
 /* Tablet */
-@media (min-width:740px) and (max-width: 1023px) {
-
+@media (min-width: 740px) and (max-width: 1024px) {
+  
 }
 
 /* Mobile */
 @media (max-width: 740px) {
-  
+  .col, .left_contact {
+    width: 100%;
+  }
+  .post_img {
+    padding-top: 5px;
+  }
+  .right_contact{
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 
 
