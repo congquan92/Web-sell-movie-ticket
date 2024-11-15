@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-     font-family: "Sour Gummy", serif;
+    font-family: "Sour Gummy", serif;
 }
 .page{
     display: flex;
@@ -145,5 +145,32 @@
     object-fit: contain;
 }
 
+/* chart js */
+.overview {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    gap: 20px;
+}
+.chart{
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+}
+.ff{
+    width: 50%;
+}
+.ll{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.boder{
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
    
 
