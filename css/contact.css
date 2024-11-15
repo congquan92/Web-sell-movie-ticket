@@ -25,6 +25,7 @@
 .toats-active {
   border-bottom: 1px solid rgba(0, 0, 0, 0.24);
   transition: all 0.4s ease-out;
+  color: rgb(0, 0, 238);
 }
 
 /* contact */

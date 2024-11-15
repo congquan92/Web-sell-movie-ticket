@@ -22,7 +22,7 @@ const login = document.querySelectorAll(".login-btn");
 const midcontent = document.querySelector(".mid-content");
 login.forEach(function (e) {
   e.addEventListener("click", () => {
-    midcontent.innerHTML=`<div class="box-login">
+    midcontent.innerHTML=`<div class="box-login">  
       <div class="container">
         <div class="content">
           <h2>New Clothes</h2>
