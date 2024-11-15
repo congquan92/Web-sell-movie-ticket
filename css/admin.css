@@ -76,8 +76,9 @@ body {
   width: 100%;
   border: 1px solid #161515;
 }
-.page-left .F-L {
-  /* justify-content: flex-start; */
+.page-left .F-L{
+  
+    /* justify-content: flex-start; */
 }
 .page-left .L-e {
 }
@@ -152,12 +153,12 @@ body {
 .fa-star {
   padding: 20px;
 }
-.titleCol {
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border: 1px solid;
+.titleCol{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid;
 }
 #storage-body {
   display: flex;

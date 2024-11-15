@@ -4,7 +4,6 @@ let ProductArrBoth = [
     img: "./img/products/p1-1.png",
     price: 370000,
     nametag: "aothun#",
-    idproduct: "",
     colorr1: "gray",
     colorr2: "red",
     colorr3: "unset",
@@ -17,7 +16,6 @@ let ProductArrBoth = [
     img: "./img/products/p2-1.png",
     price: 450000,
     nametag: "aothun#",
-    idproduct: "",
     colorr1: " rgb(235, 232, 226)",
     colorr2: "black",
     colorr3: "unset",
@@ -375,8 +373,12 @@ let typeproducts = [
 //Hàm tạo id SP
 function makeIDproduct() {
   for (let i = 0; i < ProductArrBoth.length; i++) {
+<<<<<<< HEAD
     ProductArrBoth[i].idproduct =
       ProductArrBoth[i].nametag + ProductArrBoth[i].nameSP;
+=======
+    ProductArrBoth[i].idproduct = ProductArrBoth[i].nametag + (i+1);
+>>>>>>> bdff6e39245cfeda5711932f9efce250b3b8c7d8
   }
 }
 function makeFilter() {
