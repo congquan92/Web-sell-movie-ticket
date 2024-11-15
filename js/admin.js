@@ -1,9 +1,14 @@
-let ProductArrBoth = [
+let listProduct = [
     {
       nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
       img: "../img/products/p1-1.png",
       price: 370000,
-      nametag: "aothun#",      colorr1: "gray",
+      count : 3,
+      nametag: "aothun#",  
+      nameColor1: "XÁM",
+      nameColor2: "ĐỎ",
+      nameColor3:"",    
+      colorr1: "gray",
       colorr2: "red",
       colorr3: "unset",
       img1: "./img/products/p1-1.png",
@@ -14,7 +19,12 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® | DORAEMON COLLAB TEE",
       img: "../img/products/p2-1.png",
       price: 450000,
-      nametag: "aothun#",      colorr1: " rgb(235, 232, 226)",
+      count: 7,
+      nametag: "aothun#",   
+      nameColor1: "TRẮNG",
+      nameColor2: "ĐEN",
+      nameColor3:"",       
+      colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
       img1: "./img/products/p2-1.png",
@@ -25,7 +35,12 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® DINOSAUR TEE",
       img: "../img/products/p3-1.jpg",
       price: 420000,
-      nametag: "aothun#",      colorr1: " rgb(235, 232, 226)",
+      count: 5,
+      nametag: "aothun#",  
+      nameColor1: "TRẮNG",
+      nameColor2: "ĐEN",
+      nameColor3:"XANH DƯƠNG",        
+      colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "blue",
       img1: "./img/products/p3-1.jpg",
@@ -36,7 +51,12 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® INSIDE OUT TEE",
       img: "../img/products/p4-1.jpg",
       price: 390000,
-      nametag: "aothun#",      colorr1: " rgb(235, 232, 226)",
+      count: 0,
+      nametag: "aothun#", 
+      nameColor1: "TRẮNG",
+      nameColor2: "ĐEN",
+      nameColor3:"",    
+      colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
       img1: "./img/products/p4-1.jpg",
@@ -47,7 +67,12 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® LOVEYOU300K SPECIAL TEE",
       img: "../img/products/p5-1.jpg",
       price: 300000,
-      nametag: "aothun#",      colorr1: " rgb(235, 232, 226)",
+      count: 2,
+      nametag: "aothun#",   
+      nameColor1: "TRẮNG",
+      nameColor2: "",
+      nameColor3:"",      
+      colorr1: " rgb(235, 232, 226)",
       colorr2: "unset",
       colorr3: "unset",
       img1: "./img/products/p5-1.jpg",
@@ -58,7 +83,12 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® FUNNY CROCODILE TEE",
       img: "../img/products/p6-1.jpg",
       price: 390000,
-      nametag: "aothun#",      colorr1: "blue",
+      count: 1,
+      nametag: "aothun#",     
+      nameColor1: "XANH DƯƠNG",
+      nameColor2: "ĐEN",
+      nameColor3:"",     
+      colorr1: "blue",
       colorr2: "black",
       colorr3: "unset",
       img1: "./img/products/p6-1.jpg",
@@ -69,7 +99,12 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® PUNCH VARSITY",
       img: "../img/products/p7-1.jpg",
       price: 890000,
-      nametag: "aokhoac#",      colorr1: "brown",
+      count: 11,
+      nametag: "aokhoac#",      
+      nameColor1: "NÂU",
+      nameColor2: "ĐEN",
+      nameColor3:"",    
+      colorr1: "brown",
       colorr2: "black",
       colorr3: "unset",
       img1: "./img/products/p7-1.jpg",
@@ -80,7 +115,12 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® SELFLOVE BOXY TEE",
       img: "../img/products/p8-1.jpg",
       price: 380000,
-      nametag: "aothun#",      colorr1: " rgb(235, 232, 226)",
+      count: 10,
+      nametag: "aothun#",      
+      nameColor1: "TRẮNG",
+      nameColor2: "ĐEN",
+      nameColor3:"",    
+      colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
       img1: "./img/products/p8-1.jpg",
@@ -91,7 +131,11 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® | DORAEMON MINI CAT Polo",
       img: "../img/products/p9-1.jpg",
       price: 405000,
+      count: 9,
       nametag: "polo#",
+      nameColor1: "TRẮNG",
+      nameColor2: "ĐEN",
+      nameColor3:"",    
       colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
@@ -103,7 +147,11 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® MINI POPULAR Polo",
       img: "../img/products/p10-1.jpg",
       price: 370000,
-      nametag: "polo#", 
+      count: 6,
+      nametag: "polo#",
+      nameColor1: "TRẮNG",
+      nameColor2: "ĐEN",
+      nameColor3:"",     
       colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
@@ -115,7 +163,11 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® STRIPE Polo",
       img: "../img/products/p11-1.jpg",
       price: 420000,
+      count: 2,
       nametag: "polo#", 
+      nameColor1: "TRẮNG",
+      nameColor2: "ĐEN",
+      nameColor3:"",    
       colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
@@ -127,7 +179,11 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® CINEMA SHIRT",
       img: "../img/products/p12-1.jpg",
       price: 420000,
-      nametag: "somi#", 
+      count: 3,
+      nametag: "somi#",
+      nameColor1: "NÂU",
+      nameColor2: "ĐEN",
+      nameColor3:"",     
       colorr1: "brown",
       colorr2: "black",
       colorr3: "unset",
@@ -139,7 +195,11 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® CITIES SHIRT",
       img: "../img/products/p13-1.jpg",
       price: 420000,
-      nametag: "somi#", 
+      count: 8,
+      nametag: "somi#",
+      nameColor1: "TRẮNG",
+      nameColor2: "ĐEN",
+      nameColor3:"",     
       colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
@@ -151,7 +211,11 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® | DORAEMON COLLAB ZIPPER Hoodie",
       img: "../img/products/p14-1.jpg",
       price: 645000,
+      count: 5,
       nametag: "hoodie#",
+      nameColor1: "TRẮNG",
+      nameColor2: "XÁM",
+      nameColor3:"",    
       colorr1: " rgb(235, 232, 226)",
       colorr2: "gray",
       colorr3: "unset",
@@ -163,7 +227,11 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® POPULAR LOGO 2.0 Hoodie",
       img: "../img/products/p15-1.jpg",
       price: 590000,
+      count: 4,
       nametag: "hoodie#",
+      nameColor1: "VÀNG",
+      nameColor2: "XÁM",
+      nameColor3:"ĐEN",    
       colorr1: "yellow",
       colorr2: "gray",
       colorr3: "black",
@@ -175,7 +243,11 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® MINI LOGO ZIPPER Hoodie",
       img: "../img/products/p16-1.jpg",
       price: 620000,
+      count: 2,
       nametag: "hoodie#",
+      nameColor1: "TRẮNG",
+      nameColor2: "XÁM",
+      nameColor3:"",    
       colorr1: " rgb(235, 232, 226)",
       colorr2: "gray",
       colorr3: "unset",
@@ -187,7 +259,11 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® | DORAEMON COLLAB Hoodie",
       img: "../img/products/p17-1.jpg",
       price: 620000,
+      count: 9,
       nametag: "hoodie#",
+      nameColor1: "TRẮNG",
+      nameColor2: "ĐEN",
+      nameColor3:"",    
       colorr1: " rgb(235, 232, 226)",
       colorr2: "black",
       colorr3: "unset",
@@ -199,7 +275,11 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® BASIC Sweater",
       img: "../img/products/p18-1.jpg",
       price: 490000,
+      count: 6,
       nametag: "sweater#",
+      nameColor1: "XÁM",
+      nameColor2: "ĐỎ",
+      nameColor3:"",    
       colorr1: "gray",
       colorr2: "red",
       colorr3: "unset",
@@ -211,7 +291,11 @@ let ProductArrBoth = [
       nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
       img: "../img/products/p19-1.jpg",
       price: 490000,
+      count: 12,
       nametag: "sweater#",
+      nameColor1: "NÂU",
+      nameColor2: "ĐEN",
+      nameColor3:"",    
       colorr1: "brown",
       colorr2: "black",
       colorr3: "unset",
@@ -230,34 +314,65 @@ let ProductArrBoth = [
   ];
 
 
-  //Hàm tạo id SP
-  function makeIDproduct() {
-    for (let i = 0; i < ProductArrBoth.length; i++) {
-      ProductArrBoth[i].idproduct = ProductArrBoth[i].nametag + (i+1);
-    }
+// Hàm tạo id SP
+function makeIDproduct() {
+  for (let i = 0; i < listProduct.length; i++) {
+    listProduct[i].idproduct = listProduct[i].nametag + (i + 1);
   }
+}
 
-//-------------------sp--------------
-  //ham tao list san pham
-  function listSP(){
-    let s =''
-    ProductArrBoth.forEach(index =>{
-      makeIDproduct();
-      const Price_pare = index.price.toLocaleString("vi-VN", {style: "currency", currency: "VND", });
-      s+=`<div id="storage-body">
-                 <div class="list">
-                            <span class="idProduct">${index.idproduct}</span>
-                            <img src="${index.img}" class="imgProduct" alt="Ảnh">
-                            <span class="nameProduct">${index.nameSP}</span>
-                            <span class="colorProduct">XANH LÁ</span>
-                            <span class="countProduct">12</span>
-                            <span class="priceProduct">${Price_pare}</span>
-                            <span class="statusProduct" style="color:#32CD32">CÒN HÀNG</span>
-                  </div>
-            </div>`
-    })
-    return s;
-  }
+//----------------sp-------------------------
+// Hàm xác định trạng thái sản phẩm
+function productSatus() {
+  listProduct.forEach(i => {
+    let status = 'C.XÁC ĐỊNH';
+    let colorStatus = '#000';
+    if (i.count > 10) {
+      status = 'CÒN HÀNG';
+      colorStatus = '#32CD32';
+    } else if (i.count == 0) {
+      status = 'HẾT HÀNG';
+      colorStatus = '#EE4B2B';
+    } else if (i.count <= 10) {
+      status = 'SẮP HẾT';
+      colorStatus = '#FDDA0D';
+    }
+    i.status = status;
+    i.colorStatus = colorStatus;
+  });
+}
+
+// Hàm tạo danh sách sản phẩm
+function listSP() {
+  let s = '';
+  makeIDproduct();
+  productSatus();
+  listProduct.forEach(product => {
+    s += `
+      <div id="storage-body">
+                <div class="list">
+                    <span class="idProduct">${product.idproduct}</span>
+                    <img src="${product.img}" class="imgProduct" alt="Ảnh">
+                    <span class="nameProduct">${product.nameSP}</span>
+                    <span class="colorProduct">${product.nameColor1}</span>
+                    <span class="countProduct">${product.count}</span>
+                    <span class="priceProduct">${product.price}</span>
+                    <span class="statusProduct" style="color:${product.colorStatus}">${product.status}</span>
+                </div>
+      </div>
+    `;
+  });
+  return s;
+}
+function searchSP(e){
+  const comboType = document.getElementById('comboType').value;
+  const comboStatus = document.getElementById('comboStatus').value;
+  console.log(comboType)
+  console.log(comboStatus)
+}
+
+  
+
   // ----------------------------------
   
 document.addEventListener("DOMContentLoaded", () => {
@@ -291,9 +406,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="title"><h1>QUẢN LÝ SẢN PHẨM</h1></div>
                 <div class="btnAdd"><div class="circle"><i class="fa-solid fa-plus"></i></div></div>
                 <div class="groupOption">
-                        <select name="" class="box" id="comboType">
-                            <option value="0">Tất cả</option><option value="1">Áo thun</option><option value="2">Polo</option><option value="3">Sơ mi</option><option value="4">Hoodie</option><option value="5">Sweater</option><option value="6">Áo khoác</option></select>
-                        <select name="" class="box" id="comboStatus">
+                        <select name="" class="box" id="comboType" onchange="searchSP()" >
+                            <option value="0">Tất cả</option>
+                            <option value="1">Áo thun</option>
+                            <option value="2">Polo</option>
+                            <option value="3">Sơ mi</option>
+                            <option value="4">Hoodie</option>
+                            <option value="5">Sweater</option>
+                            <option value="6">Áo khoác</option>
+                        </select>
+                        <select name="" class="box" id="comboStatus" onchange="searchSP()" >
                             <option value="0">Tất cả</option>
                             <option value="1">CÒN HÀNG</option>
                             <option value="2">SẮP HẾT</option>
