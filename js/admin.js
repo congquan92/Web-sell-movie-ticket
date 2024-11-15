@@ -384,8 +384,6 @@ function searchSP(){
   document.querySelector('#storage-body').innerHTML= listSP(filteredProducts);
   document.querySelector('#amountOfProduct').innerText= countProduct(filteredProducts);
 }
-console.log(sl)
-
 // -------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
     const QLTK = document.querySelector('.b1');
