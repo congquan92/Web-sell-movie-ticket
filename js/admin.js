@@ -1,4 +1,4 @@
-let listProduct = [
+let ArrProduct = [
     {
       nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
       img: "../img/products/p1-1.png",
@@ -316,15 +316,15 @@ let listProduct = [
 
 // Hàm tạo id SP
 function makeIDproduct() {
-  for (let i = 0; i < listProduct.length; i++) {
-    listProduct[i].idproduct = listProduct[i].nametag + (i + 1);
+  for (let i = 0; i < ArrProduct.length; i++) {
+    ArrProduct[i].idproduct = ArrProduct[i].nametag + (i + 1);
   }
 }
 
 //----------------sp-------------------------
 // Hàm xác định trạng thái sản phẩm
 function productSatus() {
-  listProduct.forEach(i => {
+  ArrProduct.forEach(i => {
     let status = 'C.XÁC ĐỊNH';
     let colorStatus = '#000';
     if (i.count > 10) {
@@ -343,38 +343,50 @@ function productSatus() {
 }
 
 // Hàm tạo danh sách sản phẩm
-function listSP() {
+function listSP(arr) {
   let s = '';
   makeIDproduct();
   productSatus();
-  listProduct.forEach(product => {
+  arr.forEach(product => {
     s += `
-      <div id="storage-body">
-                <div class="list">
-                    <span class="idProduct">${product.idproduct}</span>
-                    <img src="${product.img}" class="imgProduct" alt="Ảnh">
-                    <span class="nameProduct">${product.nameSP}</span>
-                    <span class="colorProduct">${product.nameColor1}</span>
-                    <span class="countProduct">${product.count}</span>
-                    <span class="priceProduct">${product.price}</span>
-                    <span class="statusProduct" style="color:${product.colorStatus}">${product.status}</span>
-                </div>
-      </div>
+            <div class="list">
+                <span class="idProduct">${product.idproduct}</span>
+                <img src="${product.img}" class="imgProduct" alt="Ảnh">
+                <span class="nameProduct">${product.nameSP}</span>
+                <span class="colorProduct">${product.nameColor1}</span>
+                <span class="countProduct">${product.count}</span>
+                <span class="priceProduct">${product.price}</span>
+                <span class="statusProduct" style="color:${product.colorStatus}">${product.status}</span>
+            </div>
     `;
   });
   return s;
 }
-function searchSP(e){
+// Hàm đếm số lượng sản phẩm
+function countProduct(arr) {
+  return arr.length;
+}
+// Hàm tìm kiếm sản phẩm
+function searchSP(){
   const comboType = document.getElementById('comboType').value;
   const comboStatus = document.getElementById('comboStatus').value;
-  console.log(comboType)
-  console.log(comboStatus)
+  let filteredProducts = ArrProduct;
+  if (comboType !== "0") {
+    filteredProducts = filteredProducts.filter(product => product.nametag === comboType);
+  }
+  if (comboStatus !== "0") {
+    filteredProducts = filteredProducts.filter(product => {
+      if (comboStatus === "1") return product.status === "CÒN HÀNG";
+      if (comboStatus === "2") return product.status === "SẮP HẾT";
+      if (comboStatus === "3") return product.status === "HẾT HÀNG";
+    });
+  }
+  document.querySelector('#storage-body').innerHTML= listSP(filteredProducts);
+  document.querySelector('#amountOfProduct').innerText= countProduct(filteredProducts);
 }
+console.log(sl)
 
-  
-
-  // ----------------------------------
-  
+// -------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
     const QLTK = document.querySelector('.b1');
     const QLDH = document.querySelector('.b2');
@@ -408,12 +420,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="groupOption">
                         <select name="" class="box" id="comboType" onchange="searchSP()" >
                             <option value="0">Tất cả</option>
-                            <option value="1">Áo thun</option>
-                            <option value="2">Polo</option>
-                            <option value="3">Sơ mi</option>
-                            <option value="4">Hoodie</option>
-                            <option value="5">Sweater</option>
-                            <option value="6">Áo khoác</option>
+                            <option value="aothun#">Áo thun</option>
+                            <option value="polo#">Polo</option>
+                            <option value="somi#">Sơ mi</option>
+                            <option value="hoodie#">Hoodie</option>
+                            <option value="sweater#">Sweater</option>
+                            <option value="aokhoac#">Áo khoác</option>
                         </select>
                         <select name="" class="box" id="comboStatus" onchange="searchSP()" >
                             <option value="0">Tất cả</option>
@@ -424,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="box">
                             <div class="contentBox">
                                 <div class="leftBox">
-                                    <h2 id="amountOfProduct">19</h2>
+                                    <h2 id="amountOfProduct">0</h2>
                                     <span>SẢN PHẨM</span>
                                 </div>
                                 <i class="fa-solid fa-star"></i>
@@ -439,8 +451,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <span class="countProduct">Số lượng</span>
                     <span class="priceProduct">Đơn giá</span>
                     <span class="statusProduct">Trạng thái</span>
-                </div>`;
-      document.querySelector('.page-right').innerHTML = s +listSP(); 
+                </div>
+                <div id="storage-body"></div>`;
+                document.querySelector('.page-right').innerHTML = s ;
+                searchSP();   
 
     });
 
