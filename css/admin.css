@@ -18,7 +18,7 @@
     height: 100vh;
     color: white;
     background-color: black;
-    justify-content: space-between;
+    justify-content: space-around;
 
 }
 .page-right{
@@ -112,6 +112,9 @@
 }
 .fa-star{
     padding: 20px;
+}
+.fa-house{
+    margin: 0px 10px;
 }
 .titleCol{
     margin-top: 30px;

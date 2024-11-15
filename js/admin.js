@@ -348,6 +348,7 @@ function listSP(arr) {
   makeIDproduct();
   productSatus();
   arr.forEach(product => {
+    const Price = (product.price).toLocaleString("vi-VN", {style: "currency",currency: "VND",});
     s += `
             <div class="list">
                 <span class="idProduct">${product.idproduct}</span>
@@ -355,7 +356,7 @@ function listSP(arr) {
                 <span class="nameProduct">${product.nameSP}</span>
                 <span class="colorProduct">${product.nameColor1}</span>
                 <span class="countProduct">${product.count}</span>
-                <span class="priceProduct">${product.price}</span>
+                <span class="priceProduct">${Price}</span>
                 <span class="statusProduct" style="color:${product.colorStatus}">${product.status}</span>
             </div>
     `;
