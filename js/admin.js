@@ -402,6 +402,50 @@ function searchSP(){
   document.querySelector('#storage-body').innerHTML= listSP(filteredProducts);
   document.querySelector('#amountOfProduct').innerText= countProduct(filteredProducts);
 }
+// Hàm render quản lý san pham
+function renderqlsp(){
+  document.querySelector('.page-right').innerHTML =  
+            `<div class="qlsp">
+                <div class="title"><h1>QUẢN LÝ SẢN PHẨM</h1></div>
+                <div class="btnAdd"><div class="circle"><i class="fa-solid fa-plus"></i></div></div>
+                <div class="groupOption">
+                        <select name="" class="box" id="comboType" onchange="searchSP()" >
+                            <option value="0">Tất cả</option>
+                            <option value="aothun#">Áo thun</option>
+                            <option value="polo#">Polo</option>
+                            <option value="somi#">Sơ mi</option>
+                            <option value="hoodie#">Hoodie</option>
+                            <option value="sweater#">Sweater</option>
+                            <option value="aokhoac#">Áo khoác</option>
+                        </select>
+                        <select name="" class="box" id="comboStatus" onchange="searchSP()" >
+                            <option value="0">Tất cả</option>
+                            <option value="1">CÒN HÀNG</option>
+                            <option value="2">SẮP HẾT</option>
+                            <option value="3">HẾT HÀNG</option>
+                        </select>
+                        <div class="box">
+                            <div class="contentBox">
+                                <div class="leftBox">
+                                    <h2 id="amountOfProduct">0</h2>
+                                    <span>SẢN PHẨM</span>
+                                </div>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                </div>
+                <div class="titleCol">
+                    <span style="margin-right: 50px;" class="idProduct">ID</span>
+                    <span style="margin-right: 60px;" class="imgProduct">Hình ảnh</span>
+                    <span style="margin-right: 170px;" class="nameProduct">Tên sản phẩm</span>
+                    <span class="colorProduct">Màu sắc</span>
+                    <span class="countProduct">Số lượng</span>
+                    <span class="priceProduct">Đơn giá</span>
+                    <span class="statusProduct">Trạng thái</span>
+                </div>
+                <div id="storage-body"></div>`;
+                searchSP();   
+}
 // Hàm tạo biểu đồ
 const listSweater = ArrProduct.filter(i => i.nametag === 'sweater#');
 const listSomi = ArrProduct.filter(i => i.nametag === 'somi#');
@@ -447,6 +491,7 @@ function createChart() {
     options: {}
   });
 }
+// Hàm render quản lý thống kê
 function renderqltk(){
   document.querySelector('.page-right').innerHTML =`<div class = qltk>
   <h1>SỐ LIỆU THỐNG KÊ</h1>
@@ -465,16 +510,43 @@ function renderqltk(){
          </div> 
          <div class="boder">
               <div class="left-boder">
-                  <h2 style="color: blue;">${(Moneylist.reduce((i,n) => i+n,0)).toLocaleString("vi-VN", {style: "currency",currency: "VND",})}</h2>
+                  <h2 style="color: blue;">${(ArrProduct.reduce((i,n) => i+((n.sell)*(n.price)),0)).toLocaleString("vi-VN", {style: "currency",currency: "VND",})}</h2>
                   <h2 style="font-weight: 200;">DOANH THU</h2>
               </div>
               <div class="right-boder"><i style="font-size: 40px;font-weight: 200;" class='bx bx-money-withdraw'></i></div>   
          </div> 
       </div>
    </div>
+</div>
+<div class="rankProfit">
+  <div style="margin-top: 0px" class="titleCol">
+        <span style="width: 30%;" class="name">TÊN SẢN PHẨM</span>
+        <span style="width: 30%;" class="sold">Đã bán</span>
+        <span style="width: 10%; float: right" class="profits">DOANH THU</span>
+    </div>
+    <div id="rankProfit-body"></div>
 </div>`
 createChart(); // Tạo biểu đồ khi nhấp vào "QUẢN LÝ THỐNG KÊ"
+rankProfit();
 }
+function rankProfit(){
+  let s='';
+  const sortArrsell=[...ArrProduct].sort((a,b) => (b.sell*b.price)-(a.sell*a.price));
+  sortArrsell.forEach(i=>{
+    s+=` <div class="rankProfit-Child">
+            <span style="width: 30%;" class="name">${i.nameSP}</span>
+            <span style="width: 30%;" class="sold">${i.sell}</span>
+            <span style="width: 10%;  class="profits">${(i.price *i.sell).toLocaleString("vi-VN", {style: "currency",currency: "VND",})}</span>
+           </div>`
+  })
+  document.getElementById('rankProfit-body').innerHTML=s;
+}
+
+// Gọi hàm renderqltk khi trang tải
+window.onload = () => {
+  renderqltk();
+};
+
 // -------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
     const QLTK = document.querySelector('.b1');
@@ -503,48 +575,7 @@ document.addEventListener("DOMContentLoaded", () => {
       QLDH.classList.remove('act');
       QLSP.classList.add('act');
       QLND.classList.remove('act');
-      let s = '';
-      s += `<div class="qlsp">
-                <div class="title"><h1>QUẢN LÝ SẢN PHẨM</h1></div>
-                <div class="btnAdd"><div class="circle"><i class="fa-solid fa-plus"></i></div></div>
-                <div class="groupOption">
-                        <select name="" class="box" id="comboType" onchange="searchSP()" >
-                            <option value="0">Tất cả</option>
-                            <option value="aothun#">Áo thun</option>
-                            <option value="polo#">Polo</option>
-                            <option value="somi#">Sơ mi</option>
-                            <option value="hoodie#">Hoodie</option>
-                            <option value="sweater#">Sweater</option>
-                            <option value="aokhoac#">Áo khoác</option>
-                        </select>
-                        <select name="" class="box" id="comboStatus" onchange="searchSP()" >
-                            <option value="0">Tất cả</option>
-                            <option value="1">CÒN HÀNG</option>
-                            <option value="2">SẮP HẾT</option>
-                            <option value="3">HẾT HÀNG</option>
-                        </select>
-                        <div class="box">
-                            <div class="contentBox">
-                                <div class="leftBox">
-                                    <h2 id="amountOfProduct">0</h2>
-                                    <span>SẢN PHẨM</span>
-                                </div>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                </div>
-                <div class="titleCol">
-                    <span style="margin-right: 50px;" class="idProduct">ID</span>
-                    <span style="margin-right: 60px;" class="imgProduct">Hình ảnh</span>
-                    <span style="margin-right: 170px;" class="nameProduct">Tên sản phẩm</span>
-                    <span class="colorProduct">Màu sắc</span>
-                    <span class="countProduct">Số lượng</span>
-                    <span class="priceProduct">Đơn giá</span>
-                    <span class="statusProduct">Trạng thái</span>
-                </div>
-                <div id="storage-body"></div>`;
-                document.querySelector('.page-right').innerHTML = s ;
-                searchSP();   
+      renderqlsp();
 
     });
 
