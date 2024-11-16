@@ -368,13 +368,13 @@ function listSP(arr) {
     const Price = (product.price).toLocaleString("vi-VN", {style: "currency",currency: "VND",});
     s += `
             <div class="list">
-                <span class="idProduct">${product.idproduct}</span>
-                <img src="${product.img}" class="imgProduct" alt="Ảnh">
-                <span class="nameProduct">${product.nameSP}</span>
-                <span class="colorProduct">${product.nameColor1}</span>
-                <span class="countProduct">${product.count}</span>
-                <span class="priceProduct">${Price}</span>
-                <span class="statusProduct" style="color:${product.colorStatus}">${product.status}</span>
+                <span style="width: 10%" class="idProduct">${product.idproduct}</span>
+                <img style="width: 20%" src="${product.img}" class="imgProduct" alt="Ảnh">
+                <span style="width: 30%" class="nameProduct">${product.nameSP}</span>
+                <span style="width: 10%" class="colorProduct">${product.nameColor1}</span>
+                <span style="width: 10%" class="countProduct">${product.count}</span>
+                <span style="width: 10%" class="priceProduct">${Price}</span>
+                <span style="width: 10%; color: ${product.colorStatus}" class="statusProduct" style="color:${product.colorStatus}">${product.status}</span>
             </div>
     `;
   });
@@ -435,17 +435,19 @@ function renderqlsp(){
                         </div>
                 </div>
                 <div class="titleCol">
-                    <span style="margin-right: 50px;" class="idProduct">ID</span>
-                    <span style="margin-right: 60px;" class="imgProduct">Hình ảnh</span>
-                    <span style="margin-right: 170px;" class="nameProduct">Tên sản phẩm</span>
-                    <span class="colorProduct">Màu sắc</span>
-                    <span class="countProduct">Số lượng</span>
-                    <span class="priceProduct">Đơn giá</span>
-                    <span class="statusProduct">Trạng thái</span>
+                    <span style="width: 10%" class="idProduct">ID</span>
+                    <span style="width: 20% ; padding-left: 7%" class="imgProduct">Hình ảnh</span>
+                    <span style="width: 30% ; padding-left: 5%" class="nameProduct">Tên sản phẩm</span>
+                    <span style="width: 10%" class="colorProduct">Màu sắc</span>
+                    <span style="width: 10%" class="countProduct">Số lượng</span>
+                    <span style="width: 10%" class="priceProduct">Đơn giá</span>
+                    <span style="width: 10%" class="statusProduct">Trạng thái</span>
                 </div>
                 <div id="storage-body"></div>`;
                 searchSP();   
 }
+// ---------------------------------------------------------------------------------
+// tk
 // Hàm tạo biểu đồ
 const listSweater = ArrProduct.filter(i => i.nametag === 'sweater#');
 const listSomi = ArrProduct.filter(i => i.nametag === 'somi#');
@@ -461,14 +463,7 @@ const sumList = [
     listAothun.reduce((i, x) => i + x.sell, 0),
     listSomi.reduce((i, x) => i + x.sell, 0),
 ];
-const Moneylist =[
-  listAokhoac.reduce((i, x) => i + (x.sell) *890000, 0),
-  listSweater.reduce((i, x) => i + (x.sell) *490000, 0),
-  listHoodie.reduce((i, x) => i + (x.sell) *690000, 0),
-  listAothun.reduce((i, x) => i + (x.sell) *380000, 0),
-  listSomi.reduce((i, x) => i + (x.sell) *420000, 0),
-];
-
+//tao bieu do
 function createChart() {
   const ctx = document.getElementById('grapbox').getContext('2d');
   const chartData = {
@@ -519,7 +514,7 @@ function renderqltk(){
    </div>
 </div>
 <div class="rankProfit">
-  <div style="margin-top: 0px" class="titleCol">
+  <div style="margin-top: 0px; position:unset; " class="titleCol">
         <span style="width: 30%;" class="name">TÊN SẢN PHẨM</span>
         <span style="width: 30%;" class="sold">Đã bán</span>
         <span style="width: 10%; float: right" class="profits">DOANH THU</span>
@@ -529,6 +524,7 @@ function renderqltk(){
 createChart(); // Tạo biểu đồ khi nhấp vào "QUẢN LÝ THỐNG KÊ"
 rankProfit();
 }
+//ham tao doanh thu
 function rankProfit(){
   let s='';
   const sortArrsell=[...ArrProduct].sort((a,b) => (b.sell*b.price)-(a.sell*a.price));
@@ -546,7 +542,6 @@ function rankProfit(){
 window.onload = () => {
   renderqltk();
 };
-
 // -------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
     const QLTK = document.querySelector('.b1');

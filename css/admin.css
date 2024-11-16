@@ -19,12 +19,13 @@
     color: white;
     background-color: black;
     justify-content: space-around;
-
+    position: sticky;
+    top :0;
 }
 .page-right{
     float: right;
     width: 80%;
-    border: 1px solid #161515;
+   
 }
 .list .nameProduct{
     width: 20%;
