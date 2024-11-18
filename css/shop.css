@@ -163,8 +163,8 @@
   border: 2px solid white;
   display: inline-block;
 }
-.fa-wallet,
-.fa-circle-info {
+.bxs-wallet,
+.bx-info-circle {
   margin: 0px 10px;
 }
 .buy:hover {
@@ -215,7 +215,9 @@
   clear: both;
   position: relative;
 }
-
+.bxs-chevrons-left{
+  margin-right: 10px;
+}
 .img_ {
   width: 100%;
   height: 100%;

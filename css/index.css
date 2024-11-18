@@ -422,6 +422,26 @@ body {
   text-align: center;
   padding: 6px;
 }
+.trend{
+  animation: leftoright .5s ease;
+  animation-timeline: view(60% auto);
+  /* animation-delay: .4s;   */
+  animation-range: entry 0 cover;
+}
+.impromptu{
+  animation: leftoright .5s ease;
+}
+
+@keyframes leftoright{
+  from{
+    opacity: 0;
+    transform: translateX(calc(-100% - 1000px));
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .content-trend {
   display: flex;
   justify-content: space-between;

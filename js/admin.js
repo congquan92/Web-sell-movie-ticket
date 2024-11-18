@@ -469,7 +469,7 @@ function createChart() {
   const chartData = {
     labels: namee ,
     datasets: [{
-      label: 'Sales Data',
+      label: 'Đã Bán',
       data: sumList ,
       backgroundColor: [
         'rgb(255, 99, 132)',
@@ -486,6 +486,17 @@ function createChart() {
     options: {}
   });
 }
+//ham loc san tk 
+function listSearch_tk(){
+  let s='';
+  let arr =[...ArrProduct];
+  let typeProduct = document.getElementById('typeProduct').value;
+  if(typeProduct !== '0'){
+     arr= ArrProduct.filter(i => i.nametag ===typeProduct);
+  }
+  rankProfit(arr);
+}
+
 // Hàm render quản lý thống kê
 function renderqltk(){
   document.querySelector('.page-right').innerHTML =`<div class = qltk>
@@ -513,21 +524,34 @@ function renderqltk(){
       </div>
    </div>
 </div>
-<div class="rankProfit">
-  <div style="margin-top: 0px; position:unset; " class="titleCol">
-        <span style="width: 30%;" class="name">TÊN SẢN PHẨM</span>
-        <span style="width: 30%;" class="sold">Đã bán</span>
-        <span style="width: 10%; float: right" class="profits">DOANH THU</span>
+<div class="part">
+  <div style="width: 70%" class="rankProfit">
+      <div style="margin-top: 0px; position:unset; " class="titleCol">
+            <span style="width: 30%;" class="name">TÊN SẢN PHẨM</span>
+            <span style="width: 30%;" class="sold">Đã bán</span>
+            <span style="width: 10%; float: right" class="profits">DOANH THU</span>
+      </div>
+      <div id="rankProfit-body"></div>
+  </div>
+  <div style="width: 30%" onclick="listSearch_tk()" class="data-number">
+              <select name="" id="typeProduct" class="box">
+                    <option value="0">Tất cả</option>
+                    <option value="aothun#">Áo thun</option>
+                    <option value="polo#">Polo</option>
+                    <option value="somi#">Sơ mi</option>
+                    <option value="hoodie#">Hoodie</option>
+                    <option value="sweater#">Sweater</option>
+                    <option value="aokhoac#">Áo khoác</option>
+              </select>
     </div>
-    <div id="rankProfit-body"></div>
 </div>`
 createChart(); // Tạo biểu đồ khi nhấp vào "QUẢN LÝ THỐNG KÊ"
-rankProfit();
+rankProfit(ArrProduct);
 }
 //ham tao doanh thu
-function rankProfit(){
+function rankProfit(arr){
   let s='';
-  const sortArrsell=[...ArrProduct].sort((a,b) => (b.sell*b.price)-(a.sell*a.price));
+  const sortArrsell=arr.sort((a,b) => (b.sell*b.price)-(a.sell*a.price));
   sortArrsell.forEach(i=>{
     s+=` <div class="rankProfit-Child">
             <span style="width: 30%;" class="name">${i.nameSP}</span>
@@ -541,7 +565,11 @@ function rankProfit(){
 // Gọi hàm renderqltk khi trang tải
 window.onload = () => {
   renderqltk();
+  // localStorage.setItem('products',JSON.stringify(ArrProduct));
 };
+// const l = JSON.parse(localStorage.getItem('products'))
+
+
 // -------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
     const QLTK = document.querySelector('.b1');
@@ -580,6 +608,7 @@ document.addEventListener("DOMContentLoaded", () => {
         QLSP.classList.remove('act');
         QLND.classList.add('act');
       });
-    
+  
   });
+  console.log(ArrProduct);
 

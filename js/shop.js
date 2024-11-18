@@ -436,10 +436,10 @@ function makeSP(trang, sosptrongtrang, arr) {
           <p style="font-style: italic;">Giá gốc: <span style="text-decoration: line-through; font-style: italic;">${originalPrice}</span></p>
           <p style="font-style: italic;">Giá khuyến mãi: <span style="font-size: larger; font-style: italic;">${salePrice}</span></p>
         </div>
-        <div class="buy"><i class="fa-solid fa-wallet"></i>Mua Ngay</div>
+        <div class="buy"><i class='bx bxs-wallet' ></i>Mua Ngay</div>
         <a href="#" style="text-decoration: none; color: black;" onclick='loadSingleProduct(${JSON.stringify(
           arr[i]
-        )})' class="buy"><i class="fa-solid fa-circle-info"></i>Chi Tiết</a>
+        )})' class="buy"><i class='bx bx-info-circle' ></i>Chi Tiết</a>
       </div>
     `;
   }
@@ -707,7 +707,7 @@ function loadSingleProduct(e) {
                                     <li>Size D: Chiều cao trên 1m72, cân nặng dưới 95kg.</li>
                                 </ul>
                                 <img src="./img/SizeChart.jpg" alt="">
-                                <div class="back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i>Trở Lại</div>
+                                <div class="back" onclick="goBack()"><i class='bx bxs-chevrons-left' ></i>Trở Lại</div>
                             </span>
                         </div>
                     </div>
