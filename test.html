@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+    <div class="page">
+        <!-- <div class="menu-icon fist-icon"><i style="font-size: 20px;" class='bx bx-menu'></i></div> -->
+        <div class="page-left second-icon">
+            <!-- <div class="menu-icon"><i style="font-size: 20px;" class='bx bx-menu'></i></div> -->
+            <div style="height: 10%;" class="F-L"><h1>Tình Hình Hoạt Động</h1></div>
+            <div style="height: 60%;" class="box-l">
+                <div class="L b1 act">QUẢN LÝ THỐNG KÊ</div>
+                <div class="L b2">QUẢN LÝ ĐƠN HÀNG</div>
+                <div class="L b3">QUẢN LÝ SẢN PHẢM</div>
+                <div class="L b4">QUẢN LÝ NGƯỜI DÙNG</div>
+            </div>
+            <div class="L-e"><a href="../index.html"> <i class="fa-solid fa-house"></i>TRỞ VỀ TRANG CHỦ</a></div>
+        </div>
+        <div class="page-right">
+            <div id="tabAddProduct" data-aos="zoom-in" class="aos-init aos-animate">
+                <div class="headTab">
+                    <span class="title">THÊM SẢN PHẨM</span>
+                    <span class="closeTab">ĐÓNG</span>
+                </div>
+                <div class="bodyTab">
+                    <div class="leftTab">
+                        <div class="contentTab">
+                            <span>ID: </span>
+                            <span>20</span>
+                        </div>
+                        <div class="contentTab">
+                            <img src="" alt="" id="imgProduct">
+                            <input type="file" name="file" id="file" class="inputfile">
+                            <label for="file">Chọn ảnh</label>
+                        </div>
+                            <div class="contentTab"> 
+                                <span>Tên sản phẩm: </span>
+                                <input type="text" placeholder="Tên sản phẩm" value="" id="nameAddProduct">
+                            </div>
+                            <div class="contentTab colorInput">
+                                <span>Màu sắc: </span>
+                                <input type="text" placeholder="[ĐEN, TRẮNG, ....]" value="" id="colorAddProduct">
+                                <input type="text" placeholder="Mã màu [#000,#fff]" value="" id="codecolorAddProduct">
+                            </div>
+                            <div class="contentTab">
+                                <span>Số lượng: </span>
+                                <input type="text" id="countAddProduct" placeholder="Số lượng" value="">
+                            </div>
+                    </div>
+                    <div class="rightTab">
+                                <div class="contentTab">
+                                    <span>Đơn giá: </span>
+                                    <input type="text" id="priceAddProduct" placeholder="Đơn giá" value="">
+                                </div>
+                                <div class="contentTab">
+                                    <span>Tên hình </span>
+                                    <input type="text" placeholder="Tên hình" value="" id="nameimgAddProduct">
+                                </div>
+                                <div class="contentTab">
+                                    <span>Loại </span>
+                                    <input type="text" placeholder="Loại sản phẩm" value="" id="typeAddProduct">
+                                </div>
+                    </div>
+                </div>
+                <div class="btnAccept">
+                    <div class="content-btn">
+                        <span>HOÀN TẤT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="./js/admin.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

@@ -1,328 +1,331 @@
-let ArrProduct = [
-    {
-      nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
-      img: "../img/products/p1-1.png",
-      price: 370000,
-      count : 3,
-      nametag: "aothun#",  
-      nameColor1: "XÁM",
-      nameColor2: "ĐỎ",
-      nameColor3:"",    
-      colorr1: "gray",
-      colorr2: "red",
-      colorr3: "unset",
-      img1: "./img/products/p1-1.png",
-      img2: "./img/products/p1-2.jpg",
-      img3: "./img/products/p1-2.jpg",
-      sell:2
-    },
-    {
-      nameSP: "LEVENTS® | DORAEMON COLLAB TEE",
-      img: "../img/products/p2-1.png",
-      price: 450000,
-      count: 7,
-      nametag: "aothun#",   
-      nameColor1: "TRẮNG",
-      nameColor2: "ĐEN",
-      nameColor3:"",       
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p2-1.png",
-      img2: "./img/products/p2-2.png",
-      img3: "./img/products/p2-2.png",
-      sell :2
-    },
-    {
-      nameSP: "LEVENTS® DINOSAUR TEE",
-      img: "../img/products/p3-1.jpg",
-      price: 420000,
-      count: 5,
-      nametag: "aothun#",  
-      nameColor1: "TRẮNG",
-      nameColor2: "ĐEN",
-      nameColor3:"XANH DƯƠNG",        
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "black",
-      colorr3: "blue",
-      img1: "./img/products/p3-1.jpg",
-      img2: "./img/products/p3-2.jpg",
-      img3: "./img/products/p3-3.jpg",
-      sell :7
-    },
-    {
-      nameSP: "LEVENTS® INSIDE OUT TEE",
-      img: "../img/products/p4-1.jpg",
-      price: 390000,
-      count: 0,
-      nametag: "aothun#", 
-      nameColor1: "TRẮNG",
-      nameColor2: "ĐEN",
-      nameColor3:"",    
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p4-1.jpg",
-      img2: "./img/products/p4-2.jpg",
-      img3: "./img/products/p4-2.jpg",
-      sell :0
-    },
-    {
-      nameSP: "LEVENTS® LOVEYOU300K SPECIAL TEE",
-      img: "../img/products/p5-1.jpg",
-      price: 300000,
-      count: 2,
-      nametag: "aothun#",   
-      nameColor1: "TRẮNG",
-      nameColor2: "",
-      nameColor3:"",      
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "unset",
-      colorr3: "unset",
-      img1: "./img/products/p5-1.jpg",
-      img2: "./img/products/p5-1.jpg",
-      img3: "./img/products/p5-1.jpg",
-      sell : 0
-    },
-    {
-      nameSP: "LEVENTS® FUNNY CROCODILE TEE",
-      img: "../img/products/p6-1.jpg",
-      price: 390000,
-      count: 1,
-      nametag: "aothun#",     
-      nameColor1: "XANH DƯƠNG",
-      nameColor2: "ĐEN",
-      nameColor3:"",     
-      colorr1: "blue",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p6-1.jpg",
-      img2: "./img/products/p6.jpg",
-      img3: "./img/products/p6-2.jpg",
-      sell : 0
-    },
-    {
-      nameSP: "LEVENTS® PUNCH VARSITY",
-      img: "../img/products/p7-1.jpg",
-      price: 890000,
-      count: 11,
-      nametag: "aokhoac#",      
-      nameColor1: "NÂU",
-      nameColor2: "ĐEN",
-      nameColor3:"",    
-      colorr1: "brown",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p7-1.jpg",
-      img2: "./img/products/p7-2.jpg",
-      img3: "./img/products/p7-2.jpg",
-      sell : 9
-    },
-    {
-      nameSP: "LEVENTS® SELFLOVE BOXY TEE",
-      img: "../img/products/p8-1.jpg",
-      price: 380000,
-      count: 10,
-      nametag: "aothun#",      
-      nameColor1: "TRẮNG",
-      nameColor2: "ĐEN",
-      nameColor3:"",    
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p8-1.jpg",
-      img2: "./img/products/p8-2.jpg",
-      img3: "./img/products/p8-1.jpg",
-      sell :0
-    },
-    {
-      nameSP: "LEVENTS® | DORAEMON MINI CAT Polo",
-      img: "../img/products/p9-1.jpg",
-      price: 405000,
-      count: 9,
-      nametag: "polo#",
-      nameColor1: "TRẮNG",
-      nameColor2: "ĐEN",
-      nameColor3:"",    
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p9-1.jpg",
-      img2: "./img/products/p9-2.jpg",
-      img3: "./img/products/p9-2.jpg",
-      sell : 2
-    },
-    {
-      nameSP: "LEVENTS® MINI POPULAR Polo",
-      img: "../img/products/p10-1.jpg",
-      price: 370000,
-      count: 6,
-      nametag: "polo#",
-      nameColor1: "TRẮNG",
-      nameColor2: "ĐEN",
-      nameColor3:"",     
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p10-1.jpg",
-      img2: "./img/products/p10-2.jpg",
-      img3: "./img/products/p10-2.jpg",
-      sell : 8
-    },
-    {
-      nameSP: "LEVENTS® STRIPE Polo",
-      img: "../img/products/p11-1.jpg",
-      price: 420000,
-      count: 2,
-      nametag: "polo#", 
-      nameColor1: "TRẮNG",
-      nameColor2: "ĐEN",
-      nameColor3:"",    
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p11-1.jpg",
-      img2: "./img/products/p11-2.jpg",
-      img3: "./img/products/p11-2.jpg",
-      sell : 2
-    },
-    {
-      nameSP: "LEVENTS® CINEMA SHIRT",
-      img: "../img/products/p12-1.jpg",
-      price: 420000,
-      count: 3,
-      nametag: "somi#",
-      nameColor1: "NÂU",
-      nameColor2: "ĐEN",
-      nameColor3:"",     
-      colorr1: "brown",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p12-1.jpg",
-      img2: "./img/products/p12-2.jpg",
-      img3: "./img/products/p12-2.jpg",
-      sell : 5
-    },
-    {
-      nameSP: "LEVENTS® CITIES SHIRT",
-      img: "../img/products/p13-1.jpg",
-      price: 420000,
-      count: 8,
-      nametag: "somi#",
-      nameColor1: "TRẮNG",
-      nameColor2: "ĐEN",
-      nameColor3:"",     
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p13-1.jpg",
-      img2: "./img/products/p13-2.jpg",
-      img3: "./img/products/p13-2.jpg",
-      sell : 6
-    },
-    {
-      nameSP: "LEVENTS® | DORAEMON COLLAB ZIPPER Hoodie",
-      img: "../img/products/p14-1.jpg",
-      price: 645000,
-      count: 5,
-      nametag: "hoodie#",
-      nameColor1: "TRẮNG",
-      nameColor2: "XÁM",
-      nameColor3:"",    
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "gray",
-      colorr3: "unset",
-      img1: "./img/products/p14-1.jpg",
-      img2: "./img/products/p14-2.jpg",
-      img3: "./img/products/p14-2.jpg",
-      sell : 2
-    },
-    {
-      nameSP: "LEVENTS® POPULAR LOGO 2.0 Hoodie",
-      img: "../img/products/p15-1.jpg",
-      price: 590000,
-      count: 4,
-      nametag: "hoodie#",
-      nameColor1: "VÀNG",
-      nameColor2: "XÁM",
-      nameColor3:"ĐEN",    
-      colorr1: "yellow",
-      colorr2: "gray",
-      colorr3: "black",
-      img1: "./img/products/p15-1.jpg",
-      img2: "./img/products/p15-2.jpg",
-      img3: "./img/products/p15-3.jpg",
-      sell : 7
-    },
-    {
-      nameSP: "LEVENTS® MINI LOGO ZIPPER Hoodie",
-      img: "../img/products/p16-1.jpg",
-      price: 620000,
-      count: 2,
-      nametag: "hoodie#",
-      nameColor1: "TRẮNG",
-      nameColor2: "XÁM",
-      nameColor3:"",    
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "gray",
-      colorr3: "unset",
-      img1: "./img/products/p16-1.jpg",
-      img2: "./img/products/p16-2.jpg",
-      img3: "./img/products/p16-2.jpg",
-      sell : 2
-    },
-    {
-      nameSP: "LEVENTS® | DORAEMON COLLAB Hoodie",
-      img: "../img/products/p17-1.jpg",
-      price: 620000,
-      count: 9,
-      nametag: "hoodie#",
-      nameColor1: "TRẮNG",
-      nameColor2: "ĐEN",
-      nameColor3:"",    
-      colorr1: " rgb(235, 232, 226)",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p17-1.jpg",
-      img2: "./img/products/p17-2.jpg",
-      img3: "./img/products/p17-2.jpg",
-      sell : 1
-    },
-    {
-      nameSP: "LEVENTS® BASIC Sweater",
-      img: "../img/products/p18-1.jpg",
-      price: 490000,
-      count: 6,
-      nametag: "sweater#",
-      nameColor1: "XÁM",
-      nameColor2: "ĐỎ",
-      nameColor3:"",    
-      colorr1: "gray",
-      colorr2: "red",
-      colorr3: "unset",
-      img1: "./img/products/p18-1.jpg",
-      img2: "./img/products/p18-2.jpg",
-      img3: "./img/products/p18-2.jpg",
-      sell : 9
-    },
-    {
-      nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-      img: "../img/products/p19-1.jpg",
-      price: 490000,
-      count: 12,
-      nametag: "sweater#",
-      nameColor1: "NÂU",
-      nameColor2: "ĐEN",
-      nameColor3:"",    
-      colorr1: "brown",
-      colorr2: "black",
-      colorr3: "unset",
-      img1: "./img/products/p19-1.jpg",
-      img2: "./img/products/p19-2.jpg",
-      img3: "./img/products/p19-2.jpg",
-      sell : 3
-    },
-  ];
+// let ArrProduct = [
+//     {
+//       nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
+//       img: "../img/products/p1-1.png",
+//       price: 370000,
+//       count : 3,
+//       nametag: "aothun#",  
+//       nameColor1: "XÁM",
+//       nameColor2: "ĐỎ",
+//       nameColor3:"",    
+//       colorr1: "gray",
+//       colorr2: "red",
+//       colorr3: "unset",
+//       img1: "./img/products/p1-1.png",
+//       img2: "./img/products/p1-2.jpg",
+//       img3: "./img/products/p1-2.jpg",
+//       sell:2
+//     },
+//     {
+//       nameSP: "LEVENTS® | DORAEMON COLLAB TEE",
+//       img: "../img/products/p2-1.png",
+//       price: 450000,
+//       count: 7,
+//       nametag: "aothun#",   
+//       nameColor1: "TRẮNG",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",       
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p2-1.png",
+//       img2: "./img/products/p2-2.png",
+//       img3: "./img/products/p2-2.png",
+//       sell :2
+//     },
+//     {
+//       nameSP: "LEVENTS® DINOSAUR TEE",
+//       img: "../img/products/p3-1.jpg",
+//       price: 420000,
+//       count: 5,
+//       nametag: "aothun#",  
+//       nameColor1: "TRẮNG",
+//       nameColor2: "ĐEN",
+//       nameColor3:"XANH DƯƠNG",        
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "black",
+//       colorr3: "blue",
+//       img1: "./img/products/p3-1.jpg",
+//       img2: "./img/products/p3-2.jpg",
+//       img3: "./img/products/p3-3.jpg",
+//       sell :7
+//     },
+//     {
+//       nameSP: "LEVENTS® INSIDE OUT TEE",
+//       img: "../img/products/p4-1.jpg",
+//       price: 390000,
+//       count: 0,
+//       nametag: "aothun#", 
+//       nameColor1: "TRẮNG",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",    
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p4-1.jpg",
+//       img2: "./img/products/p4-2.jpg",
+//       img3: "./img/products/p4-2.jpg",
+//       sell :0
+//     },
+//     {
+//       nameSP: "LEVENTS® LOVEYOU300K SPECIAL TEE",
+//       img: "../img/products/p5-1.jpg",
+//       price: 300000,
+//       count: 2,
+//       nametag: "aothun#",   
+//       nameColor1: "TRẮNG",
+//       nameColor2: "",
+//       nameColor3:"",      
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "unset",
+//       colorr3: "unset",
+//       img1: "./img/products/p5-1.jpg",
+//       img2: "./img/products/p5-1.jpg",
+//       img3: "./img/products/p5-1.jpg",
+//       sell : 0
+//     },
+//     {
+//       nameSP: "LEVENTS® FUNNY CROCODILE TEE",
+//       img: "../img/products/p6-1.jpg",
+//       price: 390000,
+//       count: 1,
+//       nametag: "aothun#",     
+//       nameColor1: "XANH DƯƠNG",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",     
+//       colorr1: "blue",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p6-1.jpg",
+//       img2: "./img/products/p6.jpg",
+//       img3: "./img/products/p6-2.jpg",
+//       sell : 0
+//     },
+//     {
+//       nameSP: "LEVENTS® PUNCH VARSITY",
+//       img: "../img/products/p7-1.jpg",
+//       price: 890000,
+//       count: 11,
+//       nametag: "aokhoac#",      
+//       nameColor1: "NÂU",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",    
+//       colorr1: "brown",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p7-1.jpg",
+//       img2: "./img/products/p7-2.jpg",
+//       img3: "./img/products/p7-2.jpg",
+//       sell : 9
+//     },
+//     {
+//       nameSP: "LEVENTS® SELFLOVE BOXY TEE",
+//       img: "../img/products/p8-1.jpg",
+//       price: 380000,
+//       count: 10,
+//       nametag: "aothun#",      
+//       nameColor1: "TRẮNG",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",    
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p8-1.jpg",
+//       img2: "./img/products/p8-2.jpg",
+//       img3: "./img/products/p8-1.jpg",
+//       sell :0
+//     },
+//     {
+//       nameSP: "LEVENTS® | DORAEMON MINI CAT Polo",
+//       img: "../img/products/p9-1.jpg",
+//       price: 405000,
+//       count: 9,
+//       nametag: "polo#",
+//       nameColor1: "TRẮNG",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",    
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p9-1.jpg",
+//       img2: "./img/products/p9-2.jpg",
+//       img3: "./img/products/p9-2.jpg",
+//       sell : 2
+//     },
+//     {
+//       nameSP: "LEVENTS® MINI POPULAR Polo",
+//       img: "../img/products/p10-1.jpg",
+//       price: 370000,
+//       count: 6,
+//       nametag: "polo#",
+//       nameColor1: "TRẮNG",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",     
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p10-1.jpg",
+//       img2: "./img/products/p10-2.jpg",
+//       img3: "./img/products/p10-2.jpg",
+//       sell : 8
+//     },
+//     {
+//       nameSP: "LEVENTS® STRIPE Polo",
+//       img: "../img/products/p11-1.jpg",
+//       price: 420000,
+//       count: 2,
+//       nametag: "polo#", 
+//       nameColor1: "TRẮNG",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",    
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p11-1.jpg",
+//       img2: "./img/products/p11-2.jpg",
+//       img3: "./img/products/p11-2.jpg",
+//       sell : 2
+//     },
+//     {
+//       nameSP: "LEVENTS® CINEMA SHIRT",
+//       img: "../img/products/p12-1.jpg",
+//       price: 420000,
+//       count: 3,
+//       nametag: "somi#",
+//       nameColor1: "NÂU",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",     
+//       colorr1: "brown",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p12-1.jpg",
+//       img2: "./img/products/p12-2.jpg",
+//       img3: "./img/products/p12-2.jpg",
+//       sell : 5
+//     },
+//     {
+//       nameSP: "LEVENTS® CITIES SHIRT",
+//       img: "../img/products/p13-1.jpg",
+//       price: 420000,
+//       count: 8,
+//       nametag: "somi#",
+//       nameColor1: "TRẮNG",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",     
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p13-1.jpg",
+//       img2: "./img/products/p13-2.jpg",
+//       img3: "./img/products/p13-2.jpg",
+//       sell : 6
+//     },
+//     {
+//       nameSP: "LEVENTS® | DORAEMON COLLAB ZIPPER Hoodie",
+//       img: "../img/products/p14-1.jpg",
+//       price: 645000,
+//       count: 5,
+//       nametag: "hoodie#",
+//       nameColor1: "TRẮNG",
+//       nameColor2: "XÁM",
+//       nameColor3:"",    
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "gray",
+//       colorr3: "unset",
+//       img1: "./img/products/p14-1.jpg",
+//       img2: "./img/products/p14-2.jpg",
+//       img3: "./img/products/p14-2.jpg",
+//       sell : 2
+//     },
+//     {
+//       nameSP: "LEVENTS® POPULAR LOGO 2.0 Hoodie",
+//       img: "../img/products/p15-1.jpg",
+//       price: 590000,
+//       count: 4,
+//       nametag: "hoodie#",
+//       nameColor1: "VÀNG",
+//       nameColor2: "XÁM",
+//       nameColor3:"ĐEN",    
+//       colorr1: "yellow",
+//       colorr2: "gray",
+//       colorr3: "black",
+//       img1: "./img/products/p15-1.jpg",
+//       img2: "./img/products/p15-2.jpg",
+//       img3: "./img/products/p15-3.jpg",
+//       sell : 7
+//     },
+//     {
+//       nameSP: "LEVENTS® MINI LOGO ZIPPER Hoodie",
+//       img: "../img/products/p16-1.jpg",
+//       price: 620000,
+//       count: 2,
+//       nametag: "hoodie#",
+//       nameColor1: "TRẮNG",
+//       nameColor2: "XÁM",
+//       nameColor3:"",    
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "gray",
+//       colorr3: "unset",
+//       img1: "./img/products/p16-1.jpg",
+//       img2: "./img/products/p16-2.jpg",
+//       img3: "./img/products/p16-2.jpg",
+//       sell : 2
+//     },
+//     {
+//       nameSP: "LEVENTS® | DORAEMON COLLAB Hoodie",
+//       img: "../img/products/p17-1.jpg",
+//       price: 620000,
+//       count: 9,
+//       nametag: "hoodie#",
+//       nameColor1: "TRẮNG",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",    
+//       colorr1: " rgb(235, 232, 226)",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p17-1.jpg",
+//       img2: "./img/products/p17-2.jpg",
+//       img3: "./img/products/p17-2.jpg",
+//       sell : 1
+//     },
+//     {
+//       nameSP: "LEVENTS® BASIC Sweater",
+//       img: "../img/products/p18-1.jpg",
+//       price: 490000,
+//       count: 6,
+//       nametag: "sweater#",
+//       nameColor1: "XÁM",
+//       nameColor2: "ĐỎ",
+//       nameColor3:"",    
+//       colorr1: "gray",
+//       colorr2: "red",
+//       colorr3: "unset",
+//       img1: "./img/products/p18-1.jpg",
+//       img2: "./img/products/p18-2.jpg",
+//       img3: "./img/products/p18-2.jpg",
+//       sell : 9
+//     },
+//     {
+//       nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
+//       img: "../img/products/p19-1.jpg",
+//       price: 490000,
+//       count: 12,
+//       nametag: "sweater#",
+//       nameColor1: "NÂU",
+//       nameColor2: "ĐEN",
+//       nameColor3:"",    
+//       colorr1: "brown",
+//       colorr2: "black",
+//       colorr3: "unset",
+//       img1: "./img/products/p19-1.jpg",
+//       img2: "./img/products/p19-2.jpg",
+//       img3: "./img/products/p19-2.jpg",
+//       sell : 3
+//     },
+//   ];
+let ArrProduct = JSON.parse(localStorage.getItem('products'))
+// console.log(ArrProduct)
+
 let typeproducts = [
     { typeid: "aothun#", typename: "Áo thun" },
     { typeid: "polo#", typename: "Polo" },
@@ -407,7 +410,7 @@ function renderqlsp(){
   document.querySelector('.page-right').innerHTML =  
             `<div class="qlsp">
                 <div class="title"><h1>QUẢN LÝ SẢN PHẨM</h1></div>
-                <div class="btnAdd"><div class="circle"><i class="fa-solid fa-plus"></i></div></div>
+                <div class="btnAdd"><div class="circle" onclick="btnAdd()"><i class="fa-solid fa-plus"></i></div></div>
                 <div class="groupOption">
                         <select name="" class="box" id="comboType" onchange="searchSP()" >
                             <option value="0">Tất cả</option>
@@ -565,10 +568,76 @@ function rankProfit(arr){
 // Gọi hàm renderqltk khi trang tải
 window.onload = () => {
   renderqltk();
-  // localStorage.setItem('products',JSON.stringify(ArrProduct));
+  renderBtnadd();
 };
-// const l = JSON.parse(localStorage.getItem('products'))
 
+function renderBtnadd(){
+  let s='';
+  s+=`<div id="tabAddProduct">
+                <div class="headTab">
+                    <span class="title">THÊM SẢN PHẨM</span>
+                    <span onclick ="closeTabb()" class="closeTab">ĐÓNG</span>
+                </div>
+                <div class="bodyTab">
+                    <div class="leftTab">
+                        <div class="contentTab">
+                            <span>ID: </span>
+                            <span>20</span>
+                        </div>
+                        <div class="contentTab">
+                            <img src="" alt="" id="imgProduct">
+                            <input type="file" name="file" id="file" class="inputfile">
+                            <label for="file">Chọn ảnh</label>
+                        </div>
+                            <div class="contentTab"> 
+                                <span>Tên sản phẩm: </span>
+                                <input type="text" placeholder="Tên sản phẩm" value="" id="nameAddProduct">
+                            </div>
+                            <div class="contentTab colorInput">
+                                <span>Màu sắc: </span>
+                                <input type="text" placeholder="[ĐEN, TRẮNG, ....]" value="" id="colorAddProduct">
+                                <input type="text" placeholder="Mã màu [#000,#fff]" value="" id="codecolorAddProduct">
+                            </div>
+                            <div class="contentTab">
+                                <span>Số lượng: </span>
+                                <input type="text" id="countAddProduct" placeholder="Số lượng" value="">
+                            </div>
+                    </div>
+                    <div class="rightTab">
+                                <div class="contentTab">
+                                    <span>Đơn giá: </span>
+                                    <input type="text" id="priceAddProduct" placeholder="Đơn giá" value="">
+                                </div>
+                                <div class="contentTab">
+                                    <span>Tên hình </span>
+                                    <input type="text" placeholder="Tên hình" value="" id="nameimgAddProduct">
+                                </div>
+                                <div class="contentTab">
+                                    <span>Loại </span>
+                                    <input type="text" placeholder="Loại sản phẩm" value="" id="typeAddProduct">
+                                </div>
+                    </div>
+                </div>
+                <div class="btnAccept">
+                    <div class="content-btn">
+                        <span>HOÀN TẤT</span>
+                    </div>
+                </div>
+            </div>`
+            document.querySelector('.btnAddproduct').innerHTML=s;
+}
+//mo menu them san pham
+function btnAdd(){
+    let s= document.querySelector('.btnAddproduct');
+    s.classList.add('actz');
+    s.classList.remove('nonez');
+}
+//dong menu them san pham
+function closeTabb(){
+  let s= document.querySelector('.btnAddproduct');
+  s.classList.remove('actz');
+  s.classList.add('nonez');
+}
 
 // -------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
@@ -610,5 +679,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   
   });
-  console.log(ArrProduct);
+
+ 
 
