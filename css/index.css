@@ -330,14 +330,15 @@ body {
 }
 
 #policy-contact-h3 {
+  margin: 0 10px 0 0;
   display: flex;
   align-items: center;
-  margin-right: 10px;
 }
 
 .policy-contact-a {
   text-decoration: none;
   color: red;
+  /* căn giữa các pt trong tag a */
   display: flex;
   align-items: center;
 }

@@ -59,7 +59,7 @@ login.forEach(function (e) {
                 <label for=""><input type="checkbox" /> Remember me</label>
                 <a href="#">Forgot password</a>
               </div>
-              <button type="submit" class="btn" id="sign-in-button" onclick="signInButton();">Sign In</button>
+              <button type="submit" class="btn" id="sign-in-button" onclick="signInButton(event);">Sign In</button>
               <div class="login-register">
                 <p>
                   Don't have an account?
@@ -97,7 +97,7 @@ login.forEach(function (e) {
                   conditions</label
                 >
               </div>
-              <button type="submit" class="btn" id="register-btn" onclick="registerButton();">Sign Up</button>
+              <button type="submit" class="btn" id="register-btn" onclick="registerButton(event);">Sign Up</button>
               <div class="login-register">
                 <p>
                   Already have an account?
@@ -148,7 +148,7 @@ document.querySelector(".footer").innerHTML = `<div id="left-footer">
           Hệ Thống Cửa Hàng <span><i class="bx bx-chevron-down"></i></span>
         </h2>
         <p id="footer-paragraph">
-          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hồ Chí Minh<br />
+          <i class="fas fa-map-marker-alt"></i><strong> Chi Nhánh Hồ Chí Minh:</strong><br />
           <span class="location"
             ><strong>TP. Thủ Đức</strong> - Quận 9 - Tầng 2 TTTM Vincom Mega
             Mall Vinhomes GrandPark.</span
@@ -167,30 +167,30 @@ document.querySelector(".footer").innerHTML = `<div id="left-footer">
           <span class="location"
             ><strong>Quận Gò Vấp</strong> - 326 Quang Trung, Phường 10.</span
           ><br />
-          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Biên Hòa:<br />
+          <i class="fas fa-map-marker-alt"></i><strong> Chi Nhánh Biên Hòa:</strong><br />
           <span class="location"
             ><strong>TP. Biên Hòa</strong> - 151A Phan Trung, Phường Tân
             Mai.</span
           ><br />
-          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Bình Dương:<br />
+          <i class="fas fa-map-marker-alt"></i><strong> Chi Nhánh Bình Dương:</strong><br />
           <span class="location"
             ><strong>TP. Thủ Dầu Một</strong> - 28 Yersin, Phường Hiệp
             Thành.</span
           ><br />
-          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Cần Thơ:<br />
+          <i class="fas fa-map-marker-alt"></i><strong> Chi Nhánh Cần Thơ:</strong><br />
           <span class="location"
             ><strong>Quận Ninh Kiều</strong> - 52 Mậu Thân, Phường An Phú.</span
           ><br />
-          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hà Nội:<br />
+          <i class="fas fa-map-marker-alt"></i><strong> Chi Nhánh Hà Nội:</strong><br />
           <span class="location"
             ><strong>Đống Đa</strong> - 49-51 Hồ Đắc Di, Phường Nam Đồng.</span
           ><br />
-          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hưng Yên:<br />
+          <i class="fas fa-map-marker-alt"></i><strong> Chi Nhánh Hưng Yên:</strong><br />
           <span class="location"
             ><strong>Văn Giang</strong> - PT.TV 136 - Mega Grand World - Ocean
             Park</span
           ><br />
-          <i class="fas fa-map-marker-alt"></i> Chi Nhánh Hải Phòng:<br />
+          <i class="fas fa-map-marker-alt"></i><strong> Chi Nhánh Hải Phòng:</strong><br />
           <span class="location"
             ><strong>Lê Chân</strong> - Tầng 2 TTTM Aeon Mall Hải Phòng Lê Chân
             số 10 Võ Nguyên Giáp, Phường Kênh Dương</span
@@ -290,33 +290,46 @@ img_improptu.forEach((img, index) => {
     img.src = `./img/products/body_${index + 1}.jpg`;
   });
 });
-//vinh policy
-// let getPrivacyPolicy = document.querySelector("#privacy-policy");
-// let getFAQPolicy = document.querySelector("#FAQ-policy");
-// let getMembershipCardPolicy = document.querySelector("#membership-card-policy");
-// let getExchangeCardPolicy = document.querySelector("#exchange-card-policy");
-// let getShipCardPolicy = document.querySelector("#ship-card-policy");
-// let getPolicyContact = document.querySelector("#policy-contact");
-// let getPolices = document.getElementsByClassName("footer-policy-a");
-// let infoPolices = [
-//   getPrivacyPolicy,
-//   getFAQPolicy,
-//   getMembershipCardPolicy,
-//   getExchangeCardPolicy,
-//   getShipCardPolicy,
-// ];
+// vinh policy
+let getPrivacyPolicy = document.querySelector("#privacy-policy");
+let getFAQPolicy = document.querySelector("#FAQ-policy");
+let getMembershipCardPolicy = document.querySelector("#membership-card-policy");
+let getExchangeCardPolicy = document.querySelector("#exchange-card-policy");
+let getShipCardPolicy = document.querySelector("#ship-card-policy");
+let getPolicyContact = document.querySelector("#policy-contact");
+let getPolices = document.getElementsByClassName("footer-policy-a");
+let infoPolices = [
+  getPrivacyPolicy,
+  getFAQPolicy,
+  getMembershipCardPolicy,
+  getExchangeCardPolicy,
+  getShipCardPolicy,
+];
 
-// for (let i = 0; i < getPolices.length; i++) {
-//   getPolices[i].addEventListener("click", (e) => {
-//     e.preventDefault();
-//     midcontent.style.display = "none";
-//     infoPolices.forEach((policy) => {
-//       policy.style.display = "none";
-//     });
-//     infoPolices[i].style.display = "block";
-//     getPolicyContact.style.display = "flex";
-//   });
-// }
+for (let i = 0; i < getPolices.length; i++) {
+  getPolices[i].addEventListener("click", (e) => {
+    e.preventDefault();
+    midcontent.style.display = "none";
+    infoPolices.forEach((policy) => {
+      policy.style.display = "none";
+    });
+    infoPolices[i].style.display = "block";
+    getPolicyContact.style.display = "flex";
+  });
+}
+
+// ngăn không cho policy-contact-a nhảy lên đầu tag div chứa nó (policy-contact)
+let getPolicyContactA = "";
+function preventPolicyContactA() {
+  getPolicyContactA = document.querySelectorAll('.policy-contact-a');
+  for(let i = 0; i < getPolicyContactA.length; i++) {
+    getPolicyContactA[i].onclick = function(event) {
+      event.preventDefault();
+    }
+  }
+}
+
+preventPolicyContactA();
 
 // vinh sign up form
 let getRegisterButton = "";
@@ -376,60 +389,61 @@ function saveUser(user) {
   localStorage.setItem(user.userID, JSON.stringify(user));
 }
 
-function registerButton() {
-    getRegisterButton=document.querySelector('#register-btn');
-    getRegisterName = document.querySelector('#register-name');
-    getRegisterEmail = document.querySelector('#register-email');
-    getRegisterPassword = document.querySelector('#register-password');
-    getRegisterPasswordRetype = document.querySelector('#register-password-retype');
-    getAgreeTermsConditions = document.querySelector('#agreeTermsConditions');
-    if(getRegisterName.value.trim() === '') {
-      alert('Vui lòng nhập tên đăng ký!');
-      getRegisterName.focus();
-      return;
-    } else if(getRegisterEmail.value.trim() === '' || !getRegisterEmail.value.includes('@') || !(checkEmail(getRegisterEmail.value))) {
-      alert('Vui lòng nhập đúng email!');
-      getRegisterEmail.focus();
-      return;
-    } else if(!(checkEmailLocalStorage(getRegisterEmail.value))) {
-      alert("Email này đã tồn tại!");
-      getRegisterEmail.focus();
-      return;
-    } else if(getRegisterPassword.value.trim() === '') {
-      alert('Vui lòng nhập mật khẩu!');
-      getRegisterPassword.focus();
-      return;
-    } else if(getRegisterPasswordRetype.value.trim() === '') {
-      alert('Vui lòng nhập xác nhận mật khẩu!');
-      getRegisterPasswordRetype.focus();
-      return;
-    } else if(getRegisterPasswordRetype.value !== getRegisterPassword.value) {
-      alert('Mật khẩu xác nhận không khớp!');
-      getRegisterPasswordRetype.focus();
-      return;
-    } else if(!(getAgreeTermsConditions.checked)) {
-      alert('Please agree terms and conditions');
-      return;
-    } 
-    else {
-      let user = {
-        userID: '',
-        name: '',
-        email: '',
-        password: ''
-      }
-      user.name = getRegisterName.value;
-      user.email = getRegisterEmail.value;
-      user.password = getRegisterPassword.value;
-      logregBox.classList.remove("active");
-      // reset input fields
-      getRegisterName.value = '';
-      getRegisterEmail.value = '';
-      getRegisterPassword.value = '';
-      getRegisterPasswordRetype.value = '';
-      getAgreeTermsConditions.checked = false;
-      saveUser(user);
+function registerButton(event) {
+  event.preventDefault();
+  getRegisterButton=document.querySelector('#register-btn');
+  getRegisterName = document.querySelector('#register-name');
+  getRegisterEmail = document.querySelector('#register-email');
+  getRegisterPassword = document.querySelector('#register-password');
+  getRegisterPasswordRetype = document.querySelector('#register-password-retype');
+  getAgreeTermsConditions = document.querySelector('#agreeTermsConditions');
+  if(getRegisterName.value.trim() === '') {
+    alert('Vui lòng nhập đúng name!');
+    getRegisterName.focus();
+    return;
+  } else if(getRegisterEmail.value.trim() === '' || !getRegisterEmail.value.includes('@') || !(checkEmail(getRegisterEmail.value))) {
+    alert('Vui lòng nhập đúng email!');
+    getRegisterEmail.focus();
+    return;
+  } else if(!(checkEmailLocalStorage(getRegisterEmail.value))) {
+    alert("Email này đã tồn tại!");
+    getRegisterEmail.focus();
+    return;
+  } else if(getRegisterPassword.value.trim() === '') {
+    alert('Vui lòng nhập mật khẩu!');
+    getRegisterPassword.focus();
+    return;
+  } else if(getRegisterPasswordRetype.value.trim() === '') {
+    alert('Vui lòng nhập xác nhận mật khẩu!');
+    getRegisterPasswordRetype.focus();
+    return;
+  } else if(getRegisterPasswordRetype.value !== getRegisterPassword.value) {
+    alert('Mật khẩu xác nhận không khớp!');
+    getRegisterPasswordRetype.focus();
+    return;
+  } else if(!(getAgreeTermsConditions.checked)) {
+    alert('Please agree terms and conditions');
+    return;
+  } 
+  else {
+    let user = {
+      userID: '',
+      name: '',
+      email: '',
+      password: ''
     }
+    user.name = getRegisterName.value;
+    user.email = getRegisterEmail.value;
+    user.password = getRegisterPassword.value;
+    logregBox.classList.remove("active");
+    // reset input fields
+    getRegisterName.value = '';
+    getRegisterEmail.value = '';
+    getRegisterPassword.value = '';
+    getRegisterPasswordRetype.value = '';
+    getAgreeTermsConditions.checked = false;
+    saveUser(user);
+  }
 }
 
 // vinh sign in form
@@ -445,7 +459,8 @@ let currentUser = {
 }
 
 
-function signInButton() {
+function signInButton(event) {
+  event.preventDefault();
     getSignInButton = document.querySelector('#sign-in-button');
     getEmailSignIn = document.querySelector('#Email');
     getPasswordSignIn = document.querySelector('#Password');
