@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 let ArrProduct = [
   {
     nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
@@ -324,7 +324,6 @@ let ArrProduct = [
     sell: 3
   },
 ];
-=======
 // let ArrProduct = [
 //     {
 //       nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
@@ -650,10 +649,9 @@ let ArrProduct = [
 //       sell : 3
 //     },
 //   ];
-let ArrProduct = JSON.parse(localStorage.getItem('products'))
+// let ArrProduct = JSON.parse(localStorage.getItem('products'))
 // console.log(ArrProduct)
 
->>>>>>> 95d11145b864f8f6c841d4babd4132d8fc46f490
 let typeproducts = [
   { typeid: "aothun#", typename: "Áo thun" },
   { typeid: "polo#", typename: "Polo" },
@@ -896,10 +894,9 @@ function rankProfit(arr) {
 // Gọi hàm renderqltk khi trang tải
 window.onload = () => {
   renderqltk();
-  renderBtnadd();
+  // renderBtnadd();
 };
 
-<<<<<<< HEAD
 let acc_1 = (
   {
     idAccount: "1",
@@ -964,76 +961,7 @@ function checkAccount() {
   document.getElementById('amountLockedAccount').innerHTML = locked;
   document.getElementById('amountUnlockedAccount').innerHTML = accounts.length - locked;
   document.getElementById('manageCustomer-body').innerHTML = listAccounts();
-=======
-function renderBtnadd(){
-  let s='';
-  s+=`<div id="tabAddProduct">
-                <div class="headTab">
-                    <span class="title">THÊM SẢN PHẨM</span>
-                    <span onclick ="closeTabb()" class="closeTab">ĐÓNG</span>
-                </div>
-                <div class="bodyTab">
-                    <div class="leftTab">
-                        <div class="contentTab">
-                            <span>ID: </span>
-                            <span>20</span>
-                        </div>
-                        <div class="contentTab">
-                            <img src="" alt="" id="imgProduct">
-                            <input type="file" name="file" id="file" class="inputfile">
-                            <label for="file">Chọn ảnh</label>
-                        </div>
-                            <div class="contentTab"> 
-                                <span>Tên sản phẩm: </span>
-                                <input type="text" placeholder="Tên sản phẩm" value="" id="nameAddProduct">
-                            </div>
-                            <div class="contentTab colorInput">
-                                <span>Màu sắc: </span>
-                                <input type="text" placeholder="[ĐEN, TRẮNG, ....]" value="" id="colorAddProduct">
-                                <input type="text" placeholder="Mã màu [#000,#fff]" value="" id="codecolorAddProduct">
-                            </div>
-                            <div class="contentTab">
-                                <span>Số lượng: </span>
-                                <input type="text" id="countAddProduct" placeholder="Số lượng" value="">
-                            </div>
-                    </div>
-                    <div class="rightTab">
-                                <div class="contentTab">
-                                    <span>Đơn giá: </span>
-                                    <input type="text" id="priceAddProduct" placeholder="Đơn giá" value="">
-                                </div>
-                                <div class="contentTab">
-                                    <span>Tên hình </span>
-                                    <input type="text" placeholder="Tên hình" value="" id="nameimgAddProduct">
-                                </div>
-                                <div class="contentTab">
-                                    <span>Loại </span>
-                                    <input type="text" placeholder="Loại sản phẩm" value="" id="typeAddProduct">
-                                </div>
-                    </div>
-                </div>
-                <div class="btnAccept">
-                    <div class="content-btn">
-                        <span>HOÀN TẤT</span>
-                    </div>
-                </div>
-            </div>`
-            document.querySelector('.btnAddproduct').innerHTML=s;
 }
-//mo menu them san pham
-function btnAdd(){
-    let s= document.querySelector('.btnAddproduct');
-    s.classList.add('actz');
-    s.classList.remove('nonez');
-}
-//dong menu them san pham
-function closeTabb(){
-  let s= document.querySelector('.btnAddproduct');
-  s.classList.remove('actz');
-  s.classList.add('nonez');
->>>>>>> 95d11145b864f8f6c841d4babd4132d8fc46f490
-}
-
 function toggleLockUser(idAccount) {
   let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
   let user = accounts.find(u => u.idAccount === idAccount);
@@ -1118,7 +1046,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderqltk();
   });
 
-<<<<<<< HEAD
   QLDH.addEventListener('click', () => {
     QLTK.classList.remove('act');
     QLDH.classList.add('act');
@@ -1147,7 +1074,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 console.log(ArrProduct);
-=======
- 
->>>>>>> 95d11145b864f8f6c841d4babd4132d8fc46f490
-

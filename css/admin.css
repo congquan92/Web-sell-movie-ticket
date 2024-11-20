@@ -213,7 +213,6 @@
 .btnAdd{
     margin: 10px 0px;
 }
-<<<<<<< HEAD
 
 /* qlnd */
 .qlnd {
@@ -256,99 +255,4 @@
 .btnAccount:active {
     transform: scale(0.96);
 }
-=======
-/* .menu-icon{
-    height: 5%; 
-    width: 10%; 
-    padding: 20px; 
-    cursor: pointer;
-} */
-/* .actt{
-    transform: translateX(0);
-    transition: 0.7s ease-in;
-} */
 
-
-/* test add  */
-
-#tabAddProduct{
-    position: fixed;
-    width: 800px;
-    height: 450px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.16);
-    padding: 20px;
-}
-.headTab {
-    padding: 20px;
-    border: 1px solid;
-    position: relative;
-}
-.headTab .title{
-    position: absolute; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.headTab .closeTab{
-    position: absolute;
-    right: 0;
-    top : 0; 
-}
-.bodyTab{
-    display: flex;
-    border: 1px solid;
-    margin: 20px 0px;
-}
-.leftTab{
-width: 505px;
-}
-.rightTab{
-width: 50%;
-}
-.contentTab{
-    margin: 20px 0px;
-}
-#file{
-    /* display: none; */
-}
-.contentTab label{
-    background-color: black;
-    color: white;
-    padding: 10px 5px;
-}
-.contentTab input[type="text"]{
-    width: 40%;
-    padding: 5px;
-    border: 1px solid;
-    border-radius: 10px;
-}
-.btnAccept{
-    width: 100%;
-    border: 1px solid;
-    text-align: center;
-    padding: 20px;
-}
-
-.actz{
-    position: fixed; 
-    z-index: 999;
-    background-color: #fff;
-    border: 1px solid;
-    left: calc(50% - 300px);
-    top: 50px; 
-    transform: translateY(0px);
-    transition : 0.5s ease-in-out;
-} 
-.nonez{
-    position: fixed; 
-    z-index: 999;
-    background-color: #fff;
-    border: 1px solid;
-    left: calc(50% - 300px);
-    top: 50px; 
-    transform: translateY(-600px);
-    transition: 0.5s ease;
-}
->>>>>>> 95d11145b864f8f6c841d4babd4132d8fc46f490
