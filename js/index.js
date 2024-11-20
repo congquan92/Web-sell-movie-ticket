@@ -21,7 +21,6 @@ if (user != null) {
           <span>0</span>
         </div>
         <div class="logout"><i class="fa-solid fa-right-from-bracket"></i></div>`;
-  console.log(nav);
 }
 
 // console.log(a);

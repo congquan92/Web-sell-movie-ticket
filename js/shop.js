@@ -287,7 +287,9 @@ function clickC1(e) {
 }
 let statusproductcurrent = [
   { statusID: "1", statuscontent: "Chờ xác nhận" },
-  { statusID: "2", statuscontent: "" },
+  { statusID: "2", statuscontent: "Đang gói hàng" },
+  { statusID: "3", statuscontent: "Vận chuyển" },
+  { statusID: "4", statuscontent: "Hoàn thành" },
 ];
 let objcolorcurrent = {
   obj: "",
@@ -295,7 +297,7 @@ let objcolorcurrent = {
   img: "",
   soluong: "",
   size: "",
-  status: "Chờ ",
+  status: "1",
 };
 //chi tiet sp
 function loadSingleProduct(e) {

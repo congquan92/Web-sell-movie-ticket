@@ -1,4 +1,9 @@
-console.log(midcontent);
+let logout = document.querySelector(".logout");
+logout.addEventListener("click", () => {
+  user = null;
+  localStorage.setItem("currentUser", JSON.stringify(user));
+  location.reload();
+});
 login.forEach(function (e) {
   let user = JSON.parse(localStorage.getItem("currentUser"));
   e.addEventListener("click", () => {
