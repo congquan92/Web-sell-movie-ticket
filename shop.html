@@ -30,6 +30,7 @@
     <title>New Clothes | Shop</title>
     <link rel="stylesheet" href="./css/shop.css" />
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/shopping.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
   </head>
   <div id="loader">
@@ -39,7 +40,12 @@
       <div class="dot"></div>
     </div>
   </div>
-    <div class="backgroud-menu-respon"></div>
+  <div class="backgroud-menu-respon" onclick="closeall()"></div>
+    <div class="toast_info">
+      <!-- Success -->
+      <!-- Error -->
+      
+    </div>
     <!-- Nav-login -->
     <div class="header">
       <div class="logo"><img src="./img/New Clothes.gif" alt="" /></div>
@@ -48,8 +54,10 @@
         <div class="shop">Shop</div>
         <div class="blog">Blog</div>
         <div class="contact">Contact</div>
-        <div class="Shoping">Shoping</div>
         <div class="login-btn">Login</div>
+        <div class="Shoping" onclick="shopinginfo();">
+          <i class="fa-solid fa-cart-shopping"><span>0</span></i>
+        </div>
       </div>
       <div class="menu"><i class="bx bx-menu"></i></div>
     </div>
@@ -138,11 +146,15 @@
         </div>
       </div>
     </div>
+    <div class="cart"></div>
     <!-- Footer -->
     <div class="footer"></div>
     <div id="bottom-footer"></div>
     <script src="./js/index.js"></script>
     <script src="./js/shop.js"></script>
+    <script src="./js/policy.js"></script>
+    <script src="./js/Products.js"></script>
+    <script src="./js/shopping.js"></script>
     <script src="./js/loginadmin.js"></script>
   </body>
 </html>

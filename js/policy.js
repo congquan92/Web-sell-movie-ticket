@@ -1,5 +1,4 @@
-function loadfooter() {
-  document.querySelector(".footer").innerHTML = `<div id="left-footer">
+document.querySelector(".footer").innerHTML = `<div id="left-footer">
           <h2 class="address-btn">
             Hệ Thống Cửa Hàng <span><i class="bx bx-chevron-down"></i></span>
           </h2>
@@ -92,45 +91,39 @@ function loadfooter() {
             </li>
           </ul>
         </div>`;
-  document.getElementById(
-    "bottom-footer"
-  ).innerHTML = `<p id="bottom-paragraph">
+document.getElementById("bottom-footer").innerHTML = `<p id="bottom-paragraph">
           Copyright © 2023 Shop Studio. Powered by ManUtd
         </p>`;
-  const address_btn = document.querySelector(".address-btn");
-  const social_btn = document.querySelector(".social-btn");
-  const content_addressbtn = document.querySelector("#footer-paragraph");
-  const content_socialbtn = document.querySelector("#footer-social-ul");
-  const policy_btn = document.querySelector(".policy-btn");
-  const content_policybtn = document.querySelector("#footer-policy-ul");
-  let flag_address_btn = 0;
-  address_btn.addEventListener("click", () => {
-    if (flag_address_btn == 0) {
-      address_btn.classList.add("active");
-      content_addressbtn.classList.add("active");
-      flag_address_btn = 1;
-    } else {
-      address_btn.classList.remove("active");
-      content_addressbtn.classList.remove("active");
-      flag_address_btn = 0;
-    }
-  });
-  let flag_social_btn = 0;
-  social_btn.addEventListener("click", () => {
-    if (flag_social_btn == 0) {
-      social_btn.classList.add("active");
-      content_socialbtn.classList.add("active");
-      flag_social_btn = 1;
-    } else {
-      social_btn.classList.remove("active");
-      content_socialbtn.classList.remove("active");
-      flag_social_btn = 0;
-    }
-  });
-}
-window.onload = function () {
-  loadfooter();
-};
+const address_btn = document.querySelector(".address-btn");
+const social_btn = document.querySelector(".social-btn");
+const content_addressbtn = document.querySelector("#footer-paragraph");
+const content_socialbtn = document.querySelector("#footer-social-ul");
+const policy_btn = document.querySelector(".policy-btn");
+const content_policybtn = document.querySelector("#footer-policy-ul");
+let flag_address_btn = 0;
+address_btn.addEventListener("click", () => {
+  if (flag_address_btn == 0) {
+    address_btn.classList.add("active");
+    content_addressbtn.classList.add("active");
+    flag_address_btn = 1;
+  } else {
+    address_btn.classList.remove("active");
+    content_addressbtn.classList.remove("active");
+    flag_address_btn = 0;
+  }
+});
+let flag_social_btn = 0;
+social_btn.addEventListener("click", () => {
+  if (flag_social_btn == 0) {
+    social_btn.classList.add("active");
+    content_socialbtn.classList.add("active");
+    flag_social_btn = 1;
+  } else {
+    social_btn.classList.remove("active");
+    content_socialbtn.classList.remove("active");
+    flag_social_btn = 0;
+  }
+});
 function policycontent() {
   loadpage();
   midcontent.innerHTML = `<div id="privacy-policy">

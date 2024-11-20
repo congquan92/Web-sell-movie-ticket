@@ -131,11 +131,6 @@ close_nav.addEventListener("click", () => {
   header_responsive.classList.remove("active");
   backgroud_menu_respon.style.display = "none";
 });
-backgroud_menu_respon.addEventListener("click", () => {
-  header_responsive.classList.remove("active");
-  backgroud_menu_respon.style.display = "none";
-});
-
 logonav.addEventListener("click", () => {
   window.location.href = "index.html";
 });

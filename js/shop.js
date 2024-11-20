@@ -1,367 +1,4 @@
-let ProductArrBoth = [
-  {
-    nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
-    img: "./img/products/p1-1.png",
-    price: 370000,
-    nametag: "aothun#",
-    colorr1: "gray",
-    colorr2: "red",
-    colorr3: "unset",
-    img1: "./img/products/p1-1.png",
-    img2: "./img/products/p1-2.jpg",
-    img3: "./img/products/p1-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® | DORAEMON COLLAB TEE",
-    img: "./img/products/p2-1.png",
-    price: 450000,
-    nametag: "aothun#",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p2-1.png",
-    img2: "./img/products/p2-2.png",
-    img3: "./img/products/p2-2.png",
-  },
-  {
-    nameSP: "LEVENTS® DINOSAUR TEE",
-    img: "./img/products/p3-1.jpg",
-    price: 420000,
-    nametag: "aothun#",
-    idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "blue",
-    img1: "./img/products/p3-1.jpg",
-    img2: "./img/products/p3-2.jpg",
-    img3: "./img/products/p3-3.jpg",
-  },
-  {
-    nameSP: "LEVENTS® INSIDE OUT TEE",
-    img: "./img/products/p4-1.jpg",
-    price: 390000,
-    nametag: "aothun#",
-    idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p4-1.jpg",
-    img2: "./img/products/p4-2.jpg",
-    img3: "./img/products/p4-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® LOVEYOU300K SPECIAL TEE",
-    img: "./img/products/p5-1.jpg",
-    price: 300000,
-    nametag: "aothun#",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "unset",
-    idproduct: "",
-    colorr3: "unset",
-    img1: "./img/products/p5-1.jpg",
-    img2: "./img/products/p5-1.jpg",
-    img3: "./img/products/p5-1.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE TEE",
-    img: "./img/products/p6-1.jpg",
-    price: 390000,
-    nametag: "aothun#",
-    colorr1: "blue",
-    idproduct: "",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p6-1.jpg",
-    img2: "./img/products/p6.jpg",
-    img3: "./img/products/p6-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® PUNCH VARSITY",
-    img: "./img/products/p7-1.jpg",
-    price: 890000,
-    nametag: "aokhoac#",
-    idproduct: "",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p7-1.jpg",
-    img2: "./img/products/p7-2.jpg",
-    img3: "./img/products/p7-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® SELFLOVE BOXY TEE",
-    img: "./img/products/p8-1.jpg",
-    price: 380000,
-    idproduct: "",
-    nametag: "aothun#",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p8-1.jpg",
-    img2: "./img/products/p8-2.jpg",
-    img3: "./img/products/p8-1.jpg",
-  },
-  {
-    nameSP: "LEVENTS® | DORAEMON MINI CAT Polo",
-    img: "./img/products/p9-1.jpg",
-    price: 405000,
-    nametag: "polo#",
-    idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p9-1.jpg",
-    img2: "./img/products/p9-2.jpg",
-    img3: "./img/products/p9-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® MINI POPULAR Polo",
-    img: "./img/products/p10-1.jpg",
-    price: 370000,
-    nametag: "polo#",
-    idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p10-1.jpg",
-    img2: "./img/products/p10-2.jpg",
-    img3: "./img/products/p10-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® STRIPE Polo",
-    img: "./img/products/p11-1.jpg",
-    price: 420000,
-    idproduct: "",
-    nametag: "polo#",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p11-1.jpg",
-    img2: "./img/products/p11-2.jpg",
-    img3: "./img/products/p11-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® CINEMA SHIRT",
-    img: "./img/products/p12-1.jpg",
-    price: 420000,
-    nametag: "somi#",
-    idproduct: "",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p12-1.jpg",
-    img2: "./img/products/p12-2.jpg",
-    img3: "./img/products/p12-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® CITIES SHIRT",
-    img: "./img/products/p13-1.jpg",
-    price: 420000,
-    nametag: "somi#",
-    idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p13-1.jpg",
-    img2: "./img/products/p13-2.jpg",
-    img3: "./img/products/p13-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® | DORAEMON COLLAB ZIPPER Hoodie",
-    img: "./img/products/p14-1.jpg",
-    price: 645000,
-    nametag: "hoodie#",
-    idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "gray",
-    colorr3: "unset",
-    img1: "./img/products/p14-1.jpg",
-    img2: "./img/products/p14-2.jpg",
-    img3: "./img/products/p14-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® POPULAR LOGO 2.0 Hoodie",
-    img: "./img/products/p15-1.jpg",
-    price: 590000,
-    nametag: "hoodie#",
-    colorr1: "yellow",
-    colorr2: "gray",
-    idproduct: "",
-    colorr3: "black",
-    img1: "./img/products/p15-1.jpg",
-    img2: "./img/products/p15-2.jpg",
-    img3: "./img/products/p15-3.jpg",
-  },
-  {
-    nameSP: "LEVENTS® MINI LOGO ZIPPER Hoodie",
-    img: "./img/products/p16-1.jpg",
-    price: 620000,
-    nametag: "hoodie#",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "gray",
-    colorr3: "unset",
-    idproduct: "",
-    img1: "./img/products/p16-1.jpg",
-    img2: "./img/products/p16-2.jpg",
-    img3: "./img/products/p16-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® | DORAEMON COLLAB Hoodie",
-    img: "./img/products/p17-1.jpg",
-    price: 620000,
-    nametag: "hoodie#",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    idproduct: "",
-    img1: "./img/products/p17-1.jpg",
-    img2: "./img/products/p17-2.jpg",
-    img3: "./img/products/p17-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® BASIC Sweater",
-    img: "./img/products/p18-1.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    idproduct: "",
-    colorr1: "gray",
-    colorr2: "red",
-    colorr3: "unset",
-    img1: "./img/products/p18-1.jpg",
-    img2: "./img/products/p18-2.jpg",
-    img3: "./img/products/p18-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    idproduct: "",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    idproduct: "",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    idproduct: "",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    idproduct: "",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    idproduct: "",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    idproduct: "",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    idproduct: "",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    idproduct: "",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    idproduct: "",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    idproduct: "",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-];
+let ProductArrBoth = JSON.parse(localStorage.getItem("arrayproducts"));
 let typeproducts = [
   { typeid: "aothun#", typename: "Áo thun" },
   { typeid: "polo#", typename: "Polo" },
@@ -371,16 +8,7 @@ let typeproducts = [
   { typeid: "aokhoac#", typename: "Áo khoác" },
 ];
 //Hàm tạo id SP
-function makeIDproduct() {
-  for (let i = 0; i < ProductArrBoth.length; i++) {
-<<<<<<< HEAD
-    ProductArrBoth[i].idproduct =
-      ProductArrBoth[i].nametag + ProductArrBoth[i].nameSP;
-=======
-    ProductArrBoth[i].idproduct = ProductArrBoth[i].nametag + (i+1);
->>>>>>> bdff6e39245cfeda5711932f9efce250b3b8c7d8
-  }
-}
+
 function makeFilter() {
   let s = `<div class="control">
             <div class="title">
@@ -434,10 +62,9 @@ let max_page = 0;
 
 // Hàm tạo sản phẩm trên trang
 function makeSP(trang, sosptrongtrang, arr) {
-  sp = "";
+  let sp = "";
   for (let i = (trang - 1) * sosptrongtrang; i < trang * sosptrongtrang; i++) {
     if (i >= arr.length) break;
-    // console.log(i);
     const originalPrice = (arr[i].price + arr[i].price * sale).toLocaleString(
       "vi-VN",
       { style: "currency", currency: "VND" }
@@ -467,7 +94,9 @@ function makeSP(trang, sosptrongtrang, arr) {
           <p style="font-style: italic;">Giá gốc: <span style="text-decoration: line-through; font-style: italic;">${originalPrice}</span></p>
           <p style="font-style: italic;">Giá khuyến mãi: <span style="font-size: larger; font-style: italic;">${salePrice}</span></p>
         </div>
-        <div class="buy"><i class="fa-solid fa-wallet"></i>Mua Ngay</div>
+        <div class="buy" onclick="addShopingBag(${JSON.stringify(
+          arr[i]
+        )});"><i class="fa-solid fa-wallet"></i>Mua Ngay</div>
         <div style="text-decoration: none; color: black;" onclick='loadSingleProduct(${JSON.stringify(
           arr[i]
         )})' class="buy"><i class="fa-solid fa-circle-info"></i>Chi Tiết</div>
@@ -660,13 +289,18 @@ function clickC1(e) {
   const imgElement = e.closest(".item_1").querySelector(".srcimg"); // tìm phần tử cha gần nhất có lớp item_1 ếp tục tìm phần tử ảnh bên trong phần tử cha item_1
   imgElement.setAttribute("src", newSrc);
 }
-
+let objcolorcurrent = {
+  obj: "",
+  color: "",
+  img: "",
+  soluong: "",
+  size: "",
+};
 //chi tiet sp
 function loadSingleProduct(e) {
-  const urlParams = new URLSearchParams();
-  urlParams.append("productID", e.idproduct);
-  const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
-  window.history.pushState({ path: newUrl }, "", newUrl);
+  objcolorcurrent.obj = e;
+  objcolorcurrent.color = e.colorr1;
+  objcolorcurrent.img = e.img1;
 
   const originalPrice = (e.price + e.price * sale).toLocaleString("vi-VN", {
     style: "currency",
@@ -694,20 +328,35 @@ function loadSingleProduct(e) {
 
                         <h4 id="color">Màu sắc: XANH LÁ</h4>
                         <div id="listColor_pdt" class="listColor">
-                            <div onclick="clickC_1(this)" class="itemColor1" data-src="${e.img1}" style="background-color: ${e.colorr1};"></div>
-                            <div onclick="clickC_1(this)" class="itemColor2" data-src="${e.img2}" style="background-color: ${e.colorr2};"></div>
-                            <div onclick="clickC_1(this)" class="itemColor3" data-src="${e.img3}" style="background-color: ${e.colorr3};"></div>
+                            <div onclick="clickC_1(this,'${e.colorr1}','${
+    e.img1
+  }')" class="itemColor1" data-src="${e.img1}" style="background-color: ${
+    e.colorr1
+  };"></div>
+                            <div onclick="clickC_1(this,'${e.colorr2}','${
+    e.img2
+  }')" class="itemColor2" data-src="${e.img2}" style="background-color: ${
+    e.colorr2
+  };"></div>
+                            <div onclick="clickC_1(this,'${e.colorr3}','${
+    e.img3
+  }')" class="itemColor3" data-src="${e.img3}" style="background-color: ${
+    e.colorr3
+  };"></div>
                         </div>
                         <div class="countProduct">
                             <h4>Số lượng: </h4>
-                            <li><i class="fa-solid fa-minus"></i></li>
-                            <input type="text" min="min" max="max" readonly="readonly" id="counteInp">
-                            <li><i class="fa-solid fa-plus"></i></li>
+                            <li><i class="fa-solid fa-minus" onclick='reduce(${JSON.stringify(
+                              e
+                            )});'></i></li>
+                            <input type="text" min="min" max="max" readonly="readonly" id="counteInp" value="1">
+                            <li><i class="fa-solid fa-plus" onclick='increase(${JSON.stringify(
+                              e
+                            )});'></i></li>
                         </div>
                         <div class="choiceSize">
                             <h3>Size: </h3>
                             <select name="" id="size">
-                                <option value="">Chọn size</option>
                                 <option value="A">A</option>
                                 <option value="B">B</option>
                                 <option value="C">C</option>
@@ -715,7 +364,7 @@ function loadSingleProduct(e) {
                             </select>
                         </div>
                         <div class="addToCart">
-                            <p>Thêm vào giỏ</p>
+                            <p onclick="addShopingBag(objcolorcurrent)">Thêm vào giỏ</p>
                         </div>
                         <div class="content_infoProduct">
                             <h3>THÔNG TIN SẢN PHẨM</h3>
@@ -746,6 +395,41 @@ function loadSingleProduct(e) {
             </div>`;
   document.getElementsByClassName("both")[0].innerHTML = s;
 }
+
+let quantity = "";
+
+function reduce(itemJSON) {
+  let count = document.querySelector("#counteInp");
+  quantity = parseInt(count.value);
+  if (quantity > 1) {
+    quantity = quantity - 1;
+  } else {
+    quantity = 1;
+  }
+  count.value = quantity;
+}
+
+function increase(itemJSON) {
+  let count = document.querySelector("#counteInp");
+  quantity = parseInt(count.value);
+  if (quantity < itemJSON.quantity) {
+    quantity = quantity + 1;
+  } else {
+    quantity = itemJSON.quantity;
+  }
+  count.value = quantity;
+  console.log(quantity);
+}
+
+//doi mau sac quan ao trong chi textIndent
+function clickC_1(e, color, img) {
+  objcolorcurrent.color = color;
+  objcolorcurrent.img = img;
+  console.log(objcolorcurrent);
+  const dataimg = e.getAttribute("data-src");
+  const srcold = e.closest(".both_").querySelector(".srcimg"); //tim phan tu cha -> con co class srcimg
+  srcold.setAttribute("src", dataimg);
+}
 function timkiemSP(arr, id) {
   for (let i = 0; i < arr.length; i++) {
     if (id == arr[i].idproduct) {
@@ -768,17 +452,48 @@ function goBack() {
   window.location.href = "shop.html";
 }
 
-//doi mau sac quan ao trong chi textIndent
-function clickC_1(e) {
-  const dataimg = e.getAttribute("data-src");
-  const srcold = e.closest(".both_").querySelector(".srcimg"); //tim phan tu cha -> con co class srcimg
-  srcold.setAttribute("src", dataimg);
+function addShopingBag() {
+  console.log(flag_signin);
+  let toast = document.querySelector(".toast_info");
+  if (flag_signin == true) {
+    // toast.innerHTML = `<div id="toast">
+    //     <div class="toast toast--success ">
+    //       <div class="toast_icon">
+    //         <i class="fa-solid fa-circle-check"></i>
+    //       </div>
+    //       <div class="toast_body">
+    //         <h3 class="toast_tittle">Success</h3>
+    //         <p class="toast_msg">Đã Thêm vào giỏ hàng</p>
+    //       </div>
+    //       <div class="toast_close"><i class="fa-solid fa-xmark"></i></div>
+    //     </div>
+    //   </div>`;
+    alert("asda");
+  } else {
+    toast.innerHTML = `<div class="toast toast--error">
+        <div class="toast_icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="toast_body">
+          <h3 class="toast_tittle">Error</h3>
+          <p class="toast_msg">Vui lòng đăng nhập</p>
+        </div>
+        <div class="toast_close"><i class="fa-solid fa-xmark"></i></div>
+      </div>`;
+  }
+  // alert("asds");
 }
-
+// Load trang
+document.addEventListener("DOMContentLoaded", function () {
+  var loader = document.getElementById("loader");
+  setTimeout(function () {
+    loader.style.display = "none";
+  }, 500);
+});
 window.onload = function () {
-  makeIDproduct();
   makeFilter();
   makeSP(getCurrentPage(), sosptrongtrang, ProductArrBoth);
   makeselectpage(getCurrentPage(), ProductArrBoth);
+  // saveArraytolocal();
   reloadpage();
 };

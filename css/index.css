@@ -65,6 +65,9 @@ body {
   right: 0;
   top: 0;
 }
+.Shoping span {
+  margin-left: 5px;
+}
 .logo {
   width: 50px;
   height: 50px;
@@ -522,6 +525,36 @@ body {
   color: white;
   background-color: #1a1a1a;
 }
+
+/* amination */
+.trend {
+  animation: trend 2s ease;
+}
+@keyframes trend {
+  from {
+    opacity: 0;
+    transform: translateY(1000px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.content-impromptu-item,
+.content-impromptu-item {
+  animation: lefttoright 2s ease;
+}
+@keyframes lefttoright {
+  from {
+    opacity: 0;
+    transform: translateX(-900px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* Responsive */
 @media (min-width: 340px) and (max-width: 700px) {
   .logo {

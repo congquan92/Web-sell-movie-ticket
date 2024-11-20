@@ -1,0 +1,86 @@
+.cart {
+  position: fixed;
+  z-index: 99999999;
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  transform: translateX(-1000px);
+  transition: 0.5s ease;
+  background-color: white;
+}
+.close-shopping {
+  cursor: pointer;
+}
+.cart.active {
+  overflow: visible;
+  transform: translateX(0);
+  transition: 0.5s ease;
+}
+.pay {
+  height: calc(100% - 10% - 250px);
+}
+.shoping-bag-header {
+  height: 10%;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.shoping-bag-img {
+  width: 40%;
+  object-fit: contain;
+}
+.cart-info {
+  width: 100%;
+}
+.shoping-bag-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.shoping-bag-img img {
+  width: 100%;
+  height: 100%;
+}
+.count input {
+  width: 20px;
+}
+.shoping-bag-info {
+  overflow: auto;
+  height: 400px;
+}
+.selected,
+.discount,
+.total,
+.priceAndCount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* .shoping-bag {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+} */
+.btn-pay {
+  background-color: rgba(120, 120, 120, 0.372);
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+  padding: 2px;
+  font-size: 12px;
+}
+.main {
+  margin-top: 10px;
+}
+.delete {
+  text-align: center;
+}
+.info_bill {
+  background-color: rgb(236, 236, 236);
+  padding: 10px;
+  line-height: 1.5;
+}
