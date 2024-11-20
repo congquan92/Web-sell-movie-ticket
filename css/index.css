@@ -11,6 +11,7 @@ ul {
 body {
   position: relative;
 }
+
 #loader {
   position: absolute;
   width: 100%;

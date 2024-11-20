@@ -74,7 +74,9 @@ function makeSP(trang, sosptrongtrang, arr) {
       currency: "VND",
     });
     sp += `
-      <div class="item_1">
+      <div class="item_1" onclick='loadSingleProduct(${JSON.stringify(
+        arr[i]
+      )})'>
         <div class="img-item"><img class="srcimg" src="${
           arr[i].img
         }" alt=""></div>
@@ -94,12 +96,6 @@ function makeSP(trang, sosptrongtrang, arr) {
           <p style="font-style: italic;">Giá gốc: <span style="text-decoration: line-through; font-style: italic;">${originalPrice}</span></p>
           <p style="font-style: italic;">Giá khuyến mãi: <span style="font-size: larger; font-style: italic;">${salePrice}</span></p>
         </div>
-        <div class="buy" onclick="addShopingBag(${JSON.stringify(
-          arr[i]
-        )});"><i class="fa-solid fa-wallet"></i>Mua Ngay</div>
-        <div style="text-decoration: none; color: black;" onclick='loadSingleProduct(${JSON.stringify(
-          arr[i]
-        )})' class="buy"><i class="fa-solid fa-circle-info"></i>Chi Tiết</div>
       </div>
     `;
   }
@@ -289,12 +285,17 @@ function clickC1(e) {
   const imgElement = e.closest(".item_1").querySelector(".srcimg"); // tìm phần tử cha gần nhất có lớp item_1 ếp tục tìm phần tử ảnh bên trong phần tử cha item_1
   imgElement.setAttribute("src", newSrc);
 }
+let statusProduct = [
+  { statusID: "1", statuscontent: "Chờ xác nhận" },
+  { statusID: "2", statuscontent: "" },
+];
 let objcolorcurrent = {
   obj: "",
   color: "",
   img: "",
   soluong: "",
   size: "",
+  status: "Chờ ",
 };
 //chi tiet sp
 function loadSingleProduct(e) {
@@ -317,7 +318,6 @@ function loadSingleProduct(e) {
                         <img class="srcimg" src="${e.img}" alt="">
                     </div>
                </div>
-
                 <div class="right_">
                     <div class="content_">
                         <h2 id="name">${e.nameSP}</h2>

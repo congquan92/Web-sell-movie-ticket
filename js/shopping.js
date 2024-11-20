@@ -134,13 +134,50 @@ shoping.forEach(function (e) {
 
 // Thêm sản phẩm vào giỏ hàng
 let soluongspgiohang = 0;
+let soluongspgiohang1 = JSON.parse(localStorage.getItem("countarrayshopbag"));
+if (soluongspgiohang1 > 0) {
+  document.querySelector(".Shoping span").textContent = soluongspgiohang1;
+  document.querySelector(".Shoping").style.color = "red";
+}
+function kiemtradangnhap() {
+  let user = JSON.parse(localStorage.getItem("currentUser"));
+  if (user != null) {
+    return true;
+  }
+  return false;
+}
 function addShopingBag(item) {
-  item.size = document.querySelector("#size").value;
-  item.soluong = document.querySelector("#counteInp").value;
-
-  // Thêm sản phẩm vào giỏ hàng
-  arrayshopbag.push(item);
-  localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
-
-  soluongspgiohang++;
+  let toast = document.querySelector(".toast_info");
+  if (kiemtradangnhap() == true) {
+    item.size = document.querySelector("#size").value;
+    item.soluong = document.querySelector("#counteInp").value;
+    // Thêm sản phẩm vào giỏ hàng
+    arrayshopbag.push(item);
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
+    soluongspgiohang++;
+    localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
+    // toast.innerHTML = `<div id="toast">
+    //     <div class="toast toast--success ">
+    //       <div class="toast_icon">
+    //         <i class="fa-solid fa-circle-check"></i>
+    //       </div>
+    //       <div class="toast_body">
+    //         <h3 class="toast_tittle">Success</h3>
+    //         <p class="toast_msg">Đã Thêm vào giỏ hàng</p>
+    //       </div>
+    //       <div class="toast_close"><i class="fa-solid fa-xmark"></i></div>
+    //     </div>
+    //   </div>`;
+  } else {
+  //   toast.innerHTML = `<div class="toast toast--error">
+  //   <div class="toast_icon">
+  //     <i class="fa-solid fa-circle-check"></i>
+  //   </div>
+  //   <div class="toast_body">
+  //     <h3 class="toast_tittle">Error</h3>
+  //     <p class="toast_msg">Vui lòng đăng nhập</p>
+  //   </div>
+  //   <div class="toast_close"><i class="fa-solid fa-xmark"></i></div>
+  // </div>`;
+  }
 }

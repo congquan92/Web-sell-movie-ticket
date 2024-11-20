@@ -5,6 +5,16 @@ const logonav = document.querySelector(".logo");
 const loginLink = document.querySelector(".login-link");
 const home = document.querySelectorAll(".home"); //nut Home tren nav
 const shop = document.querySelectorAll(".shop");
+let user = JSON.parse(localStorage.getItem("currentUser"));
+if (user != null) {
+  console.log(user);
+  let loginicon = document.querySelectorAll(".login-btn");
+  loginicon.forEach(function (e) {
+    e.innerHTML = `<i class="fa-solid fa-user"></i>`;
+  });
+}
+
+// console.log(a);
 function formregister() {
   logregBox.classList.add("active");
 }
@@ -53,7 +63,7 @@ login.forEach(function (e) {
                 <label for=""><input type="checkbox" /> Remember me</label>
                 <a href="#">Forgot password</a>
               </div>
-              <button type="submit" class="btn" id="sign-in-button" onclick="signInButton();">Sign In</button>
+              <button type="submit" class="btn" id="sign-in-button" onclick="signInButton(event);">Sign In</button>
               <div class="login-register">
                 <p>
                   Don't have an account?
@@ -91,7 +101,7 @@ login.forEach(function (e) {
                   conditions</label
                 >
               </div>
-              <button type="submit" class="btn" id="register-btn" onclick="registerButton();">Sign Up</button>
+              <button type="submit" class="btn" id="register-btn" onclick="registerButton(event);">Sign Up</button>
               <div class="login-register">
                 <p>
                   Already have an account?
@@ -191,7 +201,6 @@ for (let i = 0; i < getPolices.length; i++) {
 }
 
 // vinh sign up form
-// vinh sign up form
 let getRegisterButton = "";
 let getRegisterName = "";
 let getRegisterEmail = "";
@@ -211,46 +220,45 @@ function checkEmail(str) {
   return true;
 }
 
-function checkEmailLocalStorage(target) {
-  for (let i = 0; i < localStorage.length; i++) {
-    let user = JSON.parse(localStorage.getItem(i + 1));
-    if (user !== null && user.email === target) {
-      return false;
-    }
-  }
-  return true;
-}
-
-function findUserByEmail(target) {
-  for (let i = 0; i < localStorage.length; i++) {
-    let user = JSON.parse(localStorage.getItem(i + 1));
-    // khi user = null -> truy cập email của null -> lỗi
-    if (user !== null && user.email === target) {
-      return user;
-    }
-  }
-  return null;
-}
-let userindex = 0;
-function getCurrentID() {
-  let nextID = parseInt(localStorage.getItem("currentID"));
+function getNextID() {
+  let nextID = parseInt(localStorage.getItem("NextID"));
   if (nextID) {
-    localStorage.setItem("currentID", ++nextID);
-    return parseInt(localStorage.getItem("currentID"));
+    localStorage.setItem("NextID", ++nextID);
+    return parseInt(localStorage.getItem("NextID"));
   } else {
-    localStorage.setItem("currentID", 1);
-    return parseInt(localStorage.getItem("currentID"));
+    localStorage.setItem("NextID", 1);
+    return parseInt(localStorage.getItem("NextID"));
   }
-  // return "user" + userindex;
 }
 
 // lưu user vào localStorage khi ấn sign-up button
+let storageUsers = [];
 function saveUser(user) {
-  user.userID = getCurrentID();
-  localStorage.setItem(user.userID, JSON.stringify(user));
+  user.userID = getNextID();
+  let getStorageUsers = localStorage.getItem("storageUsers");
+  if (getStorageUsers === null) {
+    localStorage.setItem("storageUsers", JSON.stringify(storageUsers));
+    getStorageUsers = localStorage.getItem("storageUsers");
+  }
+  getStorageUsers = JSON.parse(getStorageUsers);
+  getStorageUsers.push(user);
+  localStorage.setItem("storageUsers", JSON.stringify(getStorageUsers));
 }
 
-function registerButton() {
+function doesEmailExistInLocalStorage(target) {
+  let getStorageUsers = JSON.parse(localStorage.getItem("storageUsers"));
+  if (localStorage.getItem("storageUsers") !== null) {
+    for (let i = 0; i < getStorageUsers.length; i++) {
+      if (getStorageUsers[i].email === target) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function registerButton(event) {
+  event.preventDefault();
   getRegisterButton = document.querySelector("#register-btn");
   getRegisterName = document.querySelector("#register-name");
   getRegisterEmail = document.querySelector("#register-email");
@@ -271,7 +279,7 @@ function registerButton() {
     alert("Vui lòng nhập đúng email!");
     getRegisterEmail.focus();
     return;
-  } else if (!checkEmailLocalStorage(getRegisterEmail.value)) {
+  } else if (doesEmailExistInLocalStorage(getRegisterEmail.value)) {
     alert("Email này đã tồn tại!");
     getRegisterEmail.focus();
     return;
@@ -307,6 +315,7 @@ function registerButton() {
     getRegisterPassword.value = "";
     getRegisterPasswordRetype.value = "";
     getAgreeTermsConditions.checked = false;
+    console.log(user);
     saveUser(user);
   }
 }
@@ -321,9 +330,31 @@ let currentUser = {
   name: "",
   email: "",
   password: "",
+  status: "",
 };
+function saveCurrentUser(user) {
+  localStorage.setItem("currentUser", JSON.stringify(user));
+}
 
-function signInButton() {
+function getCurrentUser(user) {
+  let getUser = JSON.parse(localStorage.getItem("currentUser"));
+  return getUser;
+}
+
+function findUserByEmail(target) {
+  let getStorageUsers = JSON.parse(localStorage.getItem("storageUsers"));
+  if (localStorage.getItem("storageUsers") !== null) {
+    for (let i = 0; i < getStorageUsers.length; i++) {
+      if (getStorageUsers[i].email === target) {
+        return getStorageUsers[i];
+      }
+    }
+  }
+  return null;
+}
+
+function signInButton(event) {
+  event.preventDefault();
   getSignInButton = document.querySelector("#sign-in-button");
   getEmailSignIn = document.querySelector("#Email");
   getPasswordSignIn = document.querySelector("#Password");
@@ -346,6 +377,9 @@ function signInButton() {
     currentUser.password = user.password;
     currentUser.name = user.name;
     currentUser.userID = user.userID;
+    saveCurrentUser(currentUser);
+    console.log(currentUser);
+    location.reload();
   } else {
     alert("Email hoặc mật khẩu không đúng!");
     return;

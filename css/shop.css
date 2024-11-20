@@ -310,17 +310,15 @@
 }
 @keyframes slideInLeft {
   from {
-    opacity: 0;
     transform: translateX(calc(-100% - 32px));
   }
   to {
-    opacity: 1;
     transform: translateX(0);
   }
 }
 @keyframes fadeOut {
   to {
-    opacity: 0;
+    transform: translateX(calc(-100% - 32px));
   }
 }
 .toast_tittle {
