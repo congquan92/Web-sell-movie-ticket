@@ -285,7 +285,7 @@ function clickC1(e) {
   const imgElement = e.closest(".item_1").querySelector(".srcimg"); // tìm phần tử cha gần nhất có lớp item_1 ếp tục tìm phần tử ảnh bên trong phần tử cha item_1
   imgElement.setAttribute("src", newSrc);
 }
-let statusProduct = [
+let statusproductcurrent = [
   { statusID: "1", statuscontent: "Chờ xác nhận" },
   { statusID: "2", statuscontent: "" },
 ];

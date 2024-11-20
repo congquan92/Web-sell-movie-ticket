@@ -22,10 +22,13 @@
   padding: 20px;
   cursor: pointer;
 }
-.info {
+.rightpage {
   float: right;
   width: 80%;
+  height: 100vh;
+  background-color: #efefef;
 }
+
 .filter {
   display: flex;
   justify-content: space-between;
@@ -86,35 +89,23 @@
   font-size: 25px;
   margin-left: 5px;
 }
-.backgroud-menu-respon {
-  position: absolute;
-  top: 0;
-  right: 0;
+.user {
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.45);
-  z-index: 9999;
-  display: none;
 }
-.header {
+.user h1 {
+  text-align: center;
+}
+#btnProfile.active,
+#btnStatusDelivery.active {
+  border-right: 2px solid green;
+}
+.contentTab {
   display: flex;
-  justify-content: space-between;
+  margin-bottom: 10px;
   align-items: center;
-  padding: 6px 14px;
-  background-color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  z-index: 999;
-  width: 100%;
-  top: 0;
-  left: 0;
+  justify-content: space-between;
 }
-.logo {
-  width: 50px;
-  height: 50px;
-}
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.profile-body {
+  padding: 20px;
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.16);
 }

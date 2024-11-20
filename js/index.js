@@ -3,15 +3,25 @@ let logregBox = "";
 // console.log(logregBox);
 const logonav = document.querySelector(".logo");
 const loginLink = document.querySelector(".login-link");
-const home = document.querySelectorAll(".home"); //nut Home tren nav
-const shop = document.querySelectorAll(".shop");
+
 let user = JSON.parse(localStorage.getItem("currentUser"));
 if (user != null) {
-  console.log(user);
   let loginicon = document.querySelectorAll(".login-btn");
   loginicon.forEach(function (e) {
     e.innerHTML = `<i class="fa-solid fa-user"></i>`;
   });
+  let nav = document.querySelector("#navbar-responsive-close");
+  nav.innerHTML = `<div class="home" onclick="linkhome();">Home</div>
+        <div class="shop" onclick="linkshop();">Shop</div>
+        <div class="blog">Blog</div>
+        <div class="contact">Contact</div>
+        <div class="login-btn"><i class="fa-solid fa-user"></i></div>
+        <div class="Shoping" onclick="shopinginfo();">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>0</span>
+        </div>
+        <div class="logout"><i class="fa-solid fa-right-from-bracket"></i></div>`;
+  console.log(nav);
 }
 
 // console.log(a);
@@ -119,16 +129,22 @@ login.forEach(function (e) {
     // console.log(logregBox);
   });
 });
-home.forEach(function (e) {
-  e.addEventListener("click", () => {
-    window.location.href = "index.html";
+function linkhome() {
+  const home = document.querySelectorAll(".home"); //nut Home tren nav
+  home.forEach(function (e) {
+    e.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
   });
-});
-shop.forEach(function (e) {
-  e.addEventListener("click", () => {
-    window.location.href = "shop.html";
+}
+function linkshop() {
+  const shop = document.querySelectorAll(".shop");
+  shop.forEach(function (e) {
+    e.addEventListener("click", () => {
+      window.location.href = "shop.html";
+    });
   });
-});
+}
 const close_nav = document.querySelector(".close-nav");
 const menu = document.querySelector(".menu");
 const header_responsive = document.querySelector(".header1");
