@@ -117,6 +117,7 @@
 .fa-house{
     margin: 0px 10px;
 }
+.listAcc,
 .titleCol{
     margin-top: 30px;
     display: flex;
@@ -210,4 +211,46 @@
 }
 .btnAdd{
     margin: 10px 0px;
+}
+
+/* qlnd */
+.qlnd {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.areNumberAboutAccounts {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.leftContent {
+    flex: 6;
+    display: flex;
+    flex-direction: column;
+}
+
+.rightContent {
+    flex: 4;
+    text-align: center;
+}
+
+.rightContent .bx {
+    font-size: 45px;
+}
+
+.btnAccount {
+    border: none;
+    background-color: #fff;
+    color: rgb(255, 0, 21);
+}
+.listAcc:hover,
+.btnAccount:hover {
+    cursor: pointer;
+}
+.btnAccount:active {
+    transform: scale(0.96);
 }
