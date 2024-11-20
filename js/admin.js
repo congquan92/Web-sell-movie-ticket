@@ -1,665 +1,14 @@
-
-let ArrProduct = [
-  {
-    nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
-    img: "../img/products/p1-1.png",
-    price: 370000,
-    count: 3,
-    nametag: "aothun#",
-    nameColor1: "XÁM",
-    nameColor2: "ĐỎ",
-    nameColor3: "",
-    colorr1: "gray",
-    colorr2: "red",
-    colorr3: "unset",
-    img1: "./img/products/p1-1.png",
-    img2: "./img/products/p1-2.jpg",
-    img3: "./img/products/p1-2.jpg",
-    sell: 2
-  },
-  {
-    nameSP: "LEVENTS® | DORAEMON COLLAB TEE",
-    img: "../img/products/p2-1.png",
-    price: 450000,
-    count: 7,
-    nametag: "aothun#",
-    nameColor1: "TRẮNG",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p2-1.png",
-    img2: "./img/products/p2-2.png",
-    img3: "./img/products/p2-2.png",
-    sell: 2
-  },
-  {
-    nameSP: "LEVENTS® DINOSAUR TEE",
-    img: "../img/products/p3-1.jpg",
-    price: 420000,
-    count: 5,
-    nametag: "aothun#",
-    nameColor1: "TRẮNG",
-    nameColor2: "ĐEN",
-    nameColor3: "XANH DƯƠNG",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "blue",
-    img1: "./img/products/p3-1.jpg",
-    img2: "./img/products/p3-2.jpg",
-    img3: "./img/products/p3-3.jpg",
-    sell: 7
-  },
-  {
-    nameSP: "LEVENTS® INSIDE OUT TEE",
-    img: "../img/products/p4-1.jpg",
-    price: 390000,
-    count: 0,
-    nametag: "aothun#",
-    nameColor1: "TRẮNG",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p4-1.jpg",
-    img2: "./img/products/p4-2.jpg",
-    img3: "./img/products/p4-2.jpg",
-    sell: 0
-  },
-  {
-    nameSP: "LEVENTS® LOVEYOU300K SPECIAL TEE",
-    img: "../img/products/p5-1.jpg",
-    price: 300000,
-    count: 2,
-    nametag: "aothun#",
-    nameColor1: "TRẮNG",
-    nameColor2: "",
-    nameColor3: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "unset",
-    colorr3: "unset",
-    img1: "./img/products/p5-1.jpg",
-    img2: "./img/products/p5-1.jpg",
-    img3: "./img/products/p5-1.jpg",
-    sell: 0
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE TEE",
-    img: "../img/products/p6-1.jpg",
-    price: 390000,
-    count: 1,
-    nametag: "aothun#",
-    nameColor1: "XANH DƯƠNG",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: "blue",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p6-1.jpg",
-    img2: "./img/products/p6.jpg",
-    img3: "./img/products/p6-2.jpg",
-    sell: 0
-  },
-  {
-    nameSP: "LEVENTS® PUNCH VARSITY",
-    img: "../img/products/p7-1.jpg",
-    price: 890000,
-    count: 11,
-    nametag: "aokhoac#",
-    nameColor1: "NÂU",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p7-1.jpg",
-    img2: "./img/products/p7-2.jpg",
-    img3: "./img/products/p7-2.jpg",
-    sell: 9
-  },
-  {
-    nameSP: "LEVENTS® SELFLOVE BOXY TEE",
-    img: "../img/products/p8-1.jpg",
-    price: 380000,
-    count: 10,
-    nametag: "aothun#",
-    nameColor1: "TRẮNG",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p8-1.jpg",
-    img2: "./img/products/p8-2.jpg",
-    img3: "./img/products/p8-1.jpg",
-    sell: 0
-  },
-  {
-    nameSP: "LEVENTS® | DORAEMON MINI CAT Polo",
-    img: "../img/products/p9-1.jpg",
-    price: 405000,
-    count: 9,
-    nametag: "polo#",
-    nameColor1: "TRẮNG",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p9-1.jpg",
-    img2: "./img/products/p9-2.jpg",
-    img3: "./img/products/p9-2.jpg",
-    sell: 2
-  },
-  {
-    nameSP: "LEVENTS® MINI POPULAR Polo",
-    img: "../img/products/p10-1.jpg",
-    price: 370000,
-    count: 6,
-    nametag: "polo#",
-    nameColor1: "TRẮNG",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p10-1.jpg",
-    img2: "./img/products/p10-2.jpg",
-    img3: "./img/products/p10-2.jpg",
-    sell: 8
-  },
-  {
-    nameSP: "LEVENTS® STRIPE Polo",
-    img: "../img/products/p11-1.jpg",
-    price: 420000,
-    count: 2,
-    nametag: "polo#",
-    nameColor1: "TRẮNG",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p11-1.jpg",
-    img2: "./img/products/p11-2.jpg",
-    img3: "./img/products/p11-2.jpg",
-    sell: 2
-  },
-  {
-    nameSP: "LEVENTS® CINEMA SHIRT",
-    img: "../img/products/p12-1.jpg",
-    price: 420000,
-    count: 3,
-    nametag: "somi#",
-    nameColor1: "NÂU",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p12-1.jpg",
-    img2: "./img/products/p12-2.jpg",
-    img3: "./img/products/p12-2.jpg",
-    sell: 5
-  },
-  {
-    nameSP: "LEVENTS® CITIES SHIRT",
-    img: "../img/products/p13-1.jpg",
-    price: 420000,
-    count: 8,
-    nametag: "somi#",
-    nameColor1: "TRẮNG",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p13-1.jpg",
-    img2: "./img/products/p13-2.jpg",
-    img3: "./img/products/p13-2.jpg",
-    sell: 6
-  },
-  {
-    nameSP: "LEVENTS® | DORAEMON COLLAB ZIPPER Hoodie",
-    img: "../img/products/p14-1.jpg",
-    price: 645000,
-    count: 5,
-    nametag: "hoodie#",
-    nameColor1: "TRẮNG",
-    nameColor2: "XÁM",
-    nameColor3: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "gray",
-    colorr3: "unset",
-    img1: "./img/products/p14-1.jpg",
-    img2: "./img/products/p14-2.jpg",
-    img3: "./img/products/p14-2.jpg",
-    sell: 2
-  },
-  {
-    nameSP: "LEVENTS® POPULAR LOGO 2.0 Hoodie",
-    img: "../img/products/p15-1.jpg",
-    price: 590000,
-    count: 4,
-    nametag: "hoodie#",
-    nameColor1: "VÀNG",
-    nameColor2: "XÁM",
-    nameColor3: "ĐEN",
-    colorr1: "yellow",
-    colorr2: "gray",
-    colorr3: "black",
-    img1: "./img/products/p15-1.jpg",
-    img2: "./img/products/p15-2.jpg",
-    img3: "./img/products/p15-3.jpg",
-    sell: 7
-  },
-  {
-    nameSP: "LEVENTS® MINI LOGO ZIPPER Hoodie",
-    img: "../img/products/p16-1.jpg",
-    price: 620000,
-    count: 2,
-    nametag: "hoodie#",
-    nameColor1: "TRẮNG",
-    nameColor2: "XÁM",
-    nameColor3: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "gray",
-    colorr3: "unset",
-    img1: "./img/products/p16-1.jpg",
-    img2: "./img/products/p16-2.jpg",
-    img3: "./img/products/p16-2.jpg",
-    sell: 2
-  },
-  {
-    nameSP: "LEVENTS® | DORAEMON COLLAB Hoodie",
-    img: "../img/products/p17-1.jpg",
-    price: 620000,
-    count: 9,
-    nametag: "hoodie#",
-    nameColor1: "TRẮNG",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: " rgb(235, 232, 226)",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p17-1.jpg",
-    img2: "./img/products/p17-2.jpg",
-    img3: "./img/products/p17-2.jpg",
-    sell: 1
-  },
-  {
-    nameSP: "LEVENTS® BASIC Sweater",
-    img: "../img/products/p18-1.jpg",
-    price: 490000,
-    count: 6,
-    nametag: "sweater#",
-    nameColor1: "XÁM",
-    nameColor2: "ĐỎ",
-    nameColor3: "",
-    colorr1: "gray",
-    colorr2: "red",
-    colorr3: "unset",
-    img1: "./img/products/p18-1.jpg",
-    img2: "./img/products/p18-2.jpg",
-    img3: "./img/products/p18-2.jpg",
-    sell: 9
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "../img/products/p19-1.jpg",
-    price: 490000,
-    count: 12,
-    nametag: "sweater#",
-    nameColor1: "NÂU",
-    nameColor2: "ĐEN",
-    nameColor3: "",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-    sell: 3
-  },
-];
-// let ArrProduct = [
-//     {
-//       nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
-//       img: "../img/products/p1-1.png",
-//       price: 370000,
-//       count : 3,
-//       nametag: "aothun#",  
-//       nameColor1: "XÁM",
-//       nameColor2: "ĐỎ",
-//       nameColor3:"",    
-//       colorr1: "gray",
-//       colorr2: "red",
-//       colorr3: "unset",
-//       img1: "./img/products/p1-1.png",
-//       img2: "./img/products/p1-2.jpg",
-//       img3: "./img/products/p1-2.jpg",
-//       sell:2
-//     },
-//     {
-//       nameSP: "LEVENTS® | DORAEMON COLLAB TEE",
-//       img: "../img/products/p2-1.png",
-//       price: 450000,
-//       count: 7,
-//       nametag: "aothun#",   
-//       nameColor1: "TRẮNG",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",       
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p2-1.png",
-//       img2: "./img/products/p2-2.png",
-//       img3: "./img/products/p2-2.png",
-//       sell :2
-//     },
-//     {
-//       nameSP: "LEVENTS® DINOSAUR TEE",
-//       img: "../img/products/p3-1.jpg",
-//       price: 420000,
-//       count: 5,
-//       nametag: "aothun#",  
-//       nameColor1: "TRẮNG",
-//       nameColor2: "ĐEN",
-//       nameColor3:"XANH DƯƠNG",        
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "black",
-//       colorr3: "blue",
-//       img1: "./img/products/p3-1.jpg",
-//       img2: "./img/products/p3-2.jpg",
-//       img3: "./img/products/p3-3.jpg",
-//       sell :7
-//     },
-//     {
-//       nameSP: "LEVENTS® INSIDE OUT TEE",
-//       img: "../img/products/p4-1.jpg",
-//       price: 390000,
-//       count: 0,
-//       nametag: "aothun#", 
-//       nameColor1: "TRẮNG",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",    
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p4-1.jpg",
-//       img2: "./img/products/p4-2.jpg",
-//       img3: "./img/products/p4-2.jpg",
-//       sell :0
-//     },
-//     {
-//       nameSP: "LEVENTS® LOVEYOU300K SPECIAL TEE",
-//       img: "../img/products/p5-1.jpg",
-//       price: 300000,
-//       count: 2,
-//       nametag: "aothun#",   
-//       nameColor1: "TRẮNG",
-//       nameColor2: "",
-//       nameColor3:"",      
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "unset",
-//       colorr3: "unset",
-//       img1: "./img/products/p5-1.jpg",
-//       img2: "./img/products/p5-1.jpg",
-//       img3: "./img/products/p5-1.jpg",
-//       sell : 0
-//     },
-//     {
-//       nameSP: "LEVENTS® FUNNY CROCODILE TEE",
-//       img: "../img/products/p6-1.jpg",
-//       price: 390000,
-//       count: 1,
-//       nametag: "aothun#",     
-//       nameColor1: "XANH DƯƠNG",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",     
-//       colorr1: "blue",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p6-1.jpg",
-//       img2: "./img/products/p6.jpg",
-//       img3: "./img/products/p6-2.jpg",
-//       sell : 0
-//     },
-//     {
-//       nameSP: "LEVENTS® PUNCH VARSITY",
-//       img: "../img/products/p7-1.jpg",
-//       price: 890000,
-//       count: 11,
-//       nametag: "aokhoac#",      
-//       nameColor1: "NÂU",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",    
-//       colorr1: "brown",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p7-1.jpg",
-//       img2: "./img/products/p7-2.jpg",
-//       img3: "./img/products/p7-2.jpg",
-//       sell : 9
-//     },
-//     {
-//       nameSP: "LEVENTS® SELFLOVE BOXY TEE",
-//       img: "../img/products/p8-1.jpg",
-//       price: 380000,
-//       count: 10,
-//       nametag: "aothun#",      
-//       nameColor1: "TRẮNG",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",    
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p8-1.jpg",
-//       img2: "./img/products/p8-2.jpg",
-//       img3: "./img/products/p8-1.jpg",
-//       sell :0
-//     },
-//     {
-//       nameSP: "LEVENTS® | DORAEMON MINI CAT Polo",
-//       img: "../img/products/p9-1.jpg",
-//       price: 405000,
-//       count: 9,
-//       nametag: "polo#",
-//       nameColor1: "TRẮNG",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",    
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p9-1.jpg",
-//       img2: "./img/products/p9-2.jpg",
-//       img3: "./img/products/p9-2.jpg",
-//       sell : 2
-//     },
-//     {
-//       nameSP: "LEVENTS® MINI POPULAR Polo",
-//       img: "../img/products/p10-1.jpg",
-//       price: 370000,
-//       count: 6,
-//       nametag: "polo#",
-//       nameColor1: "TRẮNG",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",     
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p10-1.jpg",
-//       img2: "./img/products/p10-2.jpg",
-//       img3: "./img/products/p10-2.jpg",
-//       sell : 8
-//     },
-//     {
-//       nameSP: "LEVENTS® STRIPE Polo",
-//       img: "../img/products/p11-1.jpg",
-//       price: 420000,
-//       count: 2,
-//       nametag: "polo#", 
-//       nameColor1: "TRẮNG",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",    
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p11-1.jpg",
-//       img2: "./img/products/p11-2.jpg",
-//       img3: "./img/products/p11-2.jpg",
-//       sell : 2
-//     },
-//     {
-//       nameSP: "LEVENTS® CINEMA SHIRT",
-//       img: "../img/products/p12-1.jpg",
-//       price: 420000,
-//       count: 3,
-//       nametag: "somi#",
-//       nameColor1: "NÂU",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",     
-//       colorr1: "brown",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p12-1.jpg",
-//       img2: "./img/products/p12-2.jpg",
-//       img3: "./img/products/p12-2.jpg",
-//       sell : 5
-//     },
-//     {
-//       nameSP: "LEVENTS® CITIES SHIRT",
-//       img: "../img/products/p13-1.jpg",
-//       price: 420000,
-//       count: 8,
-//       nametag: "somi#",
-//       nameColor1: "TRẮNG",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",     
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p13-1.jpg",
-//       img2: "./img/products/p13-2.jpg",
-//       img3: "./img/products/p13-2.jpg",
-//       sell : 6
-//     },
-//     {
-//       nameSP: "LEVENTS® | DORAEMON COLLAB ZIPPER Hoodie",
-//       img: "../img/products/p14-1.jpg",
-//       price: 645000,
-//       count: 5,
-//       nametag: "hoodie#",
-//       nameColor1: "TRẮNG",
-//       nameColor2: "XÁM",
-//       nameColor3:"",    
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "gray",
-//       colorr3: "unset",
-//       img1: "./img/products/p14-1.jpg",
-//       img2: "./img/products/p14-2.jpg",
-//       img3: "./img/products/p14-2.jpg",
-//       sell : 2
-//     },
-//     {
-//       nameSP: "LEVENTS® POPULAR LOGO 2.0 Hoodie",
-//       img: "../img/products/p15-1.jpg",
-//       price: 590000,
-//       count: 4,
-//       nametag: "hoodie#",
-//       nameColor1: "VÀNG",
-//       nameColor2: "XÁM",
-//       nameColor3:"ĐEN",    
-//       colorr1: "yellow",
-//       colorr2: "gray",
-//       colorr3: "black",
-//       img1: "./img/products/p15-1.jpg",
-//       img2: "./img/products/p15-2.jpg",
-//       img3: "./img/products/p15-3.jpg",
-//       sell : 7
-//     },
-//     {
-//       nameSP: "LEVENTS® MINI LOGO ZIPPER Hoodie",
-//       img: "../img/products/p16-1.jpg",
-//       price: 620000,
-//       count: 2,
-//       nametag: "hoodie#",
-//       nameColor1: "TRẮNG",
-//       nameColor2: "XÁM",
-//       nameColor3:"",    
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "gray",
-//       colorr3: "unset",
-//       img1: "./img/products/p16-1.jpg",
-//       img2: "./img/products/p16-2.jpg",
-//       img3: "./img/products/p16-2.jpg",
-//       sell : 2
-//     },
-//     {
-//       nameSP: "LEVENTS® | DORAEMON COLLAB Hoodie",
-//       img: "../img/products/p17-1.jpg",
-//       price: 620000,
-//       count: 9,
-//       nametag: "hoodie#",
-//       nameColor1: "TRẮNG",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",    
-//       colorr1: " rgb(235, 232, 226)",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p17-1.jpg",
-//       img2: "./img/products/p17-2.jpg",
-//       img3: "./img/products/p17-2.jpg",
-//       sell : 1
-//     },
-//     {
-//       nameSP: "LEVENTS® BASIC Sweater",
-//       img: "../img/products/p18-1.jpg",
-//       price: 490000,
-//       count: 6,
-//       nametag: "sweater#",
-//       nameColor1: "XÁM",
-//       nameColor2: "ĐỎ",
-//       nameColor3:"",    
-//       colorr1: "gray",
-//       colorr2: "red",
-//       colorr3: "unset",
-//       img1: "./img/products/p18-1.jpg",
-//       img2: "./img/products/p18-2.jpg",
-//       img3: "./img/products/p18-2.jpg",
-//       sell : 9
-//     },
-//     {
-//       nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-//       img: "../img/products/p19-1.jpg",
-//       price: 490000,
-//       count: 12,
-//       nametag: "sweater#",
-//       nameColor1: "NÂU",
-//       nameColor2: "ĐEN",
-//       nameColor3:"",    
-//       colorr1: "brown",
-//       colorr2: "black",
-//       colorr3: "unset",
-//       img1: "./img/products/p19-1.jpg",
-//       img2: "./img/products/p19-2.jpg",
-//       img3: "./img/products/p19-2.jpg",
-//       sell : 3
-//     },
-//   ];
-// let ArrProduct = JSON.parse(localStorage.getItem('products'))
+let ArrProduct = JSON.parse(localStorage.getItem('products'))
 // console.log(ArrProduct)
 
 let typeproducts = [
-  { typeid: "aothun#", typename: "Áo thun" },
-  { typeid: "polo#", typename: "Polo" },
-  { typeid: "somi#", typename: "Sơ mi" },
-  { typeid: "hoodie#", typename: "Hoodie" },
-  { typeid: "sweater#", typename: "Sweater" },
-  { typeid: "aokhoac#", typename: "Áo khoác" },
-];
+    { typeid: "aothun#", typename: "Áo thun" },
+    { typeid: "polo#", typename: "Polo" },
+    { typeid: "somi#", typename: "Sơ mi" },
+    { typeid: "hoodie#", typename: "Hoodie" },
+    { typeid: "sweater#", typename: "Sweater" },
+    { typeid: "aokhoac#", typename: "Áo khoác" },
+  ];
 
 // Hàm tạo id SP
 function makeIDproduct() {
@@ -667,6 +16,7 @@ function makeIDproduct() {
     ArrProduct[i].idproduct = ArrProduct[i].nametag + (i + 1);
   }
 }
+
 //----------------sp-------------------------
 // Hàm xác định trạng thái sản phẩm
 function productSatus() {
@@ -694,9 +44,9 @@ function listSP(arr) {
   makeIDproduct();
   productSatus();
   arr.forEach(product => {
-    const Price = (product.price).toLocaleString("vi-VN", { style: "currency", currency: "VND", });
+    const Price = (product.price).toLocaleString("vi-VN", {style: "currency",currency: "VND",});
     s += `
-            <div class="list">
+            <div onclick="clickDelete(this)" oncontextmenu="clickchitiet(event,this)" class="list">
                 <span style="width: 10%" class="idProduct">${product.idproduct}</span>
                 <img style="width: 20%" src="${product.img}" class="imgProduct" alt="Ảnh">
                 <span style="width: 30%" class="nameProduct">${product.nameSP}</span>
@@ -714,7 +64,7 @@ function countProduct(arr) {
   return arr.length;
 }
 // Hàm tìm kiếm sản phẩm
-function searchSP() {
+function searchSP(){
   const comboType = document.getElementById('comboType').value;
   const comboStatus = document.getElementById('comboStatus').value;
   let filteredProducts = ArrProduct;
@@ -728,13 +78,13 @@ function searchSP() {
       if (comboStatus === "3") return product.status === "HẾT HÀNG";
     });
   }
-  document.querySelector('#storage-body').innerHTML = listSP(filteredProducts);
-  document.querySelector('#amountOfProduct').innerText = countProduct(filteredProducts);
+  document.querySelector('#storage-body').innerHTML= listSP(filteredProducts);
+  document.querySelector('#amountOfProduct').innerText= countProduct(filteredProducts);
 }
 // Hàm render quản lý san pham
-function renderqlsp() {
-  document.querySelector('.page-right').innerHTML =
-    `<div class="qlsp">
+function renderqlsp(){
+  document.querySelector('.page-right').innerHTML =  
+            `<div class="qlsp">
                 <div class="title"><h1>QUẢN LÝ SẢN PHẨM</h1></div>
                 <div class="btnAdd"><div class="circle" onclick="btnAdd()"><i class="fa-solid fa-plus"></i></div></div>
                 <div class="groupOption">
@@ -773,11 +123,27 @@ function renderqlsp() {
                     <span style="width: 10%" class="statusProduct">Trạng thái</span>
                 </div>
                 <div id="storage-body"></div>`;
-  searchSP();
+                searchSP();   
+}
+function clickDelete(e){
+  const idProduct = e.querySelector(".idProduct").textContent;
+  for(let i = 0; i<countProduct(ArrProduct);i++){
+    if(ArrProduct[i].idproduct === idProduct){
+      ArrProduct.splice(i, 1);   // 1 la vi tri roi 
+            i--;
+            break;
+    }
+  }
+  localStorage.setItem('products',JSON.stringify(ArrProduct));
+  renderqlsp();
+}
+
+function clickchitiet(e,elemant){
+  e.preventDefault();
+  console.log(elemant);
 }
 // ---------------------------------------------------------------------------------
-// tk
-// Hàm tạo biểu đồ
+// thong ke
 const listSweater = ArrProduct.filter(i => i.nametag === 'sweater#');
 const listSomi = ArrProduct.filter(i => i.nametag === 'somi#');
 const listHoodie = ArrProduct.filter(i => i.nametag === 'hoodie#');
@@ -792,14 +158,14 @@ const sumList = [
   listAothun.reduce((i, x) => i + x.sell, 0),
   listSomi.reduce((i, x) => i + x.sell, 0),
 ];
-//tao bieu do
+// Hàm tạo biểu đồ
 function createChart() {
   const ctx = document.getElementById('grapbox').getContext('2d');
   const chartData = {
-    labels: namee,
+    labels: namee ,
     datasets: [{
       label: 'Đã Bán',
-      data: sumList,
+      data: sumList ,
       backgroundColor: [
         'rgb(255, 99, 132)',
         'rgb(75, 192, 192)',
@@ -815,37 +181,130 @@ function createChart() {
     options: {}
   });
 }
+
+//mo menu them san pham
+function btnAdd(){
+  let backround = document.querySelector('.outbackround');
+  let s= document.querySelector('.btnAddproduct');
+  s.classList.add('actz');
+  s.classList.remove('nonez');
+  backround.classList.add('actoutbackground');
+}
+//dong menu them san pham
+function closeTabb(){
+let backround = document.querySelector('.outbackround');
+let s= document.querySelector('.btnAddproduct');
+s.classList.remove('actz');
+s.classList.add('nonez');
+backround.classList.remove('actoutbackground');
+}
+//chap nhan
+function btnAccept(){  
+let background = document.querySelector('.outbackround');  
+let l = document.querySelector('.btnAddproduct');  
+l.classList.remove('actz');  
+l.classList.add('nonez');  
+background.classList.remove('actoutbackground');  
+
+const nameAddProduct = document.getElementById('nameAddProduct').value.trim();  
+const colorAddProduct = document.getElementById('colorAddProduct').value.trim();  
+const codecolorAddProduct = document.getElementById('codecolorAddProduct').value.trim();  
+const countAddProduct = parseInt(document.getElementById('countAddProduct').value.trim());  
+const priceAddProduct = parseFloat(document.getElementById('priceAddProduct').value.trim());  
+const typeAddProduct = document.getElementById('typeAddProduct').value.trim();  
+
+// Validation  
+if (!nameAddProduct || !colorAddProduct || isNaN(countAddProduct) || isNaN(priceAddProduct)) {  
+    console.error('Please complete all required fields with valid data.');  
+    return; // Exit the function if validation fails  
+}  
+
+const id = `${typeAddProduct}#${countProduct(ArrProduct) + 1}`;  
+const imgElement = document.querySelector('.imgPreview');  
+const img = imgElement ? imgElement.src : ''; // Null check for imgPreview  
+const nametag = `${typeAddProduct}#`;  
+
+const newProduct = createProduct({  
+    id: id,  
+    nameSP: nameAddProduct,  
+    img: img,  
+    price: priceAddProduct,  
+    count: countAddProduct,  
+    nametag: nametag,  
+    nameColor1: colorAddProduct,  
+    namecolorr1Img: codecolorAddProduct,  
+});  
+
+ArrProduct.push(newProduct); 
+localStorage.setItem('products',JSON.stringify(ArrProduct));
+renderqlsp();
+renderBtnadd();//tai lai
+}  
+
+
+function createProduct({id,nameSP,img,price,count,nametag,nameColor1,namecolorr1Img,sell}){
+return {
+  id:id,
+  nameSP:nameSP,
+  img:img,
+  price:price,
+  count:count,
+  nametag:nametag,
+  nameColor1:nameColor1,
+  namecolorr1Img:namecolorr1Img,
+  sell:sell
+}
+}
+// tai anh len
+function onloandimg(input){
+const imageContainer = document.getElementById("imageContainer");
+const file = input.files[0]; // Lấy tệp đầu tiên
+
+if (file) {
+  const reader = new FileReader();
+  // Khi đọc xong file, hiển thị ảnh
+  reader.onload = function (e) {
+    const img = document.createElement("img");
+    img.src = e.target.result; // Gán URL ảnh vào thẻ <img>
+    img.classList.add("imgPreview");
+    imageContainer.innerHTML = ""; // Xóa nội dung cũ
+    imageContainer.appendChild(img); // Thêm ảnh mới
+  };
+  reader.readAsDataURL(file); // Đọc file dưới dạng Data URL
+}
+}
+
 //ham loc san tk 
-function listSearch_tk() {
-  let s = '';
-  let arr = [...ArrProduct];
+function listSearch_tk(){
+  let s='';
+  let arr =[...ArrProduct];
   let typeProduct = document.getElementById('typeProduct').value;
-  if (typeProduct !== '0') {
-    arr = ArrProduct.filter(i => i.nametag === typeProduct);
+  if(typeProduct !== '0'){
+     arr= ArrProduct.filter(i => i.nametag ===typeProduct);
   }
   rankProfit(arr);
 }
 
 // Hàm render quản lý thống kê
-function renderqltk() {
-  document.querySelector('.page-right').innerHTML = `<div class = qltk>
+function renderqltk(){
+  document.querySelector('.page-right').innerHTML =`<div class = qltk>
   <h1>SỐ LIỆU THỐNG KÊ</h1>
   <div class="overview">
-      <div class="chart ff"><canvas style="display: block; box-sizing: border-box;" id="grapbox" width="541px" height="541px" ></canvas></div>
+      <div class="chart ff"><canvas style="display: block; box-sizing: border-box;" id="grapbox" width="541px" height="541px"></canvas></div>
       <div class="ll">
          <div class="boder first">
           <h1>Thống kê</h1>    
          </div> 
          <div class="boder">
               <div class="left-boder">
-                  <h2 style="color: blue;">${sumList.reduce((i, n) => i + n, 0)}</h2>
+                  <h2 style="color: blue;">${sumList.reduce((i,n) => i+n,0)}</h2>
                   <h2 style="font-weight: 200;">ĐÃ BÁN</h2> 
               </div>
               <div class="right-boder"><i style="font-size: 40px;font-weight: 200;" class='bx bx-cart-alt'></i></div>   
          </div> 
          <div class="boder">
               <div class="left-boder">
-                  <h2 style="color: blue;">${(ArrProduct.reduce((i, n) => i + ((n.sell) * (n.price)), 0)).toLocaleString("vi-VN", { style: "currency", currency: "VND", })}</h2>
+                  <h2 style="color: blue;">${(ArrProduct.reduce((i,n) => i+((n.sell)*(n.price)),0)).toLocaleString("vi-VN", {style: "currency",currency: "VND",})}</h2>
                   <h2 style="font-weight: 200;">DOANH THU</h2>
               </div>
               <div class="right-boder"><i style="font-size: 40px;font-weight: 200;" class='bx bx-money-withdraw'></i></div>   
@@ -862,7 +321,7 @@ function renderqltk() {
       </div>
       <div id="rankProfit-body"></div>
   </div>
-  <div style="width: 30%" onclick="listSearch_tk()" class="data-number">
+  <div style="width: 30%" onchange="listSearch_tk()" class="data-number">
               <select name="" id="typeProduct" class="box">
                     <option value="0">Tất cả</option>
                     <option value="aothun#">Áo thun</option>
@@ -874,29 +333,130 @@ function renderqltk() {
               </select>
     </div>
 </div>`
-  createChart(); // Tạo biểu đồ khi nhấp vào "QUẢN LÝ THỐNG KÊ"
-  rankProfit(ArrProduct);
+createChart(); // Tạo biểu đồ khi nhấp vào "QUẢN LÝ THỐNG KÊ"
+rankProfit(ArrProduct);
 }
 //ham tao doanh thu
-function rankProfit(arr) {
-  let s = '';
-  const sortArrsell = arr.sort((a, b) => (b.sell * b.price) - (a.sell * a.price));
-  sortArrsell.forEach(i => {
-    s += ` <div class="rankProfit-Child">
+function rankProfit(arr){
+  let s='';
+  const sortArrsell=arr.sort((a,b) => (b.sell*b.price)-(a.sell*a.price));
+  sortArrsell.forEach(i=>{
+    s+=` <div class="rankProfit-Child">
             <span style="width: 30%;" class="name">${i.nameSP}</span>
             <span style="width: 30%;" class="sold">${i.sell}</span>
-            <span style="width: 10%;  class="profits">${(i.price * i.sell).toLocaleString("vi-VN", { style: "currency", currency: "VND", })}</span>
+            <span style="width: 10%;  class="profits">${(i.price *i.sell).toLocaleString("vi-VN", {style: "currency",currency: "VND",})}</span>
            </div>`
   })
-  document.getElementById('rankProfit-body').innerHTML = s;
+  document.getElementById('rankProfit-body').innerHTML=s;
 }
 
 // Gọi hàm renderqltk khi trang tải
 window.onload = () => {
   renderqltk();
-  // renderBtnadd();
 };
 
+function renderBtnadd(){
+  let s='';
+  s+=`<div id="tabAddProduct">
+                <div class="headTab">
+                    <span class="title">THÊM SẢN PHẨM</span>
+                    <span onclick ="closeTabb()" class="closeTab">ĐÓNG</span>
+                </div>
+                <form action="">
+                  <div class="bodyTab">
+                      <div class="leftTab">
+                          <div class="contentTab">
+                              <span>STT: </span>
+                              <span>${countProduct(ArrProduct)+1}</span>
+                          </div>
+                          <div class="contentTab">
+                              <div id="imageContainer"></div>
+                              <input type="file" name="file" id="file" class="inputfile" accept="image/*" onchange="onloandimg(this)">
+                              <label style="margin-left:-75px;" for="file">Chọn ảnh</label>
+                          </div>
+                              <div class="contentTab"> 
+                                  <span>Tên sản phẩm: </span>
+                                  <input type="text" placeholder="Tên sản phẩm" value="" id="nameAddProduct">
+                              </div>
+                              <div class="contentTab colorInput">
+                                  <span>Màu sắc: </span>
+                                  <input type="text" placeholder="[ĐEN, TRẮNG, ....]" value="" id="colorAddProduct">
+                                  <input type="text" placeholder="Mã màu [#000,#fff]" value="" id="codecolorAddProduct">
+                              </div>
+                              <div class="contentTab">
+                                  <span>Số lượng: </span>
+                                  <input type="text" id="countAddProduct" placeholder="Số lượng" value="">
+                              </div>
+                      </div>
+                      <div class="rightTab">
+                                  <div class="contentTab">
+                                      <span>Đơn giá: </span>
+                                      <input type="text" id="priceAddProduct" placeholder="Đơn giá" value="">
+                                  </div>
+                                  <div class="contentTab">
+                                      <span>Tên hình </span>
+                                      <input type="text" placeholder="Tên hình" value="" id="nameimgAddProduct">
+                                  </div>
+                                  <div class="contentTab">
+                                      <span>Loại </span>
+                                      <input type="text" placeholder="Loại sản phẩm" value="" id="typeAddProduct">
+                                  </div>
+                      </div>
+                  </div>
+                  <div onclick="btnAccept()" class="btnAccept">
+                      <div class="content-btn">
+                          <buttom type="sumbit">HOÀN TẤT</buttom>
+                      </div>
+                  </div>
+                </form>
+            </div>`
+            document.querySelector('.btnAddproduct').innerHTML=s;
+}
+// -------------------------------------------------------------------
+
+    const QLTK = document.querySelector('.b1');
+    const QLDH = document.querySelector('.b2');
+    const QLSP = document.querySelector('.b3');
+    const QLND = document.querySelector('.b4');
+    
+    QLTK.addEventListener('click', () => {
+      QLTK.classList.add('act');
+      QLDH.classList.remove('act');
+      QLSP.classList.remove('act');
+      QLND.classList.remove('act');
+      location.reload();
+  
+    });
+  
+    QLDH.addEventListener('click', () => {
+      QLTK.classList.remove('act');
+      QLDH.classList.add('act');
+      QLSP.classList.remove('act');
+      QLND.classList.remove('act');
+    });
+    
+    //sp
+    QLSP.addEventListener('click', () => {
+      QLTK.classList.remove('act');
+      QLDH.classList.remove('act');
+      QLSP.classList.add('act');
+      QLND.classList.remove('act');
+      renderqlsp();
+      renderBtnadd();
+
+    });
+
+    QLND.addEventListener('click', () => {
+        QLTK.classList.remove('act');
+        QLDH.classList.remove('act');
+        QLSP.classList.remove('act');
+        QLND.classList.add('act');
+        renderqlnd();
+      });
+  
+// -----------------------------------------------
+
+//thuy 
 let acc_1 = (
   {
     idAccount: "1",
@@ -1031,46 +591,3 @@ function renderqlnd() {
             </div>`;
   checkAccount();
 }
-// -------------------------------------------------------------------
-document.addEventListener("DOMContentLoaded", () => {
-  const QLTK = document.querySelector('.b1');
-  const QLDH = document.querySelector('.b2');
-  const QLSP = document.querySelector('.b3');
-  const QLND = document.querySelector('.b4');
-
-  QLTK.addEventListener('click', () => {
-    QLTK.classList.add('act');
-    QLDH.classList.remove('act');
-    QLSP.classList.remove('act');
-    QLND.classList.remove('act');
-    renderqltk();
-  });
-
-  QLDH.addEventListener('click', () => {
-    QLTK.classList.remove('act');
-    QLDH.classList.add('act');
-    QLSP.classList.remove('act');
-    QLND.classList.remove('act');
-  });
-
-  //sp
-  QLSP.addEventListener('click', () => {
-    QLTK.classList.remove('act');
-    QLDH.classList.remove('act');
-    QLSP.classList.add('act');
-    QLND.classList.remove('act');
-    renderqlsp();
-
-  });
-
-  QLND.addEventListener('click', () => {
-    QLTK.classList.remove('act');
-    QLDH.classList.remove('act');
-    QLSP.classList.remove('act');
-    QLND.classList.add('act');
-    renderqlnd();
-  });
-
-
-});
-console.log(ArrProduct);

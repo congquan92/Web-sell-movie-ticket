@@ -9,8 +9,6 @@
     display: flex;
 }
 .page-left{
-    /* transition: 0.7s ease-in-out;
-    transform: translateX(-900px); */
     float: left;
     width: 20%;
     border: 1px solid #131212;
@@ -212,6 +210,111 @@
 }
 .btnAdd{
     margin: 10px 0px;
+}
+/* quan */
+#tabAddProduct{
+    position: fixed;
+    width: 800px;
+    height: 450px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.16);
+    padding: 20px;
+}
+.headTab {
+    position: relative;
+}
+.headTab .title{
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.headTab .closeTab{
+    position: absolute;
+    right: 0;
+    top : 10px; 
+    cursor: pointer;
+    color: #747474;
+}
+.headTab .closeTab:hover{
+    color: #db1e1e9a;
+}
+.bodyTab{
+    display: flex;
+    margin: 20px 0px;
+    gap: 25px;
+}
+.leftTab{
+width: 505px;
+}
+.rightTab{
+width: 50%;
+}
+.contentTab{
+    margin: 20px 0px;
+}
+#file{
+   opacity: 0;
+}
+.contentTab label{
+    background-color: black;
+    color: white;
+    padding: 10px 5px;
+}
+.contentTab input[type="text"]{
+    width: 40%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #131212;
+    outline: none;
+}
+.btnAccept{
+    width: 100%;
+    color: #f7f1f1;
+    text-align: center;
+    padding: 20px;
+    background-color: #131212;
+    cursor: pointer;
+    margin-top: -23px;
+}
+
+.actz{
+    position: fixed; 
+    z-index: 999;
+    background-color: #fff;
+    border: 1px solid;
+    left: calc(50% - 300px);
+    top: 50px; 
+    transform: translateY(0px);
+    transition : 0.5s ease-in-out;
+} 
+.nonez{
+    position: fixed; 
+    z-index: 999;
+    background-color: #fff;
+    border: 1px solid;
+    left: calc(50% - 300px);
+    top: 50px; 
+    transform: translateY(-600px);
+    transition: 0.5s ease;
+}
+.actoutbackground{
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #13121252;
+    top: 0;
+    z-index: 101;
+}
+#imageContainer{
+    width: 60px;
+    height: 65px;
+}
+#imageContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
 }
 
 /* qlnd */
