@@ -41,12 +41,12 @@ login.forEach(function (e) {
               <h2>Sign In</h2>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-envelope"></i></span>
-                <input type="email" required id="Email" />
+                <input type="email"  id="Email" />
                 <label>Email</label>
               </div>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i></span>
-                <input type="password" required id="Password" />
+                <input type="password" id="Password" />
                 <label for="Password">Password</label>
               </div>
               <div class="remember-forgot">
@@ -72,17 +72,17 @@ login.forEach(function (e) {
               </div>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-envelope"></i></span>
-                <input type="email" required id="register-email" />
+                <input type="email" id="register-email" />
                 <label for="email">Email</label>
               </div>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i></span>
-                <input type="password" required id="register-password"/>
+                <input type="password" id="register-password"/>
                 <label>Password</label>
               </div>
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i></span>
-                <input type="password" required id="register-password-retype"/>
+                <input type="password" id="register-password-retype"/>
                 <label>Re-enter password</label>
               </div>
               <div class="remember-forgot">
@@ -191,6 +191,7 @@ for (let i = 0; i < getPolices.length; i++) {
 }
 
 // vinh sign up form
+// vinh sign up form
 let getRegisterButton = "";
 let getRegisterName = "";
 let getRegisterEmail = "";
@@ -230,7 +231,7 @@ function findUserByEmail(target) {
   }
   return null;
 }
-
+let userindex = 0;
 function getCurrentID() {
   let nextID = parseInt(localStorage.getItem("currentID"));
   if (nextID) {
@@ -240,6 +241,7 @@ function getCurrentID() {
     localStorage.setItem("currentID", 1);
     return parseInt(localStorage.getItem("currentID"));
   }
+  // return "user" + userindex;
 }
 
 // lưu user vào localStorage khi ấn sign-up button
@@ -344,11 +346,11 @@ function signInButton() {
     currentUser.password = user.password;
     currentUser.name = user.name;
     currentUser.userID = user.userID;
-    console.log(currentUser);
   } else {
     alert("Email hoặc mật khẩu không đúng!");
     return;
   }
+  // localStorage.setItem("CurrentUser", JSON.stringify(currentUser.userID));
   // reset input fields
   getEmailSignIn.value = "";
   getPasswordSignIn.value = "";
