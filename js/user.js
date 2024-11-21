@@ -2,6 +2,10 @@ let logout = document.querySelector(".logout");
 arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
 logout.addEventListener("click", () => {
   user = null;
+  let mangrong = [];
+  let resetshopbag = 0;
+  localStorage.setItem("arrayshopbag", JSON.stringify(mangrong));
+  localStorage.setItem("countarrayshopbag", JSON.stringify(resetshopbag));
   localStorage.setItem("currentUser", JSON.stringify(user));
   location.reload();
 });

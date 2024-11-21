@@ -20,6 +20,11 @@
   padding: 10px;
   font-weight: bold;
   font-size: 20px;
+  cursor: pointer;
+}
+#buttonEdit:hover,
+.buttonsubmit:hover {
+  background-color: #efefef;
 }
 .titleCol,
 .product {
@@ -84,6 +89,13 @@
 #address {
   border: none;
   outline: 0;
+}
+#name.active,
+#phone.active,
+#address.active {
+  border: 1px solid rgba(122, 122, 122, 0.16);
+  padding: 10px;
+  border-radius: 10px;
 }
 .imgsp {
   height: 200px;

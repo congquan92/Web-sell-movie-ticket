@@ -2,7 +2,21 @@ let Product = JSON.parse(localStorage.getItem("arrayproducts"));
 let arrayshopbag = [];
 function getarrayshopbag() {
   let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
-  arrayshopbag = usercurrent.shopbag;
+  if (usercurrent != null) {
+    let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+    for (let i = 0; i < alluser.length; i++) {
+      if (alluser[i].userID == usercurrent.userID) {
+        usercurrent = alluser[i];
+      }
+    }
+    localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+    arrayshopbag = usercurrent.shopbag || [];
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag));
+    localStorage.setItem(
+      "countarrayshopbag",
+      JSON.stringify(arrayshopbag.length)
+    );
+  }
 }
 getarrayshopbag();
 let soluong = 0; // Số lượng sản phẩm trong giỏ hàng
@@ -72,7 +86,7 @@ function shopinginfo() {
               </div>
             </div>
             <div class="btn-pay">
-              <h3 class="effect-for-btn buttonsubmit" onclick="thanhtoan();">THANH TOÁN</h3>
+              <h3 class="effect-for-btn buttonsubmit" onclick="giaodienthanhtoan();" >Xác nhận</h3>
             </div>
           </div>
         </div>
@@ -82,7 +96,8 @@ function shopinginfo() {
   cart.classList.add("active");
   chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
 }
-function thanhtoan() {
+function giaodienthanhtoan() {
+  let tongtien = 0;
   getarrayshopbag();
   document.querySelector(".cart").classList.remove("active");
   document.querySelector(".backgroud-menu-respon").style.display = "none";
@@ -113,7 +128,7 @@ function thanhtoan() {
           <span>Địa chỉ : </span>
           <input type="text" class="input" id="address" value="HCM" readonly />
         </div>
-        <div id="buttonEdit">Chỉnh sửa</div>
+        <div id="buttonEdit" onclick="chinhsua();">Chỉnh sửa</div>
       </div>
     </div>
     <div class="payment box">
@@ -128,6 +143,8 @@ function thanhtoan() {
         </div>
         <div id="viewCart-body">`;
   for (let i = 0; i < arrayshopbag.length; i++) {
+    tongtien +=
+      parseInt(arrayshopbag[i].obj.price) * parseInt(arrayshopbag[i].soluong);
     s += `<div class="product">
             <span class="idProduct">${arrayshopbag[i].obj.idproduct}</span>
             <span class="imgProduct imgsp"
@@ -144,7 +161,7 @@ function thanhtoan() {
       <div class="methodPayment">
         <h4>Phương thức thanh toán</h4>
         <div class="method">
-          <input type="radio" name="radio" id="" />
+          <input type="radio" name="radio" id="" checked />
           <span>
             <i class="now-ui-icons shopping_credit-card"></i>Thẻ tín dụng / Thẻ
             ghi nợ</span
@@ -160,15 +177,15 @@ function thanhtoan() {
         <div class="infoBill">
           <div class="contentTab">
             <span>Tạm tính:</span>
-            <span id="valueTemporary">714.000</span>
+            <span id="valueTemporary">${tongtien}</span>
           </div>
           <div class="contentTab">
             <span>Tổng:</span>
-            <span id="valueBill">714.000</span>
+            <span id="valueBill">${tongtien}</span>
           </div>
         </div>
       </div>
-      <div class="buttonsubmit">Thanh toán</div>
+      <div class="buttonsubmit" onclick="thanhtoan()">Thanh toán</div>
     </div>`;
   midcontent.innerHTML = s;
 }
@@ -275,6 +292,19 @@ if (soluongspgiohang > 0) {
   document.querySelector(".Shoping span").textContent = 0;
   document.querySelector(".Shoping").style.color = "black";
 }
+function kiemtradacotronggiohang(item) {
+  arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    if (
+      item.obj.idproduct == arrayshopbag[i].obj.idproduct &&
+      item.size == arrayshopbag[i].size &&
+      item.color == arrayshopbag[i].color
+    ) {
+      return arrayshopbag[i];
+    }
+  }
+  return null;
+}
 function addShopingBag(item) {
   let toast = document.querySelector(".toast_info");
   if (kiemtradangnhap() === true) {
@@ -284,14 +314,8 @@ function addShopingBag(item) {
     item.soluong = parseInt(document.querySelector("#counteInp").value);
 
     // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
-    let existingItem = arrayshopbag.find(
-      (product) =>
-        product.obj.id === item.obj.id &&
-        product.size === item.size &&
-        product.color === item.color
-    );
-
-    if (existingItem) {
+    let existingItem = kiemtradacotronggiohang(item);
+    if (existingItem != null) {
       existingItem.soluong += item.soluong;
     } else {
       arrayshopbag.push(item);
@@ -330,3 +354,51 @@ function updateshopingbag() {
     document.querySelector(".Shoping").style.color = "black";
   }
 }
+
+function thanhtoan() {
+  arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
+  localStorage.setItem("shopbagispay", JSON.stringify(arrayshopbag));
+}
+let isEditing = false; // Biến cờ để theo dõi trạng thái ban đầu
+
+function chinhsua() {
+  const editButton = document.querySelector("#buttonEdit"); // Lấy nút chỉnh sửa
+  const inputEdit = document.querySelectorAll(".input"); // Lấy tất cả các input
+  const name = document.querySelector("#name");
+  const phone = document.querySelector("#phone");
+  const address = document.querySelector("#address");
+  const loadingOverlay = document.querySelector(".loadpage"); // Lấy phần tử overlay
+
+  if (editButton != null) {
+    editButton.addEventListener("click", () => {
+      // Hiển thị overlay
+      loadingOverlay.classList.add("active");
+
+      setTimeout(() => {
+        if (isEditing) {
+          // Chế độ lưu lại
+          inputEdit.forEach(function (e) {
+            e.setAttribute("readonly", true);
+            e.classList.remove("active"); // Loại bỏ class active khi lưu lại
+          });
+          editButton.textContent = "Chỉnh sửa";
+        } else {
+          // Chế độ chỉnh sửa
+          inputEdit.forEach(function (e) {
+            e.removeAttribute("readonly");
+            e.classList.add("active"); // Thêm class active khi chỉnh sửa
+          });
+          editButton.textContent = "Lưu lại";
+        }
+        // Đảo ngược trạng thái của biến cờ
+        isEditing = !isEditing;
+
+        // Ẩn overlay sau khi hoàn tất
+        loadingOverlay.classList.remove("active");
+      }, 500); // Đặt thời gian chờ để mô phỏng hiệu ứng tải trang, bạn có thể điều chỉnh thời gian này
+    });
+  }
+}
+
+// Gọi hàm để kích hoạt chức năng chỉnh sửa
+chinhsua();

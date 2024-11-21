@@ -402,9 +402,9 @@ contact.forEach(function (e) {
     window.location.href = "contact.html";
   });
 });
-document.addEventListener("DOMContentLoaded", function () {
-  var loader = document.getElementById("loader");
-  setTimeout(function () {
-    loader.style.display = "none";
-  }, 500);
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   var loader = document.getElementById("loader");
+//   setTimeout(function () {
+//     loader.style.display = "none";
+//   }, 500);
+// });
