@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.box {
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  padding: 10px;
+}
+#buttonEdit,
+.buttonsubmit {
+  width: 50%;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid rgba(112, 112, 112, 0.3);
+  padding: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.titleCol,
+.product {
+  display: flex;
+  align-items: center;
+}
+.idProduct {
+  width: 10%;
+}
+.imgProduct {
+  width: 30%;
+  text-align: center;
+}
+.imgProduct img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.nameProduct,
+.colorProduct,
+.countProduct {
+  width: 30%;
+  text-align: center;
+}
+.colorProduct,
+.countProduct,
+.priceProduct {
+  width: 10%;
+}
+#viewCart-body {
+  height: 250px;
+  overflow-y: auto;
+  border-top: 1px solid rgba(112, 112, 112, 0.3);
+  border-bottom: 1px solid rgba(112, 112, 112, 0.3);
+  padding: 0 10px;
+}
+.titleCol {
+  padding: 20px;
+}
+.product {
+  border-bottom: 1px solid rgba(112, 112, 112, 0.3);
+}
+.methodPayment,
+.infoBill {
+  margin: 20px 0px;
+}
+.methodPayment h4,
+.method {
+  padding: 10px;
+  font-size: 18px;
+}
+.method {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contentTab {
+  padding: 10px;
+}
+#name,
+#phone,
+#address {
+  border: none;
+  outline: 0;
+}
+.imgsp {
+  height: 200px;
+}

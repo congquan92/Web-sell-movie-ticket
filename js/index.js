@@ -307,6 +307,8 @@ function registerButton(event) {
       userID: "",
       name: "",
       email: "",
+      shopbag: "",
+      statususer: "",
       password: "",
     };
     user.name = getRegisterName.value;
@@ -334,7 +336,8 @@ let currentUser = {
   name: "",
   email: "",
   password: "",
-  status: "",
+  shopbag: "",
+  statususer: "",
 };
 function saveCurrentUser(user) {
   localStorage.setItem("currentUser", JSON.stringify(user));
@@ -344,7 +347,6 @@ function getCurrentUser(user) {
   let getUser = JSON.parse(localStorage.getItem("currentUser"));
   return getUser;
 }
-
 function findUserByEmail(target) {
   let getStorageUsers = JSON.parse(localStorage.getItem("storageUsers"));
   if (localStorage.getItem("storageUsers") !== null) {

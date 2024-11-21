@@ -268,7 +268,7 @@ let Products = [
 ];
 
 for (let i = 0; i < Products.length; i++) {
-  Products[i].idproduct = Products[i].nametag + Products[i].nameSP;
+  Products[i].idproduct = Products[i].nametag + i;
 }
 localStorage.setItem("arrayproducts", JSON.stringify(Products));
 function timkiemtheoID(ID) {

@@ -1,11 +1,30 @@
 let Product = JSON.parse(localStorage.getItem("arrayproducts"));
-let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+let arrayshopbag = [];
+function getarrayshopbag() {
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  arrayshopbag = usercurrent.shopbag;
+}
+getarrayshopbag();
 let soluong = 0; // Số lượng sản phẩm trong giỏ hàng
 let tongtien = 0; // Tổng tiền của giỏ hàng
-
+function updateAlluser(user) {
+  let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+  for (let i = 0; i < alluser.length; i++) {
+    if (alluser[i].userID == user.userID) {
+      alluser[i].shopbag = user.shopbag;
+    }
+  }
+  localStorage.setItem("storageUsers", JSON.stringify(alluser));
+}
+function updatecurrentuser() {
+  usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  usercurrent.shopbag = arrayshopbag;
+  localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+  updateAlluser(usercurrent);
+}
 // Hiển thị thông tin giỏ hàng
 function shopinginfo() {
-  arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+  getarrayshopbag();
   const cart = document.querySelector(".cart");
   let s = `<div class="shoping-bag">
         <div class="shoping-bag-header">
@@ -53,7 +72,7 @@ function shopinginfo() {
               </div>
             </div>
             <div class="btn-pay">
-              <h3 class="effect-for-btn">THANH TOÁN</h3>
+              <h3 class="effect-for-btn buttonsubmit" onclick="thanhtoan();">THANH TOÁN</h3>
             </div>
           </div>
         </div>
@@ -63,10 +82,99 @@ function shopinginfo() {
   cart.classList.add("active");
   chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
 }
-
+function thanhtoan() {
+  getarrayshopbag();
+  document.querySelector(".cart").classList.remove("active");
+  document.querySelector(".backgroud-menu-respon").style.display = "none";
+  let s = `<h1 class="tittleheader">THÔNG TIN GIAO HÀNG</h1>
+    <div class="infoCustomer box">
+      <div class="infoCustomer-body">
+        <div class="contentTab">
+          <span>Họ và tên: </span>
+          <input
+            type="text"
+            class="input"
+            id="name"
+            value="Lê Hữu Huy"
+            readonly
+          />
+        </div>
+        <div class="contentTab">
+          <span>Số điện thoại: </span>
+          <input
+            type="text"
+            class="input"
+            id="phone"
+            value="0399097211"
+            readonly
+          />
+        </div>
+        <div class="contentTab">
+          <span>Địa chỉ : </span>
+          <input type="text" class="input" id="address" value="HCM" readonly />
+        </div>
+        <div id="buttonEdit">Chỉnh sửa</div>
+      </div>
+    </div>
+    <div class="payment box">
+      <div class="viewCart">
+        <div class="titleCol">
+          <span class="idProduct">ID</span>
+          <span class="imgProduct">Hình ảnh</span>
+          <span class="nameProduct">Tên sản phẩm</span>
+          <span class="colorProduct">Màu sắc</span>
+          <span class="countProduct">Số lượng</span>
+          <span class="priceProduct">Đơn giá</span>
+        </div>
+        <div id="viewCart-body">`;
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    s += `<div class="product">
+            <span class="idProduct">${arrayshopbag[i].obj.idproduct}</span>
+            <span class="imgProduct imgsp"
+              ><img src="${arrayshopbag[i].img}" alt=""
+            /></span>
+            <span class="nameProduct">${arrayshopbag[i].obj.nameSP}</span>
+            <span class="colorProduct">${arrayshopbag[i].color}</span>
+            <span class="countProduct">${arrayshopbag[i].soluong}</span>
+            <span class="priceProduct">${arrayshopbag[i].obj.price}</span>
+          </div>`;
+  }
+  s += `</div>
+      </div>
+      <div class="methodPayment">
+        <h4>Phương thức thanh toán</h4>
+        <div class="method">
+          <input type="radio" name="radio" id="" />
+          <span>
+            <i class="now-ui-icons shopping_credit-card"></i>Thẻ tín dụng / Thẻ
+            ghi nợ</span
+          >
+        </div>
+        <div class="method">
+          <input type="radio" name="radio" id="" />
+          <span
+            ><i class="now-ui-icons shopping_delivery-fast"></i>Thanh toán khi
+            nhận hàng</span
+          >
+        </div>
+        <div class="infoBill">
+          <div class="contentTab">
+            <span>Tạm tính:</span>
+            <span id="valueTemporary">714.000</span>
+          </div>
+          <div class="contentTab">
+            <span>Tổng:</span>
+            <span id="valueBill">714.000</span>
+          </div>
+        </div>
+      </div>
+      <div class="buttonsubmit">Thanh toán</div>
+    </div>`;
+  midcontent.innerHTML = s;
+}
 // Tính toán số lượng và tổng tiền của giỏ hàng
 function chitiethoadon() {
-  arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+  getarrayshopbag();
   soluong = 0;
   tongtien = 0;
   for (let i = 0; i < arrayshopbag.length; i++) {
@@ -96,6 +204,7 @@ function reduceShopBag(index) {
     count.value = quantity;
     arrayshopbag[index].soluong = quantity; // Cập nhật lại số lượng trong giỏ hàng
     localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
+    updatecurrentuser();
     chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
   }
 }
@@ -111,13 +220,14 @@ function increaseShopBag(index) {
     count.value = quantity;
     arrayshopbag[index].soluong = quantity; // Cập nhật lại số lượng trong giỏ hàng
     localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
+    updatecurrentuser();
     chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
   }
 }
 
 // Xóa sản phẩm khỏi giỏ hàng
 function removeItem(index) {
-  arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+  getarrayshopbag();
   arrayshopbag.splice(index, 1);
   let soluongspgiohang = arrayshopbag.length;
 
@@ -129,6 +239,7 @@ function removeItem(index) {
     document.querySelector(".Shoping").style.color = "black";
   }
   localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag));
+  updatecurrentuser();
   localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
   shopinginfo(); // Cập nhật lại giỏ hàng hiển thị
 }
@@ -155,11 +266,19 @@ function kiemtradangnhap() {
   let user = JSON.parse(localStorage.getItem("currentUser"));
   return user !== null;
 }
-
+let soluongspgiohang =
+  JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
+if (soluongspgiohang > 0) {
+  document.querySelector(".Shoping span").textContent = soluongspgiohang;
+  document.querySelector(".Shoping").style.color = "red";
+} else {
+  document.querySelector(".Shoping span").textContent = 0;
+  document.querySelector(".Shoping").style.color = "black";
+}
 function addShopingBag(item) {
   let toast = document.querySelector(".toast_info");
   if (kiemtradangnhap() === true) {
-    arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+    getarrayshopbag();
     soluongspgiohang = arrayshopbag.length;
     item.size = document.querySelector("#size").value;
     item.soluong = parseInt(document.querySelector("#counteInp").value);
@@ -180,6 +299,7 @@ function addShopingBag(item) {
     }
 
     localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
+    updatecurrentuser();
     localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
 
     // Cập nhật hiển thị số lượng sản phẩm trong giỏ hàng
@@ -201,8 +321,7 @@ function addShopingBag(item) {
 
 // Cập nhật số lượng sản phẩm trong giỏ hàng khi trang được tải
 function updateshopingbag() {
-  let soluongspgiohang =
-    JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
+  soluongspgiohang = JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
   if (soluongspgiohang > 0) {
     document.querySelector(".Shoping span").textContent = soluongspgiohang;
     document.querySelector(".Shoping").style.color = "red";
@@ -211,11 +330,3 @@ function updateshopingbag() {
     document.querySelector(".Shoping").style.color = "black";
   }
 }
-
-// Khởi tạo khi trang được tải
-window.onload = function () {
-  makeFilter();
-  makeSP(getCurrentPage(), sosptrongtrang, ProductArrBoth);
-  makeselectpage(getCurrentPage(), ProductArrBoth);
-  updateshopingbag();
-};
