@@ -106,7 +106,7 @@ function statusProduct() {
               <span>Giao hàng thành công</span>
             </div>
             <div class="shoping-list-item-info">
-              <div class="img-item">
+              <div class="img-item-user">
                 <img src="./img/products/p17-1.jpg" alt="" />
               </div>
               <div class="item-content">
@@ -129,7 +129,7 @@ function statusProduct() {
               <span>Chờ xác nhận</span>
             </div>
             <div class="shoping-list-item-info">
-              <div class="img-item">
+              <div class="img-item-user">
                 <img src="./img/products/p17-1.jpg" alt="" />
               </div>
               <div class="item-content">

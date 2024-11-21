@@ -5,6 +5,7 @@ let tongtien = 0; // Tổng tiền của giỏ hàng
 
 // Hiển thị thông tin giỏ hàng
 function shopinginfo() {
+  arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
   const cart = document.querySelector(".cart");
   let s = `<div class="shoping-bag">
         <div class="shoping-bag-header">
@@ -34,11 +35,6 @@ function shopinginfo() {
             </div>
           </div>`;
   }
-  for (let i = 0; i < arrayshopbag.length; i++) {
-    soluong += parseInt(arrayshopbag[i].soluong);
-    tongtien +=
-      parseInt(arrayshopbag[i].obj.price) * parseInt(arrayshopbag[i].soluong);
-  }
   s += `</div>
         <div class="pay">
           <div class="main">
@@ -65,10 +61,12 @@ function shopinginfo() {
 
   cart.innerHTML = s;
   cart.classList.add("active");
+  chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
 }
 
 // Tính toán số lượng và tổng tiền của giỏ hàng
 function chitiethoadon() {
+  arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
   soluong = 0;
   tongtien = 0;
   for (let i = 0; i < arrayshopbag.length; i++) {
@@ -76,8 +74,16 @@ function chitiethoadon() {
     tongtien +=
       parseInt(arrayshopbag[i].obj.price) * parseInt(arrayshopbag[i].soluong);
   }
-  document.getElementById("totalCount").textContent = soluong;
-  document.getElementById("totalBill").textContent = tongtien + "₫";
+
+  const totalCountElement = document.getElementById("totalCount");
+  const totalBillElement = document.getElementById("totalBill");
+
+  if (totalCountElement) {
+    totalCountElement.textContent = soluong;
+  }
+  if (totalBillElement) {
+    totalBillElement.textContent = tongtien + "₫";
+  }
 }
 
 // Giảm số lượng sản phẩm trong giỏ hàng
@@ -111,8 +117,19 @@ function increaseShopBag(index) {
 
 // Xóa sản phẩm khỏi giỏ hàng
 function removeItem(index) {
-  arrayshopbag.splice(index, 1); // Xóa sản phẩm khỏi giỏ hàng
-  localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
+  arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+  arrayshopbag.splice(index, 1);
+  let soluongspgiohang = arrayshopbag.length;
+
+  if (soluongspgiohang > 0) {
+    document.querySelector(".Shoping span").textContent = soluongspgiohang;
+    document.querySelector(".Shoping").style.color = "red";
+  } else {
+    document.querySelector(".Shoping span").textContent = 0;
+    document.querySelector(".Shoping").style.color = "black";
+  }
+  localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag));
+  localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
   shopinginfo(); // Cập nhật lại giỏ hàng hiển thị
 }
 
@@ -129,54 +146,76 @@ shoping.forEach(function (e) {
     const bag = document.querySelector(".cart");
     bag.classList.add("active");
     document.querySelector(".backgroud-menu-respon").style.display = "block";
+    shopinginfo(); // Hiển thị thông tin giỏ hàng khi mở
   });
 });
 
 // Thêm sản phẩm vào giỏ hàng
-let soluongspgiohang = JSON.parse(localStorage.getItem("countarrayshopbag"));
 function kiemtradangnhap() {
   let user = JSON.parse(localStorage.getItem("currentUser"));
-  if (user != null) {
-    return true;
-  }
-  return false;
+  return user !== null;
 }
+
 function addShopingBag(item) {
   let toast = document.querySelector(".toast_info");
-  if (kiemtradangnhap() == true) {
+  if (kiemtradangnhap() === true) {
+    arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+    soluongspgiohang = arrayshopbag.length;
     item.size = document.querySelector("#size").value;
-    item.soluong = document.querySelector("#counteInp").value;
-    // Thêm sản phẩm vào giỏ hàng
-    arrayshopbag.push(item);
-    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
-    soluongspgiohang++;
-    if (soluongspgiohang > 0) {
-      document.querySelector(".Shoping span").textContent = soluongspgiohang;
-      document.querySelector(".Shoping").style.color = "red";
+    item.soluong = parseInt(document.querySelector("#counteInp").value);
+
+    // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+    let existingItem = arrayshopbag.find(
+      (product) =>
+        product.obj.id === item.obj.id &&
+        product.size === item.size &&
+        product.color === item.color
+    );
+
+    if (existingItem) {
+      existingItem.soluong += item.soluong;
+    } else {
+      arrayshopbag.push(item);
+      soluongspgiohang++;
     }
+
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
     localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
-    // toast.innerHTML = `<div id="toast">
-    //     <div class="toast toast--success ">
-    //       <div class="toast_icon">
-    //         <i class="fa-solid fa-circle-check"></i>
-    //       </div>
-    //       <div class="toast_body">
-    //         <h3 class="toast_tittle">Success</h3>
-    //         <p class="toast_msg">Đã Thêm vào giỏ hàng</p>
-    //       </div>
-    //       <div class="toast_close"><i class="fa-solid fa-xmark"></i></div>
-    //     </div>
-    //   </div>`;
+
+    // Cập nhật hiển thị số lượng sản phẩm trong giỏ hàng
+    updateshopingbag();
+    chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
   } else {
-    //   toast.innerHTML = `<div class="toast toast--error">
-    //   <div class="toast_icon">
-    //     <i class="fa-solid fa-circle-check"></i>
-    //   </div>
-    //   <div class="toast_body">
-    //     <h3 class="toast_tittle">Error</h3>
-    //     <p class="toast_msg">Vui lòng đăng nhập</p>
-    //   </div>
-    //   <div class="toast_close"><i class="fa-solid fa-xmark"></i></div>
-    // </div>`;
+    toast.innerHTML = `<div class="toast toast--error">
+      <div class="toast_icon">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <div class="toast_body">
+        <h3 class="toast_tittle">Error</h3>
+        <p class="toast_msg">Vui lòng đăng nhập</p>
+      </div>
+      <div class="toast_close"><i class="fa-solid fa-xmark"></i></div>
+    </div>`;
   }
 }
+
+// Cập nhật số lượng sản phẩm trong giỏ hàng khi trang được tải
+function updateshopingbag() {
+  let soluongspgiohang =
+    JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
+  if (soluongspgiohang > 0) {
+    document.querySelector(".Shoping span").textContent = soluongspgiohang;
+    document.querySelector(".Shoping").style.color = "red";
+  } else {
+    document.querySelector(".Shoping span").textContent = "0";
+    document.querySelector(".Shoping").style.color = "black";
+  }
+}
+
+// Khởi tạo khi trang được tải
+window.onload = function () {
+  makeFilter();
+  makeSP(getCurrentPage(), sosptrongtrang, ProductArrBoth);
+  makeselectpage(getCurrentPage(), ProductArrBoth);
+  updateshopingbag();
+};

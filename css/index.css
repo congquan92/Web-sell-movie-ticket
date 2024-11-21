@@ -11,7 +11,9 @@ ul {
 body {
   position: relative;
 }
-
+.logout {
+  display: none;
+}
 #loader {
   position: absolute;
   width: 100%;
