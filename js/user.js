@@ -1,4 +1,5 @@
 let logout = document.querySelector(".logout");
+arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
 logout.addEventListener("click", () => {
   user = null;
   localStorage.setItem("currentUser", JSON.stringify(user));
@@ -92,60 +93,42 @@ function statusProduct() {
   let rightcontent = document.querySelector(".rightpage");
   document.querySelector(".statusbtn").classList.add("active");
   document.querySelector(".profilebtn").classList.remove("active");
-  rightcontent.innerHTML = `<div class="filter">
-          <div class="filter-item">Tất cả</div>
-          <div class="filter-item">Chờ xác nhận</div>
-          <div class="filter-item">Đang đóng gói</div>
-          <div class="filter-item">Vận chuyển</div>
-          <div class="filter-item">Hoàn Thành</div>
-        </div>
-        <div class="shopingbag-list">
-          <div class="shoping-list-item">
-            <div class="shoping-list-item-header">
-              <i class="fa-solid fa-car-side"></i>
-              <span>Giao hàng thành công</span>
+  s = `<div class="filter">
+        <div class="filter-item">Tất cả</div>
+        <div class="filter-item">Chờ xác nhận</div>
+        <div class="filter-item">Đang đóng gói</div>
+        <div class="filter-item">Vận chuyển</div>
+        <div class="filter-item">Hoàn Thành</div>
+      </div>
+        <div class="shopingbag-list">`;
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    s += `<div class="shoping-list-item">
+          <div class="shoping-list-item-header">
+            <i class="fa-solid fa-car-side"></i>
+            <span>Giao hàng thành công</span>
+          </div>
+          <div class="shoping-list-item-info">
+            <div class="img-item-user">
+              <img src="${arrayshopbag[i].img}" alt="" />
             </div>
-            <div class="shoping-list-item-info">
-              <div class="img-item-user">
-                <img src="./img/products/p17-1.jpg" alt="" />
+            <div class="item-content">
+              <div class="name-item">${arrayshopbag[i].obj.nameSP}</div>
+              <div class="size-item">${arrayshopbag[i].size}</div>
+              <div class="quatity-price-item">
+                <div class="quatity-item">x${arrayshopbag[i].soluong}</div>
+                <div class="price-item">${arrayshopbag[i].obj.price}đ</div>
               </div>
-              <div class="item-content">
-                <div class="name-item">LEVENTS® POPULAR LOGO 2.0 Hoodie</div>
-                <div class="size-item">A</div>
-                <div class="quatity-price-item">
-                  <div class="quatity-item">x2</div>
-                  <div class="price-item">140000đ</div>
-                </div>
-                <div class="money">
-                  <div class="thanhtien">Thành tiền:</div>
-                  <div class="intomoney">1200000</div>
-                </div>
-              </div>
-            </div>
-        </div>
-          <div class="shoping-list-item">
-            <div class="shoping-list-item-header">
-              <i class="fa-solid fa-car-side"></i>
-              <span>Chờ xác nhận</span>
-            </div>
-            <div class="shoping-list-item-info">
-              <div class="img-item-user">
-                <img src="./img/products/p17-1.jpg" alt="" />
-              </div>
-              <div class="item-content">
-                <div class="name-item">LEVENTS® POPULAR LOGO 2.0 Hoodie</div>
-                <div class="size-item">A</div>
-                <div class="quatity-price-item">
-                  <div class="quatity-item">x2</div>
-                  <div class="price-item">140000đ</div>
-                </div>
-                <div class="money">
-                  <div class="thanhtien">Thành tiền:</div>
-                  <div class="intomoney">1200000</div>
-                </div>
-                <div class="cancel">Huỷ</div>
+              <div class="money">
+                <div class="thanhtien">Thành tiền:</div>
+                <div class="intomoney">${
+                  parseInt(arrayshopbag[i].obj.price) *
+                  parseInt(arrayshopbag[i].soluong)
+                }</div>
               </div>
             </div>
           </div>
         </div>`;
+  }
+  s += `</div>`;
+  rightcontent.innerHTML = s;
 }
