@@ -93,6 +93,16 @@ function profile() {
       </div>
     </div>`;
 }
+// function donhangcuauser() {
+//   let donhang=[];
+//   let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay"));
+//   let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+//   for(let i=0;i<shopbagispay.length;i++){
+//     if(shopbagispay[i].IDuser==currentUser.userID){
+//       donhang.push(shopbagispay[i].)
+//     }
+//   }
+// }
 function statusProduct() {
   let rightcontent = document.querySelector(".rightpage");
   document.querySelector(".statusbtn").classList.add("active");
@@ -105,7 +115,8 @@ function statusProduct() {
         <div class="filter-item">Hoàn Thành</div>
       </div>
         <div class="shopingbag-list">`;
-  for (let i = 0; i < arrayshopbag.length; i++) {
+
+  for (let i = 0; i < shopbagispay.length; i++) {
     s += `<div class="shoping-list-item">
           <div class="shoping-list-item-header">
             <i class="fa-solid fa-car-side"></i>
@@ -113,20 +124,20 @@ function statusProduct() {
           </div>
           <div class="shoping-list-item-info">
             <div class="img-item-user">
-              <img src="${arrayshopbag[i].img}" alt="" />
+              <img src="${shopbagispay[i].img}" alt="" />
             </div>
             <div class="item-content">
-              <div class="name-item">${arrayshopbag[i].obj.nameSP}</div>
-              <div class="size-item">${arrayshopbag[i].size}</div>
+              <div class="name-item">${shopbagispay[i].obj.nameSP}</div>
+              <div class="size-item">${shopbagispay[i].size}</div>
               <div class="quatity-price-item">
-                <div class="quatity-item">x${arrayshopbag[i].soluong}</div>
-                <div class="price-item">${arrayshopbag[i].obj.price}đ</div>
+                <div class="quatity-item">x${shopbagispay[i].soluong}</div>
+                <div class="price-item">${shopbagispay[i].obj.price}đ</div>
               </div>
               <div class="money">
                 <div class="thanhtien">Thành tiền:</div>
                 <div class="intomoney">${
-                  parseInt(arrayshopbag[i].obj.price) *
-                  parseInt(arrayshopbag[i].soluong)
+                  parseInt(shopbagispay[i].obj.price) *
+                  parseInt(shopbagispay[i].soluong)
                 }</div>
               </div>
             </div>

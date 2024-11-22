@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 .cart {
   position: fixed;
   z-index: 99999999;
@@ -22,6 +27,7 @@
   height: calc(100% - 10% - 250px);
 }
 .shoping-bag-header {
+  padding: 20px;
   height: 10%;
   display: flex;
   margin-bottom: 20px;
@@ -38,10 +44,15 @@
 .cart-info {
   width: 100%;
 }
+.cart-info h6 {
+  padding: 5px;
+  font-size: 12px;
+}
 .shoping-bag-info-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.3);
 }
 .shoping-bag-img img {
   width: 100%;
@@ -52,7 +63,17 @@
 }
 .shoping-bag-info {
   overflow: auto;
-  height: 400px;
+  height: 600px;
+}
+#counteInp {
+  border: none;
+  outline: 0;
+  max-width: max-content;
+}
+.countProductbuy {
+  border: none;
+  outline: 0;
+  text-align: center;
 }
 .selected,
 .discount,
@@ -76,13 +97,26 @@
   font-size: 12px;
 }
 .main {
+  background-color: rgb(236, 236, 236);
   margin-top: 10px;
+  height: 30%;
 }
 .delete {
   text-align: center;
 }
 .info_bill {
-  background-color: rgb(236, 236, 236);
   padding: 10px;
   line-height: 1.5;
+}
+.info_bill div {
+  line-height: 2.5;
+}
+.delete {
+  width: 70%;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 10px;
+}
+.delete:hover {
+  background-color: #efefef;
 }

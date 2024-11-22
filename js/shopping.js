@@ -60,7 +60,7 @@ function shopinginfo() {
                 <div class="count">
                   <i class="fa-solid fa-minus sub" onclick='reduceShopBag(${i});'></i>
                   <input type="text" readonly="readonly" class="countProductbuy" value="${arrayshopbag[i].soluong}" />
-                  <i class="fa-solid fa-plus add" onclick='increaseShopBag(${i});'></i>
+                  <i class="fa-solid fa-plus add" onclick='increaseShopBag(${i},"${arrayshopbag[i].size}");'></i>
                 </div>
                 <div class="price">${arrayshopbag[i].obj.price}₫</div>
               </div>
@@ -227,11 +227,26 @@ function reduceShopBag(index) {
 }
 
 // Tăng số lượng sản phẩm trong giỏ hàng
-function increaseShopBag(index) {
+function increaseShopBag(index, sizeproduct) {
   let count = document.querySelectorAll(".countProductbuy")[index];
   let quantity = parseInt(count.value);
-  let maxQuantity = arrayshopbag[index].obj.quantity; // Giới hạn số lượng tối đa
-
+  // console.log(arrayshopbag[index].obj.quantity.A);
+  let Quantity = arrayshopbag[index].obj.quantity; // Giới hạn số lượng tối đa
+  let maxQuantity = "";
+  switch (sizeproduct) {
+    case "A":
+      maxQuantity = Quantity.A;
+      break;
+    case "B":
+      maxQuantity = Quantity.B;
+      break;
+    case "C":
+      maxQuantity = Quantity.C;
+      break;
+    case "D":
+      maxQuantity = Quantity.D;
+      break;
+  }
   if (quantity < maxQuantity) {
     quantity++;
     count.value = quantity;
@@ -330,16 +345,7 @@ function addShopingBag(item) {
     updateshopingbag();
     chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
   } else {
-    toast.innerHTML = `<div class="toast toast--error">
-      <div class="toast_icon">
-        <i class="fa-solid fa-circle-check"></i>
-      </div>
-      <div class="toast_body">
-        <h3 class="toast_tittle">Error</h3>
-        <p class="toast_msg">Vui lòng đăng nhập</p>
-      </div>
-      <div class="toast_close"><i class="fa-solid fa-xmark"></i></div>
-    </div>`;
+    alert("Vui lòng đăng nhập!");
   }
 }
 
@@ -355,10 +361,83 @@ function updateshopingbag() {
   }
 }
 
-function thanhtoan() {
-  arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
-  localStorage.setItem("shopbagispay", JSON.stringify(arrayshopbag));
+function dieuchinhsoluongtrongkho(arr) {
+  console.log(arr);
+  let products = JSON.parse(localStorage.getItem("arrayproducts"));
+  for (let i = 0; i < products.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j].obj.idproduct == products[i].idproduct) {
+        // console.log(arr[j].obj.idproduct, products[i].idproduct);
+        switch (arr[j].size) {
+          case "A":
+            products[i].quantity.A =
+              parseInt(products[i].quantity.A) - parseInt(arr[j].soluong);
+            break;
+          case "B":
+            products[i].quantity.B =
+              parseInt(products[i].quantity.B) - parseInt(arr[j].soluong);
+            break;
+          case "C":
+            products[i].quantity.C =
+              parseInt(products[i].quantity.C) - parseInt(arr[j].soluong);
+            break;
+          case "D":
+            products[i].quantity.D =
+              parseInt(products[i].quantity.D) - parseInt(arr[j].soluong);
+            break;
+        }
+      }
+    }
+  }
+  localStorage.setItem("arrayproducts", JSON.stringify(products));
 }
+
+function kiemtratontai(IDuser) {
+  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  for (let i = 0; i < shopbagispay.length; i++) {
+    if (shopbagispay[i].IDuser == IDuser) {
+      return i;
+    }
+  }
+  return null;
+}
+
+function thanhtoan() {
+  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  let userIndex = kiemtratontai(usercurrent.userID);
+
+  if (userIndex !== null) {
+    let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+    for (let i = 0; i < arrayshopbag.length; i++) {
+      shopbagispay[userIndex].shopbagispayuser.push(arrayshopbag[i]);
+    }
+  } else {
+    let shopbagitem = {
+      IDuser: usercurrent.userID,
+      shopbagispayuser: JSON.parse(localStorage.getItem("arrayshopbag")) || [],
+    };
+    shopbagispay.push(shopbagitem);
+  }
+
+  localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
+
+  // Ensure the correct list of items is passed for inventory adjustment
+  let itemsToAdjust =
+    userIndex !== null
+      ? shopbagispay[userIndex].shopbagispayuser
+      : JSON.parse(localStorage.getItem("arrayshopbag"));
+  console.log(itemsToAdjust);
+  dieuchinhsoluongtrongkho(itemsToAdjust);
+
+  // Reset the shopping bag
+  localStorage.setItem("arrayshopbag", JSON.stringify([]));
+  localStorage.setItem("countarrayshopbag", JSON.stringify(0));
+
+  // Reload the page if necessary
+  // location.reload();
+}
+
 let isEditing = false; // Biến cờ để theo dõi trạng thái ban đầu
 
 function chinhsua() {

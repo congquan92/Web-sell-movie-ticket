@@ -1,4 +1,5 @@
 let ProductArrBoth = JSON.parse(localStorage.getItem("arrayproducts"));
+console.log(ProductArrBoth);
 let typeproducts = [
   { typeid: "aothun#", typename: "Áo thun" },
   { typeid: "polo#", typename: "Polo" },
@@ -348,13 +349,13 @@ function loadSingleProduct(e) {
                         </div>
                         <div class="countProduct">
                             <h4>Số lượng: </h4>
-                            <li><i class="fa-solid fa-minus" onclick='reduce(${JSON.stringify(
+                            <i class="fa-solid fa-minus" onclick='reduce(${JSON.stringify(
                               e
-                            )});'></i></li>
-                            <input type="text" min="min" max="max" readonly="readonly" id="counteInp" value="1">
-                            <li><i class="fa-solid fa-plus" onclick='increase(${JSON.stringify(
+                            )});'></i>
+                            <input type="text"  readonly="readonly" id="counteInp" value="0">
+                            <i class="fa-solid fa-plus" onclick='increase(${JSON.stringify(
                               e
-                            )});'></i></li>
+                            )});'></i>
                         </div>
                         <div class="choiceSize">
                             <h3>Size: </h3>
@@ -396,6 +397,7 @@ function loadSingleProduct(e) {
                 </div>
             </div>`;
   document.getElementsByClassName("both")[0].innerHTML = s;
+  document.getElementById("size").addEventListener("click", resetsize);
 }
 
 let quantity = "";
@@ -414,15 +416,35 @@ function reduce(itemJSON) {
 function increase(itemJSON) {
   let count = document.querySelector("#counteInp");
   quantity = parseInt(count.value);
-  if (quantity < itemJSON.quantity) {
+  let size = document.querySelector("#size").value;
+  let Quantity = itemJSON.quantity;
+  // console.log(Quantity);
+  let maxQuantity = "";
+  switch (size) {
+    case "A":
+      maxQuantity = Quantity.A;
+      break;
+    case "B":
+      maxQuantity = Quantity.B;
+      break;
+    case "C":
+      maxQuantity = Quantity.C;
+      break;
+    case "D":
+      maxQuantity = Quantity.D;
+      break;
+  }
+  if (quantity < maxQuantity) {
     quantity = quantity + 1;
   } else {
-    quantity = itemJSON.quantity;
+    quantity = maxQuantity;
   }
   count.value = quantity;
-  console.log(quantity);
 }
-
+function resetsize() {
+  let count = document.querySelector("#counteInp");
+  count.value = 0;
+}
 //doi mau sac quan ao trong chi textIndent
 function clickC_1(e, color, img) {
   objcolorcurrent.color = color;
@@ -454,37 +476,6 @@ function goBack() {
   window.location.href = "shop.html";
 }
 
-function addShopingBag() {
-  console.log(flag_signin);
-  let toast = document.querySelector(".toast_info");
-  if (flag_signin == true) {
-    // toast.innerHTML = `<div id="toast">
-    //     <div class="toast toast--success ">
-    //       <div class="toast_icon">
-    //         <i class="fa-solid fa-circle-check"></i>
-    //       </div>
-    //       <div class="toast_body">
-    //         <h3 class="toast_tittle">Success</h3>
-    //         <p class="toast_msg">Đã Thêm vào giỏ hàng</p>
-    //       </div>
-    //       <div class="toast_close"><i class="fa-solid fa-xmark"></i></div>
-    //     </div>
-    //   </div>`;
-    alert("asda");
-  } else {
-    toast.innerHTML = `<div class="toast toast--error">
-        <div class="toast_icon">
-          <i class="fa-solid fa-circle-check"></i>
-        </div>
-        <div class="toast_body">
-          <h3 class="toast_tittle">Error</h3>
-          <p class="toast_msg">Vui lòng đăng nhập</p>
-        </div>
-        <div class="toast_close"><i class="fa-solid fa-xmark"></i></div>
-      </div>`;
-  }
-  // alert("asds");
-}
 // Load trang
 document.addEventListener("DOMContentLoaded", function () {
   var loader = document.getElementById("loader");
@@ -492,10 +483,498 @@ document.addEventListener("DOMContentLoaded", function () {
     loader.style.display = "none";
   }, 500);
 });
+
+let Product = JSON.parse(localStorage.getItem("arrayproducts"));
+let arrayshopbag = [];
+function getarrayshopbag() {
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  if (usercurrent != null) {
+    let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+    for (let i = 0; i < alluser.length; i++) {
+      if (alluser[i].userID == usercurrent.userID) {
+        usercurrent = alluser[i];
+      }
+    }
+    localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+    arrayshopbag = usercurrent.shopbag || [];
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag));
+    localStorage.setItem(
+      "countarrayshopbag",
+      JSON.stringify(arrayshopbag.length)
+    );
+  }
+}
+getarrayshopbag();
+let soluong = 0; // Số lượng sản phẩm trong giỏ hàng
+let tongtien = 0; // Tổng tiền của giỏ hàng
+function updateAlluser(user) {
+  let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+  for (let i = 0; i < alluser.length; i++) {
+    if (alluser[i].userID == user.userID) {
+      alluser[i].shopbag = user.shopbag;
+    }
+  }
+  localStorage.setItem("storageUsers", JSON.stringify(alluser));
+}
+function updatecurrentuser() {
+  usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  usercurrent.shopbag = arrayshopbag;
+  localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+  updateAlluser(usercurrent);
+}
+// Hiển thị thông tin giỏ hàng
+function shopinginfo() {
+  let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
+  const cart = document.querySelector(".cart");
+  let s = `<div class="shoping-bag">
+        <div class="shoping-bag-header">
+          <h3>Giỏ hàng</h3>
+          <div class="close-shopping" onclick="closeall()">Đóng</div>
+        </div>
+        <div class="shoping-bag-info">`;
+
+  // Hiển thị các sản phẩm trong giỏ hàng
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    s += `<div class="shoping-bag-info-item">
+            <div class="shoping-bag-img">
+              <img src="${arrayshopbag[i].img}" alt="" />
+            </div>
+            <div class="cart-info">
+              <h4>${arrayshopbag[i].obj.nameSP}</h4>
+              <h6>${arrayshopbag[i].color}-${arrayshopbag[i].size}</h6>
+              <div class="priceAndCount">
+                <div class="count">
+                  <i class="fa-solid fa-minus sub" onclick='reduceShopBag(${i});'></i>
+                  <input type="text" readonly="readonly" class="countProductbuy" value="${arrayshopbag[i].soluong}" />
+                  <i class="fa-solid fa-plus add" onclick='increaseShopBag(${i},"${arrayshopbag[i].size}");'></i>
+                </div>
+                <div class="price">${arrayshopbag[i].obj.price}₫</div>
+              </div>
+              <div class="delete effect-for-btn" onclick="removeItem(${i})">Xoá</div>
+            </div>
+          </div>`;
+  }
+  s += `</div>
+        <div class="pay">
+          <div class="main">
+            <div class="info_bill">
+              <div class="selected">
+                <p>ĐÃ CHỌN:</p>
+                <p id="totalCount">${soluong}</p>
+              </div>
+              <div class="discount">
+                <p>KHUYẾN MÃI:</p>
+                <p id="discountPercent"></p>
+              </div>
+              <div class="total">
+                <p>TẠM TÍNH:</p>
+                <p id="totalBill">${tongtien}₫</p>
+              </div>
+            </div>
+            <div class="btn-pay">
+              <h3 class="effect-for-btn buttonsubmit" onclick="giaodienthanhtoan();" >Xác nhận</h3>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+  cart.innerHTML = s;
+  cart.classList.add("active");
+  chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
+}
+function giaodienthanhtoan() {
+  let tongtien = 0;
+  let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
+  document.querySelector(".cart").classList.remove("active");
+  document.querySelector(".backgroud-menu-respon").style.display = "none";
+  let s = `<h1 class="tittleheader">THÔNG TIN GIAO HÀNG</h1>
+    <div class="infoCustomer box">
+      <div class="infoCustomer-body">
+        <div class="contentTab">
+          <span>Họ và tên: </span>
+          <input
+            type="text"
+            class="input"
+            id="name"
+            value="Lê Hữu Huy"
+            readonly
+          />
+        </div>
+        <div class="contentTab">
+          <span>Số điện thoại: </span>
+          <input
+            type="text"
+            class="input"
+            id="phone"
+            value="0399097211"
+            readonly
+          />
+        </div>
+        <div class="contentTab">
+          <span>Địa chỉ : </span>
+          <input type="text" class="input" id="address" value="HCM" readonly />
+        </div>
+        <div id="buttonEdit" onclick="chinhsua();">Chỉnh sửa</div>
+      </div>
+    </div>
+    <div class="payment box">
+      <div class="viewCart">
+        <div class="titleCol">
+          <span class="idProduct">ID</span>
+          <span class="imgProduct">Hình ảnh</span>
+          <span class="nameProduct">Tên sản phẩm</span>
+          <span class="colorProduct">Màu sắc</span>
+          <span class="countProduct">Số lượng</span>
+          <span class="priceProduct">Đơn giá</span>
+        </div>
+        <div id="viewCart-body">`;
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    tongtien +=
+      parseInt(arrayshopbag[i].obj.price) * parseInt(arrayshopbag[i].soluong);
+    s += `<div class="product">
+            <span class="idProduct">${arrayshopbag[i].obj.idproduct}</span>
+            <span class="imgProduct imgsp"
+              ><img src="${arrayshopbag[i].img}" alt=""
+            /></span>
+            <span class="nameProduct">${arrayshopbag[i].obj.nameSP}</span>
+            <span class="colorProduct">${arrayshopbag[i].color}</span>
+            <span class="countProduct">${arrayshopbag[i].soluong}</span>
+            <span class="priceProduct">${arrayshopbag[i].obj.price}</span>
+          </div>`;
+  }
+  s += `</div>
+      </div>
+      <div class="methodPayment">
+        <h4>Phương thức thanh toán</h4>
+        <div class="method">
+          <input type="radio" name="radio" id="" checked />
+          <span>
+            <i class="now-ui-icons shopping_credit-card"></i>Thẻ tín dụng / Thẻ
+            ghi nợ</span
+          >
+        </div>
+        <div class="method">
+          <input type="radio" name="radio" id="" />
+          <span
+            ><i class="now-ui-icons shopping_delivery-fast"></i>Thanh toán khi
+            nhận hàng</span
+          >
+        </div>
+        <div class="infoBill">
+          <div class="contentTab">
+            <span>Tạm tính:</span>
+            <span id="valueTemporary">${tongtien}</span>
+          </div>
+          <div class="contentTab">
+            <span>Tổng:</span>
+            <span id="valueBill">${tongtien}</span>
+          </div>
+        </div>
+      </div>
+      <div class="buttonsubmit" onclick="thanhtoan()">Thanh toán</div>
+    </div>`;
+  midcontent.innerHTML = s;
+}
+// Tính toán số lượng và tổng tiền của giỏ hàng
+function chitiethoadon() {
+  let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
+  soluong = 0;
+  tongtien = 0;
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    soluong += parseInt(arrayshopbag[i].soluong);
+    tongtien +=
+      parseInt(arrayshopbag[i].obj.price) * parseInt(arrayshopbag[i].soluong);
+  }
+
+  const totalCountElement = document.getElementById("totalCount");
+  const totalBillElement = document.getElementById("totalBill");
+
+  if (totalCountElement) {
+    totalCountElement.textContent = soluong;
+  }
+  if (totalBillElement) {
+    totalBillElement.textContent = tongtien + "₫";
+  }
+}
+
+// Giảm số lượng sản phẩm trong giỏ hàng
+function reduceShopBag(index) {
+  let count = document.querySelectorAll(".countProductbuy")[index];
+  let quantity = parseInt(count.value);
+
+  if (quantity > 1) {
+    quantity--;
+    count.value = quantity;
+    arrayshopbag[index].soluong = quantity; // Cập nhật lại số lượng trong giỏ hàng
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
+    updatecurrentuser();
+    chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
+  }
+}
+
+// Tăng số lượng sản phẩm trong giỏ hàng
+function increaseShopBag(index, sizeproduct) {
+  let count = document.querySelectorAll(".countProductbuy")[index];
+  let quantity = parseInt(count.value);
+  // console.log(arrayshopbag[index].obj.quantity.A);
+  let Quantity = arrayshopbag[index].obj.quantity; // Giới hạn số lượng tối đa
+  let maxQuantity = "";
+  switch (sizeproduct) {
+    case "A":
+      maxQuantity = Quantity.A;
+      break;
+    case "B":
+      maxQuantity = Quantity.B;
+      break;
+    case "C":
+      maxQuantity = Quantity.C;
+      break;
+    case "D":
+      maxQuantity = Quantity.D;
+      break;
+  }
+  if (quantity < maxQuantity) {
+    quantity++;
+    count.value = quantity;
+    arrayshopbag[index].soluong = quantity; // Cập nhật lại số lượng trong giỏ hàng
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
+    updatecurrentuser();
+    chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
+  }
+}
+
+// Xóa sản phẩm khỏi giỏ hàng
+function removeItem(index) {
+  getarrayshopbag();
+  arrayshopbag.splice(index, 1);
+  let soluongspgiohang = arrayshopbag.length;
+
+  if (soluongspgiohang > 0) {
+    document.querySelector(".Shoping span").textContent = soluongspgiohang;
+    document.querySelector(".Shoping").style.color = "red";
+  } else {
+    document.querySelector(".Shoping span").textContent = 0;
+    document.querySelector(".Shoping").style.color = "black";
+  }
+  localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag));
+  updatecurrentuser();
+  localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
+  shopinginfo(); // Cập nhật lại giỏ hàng hiển thị
+}
+
+// Đóng giỏ hàng
+function closeall() {
+  document.querySelector(".cart").classList.remove("active");
+  document.querySelector(".backgroud-menu-respon").style.display = "none";
+}
+
+// Mở giỏ hàng
+const shoping = document.querySelectorAll(".Shoping");
+shoping.forEach(function (e) {
+  e.addEventListener("click", () => {
+    const bag = document.querySelector(".cart");
+    bag.classList.add("active");
+    document.querySelector(".backgroud-menu-respon").style.display = "block";
+    shopinginfo(); // Hiển thị thông tin giỏ hàng khi mở
+  });
+});
+
+// Thêm sản phẩm vào giỏ hàng
+function kiemtradangnhap() {
+  let user = JSON.parse(localStorage.getItem("currentUser"));
+  return user !== null;
+}
+let soluongspgiohang =
+  JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
+if (soluongspgiohang > 0) {
+  document.querySelector(".Shoping span").textContent = soluongspgiohang;
+  document.querySelector(".Shoping").style.color = "red";
+} else {
+  document.querySelector(".Shoping span").textContent = 0;
+  document.querySelector(".Shoping").style.color = "black";
+}
+function kiemtradacotronggiohang(item) {
+  arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    if (
+      item.obj.idproduct == arrayshopbag[i].obj.idproduct &&
+      item.size == arrayshopbag[i].size &&
+      item.color == arrayshopbag[i].color
+    ) {
+      return arrayshopbag[i];
+    }
+  }
+  return null;
+}
+function addShopingBag(item) {
+  let toast = document.querySelector(".toast_info");
+  if (kiemtradangnhap() === true) {
+    getarrayshopbag();
+    soluongspgiohang = arrayshopbag.length;
+    item.size = document.querySelector("#size").value;
+    item.soluong = parseInt(document.querySelector("#counteInp").value);
+
+    // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+    let existingItem = kiemtradacotronggiohang(item);
+    if (existingItem != null) {
+      existingItem.soluong += item.soluong;
+    } else {
+      arrayshopbag.push(item);
+      soluongspgiohang++;
+    }
+
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
+    updatecurrentuser();
+    localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
+
+    // Cập nhật hiển thị số lượng sản phẩm trong giỏ hàng
+    updateshopingbag();
+    chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
+  } else {
+    alert("Vui lòng đăng nhập");
+  }
+}
+updateshopingbag();
+// Cập nhật số lượng sản phẩm trong giỏ hàng khi trang được tải
+function updateshopingbag() {
+  soluongspgiohang = JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
+  if (soluongspgiohang > 0) {
+    document.querySelector(".Shoping span").textContent = soluongspgiohang;
+    document.querySelector(".Shoping").style.color = "red";
+  } else {
+    document.querySelector(".Shoping span").textContent = "0";
+    document.querySelector(".Shoping").style.color = "black";
+  }
+}
+
+function dieuchinhsoluongtrongkho(arr) {
+  console.log(arr);
+  let products = JSON.parse(localStorage.getItem("arrayproducts"));
+  for (let i = 0; i < products.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j].obj.idproduct == products[i].idproduct) {
+        // console.log(arr[j].obj.idproduct, products[i].idproduct);
+        switch (arr[j].size) {
+          case "A":
+            products[i].quantity.A =
+              parseInt(products[i].quantity.A) - parseInt(arr[j].soluong);
+            break;
+          case "B":
+            products[i].quantity.B =
+              parseInt(products[i].quantity.B) - parseInt(arr[j].soluong);
+            break;
+          case "C":
+            products[i].quantity.C =
+              parseInt(products[i].quantity.C) - parseInt(arr[j].soluong);
+            break;
+          case "D":
+            products[i].quantity.D =
+              parseInt(products[i].quantity.D) - parseInt(arr[j].soluong);
+            break;
+        }
+      }
+    }
+  }
+  localStorage.setItem("arrayproducts", JSON.stringify(products));
+}
+
+function kiemtratontai(IDuser) {
+  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  for (let i = 0; i < shopbagispay.length; i++) {
+    if (shopbagispay[i].IDuser == IDuser) {
+      return i;
+    }
+  }
+  return null;
+}
+
+function thanhtoan() {
+  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  let userIndex = kiemtratontai(usercurrent.userID);
+
+  if (userIndex !== null) {
+    let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+    for (let i = 0; i < arrayshopbag.length; i++) {
+      shopbagispay[userIndex].shopbagispayuser.push(arrayshopbag[i]);
+    }
+  } else {
+    let shopbagitem = {
+      IDuser: usercurrent.userID,
+      shopbagispayuser: JSON.parse(localStorage.getItem("arrayshopbag")) || [],
+    };
+    shopbagispay.push(shopbagitem);
+  }
+
+  localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
+
+  // Ensure the correct list of items is passed for inventory adjustment
+  let itemsToAdjust =
+    userIndex !== null
+      ? shopbagispay[userIndex].shopbagispayuser
+      : JSON.parse(localStorage.getItem("arrayshopbag"));
+  console.log(itemsToAdjust);
+  dieuchinhsoluongtrongkho(itemsToAdjust);
+  let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+  for (let i = 0; i < alluser.length; i++) {
+    if (alluser[i].userID == usercurrent.userID) {
+      alluser[i].shopbag = [];
+      usercurrent.shopbag = [];
+    }
+  }
+  localStorage.setItem("storageUsers", JSON.stringify(alluser));
+
+  // Reload the page if necessary
+  location.reload();
+}
+
+let isEditing = false; // Biến cờ để theo dõi trạng thái ban đầu
+
+function chinhsua() {
+  const editButton = document.querySelector("#buttonEdit"); // Lấy nút chỉnh sửa
+  const inputEdit = document.querySelectorAll(".input"); // Lấy tất cả các input
+  const name = document.querySelector("#name");
+  const phone = document.querySelector("#phone");
+  const address = document.querySelector("#address");
+  const loadingOverlay = document.querySelector(".loadpage"); // Lấy phần tử overlay
+
+  if (editButton != null) {
+    editButton.addEventListener("click", () => {
+      // Hiển thị overlay
+      loadingOverlay.classList.add("active");
+
+      setTimeout(() => {
+        if (isEditing) {
+          // Chế độ lưu lại
+          inputEdit.forEach(function (e) {
+            e.setAttribute("readonly", true);
+            e.classList.remove("active"); // Loại bỏ class active khi lưu lại
+          });
+          editButton.textContent = "Chỉnh sửa";
+        } else {
+          // Chế độ chỉnh sửa
+          inputEdit.forEach(function (e) {
+            e.removeAttribute("readonly");
+            e.classList.add("active"); // Thêm class active khi chỉnh sửa
+          });
+          editButton.textContent = "Lưu lại";
+        }
+        // Đảo ngược trạng thái của biến cờ
+        isEditing = !isEditing;
+
+        // Ẩn overlay sau khi hoàn tất
+        loadingOverlay.classList.remove("active");
+      }, 500); // Đặt thời gian chờ để mô phỏng hiệu ứng tải trang, bạn có thể điều chỉnh thời gian này
+    });
+  }
+}
+
+// Gọi hàm để kích hoạt chức năng chỉnh sửa
+chinhsua();
+
 window.onload = function () {
   makeFilter();
   makeSP(getCurrentPage(), sosptrongtrang, ProductArrBoth);
   makeselectpage(getCurrentPage(), ProductArrBoth);
   // saveArraytolocal();
-  reloadpage();
 };
