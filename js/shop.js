@@ -291,6 +291,7 @@ let statusproductcurrent = [
   { statusID: "3", statuscontent: "Vận chuyển" },
   { statusID: "4", statuscontent: "Hoàn thành" },
 ];
+console.log("abc");
 let objcolorcurrent = {
   obj: "",
   color: "",
