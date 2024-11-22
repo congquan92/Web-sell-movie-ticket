@@ -105,26 +105,27 @@ hr {
   }
 }
 
-/* .city {
+.city {
   opacity: 0;
-} */
+  transform: rotateY(180deg);
+}
 
-/* .city.flipleft {
+.city.flipleft {
   opacity: 1;
-  transform: rotate(180deg);
-  animation: transform .5s ease;
-} */
+  transform: rotateX(360deg);
+  animation: flipLeft .3s ease;
+}
 
-/* @keyframes flipLeft {
+@keyframes flipLeft {
   from {
     opacity: 0;
-    transform: rotateX(0);
+    transform: rotateY(180deg);
   }
   to {
     opacity: 1;
-    transform: rotateX(180deg);
+    transform: rotateY(360deg);
   }
-} */
+}
 .addr {
   transform: translateX(-300%);
 }
@@ -226,6 +227,10 @@ hr {
   color: #fff;
   width: 100%;
 }
+
+.contact_infor-cta .buttonCta:active {
+  transform: scale(0.96);
+}
 /* reponsive contact */
 
 /* PC */
@@ -269,7 +274,7 @@ hr {
 
 
 /* xem cua hang */
-/*
+/* 
 .model {
   position: fixed;
   top: 0;
@@ -286,7 +291,7 @@ hr {
 .model.open {
   display: flex;
 }
-*/
+ */
 
 .model_wrapper {
   position: relative;
@@ -305,7 +310,7 @@ hr {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  height: 200vh;
+  height: 500px;
 }
 
 .store_main {
