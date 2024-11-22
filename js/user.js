@@ -93,16 +93,17 @@ function profile() {
       </div>
     </div>`;
 }
-// function donhangcuauser() {
-//   let donhang=[];
-//   let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay"));
-//   let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-//   for(let i=0;i<shopbagispay.length;i++){
-//     if(shopbagispay[i].IDuser==currentUser.userID){
-//       donhang.push(shopbagispay[i].)
-//     }
-//   }
-// }
+function donhangcuauser() {
+  let donhang = [];
+  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay"));
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  for (let i = 0; i < shopbagispay.length; i++) {
+    if (shopbagispay[i].IDuser == currentUser.userID) {
+      donhang = shopbagispay[i].shopbagispayuser;
+    }
+  }
+  return donhang;
+}
 function statusProduct() {
   let rightcontent = document.querySelector(".rightpage");
   document.querySelector(".statusbtn").classList.add("active");
@@ -115,8 +116,8 @@ function statusProduct() {
         <div class="filter-item">Hoàn Thành</div>
       </div>
         <div class="shopingbag-list">`;
-
-  for (let i = 0; i < shopbagispay.length; i++) {
+  let shopbagispayuser = donhangcuauser();
+  for (let i = 0; i < shopbagispayuser.length; i++) {
     s += `<div class="shoping-list-item">
           <div class="shoping-list-item-header">
             <i class="fa-solid fa-car-side"></i>
@@ -124,20 +125,20 @@ function statusProduct() {
           </div>
           <div class="shoping-list-item-info">
             <div class="img-item-user">
-              <img src="${shopbagispay[i].img}" alt="" />
+              <img src="${shopbagispayuser[i].img}" alt="" />
             </div>
             <div class="item-content">
-              <div class="name-item">${shopbagispay[i].obj.nameSP}</div>
-              <div class="size-item">${shopbagispay[i].size}</div>
+              <div class="name-item">${shopbagispayuser[i].obj.nameSP}</div>
+              <div class="size-item">${shopbagispayuser[i].size}</div>
               <div class="quatity-price-item">
-                <div class="quatity-item">x${shopbagispay[i].soluong}</div>
-                <div class="price-item">${shopbagispay[i].obj.price}đ</div>
+                <div class="quatity-item">x${shopbagispayuser[i].soluong}</div>
+                <div class="price-item">${shopbagispayuser[i].obj.price}đ</div>
               </div>
               <div class="money">
                 <div class="thanhtien">Thành tiền:</div>
                 <div class="intomoney">${
-                  parseInt(shopbagispay[i].obj.price) *
-                  parseInt(shopbagispay[i].soluong)
+                  parseInt(shopbagispayuser[i].obj.price) *
+                  parseInt(shopbagispayuser[i].soluong)
                 }</div>
               </div>
             </div>

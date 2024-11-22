@@ -1,5 +1,4 @@
 let ProductArrBoth = JSON.parse(localStorage.getItem("arrayproducts"));
-console.log(ProductArrBoth);
 let typeproducts = [
   { typeid: "aothun#", typename: "Áo thun" },
   { typeid: "polo#", typename: "Polo" },
@@ -405,10 +404,28 @@ let quantity = "";
 function reduce(itemJSON) {
   let count = document.querySelector("#counteInp");
   quantity = parseInt(count.value);
-  if (quantity > 1) {
+  let size = document.querySelector("#size").value;
+  let Quantity = itemJSON.quantity;
+  // console.log(Quantity);
+  let maxQuantity = "";
+  switch (size) {
+    case "A":
+      maxQuantity = Quantity.A;
+      break;
+    case "B":
+      maxQuantity = Quantity.B;
+      break;
+    case "C":
+      maxQuantity = Quantity.C;
+      break;
+    case "D":
+      maxQuantity = Quantity.D;
+      break;
+  }
+  if (quantity > 0) {
     quantity = quantity - 1;
   } else {
-    quantity = 1;
+    quantity = maxQuantity;
   }
   count.value = quantity;
 }
