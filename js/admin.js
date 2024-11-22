@@ -46,7 +46,7 @@ function listSP(arr) {
   arr.forEach(product => {
     const Price = (product.price).toLocaleString("vi-VN", {style: "currency",currency: "VND",});
     s += `
-            <div onclick="clickDelete(this)" oncontextmenu="clickchitiet(event,this)" class="list">
+            <div oncontextmenu="showContextMenu(event, this)" class="list">
                 <span style="width: 10%" class="idProduct">${product.idproduct}</span>
                 <img style="width: 20%" src="${product.img}" class="imgProduct" alt="Ảnh">
                 <span style="width: 30%" class="nameProduct">${product.nameSP}</span>
@@ -125,23 +125,47 @@ function renderqlsp(){
                 <div id="storage-body"></div>`;
                 searchSP();   
 }
-function clickDelete(e){
-  const idProduct = e.querySelector(".idProduct").textContent;
-  for(let i = 0; i<countProduct(ArrProduct);i++){
-    if(ArrProduct[i].idproduct === idProduct){
-      ArrProduct.splice(i, 1);   // 1 la vi tri roi 
-            i--;
-            break;
-    }
-  }
-  localStorage.setItem('products',JSON.stringify(ArrProduct));
-  renderqlsp();
-}
 
-function clickchitiet(e,elemant){
-  e.preventDefault();
-  console.log(elemant);
+// quan - chuot phai ------
+
+// Hàm hiển thị menu tùy chỉnh
+function showContextMenu(event, element) {
+    event.preventDefault();
+    // Lấy vị trí chuột
+    const posX = event.pageX;
+    const posY = event.pageY;
+    // Hiển thị menu ở vị trí chuột
+    contextMenu.style.display = "block";
+    contextMenu.style.left = `${posX}px`;
+    contextMenu.style.top = `${posY}px`;
+
+
+    const idProduct = element.querySelector('.idProduct').textContent;
+
+  //xoa san pham
+    document.getElementById('deleteProduct').addEventListener('click',()=>{
+      for(let i = 0; i<countProduct(ArrProduct);i++){
+        if(ArrProduct[i].idproduct === idProduct){
+          ArrProduct.splice(i, 1);   // 1 la vi tri roi 
+                i--;
+                break;
+        }
+      }
+      localStorage.setItem('products',JSON.stringify(ArrProduct));
+      renderqlsp();
+    })
+    //chi tiet san pham
+    document.getElementById('viewDetails').addEventListener('click',()=>{
+      console.log('hello world')
+  
+    })
 }
+// Hàm ẩn menu
+function hideContextMenu() {
+    document.getElementById('contextMenu').style.display = "none";
+}
+// Ẩn menu khi nhấp chuột ra ngoài
+window.addEventListener("click", hideContextMenu);
 // ---------------------------------------------------------------------------------
 // thong ke
 const listSweater = ArrProduct.filter(i => i.nametag === 'sweater#');
@@ -350,7 +374,7 @@ function rankProfit(arr){
   document.getElementById('rankProfit-body').innerHTML=s;
 }
 
-// Gọi hàm renderqltk khi trang tải
+//Gọi hàm renderqltk khi trang tải
 window.onload = () => {
   renderqltk();
 };
