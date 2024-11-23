@@ -307,6 +307,8 @@ function registerButton(event) {
       userID: "",
       name: "",
       email: "",
+      phone: "",
+      diachi: "",
       shopbag: "",
       statususer: "",
       password: "",
@@ -402,9 +404,330 @@ contact.forEach(function (e) {
     window.location.href = "contact.html";
   });
 });
-// document.addEventListener("DOMContentLoaded", function () {
-//   var loader = document.getElementById("loader");
-//   setTimeout(function () {
-//     loader.style.display = "none";
-//   }, 500);
-// });
+
+//giohang
+const shoping1 = document.querySelectorAll(".Shoping");
+shoping1.forEach(function (e) {
+  e.addEventListener("click", () => {
+    const bag = document.querySelector(".cart");
+    bag.classList.add("active");
+    document.querySelector(".backgroud-menu-respon").style.display = "block";
+    shopinginfo(); // Hiển thị thông tin giỏ hàng khi mở
+  });
+});
+let soluong1 = 0; // Số lượng sản phẩm trong giỏ hàng
+let tongtien1 = 0;
+// Hiển thị thông tin giỏ hàng
+function shopinginfo() {
+  let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
+  const cart = document.querySelector(".cart");
+  let s = `<div class="shoping-bag">
+        <div class="shoping-bag-header">
+          <h3>Giỏ hàng</h3>
+          <div class="close-shopping" onclick="closeall1()">Đóng</div>
+        </div>
+        <div class="shoping-bag-info">`;
+
+  // Hiển thị các sản phẩm trong giỏ hàng
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    s += `<div class="shoping-bag-info-item">
+            <div class="shoping-bag-img">
+              <img src="${arrayshopbag[i].img}" alt="" />
+            </div>
+            <div class="cart-info">
+              <h4>${arrayshopbag[i].obj.nameSP}</h4>
+              <h6>${arrayshopbag[i].color}-${arrayshopbag[i].size}</h6>
+              <div class="priceAndCount">
+                <div class="count">
+                  <i class="fa-solid fa-minus sub" onclick='reduceShopBag(${i});'></i>
+                  <input type="text" readonly="readonly" class="countProductbuy" value="${arrayshopbag[i].soluong}" />
+                  <i class="fa-solid fa-plus add" onclick='increaseShopBag(${i},"${arrayshopbag[i].size}");'></i>
+                </div>
+                <div class="price">${arrayshopbag[i].obj.price}₫</div>
+              </div>
+              <div class="delete effect-for-btn" onclick="removeItem(${i})">Xoá</div>
+            </div>
+          </div>`;
+  }
+  s += `</div>
+        <div class="pay">
+          <div class="main">
+            <div class="info_bill">
+              <div class="selected">
+                <p>ĐÃ CHỌN:</p>
+                <p id="totalCount">${soluong1}</p>
+              </div>
+              <div class="discount">
+                <p>KHUYẾN MÃI:</p>
+                <p id="discountPercent"></p>
+              </div>
+              <div class="total">
+                <p>TẠM TÍNH:</p>
+                <p id="totalBill">${tongtien1}₫</p>
+              </div>
+            </div>
+            <div class="btn-pay">
+              <h3 class="effect-for-btn buttonsubmit" onclick="giaodienthanhtoan();" >Xác nhận</h3>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+  cart.innerHTML = s;
+  cart.classList.add("active");
+  chitiethoadon1(); // Cập nhật lại thông tin giỏ hàng
+}
+function chitiethoadon1() {
+  let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
+  soluong1 = 0;
+  tongtien1 = 0;
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    soluong1 += parseInt(arrayshopbag[i].soluong);
+    tongtien1 +=
+      parseInt(arrayshopbag[i].obj.price) * parseInt(arrayshopbag[i].soluong);
+  }
+
+  const totalCountElement = document.getElementById("totalCount");
+  const totalBillElement = document.getElementById("totalBill");
+
+  if (totalCountElement) {
+    totalCountElement.textContent = soluong1;
+  }
+  if (totalBillElement) {
+    totalBillElement.textContent = tongtien1 + "₫";
+  }
+}
+function closeall() {
+  document.querySelector(".cart").classList.remove("active");
+  document.querySelector(".backgroud-menu-respon").style.display = "none";
+}
+updateshopingbag();
+
+// Cập nhật số lượng sản phẩm trong giỏ hàng khi trang được tải
+function updateshopingbag() {
+  soluongspgiohang = JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
+  if (soluongspgiohang > 0) {
+    document.querySelector(".Shoping span").textContent = soluongspgiohang;
+    document.querySelector(".Shoping").style.color = "red";
+  } else {
+    document.querySelector(".Shoping span").textContent = "0";
+    document.querySelector(".Shoping").style.color = "black";
+  }
+}
+function giaodienthanhtoan() {
+  let arrayproducts = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+  if (arrayproducts.length == 0) {
+    alert("Giỏ hàng rỗng");
+  } else {
+    let tongtien = 0;
+    getarrayshopbag();
+    let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+    document.querySelector(".cart").classList.remove("active");
+    document.querySelector(".backgroud-menu-respon").style.display = "none";
+    let s = `<h1 class="tittleheader">THÔNG TIN GIAO HÀNG</h1>
+    <div class="infoCustomer box">
+      <div class="infoCustomer-body">
+        <div class="contentTab">
+          <span>Họ và tên: </span>
+          <input
+            type="text"
+            class="input"
+            id="name"
+            value="${usercurrent.name}"
+            readonly
+          />
+        </div>
+        <div class="contentTab">
+          <span>Số điện thoại: </span>
+          <input
+            type="text"
+            class="input"
+            id="phone"
+            value="${usercurrent.phone}"
+            readonly
+          />
+        </div>
+        <div class="contentTab">
+          <span>Địa chỉ : </span>
+          <input type="text" class="input" id="address" value="${usercurrent.diachi}" readonly />
+        </div>
+        <div id="buttonEdit" onclick="chinhsua();">Chỉnh sửa</div>
+      </div>
+    </div>
+    <div class="payment box">
+      <div class="viewCart">
+        <div class="titleCol">
+          <span class="idProduct">ID</span>
+          <span class="imgProduct">Hình ảnh</span>
+          <span class="nameProduct">Tên sản phẩm</span>
+          <span class="colorProduct">Màu sắc</span>
+          <span class="countProduct">Số lượng</span>
+          <span class="priceProduct">Đơn giá</span>
+        </div>
+        <div id="viewCart-body">`;
+    for (let i = 0; i < arrayshopbag.length; i++) {
+      tongtien +=
+        parseInt(arrayshopbag[i].obj.price) * parseInt(arrayshopbag[i].soluong);
+      s += `<div class="product">
+            <span class="idProduct">${arrayshopbag[i].obj.idproduct}</span>
+            <span class="imgProduct imgsp"
+              ><img src="${arrayshopbag[i].img}" alt=""
+            /></span>
+            <span class="nameProduct">${arrayshopbag[i].obj.nameSP}</span>
+            <span class="colorProduct">${arrayshopbag[i].color}</span>
+            <span class="countProduct">${arrayshopbag[i].soluong}</span>
+            <span class="priceProduct">${arrayshopbag[i].obj.price}</span>
+          </div>`;
+    }
+    s += `</div>
+      </div>
+      <div class="methodPayment">
+        <h4>Phương thức thanh toán</h4>
+        <div class="method">
+          <input type="radio" name="radio" id="" checked />
+          <span>
+            <i class="now-ui-icons shopping_credit-card"></i>Thẻ tín dụng / Thẻ
+            ghi nợ</span
+          >
+        </div>
+        <div class="method">
+          <input type="radio" name="radio" id="" />
+          <span
+            ><i class="now-ui-icons shopping_delivery-fast"></i>Thanh toán khi
+            nhận hàng</span
+          >
+        </div>
+        <div class="infoBill">
+          <div class="contentTab">
+            <span>Tạm tính:</span>
+            <span id="valueTemporary">${tongtien}</span>
+          </div>
+          <div class="contentTab">
+            <span>Tổng:</span>
+            <span id="valueBill">${tongtien}</span>
+          </div>
+        </div>
+      </div>
+      <div class="buttonsubmit" onclick="thanhtoan()">Thanh toán</div>
+    </div>`;
+    midcontent.innerHTML = s;
+  }
+}
+function getarrayshopbag() {
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  if (usercurrent != null) {
+    let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+    for (let i = 0; i < alluser.length; i++) {
+      if (alluser[i].userID == usercurrent.userID) {
+        usercurrent = alluser[i];
+      }
+    }
+    localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+    arrayshopbag = usercurrent.shopbag || [];
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag));
+    localStorage.setItem(
+      "countarrayshopbag",
+      JSON.stringify(arrayshopbag.length)
+    );
+  }
+}
+getarrayshopbag();
+updateshopingbag();
+function thanhtoan() {
+  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  let userIndex = kiemtratontai(usercurrent.userID);
+
+  if (usercurrent.phone === "" || usercurrent.diachi === "") {
+    alert("Vui lòng nhập đầy đủ số điện thoại và địa chỉ");
+    chinhsua();
+  } else {
+    if (userIndex !== null) {
+      let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+      for (let i = 0; i < arrayshopbag.length; i++) {
+        shopbagispay[userIndex].shopbagispayuser.push(arrayshopbag[i]);
+      }
+    } else {
+      let shopbagitem = {
+        IDuser: usercurrent.userID,
+        shopbagispayuser:
+          JSON.parse(localStorage.getItem("arrayshopbag")) || [],
+      };
+      shopbagispay.push(shopbagitem);
+    }
+
+    localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
+
+    // Ensure the correct list of items is passed for inventory adjustment
+    let itemsToAdjust =
+      userIndex !== null
+        ? shopbagispay[userIndex].shopbagispayuser
+        : JSON.parse(localStorage.getItem("arrayshopbag"));
+
+    dieuchinhsoluongtrongkho(itemsToAdjust);
+
+    // Clear user's shopping bag after checkout
+    let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+    for (let i = 0; i < alluser.length; i++) {
+      if (alluser[i].userID == usercurrent.userID) {
+        alluser[i].shopbag = [];
+        usercurrent.shopbag = [];
+      }
+    }
+    localStorage.setItem("storageUsers", JSON.stringify(alluser));
+    localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+
+    // Reload the page to reflect changes
+    location.reload();
+  }
+}
+function kiemtratontai(IDuser) {
+  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  for (let i = 0; i < shopbagispay.length; i++) {
+    if (shopbagispay[i].IDuser == IDuser) {
+      return i;
+    }
+  }
+  return null;
+}
+function dieuchinhsoluongtrongkho(arr) {
+  console.log(arr);
+  let products = JSON.parse(localStorage.getItem("arrayproducts"));
+  for (let i = 0; i < products.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j].obj.idproduct == products[i].idproduct) {
+        // console.log(arr[j].obj.idproduct, products[i].idproduct);
+        switch (arr[j].size) {
+          case "A":
+            products[i].quantity.A =
+              parseInt(products[i].quantity.A) - parseInt(arr[j].soluong);
+            break;
+          case "B":
+            products[i].quantity.B =
+              parseInt(products[i].quantity.B) - parseInt(arr[j].soluong);
+            break;
+          case "C":
+            products[i].quantity.C =
+              parseInt(products[i].quantity.C) - parseInt(arr[j].soluong);
+            break;
+          case "D":
+            products[i].quantity.D =
+              parseInt(products[i].quantity.D) - parseInt(arr[j].soluong);
+            break;
+        }
+      }
+    }
+  }
+  localStorage.setItem("arrayproducts", JSON.stringify(products));
+}
+// Function to update user details in storageUsers
+function updateUserDetails(user) {
+  let allUsers = JSON.parse(localStorage.getItem("storageUsers")) || [];
+  for (let i = 0; i < allUsers.length; i++) {
+    if (allUsers[i].userID == user.userID) {
+      allUsers[i] = user;
+      break;
+    }
+  }
+  localStorage.setItem("storageUsers", JSON.stringify(allUsers));
+}

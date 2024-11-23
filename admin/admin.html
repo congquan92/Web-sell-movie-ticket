@@ -1,128 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../css/admin.css" />
-    <title>Admin</title>
-  </head>
-  <body>
-    <div class="backgroud-menu-respon"></div>
-    <div class="header">
-      <div class="menu1"><i class="bx bx-menu"></i></div>
-      <div class="logo"><img src="../img/New Clothes.gif" alt="" /></div>
-    </div>
-    <div class="page-left">
-      <div class="F-L"><h1>Tình Hình Hoạt Động</h1></div>
-      <div class="box-l">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../img/products/">
+  <title>Admin</title>
+</head>
+
+<body>
+  <div class="page">
+
+    <div class="page-left second-icon">
+      <div style="height: 10%;" class="F-L">
+        <h1>Tình Hình Hoạt Động</h1>
+      </div>
+      <div style="height: 60%;" class="box-l">
         <div class="L b1 act">QUẢN LÝ THỐNG KÊ</div>
         <div class="L b2">QUẢN LÝ ĐƠN HÀNG</div>
         <div class="L b3">QUẢN LÝ SẢN PHẢM</div>
         <div class="L b4">QUẢN LÝ NGƯỜI DÙNG</div>
       </div>
-      <div class="L-e">
-        <a href="../index.html">
-          <i class="fa-solid fa-house"></i>TRỞ VỀ TRANG CHỦ</a
-        >
-      </div>
+      <div class="L-e"><a href="../index.html"> <i class="fa-solid fa-house"></i>TRỞ VỀ TRANG CHỦ</a></div>
     </div>
-    <div class="page">
-      <div class="page-right">
-        <!-- <div class = qltk>
-                <h1>SỐ LIỆU THỐNG KÊ</h1>
-                <div class="overview">
-                    <div class="grapbox">
-                        
-                    </div>
-                    <div class="datanumber">
-                        
-                    </div>
-                        
-               </div>
-            </div> -->
+    <div class="page-right"></div>
 
-        <div class="qlsp">
-          <div class="title"><h1>QUẢN LÝ SẢN PHẨM</h1></div>
-          <div class="btnAdd">
-            <div class="circle"><i class="fa-solid fa-plus"></i></div>
-          </div>
-          <div class="groupOption">
-            <select name="" class="box" id="comboType">
-              <option value="0">Tất cả</option>
-              <option value="1">Áo thun</option>
-              <option value="2">Polo</option>
-              <option value="3">Sơ mi</option>
-              <option value="4">Hoodie</option>
-              <option value="5">Sweater</option>
-              <option value="6">Áo khoác</option>
-            </select>
-            <select name="" class="box" id="comboStatus">
-              <option value="0">Tất cả</option>
-              <option value="1">CÒN HÀNG</option>
-              <option value="2">SẮP HẾT</option>
-              <option value="3">HẾT HÀNG</option>
-            </select>
-            <div class="box">
-              <div class="contentBox">
-                <div class="leftBox">
-                  <h2 id="amountOfProduct">19</h2>
-                  <span>SẢN PHẨM</span>
-                </div>
-                <i class="fa-solid fa-star"></i>
-              </div>
-            </div>
-          </div>
-          <div class="titleCol">
-            <span style="margin-right: 50px" class="idProduct">ID</span>
-            <span style="margin-right: 60px" class="imgProduct">Hình ảnh</span>
-            <span style="margin-right: 170px" class="nameProduct"
-              >Tên sản phẩm</span
-            >
-            <span class="colorProduct">Màu sắc</span>
-            <span class="countProduct">Số lượng</span>
-            <span class="priceProduct">Đơn giá</span>
-            <span class="statusProduct">Trạng thái</span>
-          </div>
-          <!-- sp -->
-          <div id="storage-body">
-            <div class="list">
-              <span class="idProduct">#CACC1</span>
-              <img
-                src="../img/products/p1-1.png"
-                class="imgProduct"
-                alt="Ảnh"
-              />
-              <span class="nameProduct"
-                >LEVENTS® | DORAEMON FAMOUS CAT TEE</span
-              >
-              <span class="colorProduct">XANH LÁ</span>
-              <span class="countProduct">12</span>
-              <span class="priceProduct">370000</span>
-              <span class="statusProduct" style="color: #32cd32">CÒN HÀNG</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="btnAddproduct nonez"></div>
+    <div class="outbackround"></div>
 
-    <script src="../js/admin.js"></script>
-  </body>
+
+  </div>
+
+  <script src="../js/admin.js"></script>
+  <!-- chart.js -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+    integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+</body>
+
 </html>

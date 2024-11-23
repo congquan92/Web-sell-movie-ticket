@@ -29,19 +29,43 @@ login.forEach(function (e) {
         <div class="profile-body">
           <div class="contentTab">
             <span>Email</span>
-            <span>${user.email}</span>
+            <input
+            type="text"
+            class="input"
+            id="email"
+            value="${user.email}"
+            readonly
+          />
           </div>
           <div class="contentTab">
             <span>Name</span>
-            <span>${user.name}</span>
+            <input
+            type="text"
+            class="input"
+            id="name"
+            value="${user.name}"
+            readonly
+          />
           </div>
           <div class="contentTab">
             <span>Phone</span>
-            <span>0399097211</span>
+            <input
+            type="text"
+            class="input"
+            id="phone"
+            value="${user.phone}"
+            readonly
+          />
           </div>
           <div class="contentTab">
             <span>Address</span>
-            <span>94A Lô Tư, Phường Bình Hưng Hoà A, Quận Bình Tân</span>
+            <input
+            type="text"
+            class="input"
+            id="address"
+            value="${user.diachi}"
+            readonly
+          />
           </div>
           <div class="contentTab point">
             <span>Tích điểm</span>
@@ -53,6 +77,7 @@ login.forEach(function (e) {
           </div>
         </div>
       </div>
+      <div id="buttonEdit" onclick="chinhsuainfo()">Chỉnh sửa</div>
     </div>`;
     }
   });
@@ -104,6 +129,24 @@ function donhangcuauser() {
   }
   return donhang;
 }
+function kiemtrangtrangthai(item) {
+  let s = "";
+  switch (item.status) {
+    case "1":
+      s = "Chờ xác nhận";
+      break;
+    case "2":
+      s = "Đang gói hàng";
+      break;
+    case "3":
+      s = "Vận chuyển";
+      break;
+    case "4":
+      s = "Hoàn thành";
+      break;
+  }
+  return s;
+}
 function statusProduct() {
   let rightcontent = document.querySelector(".rightpage");
   document.querySelector(".statusbtn").classList.add("active");
@@ -121,7 +164,7 @@ function statusProduct() {
     s += `<div class="shoping-list-item">
           <div class="shoping-list-item-header">
             <i class="fa-solid fa-car-side"></i>
-            <span>Giao hàng thành công</span>
+            <span>${kiemtrangtrangthai(shopbagispayuser[i])}</span>
           </div>
           <div class="shoping-list-item-info">
             <div class="img-item-user">
@@ -147,4 +190,38 @@ function statusProduct() {
   }
   s += `</div>`;
   rightcontent.innerHTML = s;
+}
+let isEdit = false;
+function chinhsuainfo() {
+  const buttonEdit = document.querySelector("#buttonEdit");
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  const input = document.querySelectorAll("input");
+  const name = document.querySelector("#name");
+  const phone = document.querySelector("#phone");
+  const address = document.querySelector("#address");
+  if (buttonEdit != null) {
+    buttonEdit.addEventListener("click", () => {
+      if (isEdit) {
+        input.forEach(function (e) {
+          e.setAttribute("readonly", true);
+          e.classList.remove("active");
+        });
+        // Save updated user information
+        usercurrent.name = name.value;
+        usercurrent.phone = phone.value;
+        usercurrent.diachi = address.value;
+        localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+        updateUserDetails(usercurrent); // Update the user details in storageUsers
+        buttonEdit.textContent = "Chỉnh sửa";
+      } else {
+        input.forEach(function (e) {
+          e.removeAttribute("readonly");
+          e.classList.add("active");
+        });
+        buttonEdit.textContent = "Lưu lại";
+      }
+    });
+    // Toggle edit state
+    isEdit = !isEdit;
+  }
 }

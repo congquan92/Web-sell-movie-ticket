@@ -1,3 +1,382 @@
+let Products = [
+  {
+    nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
+    img: "./img/products/p1-1.png",
+    price: 370000,
+    nametag: "aothun#",
+    idproduct: "abc",
+    colorr1: "gray",
+    colorr2: "red",
+    colorr3: "unset",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    img1: "./img/products/p1-1.png",
+    img2: "./img/products/p1-2.jpg",
+    img3: "./img/products/p1-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® | DORAEMON COLLAB TEE",
+    img: "./img/products/p2-1.png",
+    price: 450000,
+    nametag: "aothun#",
+    idproduct: "",
+    colorr1: "brown",
+    colorr2: "black",
+    colorr3: "unset",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    img1: "./img/products/p2-1.png",
+    img2: "./img/products/p2-2.png",
+    img3: "./img/products/p2-2.png",
+  },
+  {
+    nameSP: "LEVENTS® DINOSAUR TEE",
+    img: "./img/products/p3-1.jpg",
+    price: 420000,
+    nametag: "aothun#",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: " rgb(235, 232, 226)",
+    colorr2: "black",
+    colorr3: "blue",
+    img1: "./img/products/p3-1.jpg",
+    img2: "./img/products/p3-2.jpg",
+    img3: "./img/products/p3-3.jpg",
+  },
+  {
+    nameSP: "LEVENTS® INSIDE OUT TEE",
+    img: "./img/products/p4-1.jpg",
+    price: 390000,
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    nametag: "aothun#",
+    idproduct: "",
+    colorr1: " rgb(235, 232, 226)",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p4-1.jpg",
+    img2: "./img/products/p4-2.jpg",
+    img3: "./img/products/p4-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® LOVEYOU300K SPECIAL TEE",
+    img: "./img/products/p5-1.jpg",
+    price: 300000,
+    nametag: "aothun#",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: " rgb(235, 232, 226)",
+    colorr2: "unset",
+    idproduct: "",
+    colorr3: "unset",
+    img1: "./img/products/p5-1.jpg",
+    img2: "./img/products/p5-1.jpg",
+    img3: "./img/products/p5-1.jpg",
+  },
+  {
+    nameSP: "LEVENTS® FUNNY CROCODILE TEE",
+    img: "./img/products/p6-1.jpg",
+    price: 390000,
+    nametag: "aothun#",
+    colorr1: "blue",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p6-1.jpg",
+    img2: "./img/products/p6.jpg",
+    img3: "./img/products/p6-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® PUNCH VARSITY",
+    img: "./img/products/p7-1.jpg",
+    price: 890000,
+    nametag: "aokhoac#",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: "brown",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p7-1.jpg",
+    img2: "./img/products/p7-2.jpg",
+    img3: "./img/products/p7-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® SELFLOVE BOXY TEE",
+    img: "./img/products/p8-1.jpg",
+    price: 380000,
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    nametag: "aothun#",
+    colorr1: " rgb(235, 232, 226)",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p8-1.jpg",
+    img2: "./img/products/p8-2.jpg",
+    img3: "./img/products/p8-1.jpg",
+  },
+  {
+    nameSP: "LEVENTS® | DORAEMON MINI CAT Polo",
+    img: "./img/products/p9-1.jpg",
+    price: 405000,
+    nametag: "polo#",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    idproduct: "",
+    colorr1: " rgb(235, 232, 226)",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p9-1.jpg",
+    img2: "./img/products/p9-2.jpg",
+    img3: "./img/products/p9-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® MINI POPULAR Polo",
+    img: "./img/products/p10-1.jpg",
+    price: 370000,
+    nametag: "polo#",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    idproduct: "",
+    colorr1: " rgb(235, 232, 226)",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p10-1.jpg",
+    img2: "./img/products/p10-2.jpg",
+    img3: "./img/products/p10-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® STRIPE Polo",
+    img: "./img/products/p11-1.jpg",
+    price: 420000,
+    idproduct: "",
+    nametag: "polo#",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: " rgb(235, 232, 226)",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p11-1.jpg",
+    img2: "./img/products/p11-2.jpg",
+    img3: "./img/products/p11-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® CINEMA SHIRT",
+    img: "./img/products/p12-1.jpg",
+    price: 420000,
+    nametag: "somi#",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    idproduct: "",
+    colorr1: "brown",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p12-1.jpg",
+    img2: "./img/products/p12-2.jpg",
+    img3: "./img/products/p12-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® CITIES SHIRT",
+    img: "./img/products/p13-1.jpg",
+    price: 420000,
+    nametag: "somi#",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: " rgb(235, 232, 226)",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p13-1.jpg",
+    img2: "./img/products/p13-2.jpg",
+    img3: "./img/products/p13-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® | DORAEMON COLLAB ZIPPER Hoodie",
+    img: "./img/products/p14-1.jpg",
+    price: 645000,
+    nametag: "hoodie#",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: " rgb(235, 232, 226)",
+    colorr2: "gray",
+    colorr3: "unset",
+    img1: "./img/products/p14-1.jpg",
+    img2: "./img/products/p14-2.jpg",
+    img3: "./img/products/p14-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® POPULAR LOGO 2.0 Hoodie",
+    img: "./img/products/p15-1.jpg",
+    price: 590000,
+    nametag: "hoodie#",
+    colorr1: "yellow",
+    colorr2: "gray",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr3: "black",
+    img1: "./img/products/p15-1.jpg",
+    img2: "./img/products/p15-2.jpg",
+    img3: "./img/products/p15-3.jpg",
+  },
+  {
+    nameSP: "LEVENTS® MINI LOGO ZIPPER Hoodie",
+    img: "./img/products/p16-1.jpg",
+    price: 620000,
+    nametag: "hoodie#",
+    colorr1: " rgb(235, 232, 226)",
+    colorr2: "gray",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr3: "unset",
+    idproduct: "",
+    img1: "./img/products/p16-1.jpg",
+    img2: "./img/products/p16-2.jpg",
+    img3: "./img/products/p16-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® | DORAEMON COLLAB Hoodie",
+    img: "./img/products/p17-1.jpg",
+    price: 620000,
+    nametag: "hoodie#",
+    colorr1: " rgb(235, 232, 226)",
+    colorr2: "black",
+    colorr3: "unset",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    idproduct: "",
+    img1: "./img/products/p17-1.jpg",
+    img2: "./img/products/p17-2.jpg",
+    img3: "./img/products/p17-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® BASIC Sweater",
+    img: "./img/products/p18-1.jpg",
+    price: 490000,
+    nametag: "sweater#",
+    idproduct: "",
+    colorr1: "gray",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr2: "red",
+    colorr3: "unset",
+    img1: "./img/products/p18-1.jpg",
+    img2: "./img/products/p18-2.jpg",
+    img3: "./img/products/p18-2.jpg",
+  },
+  {
+    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
+    img: "./img/products/p19-1.jpg",
+    price: 490000,
+    nametag: "sweater#",
+    colorr1: "brown",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    idproduct: "",
+    colorr2: "black",
+    colorr3: "unset",
+    img1: "./img/products/p19-1.jpg",
+    img2: "./img/products/p19-2.jpg",
+    img3: "./img/products/p19-2.jpg",
+  },
+];
+
+for (let i = 0; i < Products.length; i++) {
+  Products[i].idproduct = Products[i].nametag + i;
+}
+if (JSON.parse(localStorage.getItem("arrayproducts")) == null) {
+  localStorage.setItem("arrayproducts", JSON.stringify(Products));
+}
+function timkiemtheoID(ID) {
+  for (let i = 0; i < Products.length; i++) {
+    if (Products[i].idproduct == ID) {
+      return Products[i];
+    }
+  }
+  return null;
+}
+
 let ProductArrBoth = JSON.parse(localStorage.getItem("arrayproducts"));
 let typeproducts = [
   { typeid: "aothun#", typename: "Áo thun" },
@@ -61,7 +440,8 @@ let sp = "";
 let max_page = 0;
 
 // Hàm tạo sản phẩm trên trang
-function makeSP(trang, sosptrongtrang, arr) {
+function makeSP(trang, sosptrongtrang) {
+  let arr = JSON.parse(localStorage.getItem("arrayproducts")) || [];
   let sp = "";
   for (let i = (trang - 1) * sosptrongtrang; i < trang * sosptrongtrang; i++) {
     if (i >= arr.length) break;
@@ -494,14 +874,6 @@ function goBack() {
   window.location.href = "shop.html";
 }
 
-// Load trang
-document.addEventListener("DOMContentLoaded", function () {
-  var loader = document.getElementById("loader");
-  setTimeout(function () {
-    loader.style.display = "none";
-  }, 500);
-});
-
 let Product = JSON.parse(localStorage.getItem("arrayproducts"));
 let arrayshopbag = [];
 function getarrayshopbag() {
@@ -601,11 +973,16 @@ function shopinginfo() {
   chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
 }
 function giaodienthanhtoan() {
-  let tongtien = 0;
-  let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
-  document.querySelector(".cart").classList.remove("active");
-  document.querySelector(".backgroud-menu-respon").style.display = "none";
-  let s = `<h1 class="tittleheader">THÔNG TIN GIAO HÀNG</h1>
+  let arrayproducts = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+  if (arrayproducts.length == 0) {
+    alert("Giỏ hàng rỗng");
+  } else {
+    let tongtien = 0;
+    getarrayshopbag();
+    let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+    document.querySelector(".cart").classList.remove("active");
+    document.querySelector(".backgroud-menu-respon").style.display = "none";
+    let s = `<h1 class="tittleheader">THÔNG TIN GIAO HÀNG</h1>
     <div class="infoCustomer box">
       <div class="infoCustomer-body">
         <div class="contentTab">
@@ -614,7 +991,7 @@ function giaodienthanhtoan() {
             type="text"
             class="input"
             id="name"
-            value="Lê Hữu Huy"
+            value="${usercurrent.name}"
             readonly
           />
         </div>
@@ -624,13 +1001,13 @@ function giaodienthanhtoan() {
             type="text"
             class="input"
             id="phone"
-            value="0399097211"
+            value="${usercurrent.phone}"
             readonly
           />
         </div>
         <div class="contentTab">
           <span>Địa chỉ : </span>
-          <input type="text" class="input" id="address" value="HCM" readonly />
+          <input type="text" class="input" id="address" value="${usercurrent.diachi}" readonly />
         </div>
         <div id="buttonEdit" onclick="chinhsua();">Chỉnh sửa</div>
       </div>
@@ -646,10 +1023,10 @@ function giaodienthanhtoan() {
           <span class="priceProduct">Đơn giá</span>
         </div>
         <div id="viewCart-body">`;
-  for (let i = 0; i < arrayshopbag.length; i++) {
-    tongtien +=
-      parseInt(arrayshopbag[i].obj.price) * parseInt(arrayshopbag[i].soluong);
-    s += `<div class="product">
+    for (let i = 0; i < arrayshopbag.length; i++) {
+      tongtien +=
+        parseInt(arrayshopbag[i].obj.price) * parseInt(arrayshopbag[i].soluong);
+      s += `<div class="product">
             <span class="idProduct">${arrayshopbag[i].obj.idproduct}</span>
             <span class="imgProduct imgsp"
               ><img src="${arrayshopbag[i].img}" alt=""
@@ -659,8 +1036,8 @@ function giaodienthanhtoan() {
             <span class="countProduct">${arrayshopbag[i].soluong}</span>
             <span class="priceProduct">${arrayshopbag[i].obj.price}</span>
           </div>`;
-  }
-  s += `</div>
+    }
+    s += `</div>
       </div>
       <div class="methodPayment">
         <h4>Phương thức thanh toán</h4>
@@ -691,7 +1068,8 @@ function giaodienthanhtoan() {
       </div>
       <div class="buttonsubmit" onclick="thanhtoan()">Thanh toán</div>
     </div>`;
-  midcontent.innerHTML = s;
+    midcontent.innerHTML = s;
+  }
 }
 // Tính toán số lượng và tổng tiền của giỏ hàng
 function chitiethoadon() {
@@ -824,15 +1202,43 @@ function kiemtradacotronggiohang(item) {
   }
   return null;
 }
+function kiemtraconhang(item) {
+  let products = JSON.parse(localStorage.getItem("arrayproducts"));
+  for (let i = 0; i < products.length; i++) {
+    if (products[i].idproduct == item.obj.idproduct) {
+      switch (item.size) {
+        case "A":
+          return products[i].quantity.A > 0;
+        case "B":
+          return products[i].quantity.B > 0;
+        case "C":
+          return products[i].quantity.C > 0;
+        case "D":
+          return products[i].quantity.D > 0;
+        default:
+          return false;
+      }
+    }
+  }
+  return false; // Product not found or invalid size
+}
+
 function addShopingBag(item) {
   let toast = document.querySelector(".toast_info");
   if (kiemtradangnhap() === true) {
-    getarrayshopbag();
-    soluongspgiohang = arrayshopbag.length;
     item.size = document.querySelector("#size").value;
     item.soluong = parseInt(document.querySelector("#counteInp").value);
 
-    // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+    // Check if the selected size is in stock
+    if (!kiemtraconhang(item)) {
+      alert("Size " + item.size + " đã hết hàng");
+      return;
+    }
+
+    getarrayshopbag();
+    soluongspgiohang = arrayshopbag.length;
+
+    // Check if the product already exists in the shopping bag
     let existingItem = kiemtradacotronggiohang(item);
     if (existingItem != null) {
       existingItem.soluong += item.soluong;
@@ -841,18 +1247,33 @@ function addShopingBag(item) {
       soluongspgiohang++;
     }
 
-    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Save the shopping bag
     updatecurrentuser();
     localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
 
-    // Cập nhật hiển thị số lượng sản phẩm trong giỏ hàng
+    // Update the display of the number of products in the shopping bag
     updateshopingbag();
-    chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
+    chitiethoadon(); // Update the shopping bag details
   } else {
     alert("Vui lòng đăng nhập");
   }
 }
+
+// Update the display of the number of products in the shopping bag when the page is loaded
+function updateshopingbag() {
+  soluongspgiohang = JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
+  if (soluongspgiohang > 0) {
+    document.querySelector(".Shoping span").textContent = soluongspgiohang;
+    document.querySelector(".Shoping").style.color = "red";
+  } else {
+    document.querySelector(".Shoping span").textContent = "0";
+    document.querySelector(".Shoping").style.color = "black";
+  }
+}
+
+// Initial call to update the shopping bag display
 updateshopingbag();
+
 // Cập nhật số lượng sản phẩm trong giỏ hàng khi trang được tải
 function updateshopingbag() {
   soluongspgiohang = JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
@@ -911,88 +1332,101 @@ function thanhtoan() {
   let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
   let userIndex = kiemtratontai(usercurrent.userID);
 
-  if (userIndex !== null) {
-    let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
-    for (let i = 0; i < arrayshopbag.length; i++) {
-      shopbagispay[userIndex].shopbagispayuser.push(arrayshopbag[i]);
-    }
+  if (usercurrent.phone === "" || usercurrent.diachi === "") {
+    alert("Vui lòng nhập đầy đủ số điện thoại và địa chỉ");
+    chinhsua();
   } else {
-    let shopbagitem = {
-      IDuser: usercurrent.userID,
-      shopbagispayuser: JSON.parse(localStorage.getItem("arrayshopbag")) || [],
-    };
-    shopbagispay.push(shopbagitem);
-  }
-
-  localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
-
-  // Ensure the correct list of items is passed for inventory adjustment
-  let itemsToAdjust =
-    userIndex !== null
-      ? shopbagispay[userIndex].shopbagispayuser
-      : JSON.parse(localStorage.getItem("arrayshopbag"));
-  console.log(itemsToAdjust);
-  dieuchinhsoluongtrongkho(itemsToAdjust);
-  let alluser = JSON.parse(localStorage.getItem("storageUsers"));
-  for (let i = 0; i < alluser.length; i++) {
-    if (alluser[i].userID == usercurrent.userID) {
-      alluser[i].shopbag = [];
-      usercurrent.shopbag = [];
+    if (userIndex !== null) {
+      let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+      for (let i = 0; i < arrayshopbag.length; i++) {
+        shopbagispay[userIndex].shopbagispayuser.push(arrayshopbag[i]);
+      }
+    } else {
+      let shopbagitem = {
+        IDuser: usercurrent.userID,
+        shopbagispayuser:
+          JSON.parse(localStorage.getItem("arrayshopbag")) || [],
+      };
+      shopbagispay.push(shopbagitem);
     }
-  }
-  localStorage.setItem("storageUsers", JSON.stringify(alluser));
 
-  // Reload the page if necessary
-  location.reload();
+    localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
+
+    // Ensure the correct list of items is passed for inventory adjustment
+    let itemsToAdjust =
+      userIndex !== null
+        ? shopbagispay[userIndex].shopbagispayuser
+        : JSON.parse(localStorage.getItem("arrayshopbag"));
+
+    dieuchinhsoluongtrongkho(itemsToAdjust);
+
+    // Clear user's shopping bag after checkout
+    let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+    for (let i = 0; i < alluser.length; i++) {
+      if (alluser[i].userID == usercurrent.userID) {
+        alluser[i].shopbag = [];
+        usercurrent.shopbag = [];
+      }
+    }
+    localStorage.setItem("storageUsers", JSON.stringify(alluser));
+    localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+    // Reload the page to reflect changes
+    location.reload();
+  }
 }
 
-let isEditing = false; // Biến cờ để theo dõi trạng thái ban đầu
+let isEditing = false; // Flag to track edit state
 
 function chinhsua() {
-  const editButton = document.querySelector("#buttonEdit"); // Lấy nút chỉnh sửa
-  const inputEdit = document.querySelectorAll(".input"); // Lấy tất cả các input
-  const name = document.querySelector("#name");
+  const editButton = document.querySelector("#buttonEdit"); // Get the edit button
+  const inputEdit = document.querySelectorAll(".input"); // Get all input fields
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
   const phone = document.querySelector("#phone");
   const address = document.querySelector("#address");
-  const loadingOverlay = document.querySelector(".loadpage"); // Lấy phần tử overlay
 
   if (editButton != null) {
     editButton.addEventListener("click", () => {
-      // Hiển thị overlay
-      loadingOverlay.classList.add("active");
-
-      setTimeout(() => {
-        if (isEditing) {
-          // Chế độ lưu lại
-          inputEdit.forEach(function (e) {
-            e.setAttribute("readonly", true);
-            e.classList.remove("active"); // Loại bỏ class active khi lưu lại
-          });
-          editButton.textContent = "Chỉnh sửa";
-        } else {
-          // Chế độ chỉnh sửa
-          inputEdit.forEach(function (e) {
-            e.removeAttribute("readonly");
-            e.classList.add("active"); // Thêm class active khi chỉnh sửa
-          });
-          editButton.textContent = "Lưu lại";
-        }
-        // Đảo ngược trạng thái của biến cờ
-        isEditing = !isEditing;
-
-        // Ẩn overlay sau khi hoàn tất
-        loadingOverlay.classList.remove("active");
-      }, 500); // Đặt thời gian chờ để mô phỏng hiệu ứng tải trang, bạn có thể điều chỉnh thời gian này
+      if (isEditing) {
+        // Save mode
+        inputEdit.forEach(function (e) {
+          e.setAttribute("readonly", true);
+          e.classList.remove("active"); // Remove active class when saving
+        });
+        editButton.textContent = "Chỉnh sửa";
+        // Save updated user information
+        usercurrent.phone = phone.value;
+        usercurrent.diachi = address.value;
+        localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+        updateUserDetails(usercurrent); // Update the user details in storageUsers
+      } else {
+        // Edit mode
+        inputEdit.forEach(function (e) {
+          e.removeAttribute("readonly");
+          e.classList.add("active"); // Add active class when editing
+        });
+        editButton.textContent = "Lưu lại";
+      }
+      // Toggle edit state
+      isEditing = !isEditing;
     });
   }
 }
 
-// Gọi hàm để kích hoạt chức năng chỉnh sửa
-chinhsua();
+// Function to update user details in storageUsers
+function updateUserDetails(user) {
+  let allUsers = JSON.parse(localStorage.getItem("storageUsers")) || [];
+  for (let i = 0; i < allUsers.length; i++) {
+    if (allUsers[i].userID == user.userID) {
+      allUsers[i] = user;
+      break;
+    }
+  }
+  localStorage.setItem("storageUsers", JSON.stringify(allUsers));
+}
 
-window.onload = function () {
-  makeFilter();
-  makeSP(getCurrentPage(), sosptrongtrang, ProductArrBoth);
-  makeselectpage(getCurrentPage(), ProductArrBoth);
-  // saveArraytolocal();
-};
+// Initialize the edit function
+chinhsua();
+makeFilter();
+makeSP(getCurrentPage(), sosptrongtrang);
+makeselectpage(getCurrentPage(), ProductArrBoth);
+// saveArraytolocal();
