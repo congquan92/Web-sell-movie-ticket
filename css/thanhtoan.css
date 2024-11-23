@@ -86,7 +86,8 @@
 }
 #name,
 #phone,
-#address {
+#address,
+#email {
   border: none;
   outline: 0;
 }

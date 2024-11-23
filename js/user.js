@@ -17,7 +17,7 @@ login.forEach(function (e) {
         <h1 class="tittleheader">Hồ sơ cá nhân</h1>
         <div class="buttonGroup">
           <div class="buttonTab profilebtn active" id="btnProfile" onclick="profile();">Thông tin cá nhân</div>
-          <div class="buttonTab statusbtn" id="btnStatusDelivery" onclick="statusProduct();">
+          <div class="buttonTab statusbtn" id="btnStatusDelivery" onclick="hienthitheofilter(this);">
             Tình trạng đơn hàng
           </div>
         </div>
@@ -147,41 +147,39 @@ function kiemtrangtrangthai(item) {
   }
   return s;
 }
-function statusProduct() {
+function statusProduct(arr) {
   let rightcontent = document.querySelector(".rightpage");
   document.querySelector(".statusbtn").classList.add("active");
   document.querySelector(".profilebtn").classList.remove("active");
   s = `<div class="filter">
-        <div class="filter-item">Tất cả</div>
-        <div class="filter-item">Chờ xác nhận</div>
-        <div class="filter-item">Đang đóng gói</div>
-        <div class="filter-item">Vận chuyển</div>
-        <div class="filter-item">Hoàn Thành</div>
+        <div class="filter-item" id="all" onclick="hienthitheofilter(this);">Tất cả</div>
+        <div class="filter-item" id="1" onclick="hienthitheofilter(this);">Chờ xác nhận</div>
+        <div class="filter-item" id="2" onclick="hienthitheofilter(this);">Đang đóng gói</div>
+        <div class="filter-item" id="3" onclick="hienthitheofilter(this);">Vận chuyển</div>
+        <div class="filter-item" id="4" onclick="hienthitheofilter(this);">Hoàn Thành</div>
       </div>
         <div class="shopingbag-list">`;
-  let shopbagispayuser = donhangcuauser();
-  for (let i = 0; i < shopbagispayuser.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     s += `<div class="shoping-list-item">
           <div class="shoping-list-item-header">
             <i class="fa-solid fa-car-side"></i>
-            <span>${kiemtrangtrangthai(shopbagispayuser[i])}</span>
+            <span>${kiemtrangtrangthai(arr[i])}</span>
           </div>
           <div class="shoping-list-item-info">
             <div class="img-item-user">
-              <img src="${shopbagispayuser[i].img}" alt="" />
+              <img src="${arr[i].img}" alt="" />
             </div>
             <div class="item-content">
-              <div class="name-item">${shopbagispayuser[i].obj.nameSP}</div>
-              <div class="size-item">${shopbagispayuser[i].size}</div>
+              <div class="name-item">${arr[i].obj.nameSP}</div>
+              <div class="size-item">${arr[i].size}</div>
               <div class="quatity-price-item">
-                <div class="quatity-item">x${shopbagispayuser[i].soluong}</div>
-                <div class="price-item">${shopbagispayuser[i].obj.price}đ</div>
+                <div class="quatity-item">x${arr[i].soluong}</div>
+                <div class="price-item">${arr[i].obj.price}đ</div>
               </div>
               <div class="money">
                 <div class="thanhtien">Thành tiền:</div>
                 <div class="intomoney">${
-                  parseInt(shopbagispayuser[i].obj.price) *
-                  parseInt(shopbagispayuser[i].soluong)
+                  parseInt(arr[i].obj.price) * parseInt(arr[i].soluong)
                 }</div>
               </div>
             </div>
@@ -224,4 +222,33 @@ function chinhsuainfo() {
     // Toggle edit state
     isEdit = !isEdit;
   }
+}
+function mangtheofilter(statusid, arr) {
+  console.log(statusid);
+  let mang = [];
+  if (statusid == "btnStatusDelivery" || statusid == "all") {
+    return arr;
+  } else {
+    let mang = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].status == statusid) {
+        mang.push = arr[i];
+      }
+    }
+  }
+  return mang;
+}
+function hienthitheofilter(item) {
+  let mang = [];
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  let arrayshopbagispay = JSON.parse(localStorage.getItem("shopbagispay"));
+  for (let i = 0; i < arrayshopbagispay.length; i++) {
+    if (arrayshopbagispay[i].IDuser == usercurrent.userID) {
+      mang = arrayshopbagispay[i].shopbagispayuser;
+    }
+  }
+  console.log(mang);
+  let mangfilter = mangtheofilter(item.id, mang);
+  console.log(mangfilter);
+  statusProduct(mangfilter);
 }

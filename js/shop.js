@@ -732,7 +732,7 @@ function loadSingleProduct(e) {
                             <i class="fa-solid fa-minus" onclick='reduce(${JSON.stringify(
                               e
                             )});'></i>
-                            <input type="text"  readonly="readonly" id="counteInp" value="0">
+                            <input type="text"  readonly="readonly" id="counteInp" value="1">
                             <i class="fa-solid fa-plus" onclick='increase(${JSON.stringify(
                               e
                             )});'></i>
@@ -1202,10 +1202,11 @@ function kiemtradacotronggiohang(item) {
   }
   return null;
 }
+// Utility function to check stock availability
 function kiemtraconhang(item) {
   let products = JSON.parse(localStorage.getItem("arrayproducts"));
   for (let i = 0; i < products.length; i++) {
-    if (products[i].idproduct == item.obj.idproduct) {
+    if (products[i].idproduct === item.obj.idproduct) {
       switch (item.size) {
         case "A":
           return products[i].quantity.A > 0;
@@ -1215,12 +1216,10 @@ function kiemtraconhang(item) {
           return products[i].quantity.C > 0;
         case "D":
           return products[i].quantity.D > 0;
-        default:
-          return false;
       }
     }
   }
-  return false; // Product not found or invalid size
+  return false;
 }
 
 function addShopingBag(item) {
@@ -1241,7 +1240,16 @@ function addShopingBag(item) {
     // Check if the product already exists in the shopping bag
     let existingItem = kiemtradacotronggiohang(item);
     if (existingItem != null) {
-      existingItem.soluong += item.soluong;
+      // Check if adding the new quantity would exceed the available stock
+      let products = JSON.parse(localStorage.getItem("arrayproducts"));
+      let product = products.find((p) => p.idproduct === item.obj.idproduct);
+      let availableStock = product.quantity[item.size];
+      if (existingItem.soluong + item.soluong > availableStock) {
+        alert("Không đủ hàng trong kho");
+        return;
+      } else {
+        existingItem.soluong += item.soluong;
+      }
     } else {
       arrayshopbag.push(item);
       soluongspgiohang++;
