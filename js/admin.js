@@ -605,7 +605,6 @@ window.onload = () => {
     QLSP.classList.remove("act");
     QLND.classList.remove("act");
     savepage(2);
-    console.log("kk");
   });
 
   QLSP.addEventListener("click", () => {

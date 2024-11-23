@@ -83,6 +83,7 @@ login.forEach(function (e) {
   });
 });
 function profile() {
+  let user = JSON.parse(localStorage.getItem("currentUser"));
   let rightcontent = document.querySelector(".rightpage");
   document.querySelector(".profilebtn").classList.add("active");
   document.querySelector(".statusbtn").classList.remove("active");
@@ -92,19 +93,43 @@ function profile() {
         <div class="profile-body">
           <div class="contentTab">
             <span>Email</span>
-            <span>${user.email}</span>
+            <input
+            type="text"
+            class="input"
+            id="email"
+            value="${user.email}"
+            readonly
+          />
           </div>
           <div class="contentTab">
             <span>Name</span>
-            <span>${user.name}</span>
+            <input
+            type="text"
+            class="input"
+            id="name"
+            value="${user.name}"
+            readonly
+          />
           </div>
           <div class="contentTab">
             <span>Phone</span>
-            <span>0399097211</span>
+            <input
+            type="text"
+            class="input"
+            id="phone"
+            value="${user.phone}"
+            readonly
+          />
           </div>
           <div class="contentTab">
             <span>Address</span>
-            <span>94A Lô Tư, Phường Bình Hưng Hoà A, Quận Bình Tân</span>
+            <input
+            type="text"
+            class="input"
+            id="address"
+            value="${user.diachi}"
+            readonly
+          />
           </div>
           <div class="contentTab point">
             <span>Tích điểm</span>
@@ -116,7 +141,7 @@ function profile() {
           </div>
         </div>
       </div>
-    </div>`;
+      <div id="buttonEdit" onclick="chinhsuainfo()">Chỉnh sửa</div>`;
 }
 function donhangcuauser() {
   let donhang = [];

@@ -125,7 +125,6 @@ social_btn.addEventListener("click", () => {
   }
 });
 function policycontent() {
-  loadpage();
   midcontent.innerHTML = `<div id="privacy-policy">
       <h1 class="policy-content privacy">
         CHÍNH SÁCH BẢO MẬT THÔNG TIN CÁ NHÂN
@@ -239,7 +238,6 @@ function FAQContent() {
     </div>`;
 }
 function membershipcontent() {
-  loadpage();
   midcontent.innerHTML = `<div id="membership-card-policy">
       <h1 class="policy-content membership-card">CHÍNH SÁCH THẺ THÀNH VIÊN</h1>
       <p class="policy-content membership-card">
@@ -279,7 +277,6 @@ function membershipcontent() {
     </div>`;
 }
 function ExchangeCardPolicyContent() {
-  loadpage();
   midcontent.innerHTML = `<div id="exchange-card-policy">
       <h1 class="policy-content exchange">CHÍNH SÁCH BẢO HÀNH VÀ ĐỔI TRẢ</h1>
       <p class="policy-content exchange">
@@ -311,7 +308,6 @@ function ExchangeCardPolicyContent() {
     </div>`;
 }
 function ShipCardPolicyContent() {
-  loadpage();
   midcontent.innerHTML = `<div id="ship-card-policy">
       <h1 class="policy-content ship">CHÍNH SÁCH GIAO HÀNG HỎA TỐC</h1>
       <p class="policy-content ship">

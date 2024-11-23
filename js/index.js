@@ -731,3 +731,857 @@ function updateUserDetails(user) {
   }
   localStorage.setItem("storageUsers", JSON.stringify(allUsers));
 }
+function hienthiblog() {
+  midcontent.innerHTML = ` <!-- Tiêu Đề -->
+    <h1 id="title-god">Nội Dung "HOT"</h1>
+    <!-- Nd-->
+ <!-- Carousel -->
+ <div class="carousel">
+  <div id="carouselImages" class="carousel-inner">
+    <div class="carousel-item" onclick="viewDetails('blog3')">
+      <img src="./img/blog/blog3.webp" alt="1" />
+    </div>
+    <div class="carousel-item" onclick="viewDetails('blog6')">
+      <img src="./img/blog/blog6.webp" alt="2" />
+    </div>
+    <div class="carousel-item" onclick="viewDetails('blog9')">
+      <img src="./img/blog/blog9.webp" alt="3" />
+    </div>
+  </div>
+  <button class="carousel-control-prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="carousel-control-next" onclick="changeSlide(1)">&#10095;</button>
+ </div>
+
+<!--Tabs-->
+<div class="tabs">
+  <button class="tab-button active" onclick="openTab(event, 'tab1')">Xu hướng thời trang</button>
+  <button class="tab-button" onclick="openTab(event, 'tab2')">Kiến thức thời trang</button>
+</div>
+
+<div id="tab1" class="tab-content active">
+  <!-- Blog Item-->
+  <div class="blog-items">
+    <div id="blog1" class="blog-item" onclick="viewDetails('blog1')">
+      <img class="content-image" src="./img/blog/blog1.webp" alt="">
+      <h3 class="blog-title">“[Cập nhật] 14 Xu hướng thời trang xuân hè 2024 ...</h3>
+      <p class="blog-snippet">Bạn đã sẵn sàng để đón nhận mùa Xuân Hè 2024 với phong cách thời trang vô cùng ấn tượng? Trong bài viết này, chúng tôi sẽ hướng dẫn bạn...</p>
+      <h3 class="blog-title">Xem thêm</h3>
+    </div>
+    <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog1">
+  <header>
+    <div class="title-content">
+        <h1>[Cập nhật] 14 Xu hướng thời trang xuân hè 2024 nổi bật nhất</h1>
+    </div>
+        <p>Bạn đã sẵn sàng để đón nhận mùa Xuân Hè 2024 với phong cách thời trang vô cùng ấn tượng? Trong bài viết này, chúng tôi sẽ hướng dẫn bạn thông qua 14 xu hướng thời trang nổi bật nhất cho mùa này. Từ thời trang đường phố đến những thiết kế quyến rũ, bạn sẽ có cơ hội khám phá và tham khảo cách tạo phong cách thời trang độc đáo của riêng bạn. Hãy cùng Lì Ven khám phá xu hướng thời trang xuân hè 2024 đa dạng và vô cùng sáng tạo các bạn nhé!</p>
+    <main>
+      <section>
+        <h2 class="title-content">Xu hướng Streetwear làm giới trẻ điên đảo</h2>
+        <p>Phong cách Streetwear luôn là nguồn cảm hứng không bao giờ cạn kiệt đối với giới trẻ và nó đang phát triển mạnh mẽ với các biến thể mới. Phong cách này tiếp tục làm mưa làm gió trong xu hướng thời trang xuân hè 2024 với các thiết kế độc đáo và sáng tạo. Các món đồ, phụ kiện Streetwear thường kết hợp giữa phong cách đường phố, thể thao và các yếu tố cá nhân, tạo nên một tuyên bố mạnh mẽ về cá tính và cá nhân hóa trong trang phục. Đây là xu hướng phù hợp cho những ai muốn tự do thể hiện bản thân và tạo ra một phong cách riêng biệt.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog1.1.jpg" alt="">
+          <figcaption>LEVENTS® LOVE RING REGULAR TEE</figcaption>
+        </figure>
+
+        <h2 class="title-content">Thời trang năng động, trẻ trung</h2>
+        <p>Mùa xuân hè 2024 đánh dấu sự trở lại mạnh mẽ của thời trang năng động và trẻ trung. Các bộ trang phục thoải mái và linh hoạt đã trở thành điểm đặc biệt của mùa này. Áo thun T-shirt năng động, quần short và váy đầm có kiểu dáng đơn giản nhưng sành điệu đang được ưa chuộng vì sự thoải mái và tính ứng dụng của chúng.</p><br>
+        <p>Đây là cơ hội để bạn tỏa sáng và cảm thấy thoải mái trong từng hoạt động hàng ngày, từ dạo chơi phố đến hẹn hò cùng bạn bè. Hãy thử thay đổi phong cách của bạn và biến thời trang thành biểu tượng của sự năng động và trẻ trung của bạn trong mùa xuân hè năm nay.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog1.2.webp" alt="">
+          <figcaption>LEVENTS® FLOWER CART RAGLAN REGULAR TEE</figcaption>
+        </figure>
+
+        <h2 class="title-content">Cargo - Xu hướng thời trang xuân hè 2024 </h2>
+        <p>Mùa xuân hè 2024 đang đến gần, và với sự bùng nổ của sự sáng tạo và phong cách, thế giới thời trang đang chào đón một tên tuổi quen thuộc mà bạn không thể bỏ lỡ. Đó chính là xu hướng Cargo - sự kết hợp hoàn hảo giữa tính ứng dụng và phong cách cá nhân.</p><br>
+        <p>Trong năm 2023, Cargo đã chinh phục cả tín đồ thời trang trong và ngoài nước với các mẫu quần Cargo ống rộng, điểm đặc biệt là nhiều túi hộp và tông màu trung tính như đen, màu be và xanh quân đội. Dự kiến vào năm 2024, phiên bản mới của cargo sẽ có nhiều túi hơn và sử dụng chất liệu vải thoáng mát. Tuy nhiên, không chỉ quần cargo, mà cả vest, áo khoác và váy cargo với gam màu trung tính cũng đang thu hút sự chú ý trong xu hướng thời trang xuân hè 2024 này.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog1.3.webp" alt="">
+          <figcaption>LEVENTS® CARGO PANTS</figcaption>
+        </figure>
+
+        <h2 class="title-content">Trang phục đính đá lấp lánh</h2>
+        <p>Xu hướng này đưa sự lấp lánh và quyến rũ lên tầm cao mới trong mùa xuân hè 2024. Việc sử dụng đính đá lấp lánh trên các items phụ kiện thời trang như túi xách, mắt kính, dây chuyền, nhẫn,... sẽ làm cho trang phục trở nên nổi bật và lôi cuốn hơn bao giờ hết. Đây có thể là một lựa chọn tuyệt vời cho các sự kiện hoặc buổi tiệc, giúp bạn tỏa sáng và ghi điểm trong mắt mọi người. Sự kết hợp giữa sự tinh tế, sang chảnh của đá lấp lánh sẽ làm nên một bộ outfits đặc biệt và đáng nhớ.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog1.4.webp" alt="">
+          <figcaption>LEVENTS</figcaption>
+        </figure>
+
+        <h2 class="title-content">Trang phục ánh kim - Xu hướng thời trang xuân hè 2024  sang trọng</h2>
+        <p>Ánh kim luôn là một yếu tố thời trang không bao giờ lỗi mốt. Và đối với làng mốt mùa xuân hè 2024 cũng chưa bao giờ là ngoại lệ. Trang phục ánh kim mang đến sự sang trọng và nổi bật, phù hợp cho mọi buổi tiệc và sự kiện. Ánh kim không chỉ giới hạn trong các bữa tiệc dạ hội, mà còn xuất hiện trong cuộc sống hàng ngày. Đây là cơ hội để bạn tỏa sáng và thể hiện phong cách cá nhân. Đừng ngần ngại thử nghiệm với các phụ kiện và trang phục ánh kim để tạo điểm nhấn và sự quyến rũ đặc biệt.</p>
+
+        <h2 class="title-content">Thời trang đan móc</h2>
+        <p>Thời trang đan và móc đang trở nên thú vị và phổ biến hơn bao giờ hết trong mùa xuân hè 2024. Các thiết kế thủ công như áo len, váy móc và các phụ kiện thủ công đem lại sự cá nhân hóa và sáng tạo cho trang phục của bạn. Điều đặc biệt là bạn có khả năng tùy chỉnh với việc kết hợp sợi và màu sắc khác nhau, tạo ra những mẫu thiết kế độc đáo và cá nhân. Hãy thử thêm những món đồ thủ công này vào bộ sưu tập thời trang của bạn để tạo nên sự độc đáo và cá tính, và đồng thời thể hiện tình yêu với thời trang thủ công và tự nhiên.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog1.5.webp" alt="">
+          <figcaption>LEVENTS® HANDMADE CROCHET DRESS</figcaption>
+        </figure>
+
+        <h2 class="title-content">Creative denim</h2>
+        <p>Đây là một xu hướng thời trang xuân hè 2024 đang ngày càng trở nên phổ biến hơn bao giờ hết, chủ yếu là nhờ vào sự tiện lợi và tính ứng dụng cao của nó. Xu hướng này hứa hẹn sẽ tiếp tục là xu hướng thịnh hành trong năm nay. Tại các show diễn thời trang của các nhà thiết kế nổi tiếng như Chloé và Khaite, "denim on denim" - tức là việc kết hợp nhiều lớp trang phục denim từ đầu đến chân - đang trở nên phổ biến. Ngoài ra, Givenchy và Blumarine cũng đưa vào sàn diễn các mẫu váy denim dài đầy ấn tượng.</p><br>
+        <p>Đối với những người yêu thời trang và muốn thử nghiệm xu hướng này, họ có thể mạnh dạn kết hợp quần jean cạp trễ với đầm maxi denim, một trang phục đang được các tín đồ thời trang trên khắp thế giới ưa chuộng. Để tạo điểm nhấn cá nhân, họ có thể phối kèm với khăn quàng cổ cùng chất liệu.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog1.6.webp" alt="">
+          <figcaption>LEVENTS® DENIM JACKET</figcaption>
+        </figure>
+
+        <h2 class="title-content">Trang phục nhẹ nhàng, lãng mạn</h2>
+        <p>Trong mùa xuân hè 2024, xu hướng trang phục nhẹ nhàng và lãng mạn đang làm mưa làm gió. Đây là thời điểm của sắc hoa, nơ trang trí, và ren đầy lãng mạn. Các bảng màu pastel làm nổi bật vẻ dịu dàng và ngọt ngào của trang phục. Các chi tiết in 3D trang nhã, ren lãng mạn và hoa cài tinh tế xuất hiện trên nhiều loại trang phục được phối màu pastel, từ những chiếc váy thanh lịch cho đến các bộ áo điệu đà và thậm chí là phụ kiện. Đây thực sự là một cơ hội tuyệt vời dành cho những người yêu thích sự ngọt ngào và đầy lãng mạn trong thời trang.</p>
+
+        <h2 class="title-content">Trang phục All In Black - Dẫn đầu xu hướng thời trang xuân hè 2024</h2>
+        <p>Một trong những xu hướng thời trang vượt thời gian và luôn được yêu thích trong và ngoài ngành công nghiệp thời trang chính là trang phục toàn màu đen - hay còn gọi là cách phối đồ "phong cách All Black". Theo Báo cáo xu hướng xuân hè 2024 của Net-a-Porter, có hơn 4.000 thiết kế màu đen đã xuất hiện trên các sàn diễn thời trang. Điều này cho thấy màu đen sẽ tiếp tục là một xu hướng nổi bật trong năm nay. Từ các chiếc váy lộng lẫy cho đến những món đồ tối giản và sang trọng, màu đen sẽ mang lại sự bí ẩn và lôi cuốn.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog1.7.webp" alt="">
+          <figcaption>LEVENTS® BLACK T-SHIRT</figcaption>
+      </section>
+
+      <h2 class="title-content">Trang phục tối giản, sang trọng</h2>
+      <p>Dù đã quen thuộc, áo vest và blazer vẫn đang được các thương hiệu hàng đầu ưa chuộng trong xu hướng thời trang xuân hè 2024. Jil Sander, Peter Do, Ferragamo và The Row, các thương hiệu nổi tiếng, đang tạo ra những thiết kế sang trọng với đường nét tinh tế và sử dụng chất liệu vải đẹp. Áo khoác dáng dài, áo sơ mi cũng trở nên phổ biến với phong cách được lấy cảm hứng từ trang phục nam giới. Đối với những người yêu thích sự thoải mái, các bộ trang phục đơn giản với chất liệu nhẹ nhàng sẽ là lựa chọn hàng đầu trong mùa xuân hè này.</p>
+      <figure class="title-content">
+        <img src="./img/blog/blog1.8.webp" alt="">
+        <figcaption>LEVENTS</figcaption>
+      </figure>
+
+      <h2 class="title-content">Thời trang dệt kim xuyên thấu</h2>
+      <p>Thời trang xuyên thấu đang trở lại mạnh mẽ trong mùa xuân hè 2024. Từ Prada đến Miu Miu, các loại áo, váy dệt kim và giày xuyên thấu đang trở thành điểm nhấn trên sàn diễn thời trang. Đây là một cơ hội tuyệt vời để biến đổi phong cách cá nhân và tạo điểm nhấn độc đáo. Trang phục xuyên thấu có thể mang lại sự tinh tế cho trang phục của bạn.</p>
+
+      <h2 class="title-content">Thời trang phi giới tính (unisex)</h2>
+      <p>Xu hướng thời trang phi giới tính, hay còn được gọi là unisex, đang trở nên ngày càng phổ biến và đa dạng. Trang phục unisex giới thiệu một khái niệm mới về thời trang, tạo cơ hội cho mọi người thoải mái lựa chọn và kết hợp các món đồ mà họ yêu thích, bất kể giới tính. Những thiết kế unisex thường có kiểu dáng đơn giản, màu sắc trung tính và tạo ra sự thống nhất và đa dạng. Điều này không chỉ thúc đẩy sự đa dạng giới tính mà còn thể hiện tôn trọng sự tự do và tự do cá nhân trong trang phục.</p>
+      <figure class="title-content">
+        <img src="./img/blog/blog1.9.webp" alt="">
+        <figcaption>LEVENTS® UNISEX T-SHIRT</figcaption>
+      </figure>
+
+      <h2 class="title-content">Lingerie quyến rũ xuống phố</h2>
+      <p>Xu hướng kết hợp đồ lót quyến rũ vào các trang phục hàng ngày đang trở thành một sự phá cách trong thế giới thời trang. Các chi tiết lingerie như áo lót lace, quần lót cut-out, hoặc bralettes có thể trở thành điểm nhấn thú vị trong trang phục của bạn. Điều này tạo ra sự táo bạo và phá cách, cho phép bạn tự tin thể hiện phong cách quyến rũ của mình trong các tình huống hàng ngày. Xu hướng này thúc đẩy việc tạo ra các trang phục sáng tạo và tạo điểm nhấn độc đáo cho người mặc, và đồng thời nâng cao sự tự tin và sự thoải mái trong chính bản thân họ.</p><br>
+      <p>Trong bài viết này, Levents đã cập nhật cho bạn 14 xu hướng thời trang xuân hè 2024 nổi bật nhất mà bạn không thể bỏ lỡ. Thời trang xuân hè 2024 vô cùng đa dạng và đầy sức sáng tạo. Hãy chuẩn bị cho mùa xuân hè 2024 với những trang phục mang đậm dấu ấn cá nhân của bạn. Và luôn nhớ, dù cho phong cách thời trang mà bạn chọn có đi theo phong cách nào, hãy luôn biến chúng thành nguồn cảm hứng để thể hiện bản thân và tự tin với sắc màu ấn tượng của riêng mình.</p><br>
+      <p>Hy vọng rằng bài viết này đã giúp bạn có cái nhìn tổng quan về những gì đang hot nhất trong thế giới thời trang mùa xuân hè 2024. Chúc bạn luôn tỏa sáng với phong cách của chính mình!</p>
+    </main>
+  </header>
+</div>
+    <!---->
+    <div id="blog2" class="blog-item" onclick="viewDetails('blog2')">
+      <img class="content-image" src="./img/blog/blog2.webp" alt="">
+      <h3 class="blog-title">Dự đoán 5+ họa tiết thời trang dẫn đầu xu hướng...</h3>
+      <p class="blog-snippet">Họa tiết thời trang vẫn luôn là chủ đều được nhiều tín đồ quan tâm. Cùng Levents dự đoán những họa tiết thời trang sẽ thành xu hướng 2024</p>
+      <h3 class="blog-title">Xem thêm</h3>  
+    </div>
+      <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog2">
+  <header>
+  <div class="title-content">
+    <h1>Dự đoán 5+ họa tiết thời trang dẫn đầu xu hướng 2024</h1>
+  </div>
+  <p>Họa tiết chính là “gia vị” không thể thiếu trong bản phối của mọi bộ sưu tập. Năm 2024 hứa hẹn là một hành trình thú vị trong thế giới thời trang, nơi tôn vinh sự sáng tạo và đổi mới không ngừng của các thương hiệu đình đám. Vậy đâu là “cái tên” sẽ được dự đoán dẫn đầu xu hướng họa tiết năm nay? Cùng theo chân Lì Ven khám phá 5+ họa tiết thời trang độc đáo đánh thức thị giác người nhìn ở bài viết này nhé!</p>
+  <main>
+    <section>
+        <h2 class="title-content">Chấm bi - Họa tiết thời trang xu hướng 2024</h2>
+        <p>Mở đầu danh sách những họa tiết thời trang được nhiều người yêu thích chính là họa tiết chấm bi. Rất hiếm khi họa tiết này vắng mặt trên mọi sàn diễn hoặc đường băng danh giá.  Sự kết hợp giữa chất liệu cao cấp của trang phục và một vài chấm bi đơn giản đã tạo nên điểm nhấn hoàn hảo cho outfit.</p><br>
+        <p>Một điều thú vị có lẽ các bạn chưa biết, nhiều thương hiệu nổi tiếng trên thế giới như Chanel, Burberry,... luôn sẵn sàng “đắp” thêm những điểm chấm lên toàn bộ trang phục chỉ đề chiều lòng khách hàng. Không cần phải quá rực rỡ hay phô trương, những chấm tròn nhỏ xinh này đủ để mang đến sự tự tin, cuốn hút cho phái đẹp.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog2.1.webp" alt="">
+          <figcaption>LEVENTS® POLKA DOT SHIRT</figcaption>
+        </figure>
+
+        <h2 class="title-content">Họa tiết hoa điêu khắc trên vải denim </h2>
+        <p>Không nằm ngoài dự đoán, họa tiết thời trang điêu khắc trên nền vải denim tiếp tục khuấy đảo thị trường thời trang giới trẻ năm 2024. Tuy không có gì quá mới mẻ nhưng những cánh hoa tinh tế nằm “e ấp” trên lớp vải denim lại được đánh giá cao nhờ mang đến cảm hứng phong cách Y2K cá tính.</p><br>
+        <p>Một vài món đồ năng động như áo khoác, quần denim chứa những họa tiết vẽ tay, khắc laser bỗng trở nên mềm mại hơn hẳn khi diện lên người. Để kịp bắt “trend”, các bạn chỉ cần tìm kiếm cho mình một chiếc áo jacket denim chứa họa tiết hoa điêu khắc phối layer cùng áo len cổ lọ hoặc áo tanktop năng động bên trong và quần short basic là đã có ngay một outfit “sang-xịn-mịn”.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog2.2.webp" alt="">
+          <figcaption>LEVENTS® DENIM JACKET</figcaption>
+        </figure>
+
+
+        <h2 class="title-content">Họa tiết kẻ sọc thời trang cực đẹp</h2>
+        <p>Những món đồ thời trang chứa họa tiết kẻ sọc vẫn được phái đẹp ưa chuộng từ đầu năm đến nay. Họa tiết thời trang kẻ sọc chính là “linh hồn” của nhiều phong cách khác nhau, từ style Preppy, Minimalist style đến phong cách Streetwear khỏe khoắn. Do đó, ở bất kỳ thời điểm nào thì họa tiết kẻ sọc vẫn luôn là nguồn cảm hứng bất tận cho các nhà thiết kế.</p><br>
+        <p>Item điển hình nhất phải kể đến những kiểu áo sơ mi cơ bản, đây là món đồ được giới mộ điệu mê mẩn với muôn vàn cách biến tấu khác nhau. Nhìn chung, dù kẻ sọc ngang hay dọc thì đều có tính ứng dụng khá cao và không kén dáng người mặc. Thậm chí các chuyên gia thời trang cho rằng, sự trở lại của họa tiết kẻ sọc đã mang đến một làn gió mới cho các bạn trẻ nhờ khả năng “hack” dáng đỉnh cao, khiến bộ cánh thời trang trở nên nổi bật hơn bao giờ hết.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog2.3.webp" alt="">
+          <figcaption>LEVENTS® STRIPE SHIRT</figcaption>
+        </figure>
+
+        <h2 class="title-content">Hoa 3D - Họa tiết thời trang bùng nổ Xuân Hè 2024</h2>
+        <p>Bên cạnh chấm bi thì hoa 3D cũng được dự đoán nằm trong top những họa tiết thời trang có tốc độ phủ sóng chóng mặt trong năm Giáp Thìn sắp tới. Sự xuất hiện của họa tiết hoa 3D đã từng gây sốt ở tuần lễ thời trang New York những năm trước. Sự kết hợp tuyệt vời giữa bông hoa bản to được làm từ chất liệu 3D cùng thần thái đỉnh cao của người mẫu trên đường băng đã ngay lập tức chinh phục mọi ánh nhìn.</p><br>
+        <p>Với những cô nàng mê phong cách bụi bặm thì lựa chọn hoa 3D là quyết định thông minh vì đây là một trong những xu hướng “độc - lạ - không lỗi mốt”. Hãy để những mẫu áo thun in hình họa tiết hoa 3D hoặc là những item áo khoác jacket,... tỏa sáng tự nhiên nhất bằng cách diện cùng quần jean ống rộng rách nhẹ mix cùng phụ kiện thời trang đi kèm nhé!</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog2.4.webp" alt="">
+          <figcaption>LEVENTS® 3D FLOWER SHIRT</figcaption>
+        </figure>
+
+        <h2 class="title-content">Họa tiết giao thoa cổ điển và hiện đại</h2>
+        <p>Cái tên thân thuộc nhất của họa tiết giao thoa này chính là Gingham - Họa tiết thời trang với những đường kẻ caro màu trắng hoặc đồng màu quen thuộc. Để sọc caro không trở nên nhàm chán, quê mùa, các nhà thiết kế đã không ngừng đổi mới và cho ra đời những họa tiết đẹp mắt nhằm bắt kịp xu hướng thịnh hành. </p><br>
+        <p>Thay vì sọc caro gắn liền với những chiếc áo sơ mi truyền thống thì giờ đây chúng đã bắt đầu vươn xa hơn khi được “gửi gắm” ở những item cực nổi như áo polo, áo phông, chân váy, đầm maxi, phụ kiện, khăn choàng,... Việc kết hợp những chi tiết cổ điển như hoa văn trang trí hoặc hình in với các đường nét và màu sắc hiện đại đã tạo ra những kiệt tác thời trang độc đáo và phá cách.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog2.5.webp" alt="">
+          <figcaption>LEVENTS® GINGHAM SHIRT</figcaption>
+        </figure>
+
+        <h2 class="title-content">Hiệu ứng đục lỗ cực thời trang và táo bạo</h2>
+        <p>Giữa muôn vàn họa tiết thời trang xưa cũ thì hiệu ứng đục lỗ lại khẳng định sức hấp dẫn riêng nhờ phản ánh đúng bản chất của thời trang xa xỉ. Nhiều nhà thiết kế đã không ngần ngại xé bỏ những thước vải thượng hạng theo một cách ngẫu hứng nhưng may thay, chúng lại tạo nên họa tiết đục lỗ cực bắt mắt. Điều này chứng tỏ rằng, trong thế giới thời trang đầy tính cạnh tranh thì những “siêu phẩm” có thể xuất phát từ những ý tưởng táo bạo nhất. </p><br>
+        <p>Thời gian gần đây, sự nổi lên chóng mặt của họa tiết này đã được minh chứng bằng hình ảnh các KOL, Fashionista diện mốt quần hoặc váy đục lỗ khi tham gia sự kiện hoặc chỉ đơn thuần là dạo phố. Bằng cách mix & match áo thun T shirt, áo sweater,... cùng những chiếc quần jean có những họa tiết lỗ nhỏ, hiệu ứng này tạo ra một vẻ ngoài đầy táo bạo không kém phần ấn tượng. </p>
+        <figure class="title-content">
+          <img src="./img/blog/blog2.6.webp" alt="">
+          <figcaption>LEVENTS® HOLE SHIRT</figcaption>
+        </figure>
+
+        <h2 class="title-content">Họa tiết “white-on-white” mới lạ</h2>
+        <p>Họa tiết thời trang cuối cùng được xướng tên chắc chắn sẽ khiến nhiều tín đồ hài lòng vì sự thể hiện quá đỗi thành công trong những năm qua. “White-on-white” là tên gọi dùng để nhắc đến cách kết hợp phong cách tối đa - Maximalism và chỉ dành riêng cho những ai chú trọng sự tối giản.</p><br>
+        <p>Bỏ qua những tông màu sặc sỡ, họa tiết “white-on-white” chỉ sử dụng duy nhất một gam màu trắng chủ đạo nhưng vẫn đủ sức chơi trội từ form dáng, chất liệu đến họa tiết đính kết. Đừng lo lắng sự giản lược về item trên người sẽ khiến các bạn bị lu mờ trước đám đông bởi những họa tiết hoa nổi in trên áo sẽ tăng thêm điểm nhấn cho outfit. Một lưu ý dành cho các bạn là nên tiết chế màu sắc ở phụ kiện để thể hiện đúng tinh thần “white-on-white” và tránh rối mắt người nhìn.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog2.7.webp" alt="">
+          <figcaption>LEVENTS® WHITE SHIRT</figcaption>
+        </figure>
+
+        <p>Nhìn chung, ngoài màu sắc và chất liệu thì họa tiết thời trang cũng chính là mối quan tâm hàng đầu của các bạn trẻ hiện nay. Levents tin chắc rằng với dự đoán 5+ họa tiết thời trang dẫn đầu xu hướng 2024 sẽ mở ra một thế giới thời trang đầy màu sắc, tha hồ để các bạn sáng tạo và bứt phá. Hãy cùng Levents khám phá thêm nhiều thông tin hữu ích khác ở các bài viết sau nhé!</p>
+    </section>
+  </main>
+</header>
+  
+</div>
+  <!---->
+    <div id="blog3" class="blog-item" onclick="viewDetails('blog3')">
+      <img class="content-image" src="./img/blog/blog3.webp" alt="">
+      <h3 class="blog-title">“Share your color” - Cổ vũ tiếng nói cá nhân củ...</h3>
+      <p class="blog-snippet">Gen Z hiện đang là một thế hệ đóng vai trò chủ lực trong thị trường tiêu thụ tại Việt Nam, đặc biệt là trong lĩnh vực thời trang. Khác...</p>
+      <h3 class="blog-title">Xem thêm</h3>
+    </div>
+      <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog3">
+  <header>
+    <div class="title-content">
+      <h1>“Share your color” - Cổ vũ tiếng nói cá nhân của GenZ thông qua thời trang</h1>
+    </div>
+    <p>Gen Z hiện đang là một thế hệ đóng vai trò chủ lực trong thị trường tiêu thụ tại Việt Nam, đặc biệt là trong lĩnh vực thời trang. Khác với các thế hệ trước, phần lớn những bạn trẻ thuộc thế hệ Gen Z hiểu rõ bản thân mình thích gì và muốn gì. Không thể phủ nhận rằng, họ đã tạo nên các xu hướng với sức lan tỏa vô cùng mạnh mẽ bằng sự sáng tạo và tư duy “dám nghĩ dám làm” của mình. Đó cũng chính là lý do giúp chiến dịch “NEW BRANDING BIG CAMPAIGN - Share Your Color” của LEVENTS® nhận được nhiều sự ủng hộ từ giới trẻ chỉ sau ngày đầu mở ra chiến dịch.</p>
+
+    <main>
+      <section>
+        <h2 class="title-content">Thời trang đối với thế hệ Gen Z</h2>
+        <p>Gen Z là thế hệ đầu tiên lớn lên trong thời đại công nghệ và Internet phát triển mạnh mẽ. Vậy nên họ còn được gọi là “những công dân thời đại kỹ thuật số” với khả năng tiếp cận những thông tin từ khắp nơi trên thế giới một cách dễ dàng và nhanh chóng. Điều này đã góp phần hình thành nên một thế hệ trẻ năng động, tự tin và luôn sẵn sàng thể hiện bản sắc cá nhân của mình.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog3.1.webp" alt="">
+          <figcaption>LEVENTS® CLASSIC SWEATER</figcaption>
+        </figure>
+        <p>Đối với thế hệ Gen Z, vẻ đẹp chân chính của thời đại này là sự dũng cảm khi sống thật với bản chất của mình. Họ đã “đánh bại các giới hạn, cho phép bản thân được tự do pha trộn vẻ đẹp phi giới tính. Có thể nói, Gen Z là nguồn cảm hứng mới của thời trang phi giới tính và họ đã dùng chính sức lan tỏa của mình để xu hướng này lên ngôi. Do đó, phần lớn các bạn trẻ hiện đại thường có xu hướng lựa chọn những phong cách thời trang thoải mái, tiện lợi, phù hợp với nhịp sống năng động của họ.</p><br>
+        <p>Mặt khác, thời trang không chỉ đại biểu cho phong cách cá nhân mà nó cũng được xem là một trong những cách thức độc đáo để Gen Z thể hiện cá tính và giá trị của mình. Họ không ngại thử nghiệm những phong cách mới mẻ, độc đáo, thậm chí là có phần “nổi loạn”. Vì vậy, các outfit của Gen Z thường mang đậm “dấu ấn” cá nhân, đại diện cho sở thích và quan điểm sống của họ.</p>
+
+        <h2 class="title-content">Sứ mệnh của LEVENTS®</h2>
+        <p>Là một thương hiệu thời trang dẫn đầu trong xu hướng Streetwear tại Việt Nam, LEVENTS® thấu hiểu sâu sắc về tầm quan trọng của thời trang đối với giới trẻ. Không chỉ đơn thuần là tạo ra các sản phẩm thời trang chất lượng mà LEVENTS®  còn mang trong mình một sứ mệnh cao cả - "Share your dreams, together we build a better world.". LEVENTS® tin rằng mỗi người đều có một màu sắc , câu chuyện riêng biệt và hãy để chúng mình trở thành người đồng hành cùng bạn trong hành trình xây dựng thế giới sáng tạo của chúng ta.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog3.2.webp" alt="">
+          <figcaption>LEVENTS® STREETWEAR</figcaption>
+        </figure>
+        <p>Cùng với chiến dịch “NEW BRANDING BIG CAMPAIGN”, LEVENTS® cũng cho ra mắt dòng sản phẩm mới – LEVENTS® CLASSIC, đánh dấu cột mốc quan trọng trong con đường chinh phục thế giới thời trang đường phố của tụi mình. Trong bộ sưu tập mới này, Lì Ven chú trọng đầu tư vào chất liệu và màu sắc của từng sản phẩm với hy vọng dù bạn có thuộc nhóm màu nào vẫn có thể tỏa sáng khi khoác lên mình các sản phẩm của nhà LEVENTS®.</p>
+
+        <h2 class="title-content">Ý nghĩa thật sự của "Share your color"</h2>
+        <p>Chiến dịch "NEW BRANDING BIG CAMPAIGN – Share your color” không chỉ đơn thuần là một sự kiện truyền thông mà nó còn chứa đựng một thông điệp sâu sắc mà LEVENTS® luôn muốn lan tỏa đến công chúng. Hãy cùng tụi mình khám phá sự thật đằng sau khẩu hiệu "Share your color" này nhé!</p>
+
+        <h2 class="title-content">Khám phá màu sắc cá nhân</h2>
+        <p>Màu sắc không chỉ tồn tại trên những bức tranh hội họa như chúng ta vẫn thường nghĩ, mà với Lì Ven nó còn đại biểu cho những câu chuyện, tính cách hay thần thái và khí chất của mỗi người. Trong mỗi chúng ta đều tồn tại những màu sắc bí ẩn cần được “khai phá” và chính bạn sẽ là người khám phá ra màu sắc cá nhân của mình. Điều này không chỉ thể hiện tính cá nhân hoá, mà còn khuyến khích các bạn trẻ hãy tự tin thể hiện bản thân, sống trọn vẹn với đam mê của mình vì dù bạn là màu sắc nào thì bạn cũng xứng đáng được tôn trọng.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog3.3.webp" alt="">
+          <figcaption>LEVENTS® STREETWEAR</figcaption>
+        </figure>
+
+        <h2 class="title-content">Chia sẻ màu sắc của bạn</h2>
+        <p>Bạn có biết trên thế giới này tồn tại bao nhiêu màu không? Câu trả lời là vô tận, bởi mỗi một sự pha trộn màu sắc đều có thể tạo nên một màu sắc mới mẻ mà chúng ta không thể biết hết được. Tương tự như mỗi chúng ta đều tồn tại mỗi cá tính khác nhau, vì vậy thông điệp “"Share your color" – Hãy chia sẻ màu sắc của bạn để chúng ta có thể thông qua nó kết nối với những người có cùng “tần sóng”, cùng đam mê hay chỉ đơn giản là giới thiệu đến mọi người rằng “Bạn là ai?”.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog3.4.webp" alt="">
+          <figcaption>LEVENTS® CLASSIC REGULAR POLO</figcaption>
+        </figure>
+        <p>Có thể nói, thời trang là một “công cụ” hoàn hảo có thể giúp bạn chia sẻ “màu sắc” của mình một cách trọn vẹn nhất. Với Lì Ven, sự sáng tạo trong thời trang là không có bất kỳ một rào cản nào, vậy nên bạn được quyền tự do lựa chọn khoác lên mình những món đồ bạn yêu thích hay kết hợp các item theo phong cách mà mình muốn.</p><br>
+        <p>Tóm lại, chiến dịch "NEW BRANDING BIG CAMPAIGN – Share your color" không chỉ chia sẻ về các trang phục, mà còn là sự ủng hộ của LEVENTS® đến các bạn trẻ hãy chia sẻ tiếng nói cá nhân và cùng nhau xây dựng một thế giới đa dạng và tươi đẹp hơn. Hy vọng chiến dịch này sẽ trở thành nguồn cảm hứng mới trong hành trình tìm kiếm màu sắc cá nhân của bạn.</p>
+      </section>
+    </main>
+  </header>
+</div>
+  <!---->
+    <div id="blog4" class="blog-item" onclick="viewDetails('blog4')">
+      <img class="content-image" src="./img/blog/blog4.webp" alt="">
+      <h3 class="blog-title">Những lý do khiến cho các local brand ngày càng... </h3>
+      <p class="blog-snippet">Cùng Lì Ven tìm hiểu Local Brand là gì và tại sao các thương hiệu này ngày càng phổ biến và ưa chuộng trong giới trẻ nhé!</p>
+      <h3 class="blog-title">Xem thêm</h3>
+    </div>
+      <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog4">
+  <header>
+    <div class="title-content">
+          <h1>Những lý do khiến cho các local brand ngày càng phổ biến trong giới trẻ</h1>
+    </div>
+  <p>Trong khoảng thời gian từ năm 2008 đến nay, cụm từ Local Brand thường xuyên được mọi người nhắc đến nhất là các bạn trẻ. Cùng Lì Ven tìm hiểu Local Brand là gì và tại sao các thương hiệu này ngày càng phổ biến và ưa chuộng trong giới trẻ nhé!</p>
+  <main>
+    <section>
+      <h2 class="title-content">Local Brand là gì?</h2>
+      <p>Local Brand là một thương hiệu thời trang nội địa của một khu vực hay một khu vực nhất định, ngoài ra có thể hiểu Local Brand chính là thời trang trong nước.</p>
+      <figure class="title-content">
+        <img src="./img/blog/blog4.1.webp" alt="">
+        <figcaption>Bộ sưu tập DORAEMON | LEVENTS®</figcaption>
+      </figure>
+      <p>Thông thường các Local Brand sẽ chịu toàn bộ trách nhiệm từ khâu lên ý tưởng, thiết kế, may, in mẫu lên áo quần cho tới khâu đóng gói, phân phối đến tay người tiêu dùng.</p>
+
+      <h2 class="title-content">Sự hình thành và phát triển của Local Brand</h2>
+      <p>Thời gian gần đây, Local Brand đang dần trở thành xu hướng thời trang trong giới trẻ. Thế nhưng thời điểm khoảng chừng 10 năm trước, thương hiệu thời trang nội địa chỗ đứng còn khá bấp bênh với chỉ chừng 5 -7 thương hiệu vì hầu như mọi người chỉ mua những thương hiệu đồ cao cấp Luxury, những nhãn hàng nước ngoài ở tại cửa hàng chính hãng hoặc là sạp quần áo bình dân ngoài chợ.</p><br>
+      <p>Mãi cho đến khoảng năm 2018, có thể nói giai đoạn này chính là thời hoàng kim khi các thương hiệu Local Brand “mọc lên như nấm”. Và “cơ duyên” để Local Brand được tiếp cận với các bạn trẻ và được biết đến nhiều chính là các thương hiệu tụ tập tại những buổi hội chợ, lễ hội văn hoá như: The Box Market, Hello Weekend Market, phiên chợ Ba Tư, chợ Sale 4Share,...</p>
+      <figure class="title-content">
+        <img src="./img/blog/blog4.2.webp" alt="">
+        <figcaption>LEVENTS® STREETWEAR</figcaption>
+      </figure>
+
+      <h2 class="title-content">Sự khác biệt giữa Local Brand với những thương hiệu thời trang thông thường</h2>
+      <p>Điểm khác biệt mà những thương hiệu nội địa với các thương hiệu khác là Local Brand tập trung vào yếu tố thương hiệu và sản xuất.</p>
+
+      <h3 class="title-content">Về mặt sản xuất</h3>
+      <p>Châm ngôn “người Việt dùng hàng Việt” được các Brand nội địa tận dụng triệt để, hầu như các sản phẩm sẽ ưu tiên do người Việt thiết kế và sản xuất.</p>
+      <figure class="title-content">
+        <img src="./img/blog/blog4.3.webp" alt="">
+        <figcaption>LEVENTS® WASH TEE/ BLACK</figcaption>
+      </figure>
+      <p>Điểm khác biệt rõ ràng nhất mà các bạn có thể nhìn thấy là các cửa hàng thời trang thông thường chỉ là nơi phân phối các mặt hàng quần áo, giày dép, phụ kiện,.... được sản xuất từ nhiều nơi ví dụ như hàng Quảng Châu được nhập từ các xưởng tại Quảng Châu hay các sàn thương mại điện tử như order Taobao, 1688,...</p><br>
+      <p>Ngược lại, với Local Brand, các thương hiệu này họ tự làm tất cả các khâu từ khâu lên ý tưởng, thiết kế đến các khâu sản xuất, phân phối thời trang đến tay người mua hàng. Chính vì thế các brand nội địa được các bạn trẻ ưu tiên lựa chọn đầu tiên là điều vô cùng dễ hiểu.</p>
+
+      <h3 class="title-content">Về mặt thương hiệu</h3>
+      <p>Brand (Thương hiệu) chính là yếu tố quan trọng để phân biệt các Local Brand với nhau.</p>
+      <figure class="title-content">
+        <img src="./img/blog/blog4.5.webp" alt="">
+        <figcaption>LEVENTS® POPULAR LOGO TEE</figcaption>
+      </figure>
+      <p>Chắc hẳn nhiều bạn thường có suy nghĩ rằng để tạo nên một brand là một trang phục được in hình hay thiết kế bất cứ cái gì lên, sau đó đưa KOL, KOC quảng bá sản phẩm là tạo nên một Brand nhưng điều này hoàn toàn sai bởi:</p>
+      <ul>
+        <li>Brand không đơn giản là một tên gọi, thuật ngữ, thiết kế mà còn là quá trình xây dựng thương hiệu trong một khoảng thời gian mà khi nhắc về chúng được nhận biết và phân biệt với các thương hiệu khác. Vậy nên, thương hiệu Local là tổ chức kinh doanh riêng biệt được xác nhận và nhận biết bởi pháp luật và người tiêu dùng.</li>
+        <li>Để một Local Brand được được bảo hộ các bạn cần đăng ký thương hiệu tại cơ quan Nhà nước có thẩm quyền đương cử ở Việt Nam là Cục Sở Hữu Trí Tuệ Việt Nam.</li>
+      </ul>
+
+      <h2 class="title-content">Điều gì giúp Local Brand tạo nên sức hút</h2>
+      <h3 class="title-content">Nắm bắt xu hướng nhanh</h3>
+      <p>Thời gian là một lĩnh vực luôn luôn thay đổi và được cập nhật liên tục nếu không sẽ bị tụt lại phía sau. Bắt buộc các Local Brand phải nhanh chóng cập nhật xu hướng mới nhất để giúp giới trẻ sành điệu và thời thường hơn.</p><br>
+      <p>Ngoài ra, chính nhờ mạng xã hội, phương tiện truyền thông hoặc những người nổi tiếng có sức ảnh hưởng</p>
+      <figure class="title-content">
+        <img src="./img/blog/blog4.51.webp" alt="">
+        <figcaption>LEVENTS® DINOSAUR TEE/ WHITE</figcaption>
+      </figure>
+      <h3 class="title-content">Chất lượng</h3>
+      <p>Để có thể cạnh tranh với các thương hiệu thời trang giá rẻ, đa số các Local Brand thường sẽ đặt tiêu chí chất lượng sản phẩm lên hàng đầu, từ khâu chọn chất liệu, may in,.... tại các đơn vị uy tín nhằm sản phẩm được bảo quản tốt nhất và giúp người sử dụng an tâm hơn khi dùng sản phẩm của thương hiệu mình.</p>
+      <figure class="title-content">
+        <img src="./img/blog/blog4.6.webp" alt="">
+        <figcaption>LEVENTS® BASIC KNIT SWEATER/ BLACK</figcaption>
+      </figure>
+      <h3 class="title-content">Giá thành hợp lý</h3>
+      <p>Nhìn chung các thương hiệu Local Brand hầu như đều chịu trách nhiệm với tất cả các khâu lên ý tưởng, thiết kế, sản xuất và phân phối sản phẩm. </p><br>
+      <p>Chính vì thế, giá của các sản phẩm thương hiệu local cực kỳ hợp lý, phù hợp với mức tiêu dùng và điều kiện kinh tế của các bạn trẻ trong nước.</p>
+      <h3 class="title-content">Đa dạng về màu sắc và kiểu dáng</h3>
+      <p>Nhằm đáp ứng nhu cầu thời trang ngày càng mạnh mẽ và đổi mới của người tiêu dùng, các sản phẩm của Local Brand đều có sự đa dạng về màu sắc, form dáng, mẫu mã,... sao cho phù hợp với nhiều đối tượng sử dụng khác nhau. </p>
+      <figure class="title-content">
+        <img src="./img/blog/blog4.7.webp" alt="">
+        <figcaption>Outerwear</figcaption>
+      </figure>
+      <h3 class="title-content">Có thể đưa thương hiệu thời trang Việt ra thế giới</h3>
+      <p>Thực tế, đã có nhiều thương hiệu Local Việt Nam được các sao nước ngoài biết đến và sử dụng. Sự ra đời của các Local Brand hứa hẹn sẽ giúp Việt Nam cạnh tranh với các hãng thời trang lâu đời trên toàn thế giới. Với lợi thế là sản phẩm đẹp, chất lượng và giá “hạt dẻ” hơn so với các thương hiệu thời trang quốc tế.</p>
+      <figure class="title-content">
+        <img src="./img/blog/blog4.8.webp" alt="">
+        <figcaption>LEVENTS</figcaption>
+      </figure>
+      <p>Trên đây là bài chia sẻ mà Lì Ven muốn gửi đến bạn. Hy vọng qua bài thông qua bài viết này các bạn của nhà Lì sẽ có cái nhìn tổng quan hơn về Local Brand cũng như sẽ chọn được cho mình một Local Brand yêu thích.</p>
+    </section>
+  </main>
+</header>
+</div>
+  <!---->
+    <div id="blog5" class="blog-item" onclick="viewDetails('blog5')">
+      <img class="content-image" src="./img/blog/blog5.webp" alt="">
+      <h3 class="blog-title">LEVENTS® - Local Brand Streetwear với hoạt động...</h3>
+      <p class="blog-snippet">Trong những năm gần đây, Streetwear đã trở thành một trào lưu được thế hệ Gen Z cực kỳ “săn đón” nhờ sự năng động, thoải mái cũng như tính...</p>
+      <h3 class="blog-title">Xem thêm</h3>
+    </div>
+      <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog5">
+  <header>
+    <div class="title-content">
+      <h1>LEVENTS® - Local Brand Streetwear với hoạt động cộng đồng ấn tượng</h1>
+    </div>
+    <p>Trong những năm gần đây, Streetwear đã trở thành một trào lưu được thế hệ Gen Z cực kỳ “săn đón” nhờ sự năng động, thoải mái cũng như tính linh hoạt trong cách phối đồ. Có thể nói, LEVENTS® là một trong những Local Brand Streetwear nổi bật tiên phong trong việc định hình và phát triển theo phong cách thời trang này tại Việt Nam. Không chỉ mang đến những sản phẩm chất lượng cao, LEVENTS® còn “ghi điểm” trong lòng công chúng bởi chuỗi hoạt động cộng đồng đầy ý nghĩa. </p>
+
+    <main>
+      <section>
+        <h2 class="title-content">LEVENTS® – Local Brand Streetwear dẫn đầu xu hướng tại Việt Nam</h2>
+        <figure class="title-content">
+          <img src="./img/blog/blog5.1.jpg" alt="">
+          <figcaption>LEVENTS® CLASSIC ZIPPER HOODIE</figcaption>
+        </figure>
+        <p>LEVENTS® được thành lập vào năm 2019 bởi những bạn trẻ có niềm đam mê mãnh liệt với thời trang Streetwear cùng mong muốn tạo ra những sản phẩm mang đậm dấu ấn cá nhân. Trải qua quá trình không ngừng nghiên cứu và nâng cấp bản thân, đến thời điểm hiện tại, LEVENTS® được đánh giá là một trong những Local Brand dẫn đầu xu hướng Streetwear tại Việt Nam.</p><br>
+        <p>LEVENTS® tập trung vào việc xây dựng phong cách riêng và đặc biệt chú trọng đến chất lượng sản phẩm thay vì đi theo các “trào lưu nhanh”. Do đó, các thiết kế của thương hiệu này tuy đơn giản nhưng lại mang đậm tinh thần trẻ trung, năng động và luôn có một “chất” rất riêng của LEVENTS®, chúng đều được bắt nguồn từ những điều quen thuộc, diễn ra trong cuộc sống hàng ngày của chúng ta. </p><br>
+        <p>Những sản phẩm thời trang chất lượng, hợp xu hướng với mức giá phải chăng là lý do giúp cho LEVENTS® ngày càng nhận được nhiều sự ủng hộ từ công chúng, đặc biệt là các bạn trẻ. Đặc biệt, thương hiệu cũng thường xuyên hợp tác với nhiều nghệ sĩ, influencer nổi tiếng để quảng bá các sản phẩm, điều này góp phần nâng cao độ phủ sóng và nhận diện thương hiệu.</p>
+        <h3 class="title-content">Các hoạt động cộng đồng ấn tượng của LEVENTS® trong suốt 3 năm qua</h3>
+        <p>Bên cạnh việc kinh doanh và phát triển sản phẩm, Local Brand Streetwear LEVENTS® cũng đã thực hiện nhiều hoạt động cộng đồng đầy ý nghĩa, góp phần lan tỏa những giá trị tích cực đến xã hội. Các hoạt động này thể hiện cho tinh thần trách nhiệm cũng như sự quan tâm của thương hiệu trong việc góp phần xây dựng nên một cộng đồng ngày một tốt đẹp hơn.</p>
+
+        <h2 class="title-content">LEVENTS® x YOU – STAY HOME, STAY CREATIVE</h2>
+        <figure class="title-content">
+          <img src="./img/blog/blog5.2.webp" alt="">
+          <figcaption>LEVENTS x YOU – STAY HOME, STAY CREATIVE</figcaption>
+        </figure>
+        <p>Trong thời gian giãn cách xã hội do dịch COVID-19, LEVENTS® đã tổ chức cuộc thi sáng tạo “STAY HOME, STAY CREATIVE” nhằm khích lệ tinh thần của mọi người, dù ở nhà cũng không hề nhàm chán bằng cách sáng tạo và chia sẻ những “tác phẩm” của mình. Chương trình đã nhận được sự hưởng ứng tích cực của cộng đồng, góp phần lan tỏa tinh thần lạc quan và tích cực trong giai đoạn khủng hoảng này.</p><br>
+        <p>Cũng tại đây, thương hiệu cho ra đời một dòng sản phẩm mới đánh dấu sự kiện hợp tác giữa LEVENTS® và các "Nghệ sĩ trẻ" là chính những khách hàng của mình với nội dung thông điệp “LEVENTS x YOU – STAY HOME, STAY CREATIVE”. Sau khi Sold out hơn 1000 sản phẩm, LEVENTS® đã trích một phần lợi nhuận để quyên góp ủng hộ Quỹ đẩy lùi dịch bệnh Covid. Có thể nói, cái “bắt tay” này của LEVENTS® và các bạn trẻ đã mang đến những đóng góp to lớn trong thời điểm khó khăn lúc bấy giờ.</p>
+        
+        <h2 class="title-content">YOU'RE INFLUENCER</h2>
+        <figure class="title-content">
+          <img src="./img/blog/blog5.3.webp" alt="">
+          <figcaption>LEVENTS x YOU – STAY HOME, STAY CREATIVE</figcaption>
+        </figure>
+        <p>Tiếp nối sự thành công của “LEVENTS x YOU – STAY HOME, STAY CREATIVE”, LEVENTS® đã tổ chức chiến dịch “YOU'RE INFLUENCER” nhằm xây dựng một “sân chơi” thời trang đầy sáng tạo, cổ vũ các bạn trẻ tự tin thể hiện phong cách riêng của mình qua các trang phục, đồng thời khích lệ tinh thần của các bạn trẻ trong mùa dịch Covid. Chiến dịch này đã thành công thu hút hàng nghìn thí sinh tham gia và góp phần thúc đẩy sự phát triển của thế hệ trẻ đầy tài năng.</p>
+
+        <h2 class="title-content">BIG BLUE SALE 07.07.2021</h2>
+        <figure class="title-content">
+          <img src="./img/blog/blog5.4.webp" alt="">
+          <figcaption>BIG BLUE SALE 07.07.2021</figcaption>
+        </figure>
+        <p>Không chỉ là một dịp sale lớn của LEVENTS®, chương trình BIG BLUE SALE được tổ chức như một hình thức gây quỹ để các bạn trẻ có thể một phần đóng góp cho quỹ Vaccine phòng chống Covid-19. Theo đó, mỗi đơn hàng phát sinh từ hai nền tảng Shopee và Lazada của LEVENTS® trong sự kiện này sẽ được trích 1 phần lợi nhuận ra để cùng chống lại dịch bệnh Covid. </p><br>
+        <p>Ngoài ra, vào thời điểm đại dịch “cao điểm” tháng 8/2021, LEVENTS® tiếp tục tổ chức hoạt động thiện nguyện, nhằm chia sẻ và giúp đỡ cho một số cá nhân có hoàn cảnh khó khăn trong đại dịch. Trong chiến dịch này, LEVENTS® đã trích ra một phần lợi nhuận với 100 triệu tiền mặt và thành công quyên góp cho 500 người, giúp họ giảm bớt phần nào gánh nặng để vượt qua đại dịch Covid.</p>
+
+        <h2 class="title-content">ONE WORLD ONE LOVE</h2>
+        <figure class="title-content">
+          <img src="./img/blog/blog5.5.webp" alt="">
+          <figcaption>ONE WORLD ONE LOVE</figcaption>
+      </figure>
+      <p>Nhằm đánh dấu kỷ niệm thương hiệu tròn 3 năm tuổi, LEVENTS® đã thực hiện chiến dịch “ONE WORLD ONE LOVE” tri ân những vị khách hàng đã luôn yêu mến và đồng hành cùng thương hiệu trong suốt nhiều năm hoạt động. Ngoài những chương trình ưu đãi đặc biệt, sự kiện càng thêm ý nghĩa khi trích ra 10% doanh thu của 1.000 chiếc áo và 200 chiếc túi đầu tiên để quyên góp ủng hộ cho các trẻ em khó khăn, giúp các em có được một mùa Tết ấm no và trọn vẹn hơn.</p><br>
+      <p>Chiến dịch này đã nhanh chóng nhận được sự hưởng ứng tích cực của cộng đồng và góp phần lan tỏa những giá trị nhân văn đến mọi người. </p>
+
+      <h2 class="title-content">HẠNH PHÚC XANH TỪ QUỸ SỐNG – SAVE THE EARTH</h2>
+      <figure class="title-content">
+        <img src="./img/blog/blog5.6.webp" alt="">
+        <figcaption>HẠNH PHÚC XANH TỪ QUỸ SỐNG – SAVE THE EARTH</figcaption>
+      </figure>
+      <p>Một lần nữa, thương hiệu LEVENTS® - Local Brand Streetwear tiếp tục tăng thiện cảm trong lòng công chúng khi đã cho ra mắt sản phẩm đặc biệt dành riêng cho Ngày Trái Đất - LEVENTS® HEART PUZZLE TEE với mong muốn lan tỏa thông điệp hy vọng mọi người sẽ tích cực bảo vệ môi trường. Trong chiến dịch này, LEVENTS® đã trích 10% doanh thu của 1000 sản phẩm đầu tiên để đóng góp cho chương trình Hạnh Phúc Xanh - Dự án trồng rừng ngập mặn tại Sóc Trăng của SỐNG FOUNDATION nhằm thúc đẩy sự phát triển bền vững và chống phá rừng.</p><br>
+      <p>Được xem là một biểu tượng thời trang của giới trẻ, LEVENTS® không chỉ là một Local Brand Streetwear đơn thuần mang đến các sản phẩm thời trang phong cách mà còn rất tích cực tạo ra các chiến dịch hướng đến cộng đồng đầy ý nghĩa. Điều này cũng phần nào trở thành nguồn cảm hứng cho thế hệ trẻ, góp phần xây dựng một cộng đồng văn minh và ngày càng phát triển vững mạnh hơn. </p>
+      </section>
+    </main>
+  </header>
+</div>
+  <!---->
+    <div id="blog6" class="blog-item" onclick="viewDetails('blog6')">
+      <img class="content-image" src="./img/blog/blog6.webp" alt="">
+      <h3 class="blog-title">LEVENTS® CLASSIC - Nét chấm phá nổi bật cho Gen...</h3>
+      <p class="blog-snippet">LEVENTS là một trong những thương hiệu dẫn đầu xu hướng thời trang đường phố với phong cách thiết kế đơn giản, hiện đại và tập trung vào tính ứng...</p>
+      <h3 class="blog-title">Xem thêm</h3>
+    </div>
+      <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog6">
+  <header>
+    <div class="title-content">
+      <h1>LEVENTS® CLASSIC - Nét chấm phá nổi bật cho GenZ năng động</h1>
+    </div>
+    <p>LEVENTS là một trong những thương hiệu dẫn đầu xu hướng thời trang đường phố với phong cách thiết kế đơn giản, hiện đại và tập trung vào tính ứng dụng của các sản phẩm. Hãy cùng tụi mình khám phá xem bộ sưu tập LEVENTS CLASSIC có gì nổi bật để trở thành "item must have" trong tủ đồ của các bạn trẻ Gen Z năng động nhé!</p>
+    <main>
+      <section>
+        <h2 class="title-content">LEVENTS CLASSIC - Item must have trong tủ đồ GenZ</h2>
+        <figure class="title-content">
+          <img src="./img/blog/blog6.1.webp" alt="">
+          <figcaption>LEVENTS® CLASSIC - Nét chấm phá nổi bật cho GenZ năng động</figcaption>
+        </figure>
+        <p>BST Levents Classic LEVENTS CLASSIC là dòng sản phẩm mới nhất của nhà Lì Ven, đồng thời cũng là một bước khởi đầu mới của tụi mình trong hành trình chinh phục thời trang Streetwear cùng với nhiều sự đổi mới, hứa hẹn mang đến nhiều trải nghiệm thú vị cho khách hàng.</p>
+        <h3 class="titlee-content">Thiết kế Classic đơn giản</h3>
+        <figure class="title-content">
+          <img src="./img/blog/blog6.2.jpg" alt="">
+          <figcaption>Levents® Classic Regular Polo/ Black</figcaption>
+        </figure>
+        <p>“Phong cách cũ nhưng thời trang không cũ” là những gì mà LEVENTS® muốn thể hiện trong dòng sản phẩm LEVENTS CLASSIC. Sản phẩm được lấy cảm hứng từ phong cách Classic cổ điển kết hợp với sự sáng tạo và các chi tiết hiện đại tạo nên những thiết kế tinh tế, thanh lịch nhưng không kém phần trẻ trung và năng động giúp chúng có thể “ăn khớp” với mọi item thời trang khác.</p><br>
+        <p>Đây cũng chính là lý do mà các tín đồ thời trang muốn sở hữu những sản phẩm có tính ứng dụng cao không nên bỏ qua các item từ LEVENTS CLASSIC.</p>
+        <h3 class="title-content">Chất lượng vượt trội </h3>
+        <figure class="title-content">
+          <img src="./img/blog/blog6.3.jpg" alt="">
+          <figcaption>Levents® Classic Sweater/ Blue</figcaption>
+        </figure>
+        <p>Sự đầu tư từ chất liệu sản phẩm cho đến bao bì đóng gói là lý do hàng đầu đưa thương hiệu LEVENTS trở thành một trong những Local Brand được giới trẻ yêu thích và tin dùng.</p><br>
+        <p>Màu sắc chính là yếu tố được Lì Ven “ưu ái” nhất trong dòng sản phẩm mới lần này khi cho ra mắt hàng loạt những bản phối màu cực “trendy” giúp cho khách hàng có thêm nhiều sự lựa chọn khi mua sắm. Mặt khác, các item được sử dụng chất liệu vải cao cấp với những ưu điểm vượt trội về độ bền, khả năng chống nhăn, thoáng mát, giúp đảm bảo người mặc luôn cảm thấy thoải mái và tự tin khi khoác lên mình những sản phẩm đến từ nhà Lì.</p>
+
+        <h2 class="title-content">Các dòng sản phẩm nổi bật của LEVENTS CLASSIC</h2>
+        <p>LEVENTS CLASSIC được ra đời với mục tiêu trở thành dòng sản phẩm “EVERY WEAR” để bạn có thể tận dụng ở bất kỳ nơi nào, kể cả khi dạo phố hay đi học, đi làm. Để tụi mình bật mí cho bạn những item thời trang hứa hẹn sẽ bùng nổ trong BST lần này nhé.</p>
+        <h3 class="title-content">LEVENTS CLASSIC REGULAR TEE</h3>
+        <figure class="title-content">
+          <img src="./img/blog/blog6.4.webp" alt="">
+          <figcaption>Levents® Classic Regular Tee/ White</figcaption>
+        </figure>
+        <p>Tất nhiên, một chiếc LEVENTS CLASSIC REGULAR TEE “đa năng” sẽ là item đầu tiên không thể thiếu trong tủ đồ của những tín đồ đam mê thời trang nhờ tính linh hoạt và matching với nhiều phong cách. Với thiết kế đơn giản cùng form dáng thoải mái, sản phẩm này có thể là “cứu tinh” của bạn vào những ngày mà bạn không biết phải mặc gì. </p>
+        <h3 class="title-content">LEVENTS CLASSIC SWEATER</h3>
+        <figure class="title-content">
+          <img src="./img/blog/blog6.5.webp" alt="">
+          <figcaption>Levents® Classic Sweater/ Cream</figcaption>
+        </figure>
+        <p>Bộ sưu tập cho mùa thu đông này chắc chắn sẽ không thể thiếu các item dài tay như Sweater, vừa giúp bạn giữ ấm hiệu quả, vừa là một item thời trang sành điệu. Đặc biệt, LEVENTS CLASSIC SWEATER sở hữu 2 bản phối màu Cream và Blue cực trendy hứa hẹn sẽ tạo nên những điểm nổi bật trong các outfit hàng ngày của bạn.</p>
+        <h3 class="title-content">LEVENTS CLASSIC STRIPED LONG SLEEVE SHIRT</h3>
+        <figure class="title-content">
+          <img src="./img/blog/blog6.6.webp" alt="">
+          <figcaption>Levents® Classic Striped Long Sleeve Shirt/ Blue</figcaption>
+        </figure>
+        <p>Trong số các item nổi bật được ra mắt lần này chắc chắn sẽ không thể thiếu cái tên LEVENTS CLASSIC STRIPED LONG SLEEVE SHIRT. Có thể nói, chỉ sau vài ngày ra mắt, item này đã liên tục trong trạng thái Sold out, “phá đảo” doanh thu của nhà Lì. Sản phẩm sử dụng họa tiết kẻ sọc kinh điển, mang đến một vẻ ngoài thanh lịch và sang trọng, kết hợp với phối màu trắng – xanh làm tăng thêm phần tươi trẻ, năng động cho outfit. </p>
+        <h3 class="title-content">LEVENTS CLASSIC ZIPPER HOODIE</h3>
+        <figure class="title-content">
+          <img src="./img/blog/blog6.7.webp" alt="">
+          <figcaption>Levents® Classic Zipper Hoodie/ Dark Green</figcaption>
+        </figure>
+        <p>Là một tín đồ đam mê phong cách thời trang đường phố thì bạn không nên thiếu một chiếc áo khoác LEVENTS CLASSIC ZIPPER HOODIE. Với form áo oversize rộng rãi cùng chất liệu nỉ chân cua dày dặn đảm bảo người mặc luôn cảm thấy thoải mái bất kể thời tiết. Điểm nổi bật cho item lần này là phần zipper được thiết kế cực kỳ linh hoạt, tạo sự tiện lợi cho người dùng.</p><br>
+        <p>Có thể thấy, LEVENTS CLASSIC nổi bật với thiết kế tối giản, tinh tế và chất lượng vượt trội. Còn chần chờ gì mà không nhanh tay sở hữu những item này để tạo nên nét chấm phá độc đáo cho phong cách thời trang của bạn.</p>
+      </section>
+    </main>
+  </header>
+</div>
+  <!---->
+  </div>
+</div>
+<div id="tab2" class="tab-content">
+  <!-- Blog Item-->
+  <div class="blog-items">
+      <div id="blog7" class="blog-item" onclick="viewDetails('blog7')">
+        <img class="content-image" src="./img/blog/blog7.webp" alt="">
+        <h3 class="blog-title">Quần xanh lá mặc với áo màu gì? 15+ cách phối đ...</h3>
+      <p class="blog-snippet">Bạn đã bao giờ tự hỏi rằng quần xanh lá mặc với áo màu gì sẽ tạo nên một bộ trang phục ấn tượng và thời thượng? Quần xanh lá...</p>
+      <h3 class="blog-title">Xem thêm</h3>
+      </div>
+        <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog7">
+  <header>
+    <div class="title-content">
+      <h1>Quần xanh lá mặc với áo màu gì? 15+ cách phối đồ ấn tượng nhất</h1>
+    </div>
+    <p>Bạn đã bao giờ tự hỏi rằng quần xanh lá mặc với áo màu gì sẽ tạo nên một bộ trang phục ấn tượng và thời thượng? Quần xanh lá là một trang phục phổ biến và dễ kết hợp, nhưng việc có thể lựa chọn áo và phụ kiện phù hợp để kết hợp thì không phải là điều mà ai cũng biết. Trong bài viết này, các bạn hãy cùng Lì Ven tìm hiểu sơ lược cách phối đồ với màu xanh lá và tham khảo 15 gợi ý phối đồ để có được một outfit ấn tượng nhất nhé!</p>
+    <main>
+      <section>
+        <h2 class="title-content">Quần xanh lá nên được mặc với áo màu gì? Ai mặc hợp quần màu xanh lá?</h2>
+        <p>Trước khi tìm hiểu quần xanh lá phối với quần màu gì đẹp, chúng ta cần biết được gam màu này phù hợp với ai và nó mang lại giá trị cũng như ý nghĩa như thế nào cho người mặc?</p>
+        <h3 class="title-content">Yếu tố phong thủy</h3>
+        <p>Trước khi tìm hiểu “quần xanh lá mặc với áo màu gì?”, chúng ta cần biết rằng, quần xanh lá thường được xem là một màu may mắn theo quan điểm phong thủy. Khi nói đến yếu tố phong thủy, màu xanh lá cây thường được xem như thuộc hành Mộc. Vì vậy, có thể nói màu xanh lá là một màu rất hợp đối với người mệnh Mộc. Hơn nữa, hành Mộc còn tương sinh với hành Hỏa, đó là lý do những người mệnh Hỏa cũng có thể cân nhắc sử dụng màu sắc này. Dựa vào nguyên tắc phong thủy, bạn nên lựa chọn áo có màu sắc phù hợp để tăng cường sự may mắn và tài lộc.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog7.1.webp" alt="">
+        </figure>
+        <h3 class="title-content">Yếu tố thẩm mỹ</h3>
+        <p>Ngoài yếu tố phong thủy, việc quyết định áo màu gì kết hợp với quần xanh lá cũng liên quan đến vẻ ngoại hình cá nhân. Thường thì quần xanh lá thích hợp với những người có thân hình cao ráo, mảnh mai và làn da trắng. Tuy nhiên, nếu bạn có vóc dáng mũm mĩm hơn, vẫn có cách để bạn trông thanh mảnh hơn bằng cách chọn quần xanh lá có dáng suông hoặc ống rộng. Điều này sẽ giúp bạn vẫn theo kịp xu hướng đặc biệt là xu hướng Streetwear hiện nay.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog7.2.webp" alt="">
+        </figure>
+        <h3 class="title-content">Cách kết hợp màu sắc phù hợp cho quần xanh lá</h3>
+        <p>Để cho ra đời những bộ outfit cực thời trang, chúng ta cần biết gam màu xanh lá cây phù hợp với gam màu gì và cách phối với những gam màu đó như thế nào?</p>
+        <h3 class="title-content">Dựa theo nguyên tắc màu tương phản của mà</h3>
+        <p>Để tìm hiểu kĩ hơn về thắc mắc “quần xanh lá mặc với áo màu gì?”, một trong những cách tạo nên một outfit ấn tượng là tận dụng sự tương phản giữa màu sắc. Khi bạn muốn kết hợp quần xanh lá với màu áo, hãy lựa chọn áo có tông màu trung tính như trắng, xám hoặc be để tạo ra sự tương phản mềm mại, tôn lên màu xanh của quần. Cách kết hợp này sẽ khiến bộ đồ của bạn thu hút hơn.</p>
+        <figure class="title-content">
+          <img src="./img/blog/blog7.3.webp" alt="">
+        </figure>
+        <h3 class="title-content">Hài hòa trong việc kết hợp màu giữa quần và áo phù hợp</h3>
+        <p>Để tránh tạo ra một tương phản quá mạnh hoặc chọn một áo quá nổi bật so với quần xanh lá, hãy luôn tạo sự hài hòa trong việc phối màu. Thay vì chỉ tập trung vào việc chọn màu áo hoặc quần, hãy xem xét sự hài hòa tổng thể của trang phục. Bạn có thể thử kết hợp quần xanh lá với áo có tông màu tương tự hoặc các tông màu pastel nhẹ nhàng để tạo ra một outfit thanh lịch và thời trang.</p>
+        <h3 class="title-content">Lựa chọn dựa trên bối cảnh sự kiện bạn sẽ tham dự</h3>
+        <p>Khi bạn đang cân nhắc màu áo, hãy xem xét sự kiện cụ thể mà bạn sẽ tham gia. Trong những buổi ban ngày hoặc dạo phố, chọn áo sáng như trắng, kem hoặc xanh nhạt để tạo vẻ tươi mới và thoải mái. Tuy nhiên, khi bạn tham gia vào các sự kiện buổi tối hoặc quan trọng, áo có màu tối như đen, xanh đậm hoặc xám có thể giúp bạn tỏa sáng với vẻ lịch lãm và sang trọng. Ví dụ, áo blazer đen thường rất thích hợp cho các sự kiện chuyên nghiệp, trong khi áo thun trắng có thể phù hợp cho các dịp thoải mái hơn.</p>
+        <figure class="title-content">
+          <img src="/img/blog/blog7.4.webp.webp" alt="">
+        </figure>
+        
+        <h2 class="title-content">Quần xanh lá mặc với áo màu gì? 15+ cách phối đồ cho outfit ấn tượng nhất</h2>
+        <p>Khi đã hiểu rõ những gam màu phù hợp cùng những cách phối với những gam màu đó như thế nào, sau đây hãy cùng tụi mình điểm qua những gợi ý trong cách phối đồ cùng với quần màu xanh lá cực trendy các bạn nhé!</p>
+        <h3 class="title-content">Quần xanh lá cây mặc với thun trắng</h3>
+        <p>Khi bạn ưu ái sự đơn giản và thoải mái, việc kết hợp quần xanh lá cây với áo thun unisex màu trắng là một lựa chọn hoàn hảo. Bộ trang phục này tạo ra sự tương phản đẹp mắt giữa màu trắng và màu xanh lá cây, tạo nên vẻ tươi mới và năng động. Đây là một sự kết hợp thời trang dễ dàng và phù hợp cho nhiều hoàn cảnh, từ dạo chơi hàng ngày đến các hoạt động thể thao nhẹ. Bạn có thể linh hoạt chọn áo thun trắng theo phong cách riêng của mình, và kết hợp cùng đôi giày thể thao, sneaker, hoặc sandal để hoàn thiện vẻ ngoại hình thoải mái và tươi mới.</p>
+        <figure class="title-content">
+          <img src="/img/blog/blog7.5.webp" alt="">
+        </figure>
+        <h3 class="title-content">Quần xanh lá cây phối với áo blazer đen</h3>
+        <p>Sự kết hợp tinh tế giữa quần xanh lá cây và áo blazer đen tạo nên một vẻ ngoại hình lịch lãm và phong cách. Sự tương phản giữa hai màu sắc này đem lại điểm nhấn cuốn hút cho bộ trang phục và dễ dàng lựa chọn giày và phụ kiện thời trang phù hợp để hoàn thiện diện mạo của bạn cho các dịp quan trọng hoặc cuộc họp công việc.</p>
+        <figure class="title-content">
+          <img src="/img/blog/blog7.6.webp" alt="">
+        </figure>
+        <h3 class="title-content">Kết hợp quần xanh lá với áo màu xanh pastel</h3>
+        <p>Kết hợp quần xanh lá cây với áo xanh pastel sẽ tạo nên sự dịu dàng và nữ tính. Màu xanh pastel mang đến sự nhẹ nhàng, thanh thoát và đáng yêu. Bạn có thể chọn áo sơ mi xanh pastel, áo phông xanh pastel hoặc áo len xanh pastel để kết hợp cùng quần xanh lá cây. Một bộ trang phục lý tưởng cho những ngày nắng hè hoặc dạo phố, giúp bạn tỏa sáng với vẻ đẹp dịu dàng và đáng yêu.</p>
+        <h3 class="title-content">Bộ outfit quần xanh lá và áo cùng tông</h3>
+        <p>Nếu một ngày phải phối đồ để xuống phố nhưng không biết quần xanh lá mặc với áo màu gì, thì đây sẽ là một gợi ý khá lý tưởng. Sự kết hợp này mang đến sự tinh tế và ấn tượng. Áo cùng tông màu với quần xanh lá cây là một xu hướng phối màu đang rất được ưa chuộng. Bạn có thể chọn áo sơ mi xanh lá, áo khoác blazer xanh lá hoặc áo len xanh lá để phối cùng quần xanh lá cây. Bộ trang phục này phù hợp cho cả công việc văn phòng và các cuộc họp quan trọng, giúp bạn tỏa sáng với vẻ chuyên nghiệp và quyến rũ.</p>
+        <figure class="title-content">
+          <img src="/img/blog/blog7.7.webp" alt="">
+        </figure>
+        <h3 class="title-content">Quần xanh lá cây mặc với áo Sweater đen</h3>
+        <p>Khi bạn muốn tạo sự kết hợp thoải mái và đầy phong cách, chọn quần xanh lá cây mix với áo Sweater đen là một sự lựa chọn tuyệt vời.Bộ trang phục này thường được ưa chuộng trong thời tiết se lạnh hoặc vào mùa thu và đông. Quần xanh lá cây mang đến sự tươi mới và sức sống, trong khi áo Sweater đen tạo nên sự ấm áp và thanh lịch.</p>
+        <figure class="title-content">
+          <img src="/img/blog/blog7.8.webp" alt="">
+        </figure>
+        <h3 class="title-content">Kết hợp quần xanh lá với áo màu hồng</h3>
+        <p>Màu hồng là màu sắc nữ tính, ngọt ngào và dễ thương. Nếu bạn muốn tạo nên một phong cách nữ tính và đáng yêu, bạn có thể kết hợp quần xanh lá cây với áo màu hồng. Màu hồng sẽ làm nổi bật màu xanh lá cây và tạo ra một sự tương phản hài hòa. Bạn có thể chọn áo hồng nhạt hoặc hồng đậm tùy thuộc vào sở thích cá nhân của mình.</p>
+        <h3 class="title-content">Phối quần xanh lá với áo sơ mi trắng</h3>
+        <p>Khi bạn cân nhắc việc mix quần xanh lá cây với áo sơ mi màu trắng, bạn sẽ khoác trên mình trang phục của sự đơn giản và thanh lịch. Áo sơ mi trắng là một lựa chọn hoàn hảo cho mọi sắc tông da, làm tôn lên vẻ tươi mới và nổi bật của quần xanh lá cây. Đây là trang phục lý tưởng cho các buổi dạo chơi dưới bầu trời xanh, trong những ngày nắng ấm của mùa xuân.</p>
+        <figure class="title-content">
+          <img src="/img/blog/blog7.9.webp" alt="">
+        </figure>
+        <h3 class="title-content">Kết hợp quần xanh lá với áo họa tiết đa màu sắc</h3>
+        <p>Khi bạn muốn thể hiện sự sáng tạo và độc đáo trong trang phục, lựa chọn quần xanh lá phối với áo họa tiết nhiều màu là một ý tưởng độc đáo và tuyệt vời. Bạn có thể tạo ra một bộ trang phục nổi bật và tươi sáng, thích hợp cho các dịp vui chơi, dạo phố, hoặc thậm chí trong những buổi tiệc nhẹ. Đây là cách thú vị để thể hiện cá tính và phong cách riêng của bạn, và chắc chắn sẽ thu hút ánh nhìn.</p>
+        <figure class="title-content">
+          <img src="/img/blog/blog7.10.webp" alt="">
+        </figure>
+        <h3 class="title-content">Quần xanh lá mặc với áo kẻ</h3>
+        <p>Áo kẻ luôn mang đến sự lịch lãm và truyền thống. Khi bạn phối quần xanh lá với áo kẻ, bạn tạo nên một trang phục thanh lịch và phong cách. Sự kết hợp này phù hợp cho nhiều dịp, từ làm việc trong văn phòng đến dự tiệc. Áo kẻ thường tạo sự đối lập với màu xanh lá và tạo nên một trang phục đẹp và sang trọng.</p>
+        <h3 class="title-content">Kết hợp quần xanh lá với áo thun màu đen</h3>
+        <p>Một gợi ý cực mới lạ cho một ngày phối đồ nhưng không biết “quần xanh lá mặc với áo màu gì?”. Phối quần xanh lá với áo thun đen tạo ra một bộ trang phục đơn giản nhưng vẫn thời trang. Sự kết hợp này phù hợp cho nhiều dịp, từ dạo chơi hàng ngày đến cuộc họp bạn bè. Áo thun đen tạo sự tập trung vào màu xanh lá của quần, làm nổi bật nó và tạo cảm giác gọn gàng và mạnh mẽ.</p>
+        <figure class="title-content">
+          <img src="/img/blog/blog7.11.webp" alt="">
+        </figure>
+        <h3 class="title-content">Mặc quần xanh lá với áo màu đỏ</h3>
+        <p>Khi bạn kết hợp quần xanh lá với áo màu đỏ, bạn tạo ra một trang phục rất lôi cuốn và nổi bật. Sự tương phản giữa màu đỏ và xanh lá làm cho bạn trông rất tự tin và quyến rũ. Đây là một lựa chọn tuyệt vời cho các dịp đặc biệt như dự tiệc, cuộc hẹn tình yêu hoặc thậm chí một buổi hòa nhạc.</p>
+        <h3 class="title-content">Quần xanh lá mix cùng áo khoác blazer xanh</h3>
+        <p>Khi bạn muốn trông chuyên nghiệp và lịch lãm, hãy kết hợp quần xanh lá với một chiếc áo khoác blazer xanh. Bộ trang phục này hoàn hảo cho môi trường làm việc, cuộc họp quan trọng, hoặc những buổi tối sang trọng.</p>
+        <figure class="title-content">
+          <img src="/img/blog/blog7.12.jpg" alt="">
+        </figure>
+        <h3 class="title-content">Quần xanh lá phối cùng áo sơ mi vàng</h3>
+        <p>Kết hợp quần xanh lá với áo sơ mi màu vàng tạo ra một bộ trang phục tươi sáng và nổi bật. Sự kết hợp này thích hợp cho mùa xuân và hè, và có thể mang đến cho bạn vẻ ngoại giao và lịch lãm. Áo sơ mi màu vàng tạo sự tương phản với quần xanh lá và tạo nên một trang phục vô cùng sự kết hợp sáng sủa và tươi mới.</p>
+        <h3 class="title-content">Quần xanh lá mix cùng áo màu be</h3>
+        <p>Việc kết hợp quần xanh lá với áo màu be sẽ mang lại sự trang nhã và hài hoà. Màu be là màu sắc mang đến sự nhã nhặn, ấm áp và dễ chịu. Bạn có thể chọn áo sơ mi màu be, áo phông màu be hoặc áo len màu be để kết hợp với quần xanh lá cây. Bộ trang phục này rất thích hợp cho mùa thu hoặc đông, mang lại sự thanh thoát, tinh tế và quyến rũ.</p>
+        <figure class="title-content">
+          <img src="/img/blog/blog7.13.webp" alt="">
+        </figure>
+        <h3 class="title-content">Mặc quần xanh lá cùng áo chấm bi</h3>
+        <p>Áo chấm bi luôn là một lựa chọn thời trang và trẻ trung. Khi bạn kết hợp quần xanh lá với áo chấm bi, bạn tạo ra một bộ trang phục vui nhộn và phong cách. Sự kết hợp này hoàn hảo cho những buổi dạo chơi, cuộc họp bạn bè hoặc thậm chí là một buổi hẹn hò. Áo chấm bi tạo nên một trang phục sáng tạo và thu hút.</p>
+        <h3 class="title-content">Quần xanh lá với áo xanh lá</h3>
+        <p>Khi bạn phối quần xanh lá với áo xanh lá, bạn tạo ra một bộ trang phục tone-sur-tone đầy tinh tế và ấn tượng. Cách kết hợp này đang rất được ưa chuộng hiện nay và là biểu tượng của sự thời thượng. Áo xanh lá và quần xanh lá tạo ra sự hài hòa màu sắc và tạo nên một vẻ đẹp đơn giản và tinh tế. Bộ trang phục này thích hợp cho cả môi trường làm việc chuyên nghiệp và những dịp quan trọng khác, giúp bạn tỏa sáng với vẻ đẹp thanh lịch.</p>
+        <figure class="title-content">
+          <img src="/img/blog/blog7.14.webp" alt="">
+        </figure>
+        <h3 class="title-content">Kết hợp quần xanh lá với áo màu vàng</h3>
+        <p>Nếu bạn đang tìm kiếm sự năng động và tươi sáng, hãy kết hợp chiếc quần ống rộng dáng ngắn xanh lá cây với một chiếc áo màu vàng sáng hoặc áo màu vàng chanh. Đây là một sự kết hợp tuyệt vời cho những cuộc phiêu lưu ngoài trời hoặc những buổi dạo chơi thú vị. Trang phục này giúp bạn nổi bật trong đám đông và tạo nên vẻ ngoài cuốn hút.</p><br>
+        <p>Như vậy, trong bài viết này, các bạn đã cùng Levents tìm hiểu 15 cách kết hợp quần xanh lá cũng như giải đáp cho thắc mắc quần xanh lá mặc với áo màu gì để tạo ra các outfit ấn tượng khác nhau. Màu xanh lá đa dạng và linh hoạt, cho phép bạn thể hiện phong cách thời trang riêng của mình. Hãy thử tham khảo các gợi ý trong bài và biến hóa theo cách của riêng mình để mỗi ngày bạn đều có cơ hội tỏa sáng với trang phục độc đáo nhất bạn nhé!</p>
+      </section>
+    </main>
+  </header>
+</div>
+  <!---->
+      <div id="blog8" class="blog-item" onclick="viewDetails('blog8')">
+        <img class="content-image" src="./img/blog/blog8.jpg" alt="">
+        <h3 class="blog-title">Vải Modal là gì? So sánh chất liệu vải Modal và...</h3>
+      <p class="blog-snippet">Modal là một loại sợi mới lạ đối với nhiều người yêu thời trang, tuy nhiên sợi này đã được áp dụng rộng rãi trên thị trường hiện nay. Vậy...</p>
+      <h3 class="blog-title">Xem thêm</h3>
+      </div>
+        <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog8">
+  <header>
+    <div class="title-content">
+      <h1>Vải Modal là gì? So sánh chất liệu vải Modal và Tencel</h1>
+    </div>
+    <main>
+      <section>
+    <p>Modal là một loại sợi mới lạ đối với nhiều người yêu thời trang, tuy nhiên sợi này đã được áp dụng rộng rãi trên thị trường hiện nay. Vậy vải Modal là gì? Đây là một câu hỏi mà nhiều độc giả đang tìm kiếm trên internet. Trong bài viết này, Lì Ven sẽ cùng các bạn khám phá nguồn gốc của sợi Modal và ứng dụng của nó trong đời sống, đồng thời so sánh với vải tencel để xem sự khác biệt giữa hai loại vải này. Đầu tiên hãy cùng tìm hiểu về khái niệm vải sợi Modal, nguồn nguyên liệu và cái tên Modal.</p>
+    <h2 class="title-content">Chất liệu vải Modal là vải gì?</h2>
+    <figure class="title-content">
+      <img src="/img/blog/8.1.webp" alt="">
+    </figure>
+    <p>Modal là một loại vải sinh học được tạo ra từ cellulose tái chế từ cây sồi, và hoàn toàn chiết xuất từ thiên nhiên. Những cây sồi được trồng ở rừng sồi rộng lớn tại Bắc Âu và Trung Âu, với tuổi thọ lâu năm và tạo ra một chất liệu vải bền bỉ và thân thiện với sức khỏe của người dùng. Với tính năng dễ phân hủy trong môi trường tự nhiên, Modal là một sản phẩm an toàn cho môi trường và sức khỏe con người. Hiện nay, sợi vải Modal đã trở thành một vật liệu được sử dụng phổ biến trong ngành công nghiệp thời trang vì độ bền và tính đa dạng của nó.</p><br>
+    <p>Sợi Modal được sử dụng để sản xuất quần áo, đồ lót, khăn tắm và chăn gối. Ngoài ra, các nhà thiết kế đang tìm cách phát triển các loại vải mới, kết hợp giữa cotton, spandex, modal satin, modal jacquard và nhiều chất liệu khác nhau để tạo ra sản phẩm thời trang đa dạng, phù hợp với nhiều phân khúc giá và đối tượng khách hàng khác nhau. Việc sử dụng Modal trong ngành công nghiệp thời trang đồng nghĩa với việc giảm thiểu tác động tiêu cực đến môi trường và ảnh hưởng đến sức khỏe con người. Vì vậy, Modal đã trở thành một lựa chọn phù hợp cho những người quan tâm đến bảo vệ môi trường và sức khỏe của bản thân.</p>
+
+    <h2 class="title-content">Nguồn gốc của vải sợi Modal</h2>
+    <figure class="title-content">
+      <img src="/img/blog/blog8.2.jpg" alt="">
+    </figure>
+    <p>Nguồn gốc vải Modal sẽ giúp bạn trả lời cho câu hỏi “vải Modal là gì?”. Từ khoảng thập niên 30 của thế kỷ XX, cây sồi được biết đến như một nguồn tài nguyên quý giá để sản xuất vải. Điều này được phát hiện bởi một số quốc gia công nghiệp ở Bắc Âu. Với nguồn nguyên liệu dồi dào, nền công nghiệp sản xuất vải Modal phát triển vô cùng mạnh mẽ. Sau cùng, sợi Modal trở thành một trong những nguyên liệu phổ biến được sử dụng để sản xuất các sản phẩm phục vụ đời sống.</p><br>
+    <p>Tuy nhiên, vào những năm 60 của thế kỷ XX, người ta vẫn chưa tận dụng hết các đặc tính nổi bật của chất liệu vải Modal, chỉ có một vài tính năng được ứng dụng để sản xuất trang phục, mãi đến gần thế kỷ XXI, việc ứng dụng vải Modal mới có bước tiến vượt bậc. Modal có những tính năng đáng chú ý như độ bền cao, độ co giãn tốt và khả năng hấp thụ mồ hôi. Những ưu điểm này khiến cho chất liệu Modal thích hợp với việc sản xuất các sản phẩm thời trang, đồ dùng gia đình và các sản phẩm liên quan đến y tế. Thậm chí, các nhà thiết kế cũng đã bắt đầu áp dụng vải Modal vào các thiết kế thời trang cao cấp.</p>
+    <h2 class="title-content">Quy trình sản xuất vải Modal là gì?</h2>
+    <figure class="title-content">
+      <img src="/img/blog/8.3.webp" alt="">
+    </figure>
+    <p>Để sản xuất thước vải Modal bền đẹp, những người thợ phải tuân thủ theo quy trình sản xuất qua 5 bước như sau:</p><br>
+    <ul>
+      <li> Bước 1: Thu hoạch những cây gỗ sồi chất lượng để nghiền nhỏ và xử lý bằng nhiệt. Quá trình này giúp tách thành phần cellulose trong gỗ thành dạng lỏng và hơi sánh.</li><br>
+      <li>Bước 2: Chất lỏng cellulose được tách ra sẽ tiếp tục qua công đoạn phá vỡ cấu trúc liên kết dưới tác động của nhiệt độ cao. Khi đó, cellulose từ dạng lỏng sẽ chuyển sang dạng bùn để thuận tiện cho các bước tiếp theo trong quá trình kéo sợi.</li><br>
+      <li>Bước 3: Hỗn hợp bùn thu được được đưa vào các lỗ khuôn chuẩn bị sẵn để thực hiện dệt thành sợi.</li><br>
+      <li>Bước 4: Sau khi quá trình dệt kết thúc, ta thu được chất liệu vải sợi. Công đoạn tiếp theo là rửa sạch và tẩy trắng vải để đảm bảo vải không chỉ đẹp mà còn sạch sẽ.</li><br>
+      <li>Bước 5: Sau khi đã vệ sinh sạch, sợi sẽ được đưa vào dệt và tạo thành thước vải Modal hoàn thiện.</li><br>
+    </ul><br>
+    <p>Quá trình sản xuất thước vải Modal từ gỗ sồi đòi hỏi sự cẩn thận và kỹ thuật cao để đảm bảo chất lượng sản phẩm cuối cùng. Tuy nhiên, sản phẩm cuối cùng rất đáng để đầu tư vì tính năng độ bền và mềm mại của nó.</p>
+    
+    <h2 class="title-content">Những đặc điểm của chất liệu vải Modal là gì?</h2>
+    <figure class="title-content">
+      <img src="/img/blog/8.4.webp" alt="">
+    </figure>
+    <ul>
+      <li>Chống co rút: Modal là vải có khả năng chống co rút vượt trội so với cotton hay những loại vải thông thường. Cho dù sau nhiều lần giặt, sợi vải này sẽ vẫn giữ được độ phẳng và mềm mại như ban đầu.</li><br>
+      <li>Độ bền cao: Sợi vải Modal được sản xuất từ cellulose có tính bền chắc, dẻo dai và không bị giãn hay đứt cấu trúc khi tác động ngoại lực. Các sản phẩm được làm từ vải Modal cũng có tuổi thọ kéo dài hơn so với những loại vải sợi khác.</li><br>
+      <li>Kháng khuẩn: Vải Modal có khả năng kháng khuẩn tốt và giúp ngăn ngừa các loại bọ, giúp cho không gian sống của các bạn luôn sạch và an toàn.</li><br>
+      <li>Không kích ứng da: Do Modal là loại vải tự nhiên, nên rất an toàn cho sức khỏe và không gây kích ứng da cho người dùng, đặc biệt là cho những người có làn da nhạy cảm.</li>
+      <li>Thân thiện với môi trường: Modal là loại vải thân thiện với môi trường và được sản xuất từ nguồn gốc tự nhiên. Sự phát triển của Modal cũng đóng góp vào giảm thiểu tác động tiêu cực lên môi trường so với việc sản xuất các loại vải hóa chất khác.</li>
+    </ul><br>
+    <p>Trên đây là những thông tin về vải Modal và câu trả lời chi tiết nhất cho những bạn đọc đang bâng khuâng về vải Modal là gì? Những kiến thức từ Lì Ven mang đến bạn chắc chắn sẽ có ích khi các bạn lựa chọn chất liệu vải cho trang phục của mình. Với tiết trời nóng nực như thế này, chắc hẳn vải sợi Modal sẽ là một trong những loại vải nằm trong top list mà bạn nên sử dụng. Hãy tiếp tục theo dõi chúng mình để cập nhật những kiến thức thời trang vô cùng bổ ích, và nếu các bạn đang cần cho mình những bộ outfit chất nhất với sợi vải chất lượng cao hơn cả Modal, hãy ghé thăm trang chủ Levents để tìm lựa cho mình một items phù hợp nhất.</p>
+  </section>
+      </main>
+        </header>
+</div>
+  <!---->
+      <div id="blog9" class="blog-item" onclick="viewDetails('blog9')">
+        <img class="content-image" src="./img/blog/blog9.webp" alt="">
+        <h3 class="blog-title">Vải bông là gì? Ứng dụng đặc biệt trong thời tr...</h3>
+      <p class="blog-snippet">“Vải bông là gì?” khi nhìn thấy chất liệu này được in trên nhãn mác áo quần. Câu trả lời sẽ được Levents bật mí ngay hôm nay.</p>
+      <h3 class="blog-title">Xem thêm</h3>
+    </div>
+      <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog9">
+<header>
+  <div class="title-content">
+    <h1>Vải bông là gì? Ứng dụng đặc biệt trong thời trang may mặc</h1>
+  </div>
+  <p>Vải bông là một nguyên liệu tự nhiên đã tồn tại hàng ngàn năm nhưng chưa bao giờ đi vào quên lãng trong ngành thời trang hiện đại. Với những tính năng đặc biệt, vải bông đã và đang từng bước chinh phục mọi khách hàng khó tính. Vậy vải bông là gì? Chủ đề bài viết hôm nay Lì Ven sẽ giải mã tất cả về vải bông, mời các bạn theo dõi.</p>
+  <main>
+    <section>
+      <h2 class="title-content">Vải bông là gì?</h2>
+      <p>Nghe có vẻ khó hình dung về “chất liệu vải bông là gì?” nhưng những thông tin mà tụi mình sắp bật mí sau đây sẽ khiến các bạn ngỡ ngàng. Chất liệu này được làm từ sợi bông hữu cơ, loại sợi có nguồn gốc xuất xứ từ Châu Mỹ, Ấn Độ và Châu Phi. Vải bông với đặc điểm sợi mềm và phân bố đều, tỏa sáng như một nguyên liệu vô cùng quan trọng trong các ngành công nghiệp và thời trang. </p><br>
+      <p>Về lịch sử ra đời, vải bông đã có mặt từ rất lâu, khi mà con người biết trồng bông để lấy quả dệt vải. Khi đạt chuẩn thu hoạch thì quả bông sẽ tự bung ra và được người nông dân xử lý qua nhiều công đoạn như kéo sợi, dệt vải và dùng để may quần áo. Với sự tiến bộ của công nghệ hiện nay, vải bông đã được xử lý hóa học để nhân đôi sự bền bỉ, dẻo dai và chống mục nát, sau đó hình thành vải bông như hiện tại.</p>
+      <figure class="title-content">
+        <img src="/img/blog/9.1.webp" alt="">
+      </figure>
+      <h2 class="title-content">Tìm hiểu về quy trình sản xuất vải bông</h2>
+      <p>Để tạo ra một mét vải bông không phải là điều đơn giản. Người nông dân phải làm việc chăm chỉ ở từng bước như trồng, chăm sóc đến thu hoạch xơ bông. Quy trình sản xuất vải bông bao gồm 4 bước cơ bản sau đây:</p>
+      <h3 class="title-content">Bước 1: Thu hoạch, phân loại sợi bông</h3>
+      <p>Mùa thu hoạch sợi bông thường rơi vào 2 tháng cuối năm với 3 đợt tổng cộng để chọn lọc chất lượng vải tốt nhất. Ở đợt hái đầu tiên, khi nhìn thấy bông nở được 5 - 6 búp thì khoảng 2 tuần sau sẽ thu hoạch đợi kế tiếp. Ở đợt cuối cùng sẽ thu hoạch toàn bộ số bông còn lại. Bông sau khi thu hoạch sẽ được phân chia để loại trừ những quả kém chất lượng hoặc bị sâu bọ gây hại.</p>
+      <figure class="title-content">
+        <img src="/img/blog/9.2.webp" alt="">
+      </figure>
+      <h3 class="title-content">Bước 2: Thực hiện tinh chế các sợi bông và kéo xơ thành sợi</h3>
+      <p>Sau khi phơi khô, các xơ bông sẽ được thu mua và gửi đến các nhà máy để tiến hành tách sợi. Quá trình này phải được thực hiện theo chu trình khép kín, kiểm soát chặt chẽ để sợi bông không bị tổn hại. Xơ bông sau khi tách và xé nhỏ sẽ được đem nấu để loại bỏ các tạp chất như nitơ, pectin, axit hữu cơ và màu tự nhiên. Dung dịch sau khi đun nóng được đẩy hết qua một lỗ nhỏ và tạo thành các sợi bông siêu mềm.</p>
+      <h3 class="title-content">Bước 3: Dệt vải bông</h3>
+      <p>Sau khi có đủ sợi bông, tiến trình dệt sẽ bắt đầu để tạo ra những tấm vải bông đa dạng. Trong quy trình dệt, người thợ sẽ sắp xếp và kết hợp các sợi bông với nhau thành sợi ngang và sợi dọc. Tấm vải sẽ có hai loại sợi này với mặt chính có độ bóng nhẹ và hoa văn theo yêu cầu. Một tấm vải bông hoàn chỉnh và đạt chất lượng phải cam kết loại bỏ kỹ lưỡng các tạp chất còn sót lại cũng như màu tự nhiên dính trên sợi bông.</p>
+      <figure class="title-content">
+        <img src="/img/blog/9.3.webp" alt="">
+      </figure>
+      <h3 class="title-content">Bước 4: Nhuộm màu vải cho vải bông</h3>
+      <p>Vải bông khi thu hoạch sẽ được nhuộm màu và tạo hoa văn theo yêu cầu từ nhà sản xuất. Đây là bước cực kỳ quan trọng vì nó quyết định sản phẩm thời trang có đảm bảo tính thẩm mỹ cao hay không.</p>
+      <figure class="title-content">
+        <img src="/img/blog/9.4.webp" alt="">
+      </figure>
+      <p>Mong rằng các bạn sẽ áp dụng được những cách phân biệt trên đây để tự mình tìm ra đáp án cho thắc mắc “vải bông là gì?”. Có thể nói, chất liệu bông “huyền thoại” đã trở thành một phần không thể thiếu trong đời sống hằng ngày. Levents hẹn gặp lại các bạn ở những bài viết sau nhé!</p>
+    </section>
+  </main>
+</header>
+</div>
+  <!---->
+    <div id="blog10" class="blog-item" onclick="viewDetails('blog10')">
+      <img class="content-image" src="./img/blog/blog10.webp" alt="">
+      <h3 class="blog-title">VẢI POPLIN LÀ GÌ? ĐẶC ĐIỂM, PHÂN LOẠI, ỨNG DỤNG...</h3>
+      <p class="blog-snippet">Vải Poplin là gì? Đây là loại vải được tạo nên từ việc dệt trơn với những sợi dọc mịn và ngang thô. Theo chân Levents để tìm hiểu ngay...</p>
+      <h3 class="blog-title">Xem thêm</h3>
+    </div>
+      <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog10">
+<header>
+  <div class="title-content">
+    <h1>VẢI POPLIN LÀ GÌ? ĐẶC ĐIỂM, PHÂN LOẠI, ỨNG DỤNG NỔI BẬT</h1>
+  </div>
+  <p>Quả không hổ danh là chất liệu “vàng” cho ngày hè, vải Poplin đã khiến nhiều khách hàng mê đắm vì sự khô thoáng, mềm mịn vốn có. Lì Ven sẽ dành riêng bài viết hôm nay để “hé lộ” đến các bạn tất tần tật những thông tin quan trọng về “vải Poplin là gì?”. Ưu điểm, phân loại đến ứng dụng của chất liệu vải Poplin, đừng bỏ lỡ nhé!</p>
+  <main>
+    <section>
+      <h2 class="title-content">Thông tin chung về vải Poplin</h2>
+      <p>Đối với những “fan ruột” của thời trang mùa hè thì vải Poplin không phải là tên gọi quá mới mẻ. Vậy các bạn có biết vải Poplin là gì không?</p>
+      <h2 class="title-content">Chất liệu vải Poplin là gì?</h2>
+      <p>Vải Poplin là một chất liệu thú vị trong ngành thời trang, được tạo nên từ phương pháp dệt trơn chặt chẽ với những sợi dọc mịn và sợi ngang thô. Chất liệu vải này còn được biết đến với tên gọi khác là vải Tabinet, có kết cấu gân chạy dọc theo thớ. Điều đặc biệt nhất ở vải Poplin là khả năng linh hoạt trong việc sử dụng các loại sợi khác nhau, bao gồm cotton, polyester và spandex, tạo ra nhiều biến thể độc đáo với các ưu điểm riêng biệt. </p>
+      <figure class="title-content">
+        <img src="/img/blog/10.1.webp" alt="">
+      </figure>
+      <h2 class="title-content">Nguồn gốc của vải Poplin</h2>
+      <p>Nguồn gốc ra đời của vải Poplin cũng được rất nhiều người quan tâm. Chất liệu Poplin đã trải qua nhiều thăng trầm và chứng kiến mọi giai đoạn phát triển của lịch sử. Thực chất, vải Poplin xuất hiện lần đầu tiên vào thế kỷ XV tại Avignon, nước Pháp. Thời kỳ này, chất liệu Poplin được biết đến với cái tên là  "papelaine," ám chỉ một loại chất liệu mềm, mịn và mướt tương tự như vải lụa.</p><br>
+      <p>Mãi đến thế kỷ XX, vải Poplin mới được sử dụng rộng rãi hơn, chủ yếu dùng để may các loại vải lụa sáng bóng hoặc thoáng mát như cotton và dày dặn như len. Đến năm 1920, vải cotton Poplin “đặt chân” đến Hoa Kỳ nhưng được đổi tên thành vải Widecloth. </p><br>
+      <p>Từ "Poplin" đang dùng hiện nay không chỉ đơn thuần là tên gọi một loại vải, mà nó còn phản ánh một quá trình dệt chuyên nghiệp. Khi nói về Poplin, người dùng sẽ nhớ ngay đến sự kết hợp tinh tế giữa các sợi len cho sợi ngang và sợi tơ tằm cho sợi dọc. Đây chính là bí quyết để tạo ra một loại vải siêu mềm, thoải mái và phù hợp cho cả hai mùa mưa - nắng trong năm.</p>
+      <figure class="title-content">
+        <img src="/img/blog/10.2.jpg" alt="">
+      </figure>
+      <p>Như vậy là các bạn vừa cùng Levents tìm hiểu thông tin "vải Poplin là gì? Có thể thấy, đây đích thị là chất liệu mà các bạn trẻ đang tìm kiếm vì đáp ứng tốt tiêu chí “sang trọng, ấn tượng và tiết kiệm nhiều chi phí’. Nếu các bạn có thời gian rảnh, hãy thử dùng vải Poplin để may các sản phẩm thời trang dành tặng cho những người mình yêu thương nhé!</p>
+    </section>
+  </main>
+</header>
+</div>
+  <!---->
+    <div id="blog11" class="blog-item" onclick="viewDetails('blog11')">
+      <img class="content-image" src="./img/blog/blog11.webp" alt="">
+      <h3 class="blog-title">Vải Recycle là gì? Xu hướng thời trang bảo vệ m...</h3>
+      <p class="blog-snippet">Vải Recycle là gì mà góp phần khắc phục tình trạng ô nhiễm môi trường và biến đổi khí hậu. Cùng Levents khám phá ngay bài viết bên dưới nhé!</p>
+      <h3 class="blog-title">Xem thêm</h3>
+    </div>
+      <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog11">
+<header>
+  <div class="title-content">
+    <h1>Vải Recycle là gì? Xu hướng thời trang bảo vệ môi trường bền vững</h1>
+  </div>
+  <p>Trong bối cảnh trái đất đang phải đối mặt với nhiều thách thức về môi trường như hiện nay thì việc sử dụng những sản phẩm thời trang tái chế thể hiện trách nhiệm lớn lao của các nhà sản xuất và thương hiệu thời trang. Vải Recycle (vải tải chế) ngay từ khi ra đời đã nhận được những hưởng ứng tích cực từ người tiêu dùng. Liệu các bạn có biết “vải Recycle là gì?” Ý nghĩa quan trọng của vải Recycle trong đời sống? Cùng Lì Ven tìm hiểu nhé!</p>
+  <main>
+    <section>
+      <h2 class="title-content">Tất tần tật thông tin cần biết về vải Recycle</h2>
+      <p>Chắc hẳn không ít lần các bạn đã từng nghe đến khẩu hiệu “sử dụng đồ tái chế để bảo vệ môi trường”? Nhưng cụ thể vải Recycle là gì mà được nhiều người đánh giá cao như vậy? </p>
+      <h2 class="title-content">Vải Recycle là gì?</h2>
+      <p>Hiểu một cách đơn giản, vải Recycle hay còn được gọi là vải tái chế, một loại chất liệu được sử dụng khá phổ biến trong ngành công nghiệp vải. Vải Recycle được tạo nên từ quy trình thu gom các loại nguyên liệu vải đã qua sử dụng hoặc thải ra từ quá trình sản xuất. Sau đó, chúng sẽ được xử lý hóa chất bằng cách rửa sạch, khử trùng, sát khuẩn, nấu chảy rồi kéo thành sợi vải để dệt.</p>
+      <figure class="title-content">
+        <img src="/img/blog/11.1.webp" alt="">
+      </figure>
+      <h2 class="title-content">Vải Recycle và vải Polyester có gì khác nhau?</h2>
+      <p>Vải Recycle và vải Polyeser luôn được đem lên bàn cân để so sánh bởi xét về bản chất, cả hai chất liệu này đều được bắt nguồn từ nguyên liệu nhựa. Chưa kể, vải Recycle và vải Polyester đều có khả năng tạo nên những sản phẩm thời trang có chất lượng cao, ít nhăn, chống bụi bẩn và giữ form tốt. </p><br>
+      <p>Tuy nhiên, công bằng mà nói, vải Recycle vẫn vượt trội hơn hẳn vì được làm từ nguồn nhựa và vải tái chế, có đóng góp không nhỏ trong việc bảo vệ thiên nhiên. Bên cạnh đó, vải Recycle nói không với nguồn Polyester gốc gây nguy hại cho môi trường xung quanh.</p>
+      <figure class="title-content"> 
+        <img src="/img/blog/11.2.webp" alt="">
+      </figure>
+      <h2 class="title-content">Ý nghĩa quan trọng của vải Recycle trong thời trang</h2>
+      <p>Khái niệm “vải Recycle là gì?” ở trên cũng phần nào thể hiện được ý nghĩa của chất liệu này trong ngành thời trang. Có thể các bạn chưa biết, đồ nhựa là một trong những tác nhân khiến môi trường bị ô nhiễm trầm trọng và dẫn đến sự biến đổi khí hậu.</p><br>
+      <p>Vài năm trở lại đây, những vật liệu đã qua sử dụng như rác thải, giày dép cũ hoặc phế liệu từ nhựa, giấy, bã cà phê được các nhãn hàng thời trang tận dụng để may đồ. Khi áp dụng Recycle trong thời trang, khách hàng thường nhớ đến với tên gọi thân thuộc là thời trang tái chế. Chất liệu này không chỉ mang đến những outfit chất lượng, xịn sò, mới lạ mà còn hướng đến mục tiêu giải quyết tốt vấn đề rác thải nhựa và vải vụn.</p><br>
+      <p>Ngày nay, thời trang tái chế đã trở thành một xu hướng thịnh hành được nhiều tín đồ theo đuổi nhờ những ưu điểm tích cực mà nó mang đến. Đặc biệt, những sản phẩm này còn tác động mạnh mẽ đến tâm lý người mua hàng, giúp họ nâng cao nhận thức bảo vệ môi trường sống xanh - sạch - đẹp.</p>
+      <figure class="title-content">
+        <img src="/img/blog/11.3.webp" alt="">
+      </figure>
+      <p>Trên đây là toàn bộ thông tin liên quan đến vải Recycle về khái niệm, tầm quan trọng cũng như những ưu điểm nổi trội của nó. Mong các bạn nhớ rằng, việc lựa chọn các sản phẩm thời trang tái chế chính là cách mà người mua hàng đang bảo vệ môi trường và chung tay xây dựng hành tinh xanh. Nếu thấy nội dung hôm nay của Levents bổ ích, đừng quên khích lệ tinh thần tụi mình bằng cách đón đọc những bài viết tiếp theo các bạn nhé!</p>
+  </main>
+</header>
+</div>
+  <!---->
+    <div id="blog12" class="blog-item" onclick="viewDetails('blog12')">
+      <img class="content-image" src="./img/blog/blog12.jpg" alt="">
+      <h3 class="blog-title">Phong cách Business Core - Trào lưu doanh nhân ...</h3>
+      <p class="blog-snippet">Là một trong những xu hướng thời trang khá mới mẻ, phong cách Business Core đang được đón nhận rất nồng nhiệt. Cùng Levents tìm hiểu ngay!</p>
+      <h3 class="blog-title">Xem thêm</h3>
+    </div>
+      <!-- noi dung blog -->
+<div class="hidden-content" id="content-blog12">
+  <header>
+    <div class="title-content">
+      <h1>Phong cách Business Core - Trào lưu doanh nhân hot hit của GenZ</h1>
+    </div>
+    <p>Phong cách Business Core - Xu hướng ăn mặc như doanh nhân thành đạt đã trở thành một trong những xu hướng thời trang gây bão cho giới trẻ trong những năm gần đây. Những ai yêu thích phong cách lịch lãm, trưởng thành thường lựa chọn Business Core làm phong cách thời trang của mình. Vậy, phong cách Business Core là gì? Hãy cùng Lì Ven tìm hiểu trong bài viết sau!</p>
+    <main>
+      <section>
+        <h2 class="title-content">Định nghĩa phong cách Business Core là gì?</h2>
+        <p>Phong cách Business Core là một trong những thuật ngữ thời trang được lấy ý tưởng và áp dụng môi trường công sở, phong cách ăn mặc của các doanh nhân. Trang phục trong phong cách này thường tuân thủ Formal-wear hay Smart Casual, xuất hiện từ rất lâu đời trong thị trường thời trang.</p><br>
+        <p>Thời trang Business Core tập trung vào việc tránh các bộ trang phục quá tươi sáng, cầu kỳ hay rườm rà. Thay vào đó, nó thường sử dụng các màu sắc trung tính như đen, xám, ghi... nhằm tạo ra vẻ ngoài sang trọng, lịch lãm và trưởng thành cho người mặc.</p><br>
+        <p>Các item không thể thiếu trong phong cách Business Core bao gồm áo sơ mi, blazer, quần vải, giày tây hay cà vạt. Màu đen thường được sử dụng phổ biến, và các màu như xanh navy, ghi đậm, ghi nhạt... đều phù hợp cho phong cách này.</p><br>
+        <p>Trước đây, xu hướng Business Core chỉ dành cho quý ông thành đạt, nhân viên văn phòng hoặc những buổi tiệc. Tuy nhiên, hiện nay phong cách này đã trở nên đa dạng và được giới trẻ áp dụng vào thời trang đường phố. Với sự sáng tạo trong việc mix-match, giới trẻ biến tấu phong cách Business Core để mang lại sự trẻ trung, thoải mái và lịch sự cho mọi hoàn cảnh.</p>
+        <figure class="title-content">
+          <img src="/img/blog/12.1.webp" alt="">
+        </figure>
+        <h2 class="title-content">Thời trang Business Core Style nên sử dụng lúc nào?</h2>
+        <p>Phong cách Business Core vốn đã được ứng dụng khá lâu trong quá khứ nhưng thời gian gần đây, xu hướng thời trang này mới được giới trẻ biết đến và áp dụng trong thời trang Streetwear của mình một cách rộng rãi. Nhiều nhà mốt thậm chí đã tạo ra những bộ sưu tập riêng hoặc chọn phong cách này làm trọng tâm cho các thiết kế của họ. Một số thương hiệu nổi tiếng như Tom Ford và Prada đã mang tới sự mới mẻ cho Business Core style trong bộ sưu tập mùa thu 2022.</p><br>
+        <p>Trước đây, khi nhắc đến phong cách doanh nhân hoặc trang phục công sở, nhiều người thường nghĩ rằng chúng khá nhàm chán và cứng nhắc. Tuy nhiên, trên nền tẳng mạng xã hội Tiktok, các video về việc mix-match theo phong cách này xuất hiện ngày càng nhiều trên newfeed của giới trẻ. Hashtag liên quan đến Business Core cũng nhận được sự quan tâm lớn từ phía họ. Phong cách này thoải mái, thời thượng và cá tính, và vẫn giữ được phần lịch sự trong mọi hoàn cảnh.</p>
+        <figure class="title-content">
+          <img src="/img/blog/12.2.webp" alt="">
+        </figure>
+        <h2 class="title-content">Cách mix-match theo phong cách Business Core</h2>
+        <h3 class="title-content">Phối áo sơ mi cùng quần kaki</h3>
+        <p>Khi nói đến phong cách Business Core, áo sơ mi nam và quần kaki là hai item không thể thiếu trong tủ đồ của các quý ông mang lại vẻ ngoài khá lịch sự và trang nhã.</p><br>
+        <p>Để tạo ra một outfit hoàn hảo với áo sơ mi và quần kaki, các bạn có thể chọn tone màu be trắng, nâu đất,... đó là những gam màu phổ biến và hợp thời trang. Ngoài ra, áo sơ mi sọc basic hoặc kẻ caro cũng là sự lựa chọn tuyệt vời để tạo ra sự hài hòa và bắt mắt cho outfit.</p><br>
+        <p>Không chỉ phù hợp trong môi trường công sở, mà outfit này cũng rất thích hợp cho các buổi hẹn hò hay sự kiện khác. Độ mix-match cao của áo sơ mi và quần kaki cho phép các bạn linh hoạt trong việc lựa chọn các phụ kiện thời trang khác nhau để tăng thêm sự độc đáo và cá tính cho outfit.</p>
+        <figure class="title-content">
+          <img src="/img/blog/12.3.webp" alt="">
+        </figure>
+        <h3 class="title-content">Áo khoác cardigan nhẹ nhàng Business Core style</h3>
+        <p>Áo khoác Cardigan và sơ mi thường được xem là phối hợp hoàn hảo cho phong cách Business Core. Thiết kế thanh lịch và trẻ trung của áo khoác cardigan mang lại một vẻ ngoài gọn gàng và lịch thiệp hơn bao giờ hết.</p><br>
+        <p>Khi phối đồ theo phong cách này, các bạn có thể chọn màu sắc tối giản như đen, xám hoặc xanh navy để tạo sự trang nhã và lịch lãm. Ngoài ra, chiếc áo khoác này có thể được mix-match với cả sơ mi và áo polo để tăng thêm sự đa dạng trong outfit.</p><br>
+        <p>Outfit này phù hợp với các buổi gặp gỡ công việc, tiệc tùng hay hẹn hò. Với áo khoác Cardigan, các bạn không chỉ trở nên chuyên nghiệp mà còn rất thoải mái khi di chuyển.</p>
+        <figure class="title-content">
+          <img src="/img/blog/12.4.webp" alt="">
+        </figure>
+        <h2 class="title-content">Một đôi giày lịch lãm</h2>
+        <p>Giày chất liệu da như giày oxford, giày tây, giày lười, monk straps... là lựa chọn phù hợp cho phong cách Business Core. Chú ý chọn các màu như nâu, chocolate, đỏ đậm... để tạo điểm nhấn.</p><br>
+        <p>Với Business Core style, các bạn có thể trở nên lịch lãm, thời thượng và cá tính. Dù phong cách này đã xuất hiện từ rất lâu, nhưng vẫn giữ được nhiều tình cảm của các tín đồ thời trang. Với sự biến tấu và sáng tạo, các bạn có thể tạo ra những bộ outfit style Business Core độc đáo từ những item thời trang đơn giản, cơ bản.</p><br>
+        <p>Hy vọng bài viết của Levents chúng mình đã giúp cho các bạn có thêm kiến thức về xu hướng thời trang Business Core cực hot hiện nay. Hãy truy cập ngay website của tụi mình hoặc tới ngay cửa hàng gần nhất để được tư vấn chọn item cho outfit phong cách Business Core bạn nhé!</p>
+      </section>
+    </main>
+  </header>
+    </div>
+  </div>
+</div>
+
+
+<!--modal-->
+<div id="blogModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div id="modalContent" class="modal-content">
+    <!--modal content will be set dynamically-->
+  </div>
+</div>`;
+}

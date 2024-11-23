@@ -89,7 +89,6 @@
     />
     <title>New Clothes | Home</title>
     <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./shopping.html" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -97,6 +96,7 @@
     <link rel="stylesheet" href="./css/contact.css" />
     <link rel="stylesheet" href="./css/shopping.css" />
     <link rel="stylesheet" href="./css/user.css" />
+    <link rel="stylesheet" href="./css/blog.css" />
     <link rel="stylesheet" href=".//css/thanhtoan.css" />
   </head>
 
@@ -115,7 +115,7 @@
       <div class="navbar" id="navbar-responsive-close">
         <div class="home">Home</div>
         <div class="shop">Shop</div>
-        <div class="blog">Blog</div>
+        <div class="blog" onclick="hienthiblog()">Blog</div>
         <div class="contact">Contact</div>
         <div class="login-btn">Login</div>
         <div class="Shoping" onclick="shopinginfo();">
@@ -131,9 +131,9 @@
       <div class="navbar">
         <div class="home">Home</div>
         <div class="shop">Shop</div>
-        <div class="blog">Blog</div>
+        <div class="blog" onclick="hienthiblog()">Blog</div>
         <div class="contact">Contact</div>
-        <div class="Shoping">Shoping</div>
+        <div class="Shoping" onclick="shopinginfo();">Shoping</div>
         <div class="login-btn">Login</div>
       </div>
     </div>
@@ -233,7 +233,7 @@
     <div class="footer"></div>
     <div id="bottom-footer"></div>
     <script src="./js/index.js"></script>
-    <!-- <script src="./js/shop.js"></script> -->
+    <script src="./js/blog.js"></script>
     <script src="./js/policy.js"></script>
     <script src="./js/user.js"></script>
   </body>

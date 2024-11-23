@@ -408,11 +408,11 @@ function makeFilter() {
               <h5>KHOẢNG GIÁ</h5>
             </div>
             <div class="filterPrice">
-              <input type="text" id="nodePrice_1" autocomplete="off"/>
+              <input type="text" id="nodePrice_1" autocomplete="off" value=""/>
               <span style="margin: 5px">-</span>
-              <input type="text" id="nodePrice_2" autocomplete="off"/>
+              <input type="text" id="nodePrice_2" autocomplete="off" value=""/>
             </div>
-            <div class="loc"><a href="#" class="cc">Lọc</a></div>
+            <div class="loc"><a href="#" class="cc" onclick="Loc()">Lọc</a></div>
           </div>`;
   document.querySelector(".left").innerHTML = s;
   const radio_btn = document.querySelectorAll(".radio-btn");
@@ -440,39 +440,42 @@ let sp = "";
 let max_page = 0;
 
 // Hàm tạo sản phẩm trên trang
-function makeSP(trang, sosptrongtrang) {
-  let arr = JSON.parse(localStorage.getItem("arrayproducts")) || [];
+function makeSP(trang, sosptrongtrang, arr) {
   let sp = "";
   for (let i = (trang - 1) * sosptrongtrang; i < trang * sosptrongtrang; i++) {
     if (i >= arr.length) break;
-    const originalPrice = (arr[i].price + arr[i].price * sale).toLocaleString(
-      "vi-VN",
-      { style: "currency", currency: "VND" }
-    );
-    const salePrice = arr[i].price.toLocaleString("vi-VN", {
+    const product = arr[i];
+
+    // Handle undefined or missing properties gracefully
+    const price = product.price ? product.price : 0;
+    const originalPrice = (price + price * sale).toLocaleString("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    });
+    const salePrice = price.toLocaleString("vi-VN", {
       style: "currency",
       currency: "VND",
     });
     sp += `
       <div class="item_1" onclick='loadSingleProduct(${JSON.stringify(
-        arr[i]
+        product
       )})'>
         <div class="img-item"><img class="srcimg" src="${
-          arr[i].img
+          product.img
         }" alt=""></div>
         <div class="listColor" id="listColor_item1">
           <div onclick="clickC1(this)" class="itemColor1" data-src="${
-            arr[i].img1
-          }" style="background-color: ${arr[i].colorr1};"></div>
+            product.img1
+          }" style="background-color: ${product.colorr1};"></div>
           <div onclick="clickC1(this)" class="itemColor2" data-src="${
-            arr[i].img2
-          }" style="background-color: ${arr[i].colorr2};"></div>
+            product.img2
+          }" style="background-color: ${product.colorr2};"></div>
           <div onclick="clickC1(this)" class="itemColor3" data-src="${
-            arr[i].img3
-          }" style="background-color: ${arr[i].colorr3};"></div>
+            product.img3
+          }" style="background-color: ${product.colorr3};"></div>
         </div>
         <div class="inf-item">
-          <h4>${arr[i].nameSP}</h4>
+          <h4>${product.nameSP}</h4>
           <p style="font-style: italic;">Giá gốc: <span style="text-decoration: line-through; font-style: italic;">${originalPrice}</span></p>
           <p style="font-style: italic;">Giá khuyến mãi: <span style="font-size: larger; font-style: italic;">${salePrice}</span></p>
         </div>
@@ -636,13 +639,11 @@ function hienSPTheoFilter(item) {
 // //     console.log("a");
 // //   });
 // // }
-
+let filteredProducts_copy = "";
 function Sort(item) {
   let choice = parseInt(item.value);
-
   // Sử dụng bản sao của mảng gốc để khôi phục khi cần
-  let filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts));
-  console.log(filteredProducts);
+  filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts));
   switch (choice) {
     case 1:
       sapxeptang(filteredProducts_copy);
@@ -658,6 +659,21 @@ function Sort(item) {
   makeSP(1, sosptrongtrang, filteredProducts_copy);
   makeselectpage(1, filteredProducts_copy);
 }
+function Loc() {
+  let price1 = document.getElementById("nodePrice_1").value;
+  let price2 = document.getElementById("nodePrice_2").value;
+  let mang = [];
+  for (let i = 0; i < filteredProducts_copy.length; i++) {
+    if (
+      parseInt(filteredProducts_copy[i].price) >= price1 &&
+      parseInt(filteredProducts_copy[i].price) <= price2
+    ) {
+      mang.push(filteredProducts_copy[i]);
+    }
+  }
+  makeSP(1, sosptrongtrang, mang);
+  makeselectpage(1, mang);
+}
 
 //doi mau sac quan ao
 function clickC1(e) {
@@ -671,7 +687,6 @@ let statusproductcurrent = [
   { statusID: "3", statuscontent: "Vận chuyển" },
   { statusID: "4", statuscontent: "Hoàn thành" },
 ];
-console.log("abc");
 let objcolorcurrent = {
   obj: "",
   color: "",
@@ -1435,6 +1450,6 @@ function updateUserDetails(user) {
 // Initialize the edit function
 chinhsua();
 makeFilter();
-makeSP(getCurrentPage(), sosptrongtrang);
+makeSP(getCurrentPage(), sosptrongtrang, ProductArrBoth);
 makeselectpage(getCurrentPage(), ProductArrBoth);
 // saveArraytolocal();
