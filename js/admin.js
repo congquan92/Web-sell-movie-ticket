@@ -1,5 +1,8 @@
 let ArrProduct = JSON.parse(localStorage.getItem("arrayproducts"));
-// console.log(ArrProduct)
+let sell = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+
+let Arrsell = sell.flatMap((i) => i.shopbagispayuser);
+
 let typeproducts = [
   { typeid: "aothun#", typename: "Áo thun" },
   { typeid: "polo#", typename: "Polo" },
@@ -20,15 +23,16 @@ function makeIDproduct() {
 // Hàm xác định trạng thái sản phẩm
 function productSatus() {
   ArrProduct.forEach((i) => {
+    let count = i.quantity.A + i.quantity.B + i.quantity.C + i.quantity.D;
     let status = "C.XÁC ĐỊNH";
     let colorStatus = "#000";
-    if (i.count > 10) {
+    if (count > 10) {
       status = "CÒN HÀNG";
       colorStatus = "#32CD32";
-    } else if (i.count == 0) {
+    } else if (count == 0) {
       status = "HẾT HÀNG";
       colorStatus = "#EE4B2B";
-    } else if (i.count <= 10) {
+    } else if (count <= 10) {
       status = "SẮP HẾT";
       colorStatus = "#FDDA0D";
     }
@@ -43,6 +47,11 @@ function listSP(arr) {
   makeIDproduct();
   productSatus();
   arr.forEach((product) => {
+    let count =
+      product.quantity.A +
+      product.quantity.B +
+      product.quantity.C +
+      product.quantity.D;
     const Price = product.price.toLocaleString("vi-VN", {
       style: "currency",
       currency: "VND",
@@ -50,10 +59,10 @@ function listSP(arr) {
     s += `
             <div oncontextmenu="showContextMenu(event, this)" class="list">
                 <span style="width: 10%" nametag ="${product.nametag}" class="idProduct">${product.idproduct}</span>
-                <img style="width: 20%" src="${product.img}" class="imgProduct" alt="Ảnh">
+                <img style="width: 20%" src=".${product.img}" class="imgProduct" alt="Ảnh">
                 <span style="width: 30%" class="nameProduct">${product.nameSP}</span>
-                <span style="width: 10%" data="${product.colorr1}" class="colorProduct">${product.nameColor1}</span>
-                <span style="width: 10%" class="countProduct">${product.count}</span>
+                <span style="width: 10%" data="${product.colorr1}" class="colorProduct">${product.colorr1}</span>
+                <span style="width: 10%" dataA="${product.quantity.A}" dataB="${product.quantity.B}" dataC="${product.quantity.C}" dataD="${product.quantity.D}" class="countProduct">${count}</span>
                 <span style="width: 10%" class="priceProduct">${Price}</span>
                 <span style="width: 10%; color: ${product.colorStatus}" class="statusProduct" style="color:${product.colorStatus}">${product.status}</span>
             </div>
@@ -148,7 +157,10 @@ function showContextMenu(event, element) {
   const nameProduct = element.querySelector(".nameProduct").textContent;
   const colorProduct = element.querySelector(".colorProduct").textContent;
   const codecolor = element.querySelector(".colorProduct").getAttribute("data");
-  const count = element.querySelector(".countProduct").textContent;
+  const countA = element.querySelector(".countProduct").getAttribute("dataA");
+  const countB = element.querySelector(".countProduct").getAttribute("dataB");
+  const countC = element.querySelector(".countProduct").getAttribute("dataC");
+  const countD = element.querySelector(".countProduct").getAttribute("dataD");
   const price = element.querySelector(".priceProduct").textContent;
   const nametag = element.querySelector(".idProduct").getAttribute("nametag");
   let typeProduct = "";
@@ -181,7 +193,7 @@ function showContextMenu(event, element) {
         break;
       }
     }
-    localStorage.setItem("products", JSON.stringify(ArrProduct));
+    localStorage.setItem("arrayproducts", JSON.stringify(ArrProduct));
     renderqlsp();
   });
   //chinh sua
@@ -219,11 +231,23 @@ function showContextMenu(event, element) {
                         <input style="width: 25%" type="text" placeholder="Mã màu [#000,#fff]" value="${codecolor}" id="codecolorAddProduct">
                     </div>
                     <div class="contentTab">
-                        <span>Số lượng: </span>
-                        <input style="width: 20%" type="text" id="countAddProduct" placeholder="Số lượng" value="${count}">
+                        <span>Số lượngA: </span>
+                        <input style="width: 20%" type="text" id="countAddProductA" placeholder="Số lượng" value="${countA}">
                     </div>
             </div>
             <div class="rightTab">
+                         <div class="contentTab">
+                            <span>Số lượngB: </span>
+                            <input style="width: 20%" type="text" id="countAddProductB" placeholder="Số lượng" value="${countB}">
+                        </div>
+                         <div class="contentTab">
+                            <span>Số lượngC: </span>
+                            <input style="width: 20%" type="text" id="countAddProductC" placeholder="Số lượng" value="${countC}">
+                        </div>
+                         <div class="contentTab">
+                            <span>Số lượngD: </span>
+                            <input style="width: 20%" type="text" id="countAddProductD" placeholder="Số lượng" value="${countD}">
+                        </div>
                         <div class="contentTab">
                             <span>Đơn giá: </span>
                             <input style="width: 30%" type="text" id="priceAddProduct" placeholder="Đơn giá" value="${price}">
@@ -238,7 +262,7 @@ function showContextMenu(event, element) {
                         </div>
             </div>
         </div>
-        <div onclick="btnAccept()" class="btnAccept">
+        <div class="btnAccept">
             <div class="content-btn">
                 <buttom type="sumbit">HOÀN TẤT</buttom>
             </div>
@@ -267,28 +291,28 @@ function createChart() {
       {
         label: "Đã Bán",
         data: [
-          ArrProduct.filter((i) => i.nametag === "sweater#").reduce(
-            (i, n) => i + n.sell,
+          Arrsell.filter((i) => i.obj.nametag === "sweater#").reduce(
+            (i, n) => i + n.soluong,
             0
           ),
-          ArrProduct.filter((i) => i.nametag === "somi#").reduce(
-            (i, n) => i + n.sell,
+          Arrsell.filter((i) => i.obj.nametag === "somi#").reduce(
+            (i, n) => i + n.soluong,
             0
           ),
-          ArrProduct.filter((i) => i.nametag === "hoodie#").reduce(
-            (i, n) => i + n.sell,
+          Arrsell.filter((i) => i.obj.nametag === "hoodie#").reduce(
+            (i, n) => i + n.soluong,
             0
           ),
-          ArrProduct.filter((i) => i.nametag === "aokhoac#").reduce(
-            (i, n) => i + n.sell,
+          Arrsell.filter((i) => i.obj.nametag === "aokhoac#").reduce(
+            (i, n) => i + n.soluong,
             0
           ),
-          ArrProduct.filter((i) => i.nametag === "aothun#").reduce(
-            (i, n) => i + n.sell,
+          Arrsell.filter((i) => i.obj.nametag === "aothun#").reduce(
+            (i, n) => i + n.soluong,
             0
           ),
-          ArrProduct.filter((i) => i.nametag === "polo#").reduce(
-            (i, n) => i + n.sell,
+          Arrsell.filter((i) => i.obj.nametag === "polo#").reduce(
+            (i, n) => i + n.soluong,
             0
           ),
         ],
@@ -342,8 +366,17 @@ function btnAccept() {
   const codecolorAddProduct = document
     .getElementById("codecolorAddProduct")
     .value.trim();
-  const countAddProduct = parseInt(
-    document.getElementById("countAddProduct").value.trim()
+  const countAddProductA = parseInt(
+    document.getElementById("countAddProductA").value.trim()
+  );
+  const countAddProductB = parseInt(
+    document.getElementById("countAddProductB").value.trim()
+  );
+  const countAddProductC = parseInt(
+    document.getElementById("countAddProductC").value.trim()
+  );
+  const countAddProductD = parseInt(
+    document.getElementById("countAddProductD").value.trim()
   );
   const priceAddProduct = parseFloat(
     document.getElementById("priceAddProduct").value.trim()
@@ -354,7 +387,10 @@ function btnAccept() {
   if (
     !nameAddProduct ||
     !colorAddProduct ||
-    isNaN(countAddProduct) ||
+    isNaN(countAddProductA) ||
+    isNaN(countAddProductB) ||
+    isNaN(countAddProductC) ||
+    isNaN(countAddProductD) ||
     isNaN(priceAddProduct)
   ) {
     console.error("Please complete all required fields with valid data.");
@@ -371,7 +407,12 @@ function btnAccept() {
     nameSP: nameAddProduct,
     img: img,
     price: priceAddProduct,
-    count: countAddProduct,
+    quantity: {
+      A: countAddProductA,
+      B: countAddProductB,
+      C: countAddProductC,
+      D: countAddProductD,
+    },
     nametag: nametag,
     nameColor1: colorAddProduct,
     colorr1: codecolorAddProduct,
@@ -379,7 +420,7 @@ function btnAccept() {
 
   ArrProduct.push(newProduct);
   console.log(ArrProduct);
-  localStorage.setItem("products", JSON.stringify(ArrProduct));
+  localStorage.setItem("arrayproducts", JSON.stringify(ArrProduct));
   renderqlsp();
   renderBtnadd(); //tai lai
 }
@@ -389,22 +430,20 @@ function createProduct({
   nameSP,
   img,
   price,
-  count,
+  quantity,
   nametag,
   nameColor1,
   colorr1,
-  sell,
 }) {
   return {
     idproduct: idproduct,
     nameSP: nameSP,
     img: img,
     price: price,
-    count: count,
+    quantity: quantity,
     nametag: nametag,
     nameColor1: nameColor1,
     colorr1: colorr1,
-    sell: sell,
   };
 }
 // tai anh len
@@ -428,11 +467,10 @@ function onloandimg(input) {
 
 //ham loc san tk
 function listSearch_tk() {
-  let s = "";
-  let arr = [...ArrProduct];
+  let arr = [...Arrsell];
   let typeProduct = document.getElementById("typeProduct").value;
   if (typeProduct !== "0") {
-    arr = ArrProduct.filter((i) => i.nametag === typeProduct);
+    arr = Arrsell.filter((i) => i.obj.nametag === typeProduct);
   }
   rankProfit(arr);
 }
@@ -449,8 +487,8 @@ function renderqltk() {
          </div> 
          <div class="boder">
               <div class="left-boder">
-                  <h2 style="color: blue;">${ArrProduct.reduce(
-                    (i, n) => i + n.sell,
+                  <h2 style="color: blue;">${Arrsell.reduce(
+                    (i, n) => i + n.soluong,
                     0
                   )}</h2>
                   <h2 style="font-weight: 200;">ĐÃ BÁN</h2> 
@@ -459,8 +497,8 @@ function renderqltk() {
          </div> 
          <div class="boder">
               <div class="left-boder">
-                  <h2 style="color: blue;">${ArrProduct.reduce(
-                    (i, n) => i + n.sell * n.price,
+                  <h2 style="color: blue;">${Arrsell.reduce(
+                    (i, n) => i + n.soluong * n.obj.price,
                     0
                   ).toLocaleString("vi-VN", {
                     style: "currency",
@@ -495,18 +533,20 @@ function renderqltk() {
     </div>
 </div>`;
   createChart(); // Tạo biểu đồ khi nhấp vào "QUẢN LÝ THỐNG KÊ"
-  rankProfit(ArrProduct);
+  rankProfit(Arrsell);
 }
 //ham tao doanh thu
 function rankProfit(arr) {
   let s = "";
-  const sortArrsell = arr.sort((a, b) => b.sell * b.price - a.sell * a.price);
+  const sortArrsell = arr.sort(
+    (a, b) => b.soluong * b.obj.price - a.soluong * a.obj.price
+  );
   sortArrsell.forEach((i) => {
     s += ` <div class="rankProfit-Child">
-            <span style="width: 30%;" class="name">${i.nameSP}</span>
-            <span style="width: 30%;" class="sold">${i.sell}</span>
+            <span style="width: 30%;" class="name">${i.obj.nameSP}</span>
+            <span style="width: 30%;" class="sold">${i.soluong}</span>
             <span style="width: 10%;  class="profits">${(
-              i.price * i.sell
+              i.obj.price * i.soluong
             ).toLocaleString("vi-VN", {
               style: "currency",
               currency: "VND",
@@ -545,11 +585,23 @@ function renderBtnadd() {
                                   <input style="width: 25%" type="text" placeholder="Mã màu [#000,#fff]" value="" id="codecolorAddProduct">
                               </div>
                               <div class="contentTab">
-                                  <span>Số lượng: </span>
-                                  <input style="width: 20%" type="text" id="countAddProduct" placeholder="Số lượng" value="">
+                                  <span>Số lượng A: </span>
+                                  <input style="width: 20%" type="text" id="countAddProductA" placeholder="Số lượng" value="">
                               </div>
                       </div>
                       <div class="rightTab">
+                                  <div class="contentTab">
+                                      <span>Số lượng B: </span>
+                                      <input style="width: 20%" type="text" id="countAddProductB" placeholder="Số lượng" value="">
+                                  </div>
+                                  <div class="contentTab">
+                                      <span>Số lượng C: </span>
+                                      <input style="width: 20%" type="text" id="countAddProductC" placeholder="Số lượng" value="">
+                                  </div>
+                                  <div class="contentTab">
+                                      <span>Số lượng D: </span>
+                                      <input style="width: 20%" type="text" id="countAddProductD" placeholder="Số lượng" value="">
+                                  </div>
                                   <div class="contentTab">
                                       <span>Đơn giá: </span>
                                       <input style="width: 30%" type="text" id="priceAddProduct" placeholder="Đơn giá" value="">
@@ -605,6 +657,7 @@ window.onload = () => {
     QLSP.classList.remove("act");
     QLND.classList.remove("act");
     savepage(2);
+    renderqldh();
   });
 
   QLSP.addEventListener("click", () => {
@@ -614,7 +667,6 @@ window.onload = () => {
     QLND.classList.remove("act");
     savepage(3);
     renderqlsp();
-    renderBtnadd();
   });
 
   QLND.addEventListener("click", () => {
@@ -634,6 +686,7 @@ window.onload = () => {
       break;
     case 2:
       QLDH.classList.add("act");
+      renderqldh();
       break;
     case 3:
       QLSP.classList.add("act");
@@ -772,4 +825,127 @@ function renderqlnd() {
                 </div>
             </div>`;
   checkAccount();
+}
+
+// vinh render qldh
+let getShopBag = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+
+// in đơn hàng
+function listDH(filteredProducts) {
+  let s = "";
+  filteredProducts.forEach((product) => {
+    let Price = product.obj.price.toLocaleString("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    });
+    let stringStatus = "";
+    if (product.status === "1") stringStatus = "Chờ xác nhận";
+    else if (product.status === "2") stringStatus = "Đang gói hàng";
+    else if (product.status === "3") stringStatus = "Vận chuyển";
+    else if (product.status === "4") stringStatus = "Hoàn thành";
+    s += `
+            <div class="list">
+                <div style="width: 10%; display: flex; justify-content: left;">
+                  <input type="checkbox" class="myCheckbox"/>
+                </div>
+                <span style="width: 10%" class="idProduct">${product.obj.idproduct}</span>
+                <img style="width: 20%" src=".${product.obj.img}" class="imgProduct" alt="Ảnh lỗi">
+                <span style="width: 30%" class="nameProduct">${product.obj.nameSP}</span>
+                <span style="width: 10%" class="countProduct">${product.soluong}</span>
+                <span style="width: 10%" class="priceProduct">${Price}</span>
+                <span style="width: 10%" class="deliveryStatus">${stringStatus}</span>
+            </div>
+    `;
+  });
+  return s;
+}
+
+// tìm kiếm đơn hàng có trạng thái vận chuyển cần tìm
+function setDH() {
+  let getDeliveryStatusSelection = document.getElementById(
+    "deliveryStatusSelection"
+  ).value;
+  // mảng chứa các vị trí của những đơn hàng đang chọn
+  let checkboxPositionArray = [];
+  let getAllCheckbox = document.querySelectorAll(".myCheckbox");
+  for (let i = 0; i < getAllCheckbox.length; i++) {
+    if (getAllCheckbox[i].checked) {
+      checkboxPositionArray.push(i);
+    }
+  }
+  let filteredProducts = [];
+  // push những đơn hàng đang chọn vào filteredProducts
+  for (let i = 0; i < checkboxPositionArray.length; i++) {
+    filteredProducts.push(
+      getShopBag[0].shopbagispayuser[checkboxPositionArray[i]]
+    );
+  }
+  //set trạng thái vận chuyển của những đơn hàng đang chọn
+  filteredProducts.forEach((product) => {
+    if (getDeliveryStatusSelection === "0") {
+      product.status = "1";
+    } else if (getDeliveryStatusSelection === "1") {
+      product.status = "2";
+    } else if (getDeliveryStatusSelection === "2") {
+      product.status = "3";
+    } else if (getDeliveryStatusSelection === "3") {
+      product.status = "4";
+    }
+  });
+  // lấy tất cả những đơn hàng trong shopbagispayuser
+  filteredProducts = getShopBag[0];
+  localStorage.setItem("shopbagispay", JSON.stringify(filteredProducts));
+  document.querySelector("#storage-body").innerHTML = listDH(
+    filteredProducts.shopbagispayuser
+  );
+  document.querySelector("#amountOfProduct").innerText = countProduct(
+    filteredProducts.shopbagispayuser
+  );
+}
+
+function doYouAccept() {
+  setDH();
+}
+
+function renderqldh() {
+  document.querySelector(".page-right").innerHTML = `<div class="qldh">
+                <div class="title"><h1>QUẢN LÝ ĐƠN HÀNG</h1></div>
+                <div class="btnAdd"><div class="circle" onclick="btnAdd()"><i class="fa-solid fa-plus"></i></div></div>
+                <div class="groupOption">
+                        <select name="" class="box" id="deliveryStatusSelection">
+                            <option value="0">Chờ xác nhận</option>
+                            <option value="1">Đang gói hàng</option>
+                            <option value="2">Vận chuyển</option>
+                            <option value="3">Hoàn thành</option>
+                        </select>
+                        <button class="box" id="acceptChangeStatus" style="width: 10%;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-right: 200px;
+  border: none;
+  height: fit-content;
+  padding: 10px;" onclick="doYouAccept()">Xác nhận</button>
+                        <div class="box">
+                            <div class="contentBox">
+                                <div class="leftBox">
+                                    <h2 id="amountOfProduct">0</h2>
+                                    <span>ĐƠN HÀNG</span>
+                                </div>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                </div>
+                <div class="titleCol">
+                    <span style="width: 10%" class="selectProduct">Chọn</span>
+                    <span style="width: 10%" class="idProduct">ID</span>
+                    <span style="width: 20% ; padding-left: 7%" class="imgProduct">Hình ảnh</span>
+                    <span style="width: 30% ; padding-left: 5%" class="nameProduct">Tên sản phẩm</span>
+                    <span style="width: 10%" class="countProduct">Số lượng</span>
+                    <span style="width: 10%" class="priceProduct">Đơn giá</span>
+                    <span style="width: 10%" class="deliveryStatus">Vận chuyển</span>
+                </div>
+                <div id="storage-body"></div>`;
+  document.querySelector("#storage-body").innerHTML = listDH(
+    getShopBag[0].shopbagispayuser
+  );
 }

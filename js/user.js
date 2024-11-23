@@ -249,7 +249,7 @@ function chinhsuainfo() {
   }
 }
 function mangtheofilter(statusid, arr) {
-  console.log(statusid);
+  // console.log(statusid);
   let mang = [];
   if (statusid == "btnStatusDelivery" || statusid == "all") {
     return arr;
@@ -267,7 +267,9 @@ function hienthitheofilter(item) {
   let mang = [];
   let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
   let arrayshopbagispay = JSON.parse(localStorage.getItem("shopbagispay"));
+  console.log(arrayshopbagispay[0].IDuser);
   for (let i = 0; i < arrayshopbagispay.length; i++) {
+    console.log("ac");
     if (arrayshopbagispay[i].IDuser == usercurrent.userID) {
       mang = arrayshopbagispay[i].shopbagispayuser;
     }

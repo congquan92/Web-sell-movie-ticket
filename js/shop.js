@@ -1354,7 +1354,6 @@ function thanhtoan() {
   let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
   let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
   let userIndex = kiemtratontai(usercurrent.userID);
-
   if (usercurrent.phone === "" || usercurrent.diachi === "") {
     alert("Vui lòng nhập đầy đủ số điện thoại và địa chỉ");
     chinhsua();
@@ -1370,6 +1369,7 @@ function thanhtoan() {
         shopbagispayuser:
           JSON.parse(localStorage.getItem("arrayshopbag")) || [],
       };
+      console.log(shopbagitem);
       shopbagispay.push(shopbagitem);
     }
 
