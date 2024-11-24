@@ -183,19 +183,35 @@ function showContextMenu(event, element) {
     default:
       typeProduct = "Không xác định";
   }
-
   //xoa san pham
   document.getElementById("deleteProduct").addEventListener("click", () => {
-    for (let i = 0; i < countProduct(ArrProduct); i++) {
-      if (ArrProduct[i].idproduct === idProduct) {
-        ArrProduct.splice(i, 1); // 1 la vi tri roi
-        i--;
-        break;
+    toggleConfirmationDialog(true);
+    document.querySelector(".outbackround").classList.add("actoutbackground");
+    document.getElementById("yes").onclick = () => {
+      for (let i = 0; i < countProduct(ArrProduct); i++) {
+        if (ArrProduct[i].idproduct === idProduct) {
+          ArrProduct.splice(i, 1); // 1 la vi tri roi
+          i--;
+          break;
+        }
       }
-    }
-    localStorage.setItem("arrayproducts", JSON.stringify(ArrProduct));
-    renderqlsp();
+      localStorage.setItem("arrayproducts", JSON.stringify(ArrProduct));
+      renderqlsp();
+      toggleConfirmationDialog(false);
+      closeTabb();
+      document
+        .querySelector(".outbackround")
+        .classList.remove("actoutbackground");
+    };
+    document.getElementById("no").onclick = () => {
+      toggleConfirmationDialog(false);
+      closeTabb();
+      document
+        .querySelector(".outbackround")
+        .classList.remove("actoutbackground");
+    };
   });
+
   //chinh sua
   document.getElementById("viewDetails").addEventListener("click", () => {
     document.querySelector(".outbackround").classList.add("actoutbackground");
@@ -409,12 +425,6 @@ function closeTabb() {
 }
 //chap nhan
 function btnAccept() {
-  let background = document.querySelector(".outbackround");
-  let l = document.querySelector(".btnAddproduct");
-  l.classList.remove("actz");
-  l.classList.add("nonez");
-  background.classList.remove("actoutbackground");
-
   const nameAddProduct = document.getElementById("nameAddProduct").value.trim();
   const colorAddProduct = document
     .getElementById("colorAddProduct")
@@ -439,46 +449,80 @@ function btnAccept() {
   );
   const nametagProduct = document.getElementById("nametagProduct").value.trim();
 
-  // Validation
+  // Validation dữ liệu
   if (
-    !nameAddProduct ||
-    !colorAddProduct ||
-    isNaN(countAddProductA) ||
-    isNaN(countAddProductB) ||
-    isNaN(countAddProductC) ||
-    isNaN(countAddProductD) ||
-    isNaN(priceAddProduct)
+    !validateInputs(
+      nameAddProduct,
+      colorAddProduct,
+      priceAddProduct,
+      countAddProductA,
+      countAddProductB,
+      countAddProductC,
+      countAddProductD
+    )
   ) {
-    console.error("Please complete all required fields with valid data.");
-    return; // Exit the function if validation fails
+    alert("Vui lòng nhập đầy đủ và đúng dữ liệu.");
+    return;
   }
-
+  // Tạo sản phẩm mới
   const id = `${nametagProduct}#${countProduct(ArrProduct) + 1}`;
   const imgElement = document.querySelector(".imgPreview");
-  const img = imgElement ? imgElement.src : ""; // Null check for imgPreview
+  const img = imgElement ? imgElement.src : ""; // Null check cho imgPreview
   const nametag = `${nametagProduct}#`;
 
-  const newProduct = createProduct({
-    idproduct: id,
-    nameSP: nameAddProduct,
-    img: img,
-    price: priceAddProduct,
-    quantity: {
-      A: countAddProductA,
-      B: countAddProductB,
-      C: countAddProductC,
-      D: countAddProductD,
-    },
-    nametag: nametag,
-    nameColor1: colorAddProduct,
-    colorr1: codecolorAddProduct,
-  });
+  // Hiển thị xác nhận
+  toggleConfirmationDialog(true);
 
-  ArrProduct.push(newProduct);
-  console.log(ArrProduct);
-  localStorage.setItem("arrayproducts", JSON.stringify(ArrProduct));
-  renderqlsp();
-  renderBtnadd(); //tai lai
+  // Gắn sự kiện xác nhận
+  document.getElementById("yes").onclick = () => {
+    const newProduct = createProduct({
+      idproduct: id,
+      nameSP: nameAddProduct,
+      img: img,
+      price: priceAddProduct,
+      quantity: {
+        A: countAddProductA,
+        B: countAddProductB,
+        C: countAddProductC,
+        D: countAddProductD,
+      },
+      nametag: nametag,
+      nameColor1: colorAddProduct,
+      colorr1: codecolorAddProduct,
+    });
+
+    // Cập nhật danh sách sản phẩm
+    ArrProduct.push(newProduct);
+    localStorage.setItem("arrayproducts", JSON.stringify(ArrProduct));
+    renderqlsp();
+    renderBtnadd();
+    toggleConfirmationDialog(false);
+    closeTabb();
+  };
+
+  document.getElementById("no").onclick = () => {
+    toggleConfirmationDialog(false);
+    closeTabb();
+  };
+}
+
+function validateInputs(name, color, price, ...counts) {
+  if (!name || !color || isNaN(price) || counts.some((count) => isNaN(count))) {
+    return false;
+  }
+  return true;
+}
+
+// Hàm hiển thị/ẩn hộp thoại xác nhận
+function toggleConfirmationDialog(show) {
+  const confirmationDialog = document.querySelector(".sb");
+  if (show) {
+    confirmationDialog.classList.add("actsb");
+    confirmationDialog.classList.remove("nonesb");
+  } else {
+    confirmationDialog.classList.remove("actsb");
+    confirmationDialog.classList.add("nonesb");
+  }
 }
 
 function createProduct({
@@ -1134,7 +1178,6 @@ function doYouAccept() {
 function renderqldh() {
   document.querySelector(".page-right").innerHTML = `<div class="qldh">
                 <div class="title"><h1>QUẢN LÝ ĐƠN HÀNG</h1></div>
-                <div class="btnAdd"><div class="circle" onclick="btnAdd()"><i class="fa-solid fa-plus"></i></div></div>
                 <div class="groupOption">
                         <select name="" class="box" id="deliveryStatusSelection">
                             <option value="0">Chờ xác nhận</option>
