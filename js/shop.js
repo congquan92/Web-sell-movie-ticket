@@ -625,9 +625,11 @@ function mangproduct_radio(radio, arr) {
   return mang;
 }
 let filteredProducts = ProductArrBoth; // Khởi tạo mảng ban đầu
+let filteredProducts_copy = "";
 function hienSPTheoFilter(item) {
   // x = item.id;
   filteredProducts = mangproduct_radio(item.id, ProductArrBoth);
+  filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts));
   makeSP(1, sosptrongtrang, filteredProducts);
 }
 // console.log(x);
@@ -639,7 +641,7 @@ function hienSPTheoFilter(item) {
 // //     console.log("a");
 // //   });
 // // }
-let filteredProducts_copy = "";
+
 function Sort(item) {
   let choice = parseInt(item.value);
   // Sử dụng bản sao của mảng gốc để khôi phục khi cần

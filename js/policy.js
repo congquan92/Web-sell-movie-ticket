@@ -124,6 +124,18 @@ social_btn.addEventListener("click", () => {
     flag_social_btn = 0;
   }
 });
+let flag_policy_btn = 0;
+policy_btn.addEventListener("click", () => {
+  if (flag_policy_btn == 0) {
+    policy_btn.classList.add("active");
+    content_policybtn.classList.add("active");
+    flag_policy_btn = 1;
+  } else {
+    policy_btn.classList.remove("active");
+    content_policybtn.classList.remove("active");
+    flag_policy_btn = 0;
+  }
+});
 function policycontent() {
   midcontent.innerHTML = `<div id="privacy-policy">
       <h1 class="policy-content privacy">

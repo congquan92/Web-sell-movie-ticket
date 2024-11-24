@@ -1,5 +1,5 @@
 //Huy
-let Products = [
+let Productindex = [
   {
     nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
     img: "./img/products/p1-1.png",
@@ -363,11 +363,11 @@ let Products = [
   },
 ];
 
-for (let i = 0; i < Products.length; i++) {
-  Products[i].idproduct = Products[i].nametag + i;
+for (let i = 0; i < Productindex.length; i++) {
+  Productindex[i].idproduct = Productindex[i].nametag + i;
 }
 if (JSON.parse(localStorage.getItem("arrayproducts")) == null) {
-  localStorage.setItem("arrayproducts", JSON.stringify(Products));
+  localStorage.setItem("arrayproducts", JSON.stringify(Productindex));
 }
 let logregBox = "";
 // console.log(logregBox);
@@ -546,33 +546,6 @@ img_improptu.forEach((img, index) => {
     img.src = `./img/products/body_${index + 1}.jpg`;
   });
 });
-//vinh policy
-let getPrivacyPolicy = document.querySelector("#privacy-policy");
-let getFAQPolicy = document.querySelector("#FAQ-policy");
-let getMembershipCardPolicy = document.querySelector("#membership-card-policy");
-let getExchangeCardPolicy = document.querySelector("#exchange-card-policy");
-let getShipCardPolicy = document.querySelector("#ship-card-policy");
-let getPolicyContact = document.querySelector("#policy-contact");
-let getPolices = document.getElementsByClassName("footer-policy-a");
-let infoPolices = [
-  getPrivacyPolicy,
-  getFAQPolicy,
-  getMembershipCardPolicy,
-  getExchangeCardPolicy,
-  getShipCardPolicy,
-];
-
-for (let i = 0; i < getPolices.length; i++) {
-  getPolices[i].addEventListener("click", (e) => {
-    e.preventDefault();
-    midcontent.style.display = "none";
-    infoPolices.forEach((policy) => {
-      policy.style.display = "none";
-    });
-    infoPolices[i].style.display = "block";
-    getPolicyContact.style.display = "flex";
-  });
-}
 
 // vinh sign up form
 let getRegisterButton = "";
@@ -793,12 +766,16 @@ let soluong1 = 0; // Số lượng sản phẩm trong giỏ hàng
 let tongtien1 = 0;
 // Hiển thị thông tin giỏ hàng
 function shopinginfo() {
+  let menurespon = document.querySelector(".header1");
+  if (menurespon) {
+    menurespon.classList.remove("active");
+  }
   let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
   const cart = document.querySelector(".cart");
   let s = `<div class="shoping-bag">
         <div class="shoping-bag-header">
           <h3>Giỏ hàng</h3>
-          <div class="close-shopping" onclick="closeall1()">Đóng</div>
+          <div class="close-shopping" onclick="closeall()">Đóng</div>
         </div>
         <div class="shoping-bag-info">`;
 
@@ -874,6 +851,10 @@ function chitiethoadon1() {
 function closeall() {
   document.querySelector(".cart").classList.remove("active");
   document.querySelector(".backgroud-menu-respon").style.display = "none";
+  let menurespon = document.querySelector(".header1");
+  if (menurespon) {
+    menurespon.classList.remove("active");
+  }
 }
 updateshopingbag();
 
@@ -1109,6 +1090,11 @@ function hienthispindex(item) {
   window.location.href = "shop.html";
 }
 function hienthiblog() {
+  let menurespon = document.querySelector(".header1");
+  if (menurespon) {
+    menurespon.classList.remove("active");
+    document.querySelector(".backgroud-menu-respon").style.display = "none";
+  }
   midcontent.innerHTML = ` <!-- Tiêu Đề -->
     <h1 id="title-god">Nội Dung "HOT"</h1>
     <!-- Nd-->

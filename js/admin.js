@@ -831,80 +831,85 @@ function renderqlnd() {
 let getShopBag = JSON.parse(localStorage.getItem("shopbagispay")) || [];
 
 // in đơn hàng
-function listDH(filteredProducts) {
+function listDH(ordersOfUser) {
   let s = "";
-  filteredProducts.forEach((product) => {
-    let Price = product.obj.price.toLocaleString("vi-VN", {
-      style: "currency",
-      currency: "VND",
-    });
+  console.log(ordersOfUser);
+  for (let i = 0; i < ordersOfUser.shopbagispayuser.length; i++) {
+    let Price = ordersOfUser.shopbagispayuser[i].obj.price.toLocaleString(
+      "vi-VN",
+      { style: "currency", currency: "VND" }
+    );
     let stringStatus = "";
-    if (product.status === "1") stringStatus = "Chờ xác nhận";
-    else if (product.status === "2") stringStatus = "Đang gói hàng";
-    else if (product.status === "3") stringStatus = "Vận chuyển";
-    else if (product.status === "4") stringStatus = "Hoàn thành";
+    if (ordersOfUser.shopbagispayuser[i].status === "1")
+      stringStatus = "Chờ xác nhận";
+    else if (ordersOfUser.shopbagispayuser[i].status === "2")
+      stringStatus = "Đang gói hàng";
+    else if (ordersOfUser.shopbagispayuser[i].status === "3")
+      stringStatus = "Vận chuyển";
+    else if (ordersOfUser.shopbagispayuser[i].status === "4")
+      stringStatus = "Hoàn thành";
     s += `
-            <div class="list">
-                <div style="width: 10%; display: flex; justify-content: left;">
-                  <input type="checkbox" class="myCheckbox"/>
+                <div class="list">
+                <span style="width: 10%" class="userID">${
+                  ordersOfUser.IDuser
+                }</span>
+                <div style="width: 5%; display: flex; justify-content: left;">
+                  <input type="checkbox" class="myCheckbox" onchange='setDH(${JSON.stringify(
+                    ordersOfUser
+                  )},${i})'/>
                 </div>
-                <span style="width: 10%" class="idProduct">${product.obj.idproduct}</span>
-                <img style="width: 20%" src=".${product.obj.img}" class="imgProduct" alt="Ảnh lỗi">
-                <span style="width: 30%" class="nameProduct">${product.obj.nameSP}</span>
-                <span style="width: 10%" class="countProduct">${product.soluong}</span>
+                <span style="width: 10%" class="idProduct">${
+                  ordersOfUser.shopbagispayuser[i].obj.idproduct
+                }</span>
+                <img style="width: 20%" src="${
+                  ordersOfUser.shopbagispayuser[i].obj.img
+                }" class="imgProduct" alt="Ảnh lỗi">
+                <span style="width: 30%" class="nameProduct">${
+                  ordersOfUser.shopbagispayuser[i].obj.nameSP
+                }</span>
+                <span style="width: 5%" class="countProduct">${
+                  ordersOfUser.shopbagispayuser[i].soluong
+                }</span>
                 <span style="width: 10%" class="priceProduct">${Price}</span>
                 <span style="width: 10%" class="deliveryStatus">${stringStatus}</span>
             </div>
     `;
-  });
+  }
   return s;
 }
-
+let mang = [];
 // tìm kiếm đơn hàng có trạng thái vận chuyển cần tìm
-function setDH() {
-  let getDeliveryStatusSelection = document.getElementById(
-    "deliveryStatusSelection"
-  ).value;
-  // mảng chứa các vị trí của những đơn hàng đang chọn
-  let checkboxPositionArray = [];
-  let getAllCheckbox = document.querySelectorAll(".myCheckbox");
-  for (let i = 0; i < getAllCheckbox.length; i++) {
-    if (getAllCheckbox[i].checked) {
-      checkboxPositionArray.push(i);
-    }
-  }
-  let filteredProducts = [];
-  // push những đơn hàng đang chọn vào filteredProducts
-  for (let i = 0; i < checkboxPositionArray.length; i++) {
-    filteredProducts.push(
-      getShopBag[0].shopbagispayuser[checkboxPositionArray[i]]
-    );
-  }
-  //set trạng thái vận chuyển của những đơn hàng đang chọn
-  filteredProducts.forEach((product) => {
-    if (getDeliveryStatusSelection === "0") {
-      product.status = "1";
-    } else if (getDeliveryStatusSelection === "1") {
-      product.status = "2";
-    } else if (getDeliveryStatusSelection === "2") {
-      product.status = "3";
-    } else if (getDeliveryStatusSelection === "3") {
-      product.status = "4";
-    }
-  });
-  // lấy tất cả những đơn hàng trong shopbagispayuser
-  filteredProducts = getShopBag[0];
-  localStorage.setItem("shopbagispay", JSON.stringify(filteredProducts));
-  document.querySelector("#storage-body").innerHTML = listDH(
-    filteredProducts.shopbagispayuser
-  );
-  document.querySelector("#amountOfProduct").innerText = countProduct(
-    filteredProducts.shopbagispayuser
-  );
+function setDH(user, itemindex) {
+  let itemispay = {
+    userpay: user,
+    itemindexi: itemindex,
+  };
+  mang.push(itemispay);
 }
 
 function doYouAccept() {
-  setDH();
+  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay"));
+  let input = document.querySelectorAll(".myCheckbox");
+  let getDeliveryStatus = document.querySelector(
+    "#deliveryStatusSelection"
+  ).value;
+  for (let i = 0; i < shopbagispay.length; i++) {
+    for (let j = 0; j < mang.length; j++) {
+      if (shopbagispay[i].IDuser == mang[j].userpay.IDuser) {
+        shopbagispay[i].shopbagispayuser[mang[j].itemindexi].status =
+          getDeliveryStatus;
+        console.log(
+          shopbagispay[i].shopbagispayuser[mang[j].itemindexi].status
+        );
+      }
+    }
+  }
+  mang = [];
+  input.forEach((input) => {
+    input.checked = false;
+  });
+  localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
+  location.reload();
 }
 
 function renderqldh() {
@@ -913,10 +918,10 @@ function renderqldh() {
                 <div class="btnAdd"><div class="circle" onclick="btnAdd()"><i class="fa-solid fa-plus"></i></div></div>
                 <div class="groupOption">
                         <select name="" class="box" id="deliveryStatusSelection">
-                            <option value="0">Chờ xác nhận</option>
-                            <option value="1">Đang gói hàng</option>
-                            <option value="2">Vận chuyển</option>
-                            <option value="3">Hoàn thành</option>
+                            <option value="1">Chờ xác nhận</option>
+                            <option value="2">Đang gói hàng</option>
+                            <option value="3">Vận chuyển</option>
+                            <option value="4">Hoàn thành</option>
                         </select>
                         <button class="box" id="acceptChangeStatus" style="width: 10%;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.2);
@@ -936,16 +941,19 @@ function renderqldh() {
                         </div>
                 </div>
                 <div class="titleCol">
-                    <span style="width: 10%" class="selectProduct">Chọn</span>
+                    <span style="width: 10%" class="userID">userID</span>
+                    <span style="width: 5%" class="selectProduct">Chọn</span>
                     <span style="width: 10%" class="idProduct">ID</span>
                     <span style="width: 20% ; padding-left: 7%" class="imgProduct">Hình ảnh</span>
                     <span style="width: 30% ; padding-left: 5%" class="nameProduct">Tên sản phẩm</span>
-                    <span style="width: 10%" class="countProduct">Số lượng</span>
+                    <span style="width: 5%" class="countProduct">Số lượng</span>
                     <span style="width: 10%" class="priceProduct">Đơn giá</span>
                     <span style="width: 10%" class="deliveryStatus">Vận chuyển</span>
                 </div>
                 <div id="storage-body"></div>`;
-  document.querySelector("#storage-body").innerHTML = listDH(
-    getShopBag[0].shopbagispayuser
-  );
+  let s = "";
+  for (let i = 0; i < getShopBag.length; i++) {
+    s += listDH(getShopBag[i]);
+  }
+  document.querySelector("#storage-body").innerHTML = s;
 }

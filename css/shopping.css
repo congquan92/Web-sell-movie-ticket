@@ -120,3 +120,35 @@
 .delete:hover {
   background-color: #efefef;
 }
+/* Repsonsive */
+@media (min-width: 400px) and (max-width: 700px) {
+  .shoping-bag-info {
+    height: 700px;
+  }
+}
+@media (min-width: 700px) and (max-width: 899px) {
+  .shoping-bag-info {
+    height: 650px;
+  }
+}
+@media (min-width: 900px) and (max-width: 1500px) {
+  .logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  .embed-responsive {
+    width: 100%;
+    height: 400px;
+  }
+  .container {
+    width: 100%;
+    border-radius: 0%;
+  }
+  .shoping-bag-info {
+    height: 800px;
+  }
+  .btn-pay {
+    width: 70%;
+  }
+}

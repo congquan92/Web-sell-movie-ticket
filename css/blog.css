@@ -155,6 +155,7 @@ ul {
 }
 /*tabs*/
 .tabs {
+  padding: 10px;
   display: flex; /* hiển thị các phần tử theo chiều ngang */
   margin: 20px 0; /* khoảng cách giữa các phần tử */
 }
@@ -176,6 +177,7 @@ ul {
 }
 /*blog*/
 .blog-items {
+  padding: 10px;
   display: flex; /* hiển thị các phần tử theo chiều ngang */
   flex-wrap: wrap; /* cho phần tử xuống dòng khi không đủ không gian */
   gap: 20px; /* khoảng cách giữa các phần tử */
@@ -815,6 +817,7 @@ body.modal-open {
   }
   /*blog*/
   .blog-items {
+    padding: 20px;
     flex-direction: row;
     justify-content: space-between;
   }
