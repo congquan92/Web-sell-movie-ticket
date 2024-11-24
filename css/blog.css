@@ -415,7 +415,8 @@ body.modal-open {
   }
   /* footer */
   .footer {
-    display: block;
+    display: inline-block;
+    width: 100%;
   }
   .address-btn span i,
   .policy-btn span i,
@@ -675,7 +676,8 @@ body.modal-open {
   }
   /* footer */
   .footer {
-    display: block;
+    display: inline-block;
+    width: 100%;
   }
   .address-btn span i,
   .policy-btn span i,

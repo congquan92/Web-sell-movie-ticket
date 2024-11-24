@@ -15,7 +15,7 @@ let typeproducts = [
 // Hàm tạo id SP
 function makeIDproduct() {
   for (let i = 0; i < ArrProduct.length; i++) {
-    ArrProduct[i].idproduct = ArrProduct[i].nametag + i;
+    ArrProduct[i].idproduct = ArrProduct[i].nametag + (i + 1);
   }
 }
 
@@ -59,7 +59,7 @@ function listSP(arr) {
     s += `
             <div oncontextmenu="showContextMenu(event, this)" class="list">
                 <span style="width: 10%" nametag ="${product.nametag}" class="idProduct">${product.idproduct}</span>
-                <img style="width: 20%" src=".${product.img}" class="imgProduct" alt="Ảnh">
+                <img style="width: 20%" src="${product.img}" class="imgProduct" alt="Ảnh">
                 <span style="width: 30%" class="nameProduct">${product.nameSP}</span>
                 <span style="width: 10%" data="${product.colorr1}" class="colorProduct">${product.colorr1}</span>
                 <span style="width: 10%" dataA="${product.quantity.A}" dataB="${product.quantity.B}" dataC="${product.quantity.C}" dataD="${product.quantity.D}" class="countProduct">${count}</span>
@@ -212,7 +212,7 @@ function showContextMenu(event, element) {
             <div class="leftTab">
                 <div class="contentTab">
                     <span>ID: </span>
-                    <span>${idProduct}</span>
+                    <span class="ID">${idProduct}</span>
                 </div>
                 <div class="contentTab">
                     <div id="imageContainer"> 
@@ -262,7 +262,7 @@ function showContextMenu(event, element) {
                         </div>
             </div>
         </div>
-        <div class="btnAccept">
+        <div onclick="chinhsua()" class="btnAccept">
             <div class="content-btn">
                 <buttom type="sumbit">HOÀN TẤT</buttom>
             </div>
@@ -270,6 +270,62 @@ function showContextMenu(event, element) {
       </form>
   </div>`;
   });
+}
+
+function chinhsua() {
+  let background = document.querySelector(".outbackround");
+  let l = document.querySelector(".btnAddproduct");
+  l.classList.remove("actz");
+  l.classList.add("nonez");
+  background.classList.remove("actoutbackground");
+
+  const id = document.querySelector(".ID").innerText;
+
+  const nameProduct = document.getElementById("nameAddProduct").value.trim();
+  const colorProduct = document.getElementById("colorAddProduct").value.trim();
+  const codecolorProduct = document
+    .getElementById("codecolorAddProduct")
+    .value.trim();
+  const countProductA = parseInt(
+    document.getElementById("countAddProductA").value.trim()
+  );
+  const countProductB = parseInt(
+    document.getElementById("countAddProductB").value.trim()
+  );
+  const countProductC = parseInt(
+    document.getElementById("countAddProductC").value.trim()
+  );
+  const countProductD = parseInt(
+    document.getElementById("countAddProductD").value.trim()
+  );
+  const priceProduct = parseFloat(
+    document.getElementById("priceAddProduct").value.trim()
+  );
+  const nametagProduct = document
+    .getElementById("nameimgAddProduct")
+    .value.trim();
+  const imgElement = document.querySelector(".imgPreview");
+  const img = imgElement ? imgElement.src : ""; // Null check for imgPreview
+  if (img.startsWith(".")) {
+    img = img.substring(1);
+  }
+  for (let i = 0; i < countProduct(ArrProduct); i++) {
+    if (ArrProduct[i].idproduct === id) {
+      ArrProduct[i].colorr1 = colorProduct;
+      ArrProduct[i].colorr1 = codecolorProduct;
+      ArrProduct[i].quantity.A = countProductA;
+      ArrProduct[i].quantity.B = countProductB;
+      ArrProduct[i].quantity.C = countProductC;
+      ArrProduct[i].quantity.D = countProductD;
+      ArrProduct[i].price = priceProduct;
+      ArrProduct[i].nameSP = nameProduct;
+      ArrProduct[i].img = img;
+      ArrProduct[i].nametag = nametagProduct;
+    }
+  }
+  closeTabz();
+  localStorage.setItem("arrayproducts", JSON.stringify(ArrProduct));
+  renderqlsp();
 }
 // Hàm ẩn menu
 function hideContextMenu() {
@@ -827,13 +883,143 @@ function renderqlnd() {
   checkAccount();
 }
 
+// // vinh render qldh
+// let getShopBag = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+
+// // in đơn hàng
+// function listDH(ordersOfUser) {
+//   let s = "";
+//   console.log(ordersOfUser);
+//   for (let i = 0; i < ordersOfUser.shopbagispayuser.length; i++) {
+//     let Price = ordersOfUser.shopbagispayuser[i].obj.price.toLocaleString(
+//       "vi-VN",
+//       { style: "currency", currency: "VND" }
+//     );
+//     let stringStatus = "";
+//     if (ordersOfUser.shopbagispayuser[i].status === "1")
+//       stringStatus = "Chờ xác nhận";
+//     else if (ordersOfUser.shopbagispayuser[i].status === "2")
+//       stringStatus = "Đang gói hàng";
+//     else if (ordersOfUser.shopbagispayuser[i].status === "3")
+//       stringStatus = "Vận chuyển";
+//     else if (ordersOfUser.shopbagispayuser[i].status === "4")
+//       stringStatus = "Hoàn thành";
+//     s += `
+//                 <div class="list">
+//                 <span style="width: 10%" class="userID">${
+//                   ordersOfUser.IDuser
+//                 }</span>
+//                 <div style="width: 5%; display: flex; justify-content: left;">
+//                   <input type="checkbox" class="myCheckbox" onchange='setDH(${JSON.stringify(
+//                     ordersOfUser
+//                   )},${i})'/>
+//                 </div>
+//                 <span style="width: 10%" class="idProduct">${
+//                   ordersOfUser.shopbagispayuser[i].obj.idproduct
+//                 }</span>
+//                 <img style="width: 20%" src="${
+//                   ordersOfUser.shopbagispayuser[i].obj.img
+//                 }" class="imgProduct" alt="Ảnh lỗi">
+//                 <span style="width: 30%" class="nameProduct">${
+//                   ordersOfUser.shopbagispayuser[i].obj.nameSP
+//                 }</span>
+//                 <span style="width: 5%" class="countProduct">${
+//                   ordersOfUser.shopbagispayuser[i].soluong
+//                 }</span>
+//                 <span style="width: 10%" class="priceProduct">${Price}</span>
+//                 <span style="width: 10%" class="deliveryStatus">${stringStatus}</span>
+//             </div>
+//     `;
+//   }
+//   return s;
+// }
+// let mang = [];
+// // tìm kiếm đơn hàng có trạng thái vận chuyển cần tìm
+// function setDH(user, itemindex) {
+//   let itemispay = {
+//     userpay: user,
+//     itemindexi: itemindex,
+//   };
+//   mang.push(itemispay);
+// }
+
+// function doYouAccept() {
+//   let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay"));
+//   let input = document.querySelectorAll(".myCheckbox");
+//   let getDeliveryStatus = document.querySelector(
+//     "#deliveryStatusSelection"
+//   ).value;
+//   for (let i = 0; i < shopbagispay.length; i++) {
+//     for (let j = 0; j < mang.length; j++) {
+//       if (shopbagispay[i].IDuser == mang[j].userpay.IDuser) {
+//         shopbagispay[i].shopbagispayuser[mang[j].itemindexi].status =
+//           getDeliveryStatus;
+//         console.log(
+//           shopbagispay[i].shopbagispayuser[mang[j].itemindexi].status
+//         );
+//       }
+//     }
+//   }
+//   mang = [];
+//   input.forEach((input) => {
+//     input.checked = false;
+//   });
+//   localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
+//   location.reload();
+// }
+
+// function renderqldh() {
+//   document.querySelector(".page-right").innerHTML = `<div class="qldh">
+//                 <div class="title"><h1>QUẢN LÝ ĐƠN HÀNG</h1></div>
+//                 <div class="btnAdd"><div class="circle" onclick="btnAdd()"><i class="fa-solid fa-plus"></i></div></div>
+//                 <div class="groupOption">
+//                         <select name="" class="box" id="deliveryStatusSelection">
+//                             <option value="1">Chờ xác nhận</option>
+//                             <option value="2">Đang gói hàng</option>
+//                             <option value="3">Vận chuyển</option>
+//                             <option value="4">Hoàn thành</option>
+//                         </select>
+//                         <button class="box" id="acceptChangeStatus" style="width: 10%;
+//   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.2);
+//   border-radius: 10px;
+//   margin-right: 200px;
+//   border: none;
+//   height: fit-content;
+//   padding: 10px;" onclick="doYouAccept()">Xác nhận</button>
+//                         <div class="box">
+//                             <div class="contentBox">
+//                                 <div class="leftBox">
+//                                     <h2 id="amountOfProduct">0</h2>
+//                                     <span>ĐƠN HÀNG</span>
+//                                 </div>
+//                                 <i class="fa-solid fa-star"></i>
+//                             </div>
+//                         </div>
+//                 </div>
+//                 <div class="titleCol">
+//                     <span style="width: 10%" class="userID">userID</span>
+//                     <span style="width: 5%" class="selectProduct">Chọn</span>
+//                     <span style="width: 10%" class="idProduct">ID</span>
+//                     <span style="width: 20% ; padding-left: 7%" class="imgProduct">Hình ảnh</span>
+//                     <span style="width: 30% ; padding-left: 5%" class="nameProduct">Tên sản phẩm</span>
+//                     <span style="width: 5%" class="countProduct">Số lượng</span>
+//                     <span style="width: 10%" class="priceProduct">Đơn giá</span>
+//                     <span style="width: 10%" class="deliveryStatus">Vận chuyển</span>
+//                 </div>
+//                 <div id="storage-body"></div>`;
+//   let s = "";
+//   for (let i = 0; i < getShopBag.length; i++) {
+//     s += listDH(getShopBag[i]);
+//   }
+//   document.querySelector("#storage-body").innerHTML = s;
+// }
 // vinh render qldh
 let getShopBag = JSON.parse(localStorage.getItem("shopbagispay")) || [];
 
 // in đơn hàng
 function listDH(ordersOfUser) {
   let s = "";
-  console.log(ordersOfUser);
+  console.log(ordersOfUser.shopbagispayuser);
   for (let i = 0; i < ordersOfUser.shopbagispayuser.length; i++) {
     let Price = ordersOfUser.shopbagispayuser[i].obj.price.toLocaleString(
       "vi-VN",
@@ -850,26 +1036,14 @@ function listDH(ordersOfUser) {
       stringStatus = "Hoàn thành";
     s += `
                 <div class="list">
-                <span style="width: 10%" class="userID">${
-                  ordersOfUser.IDuser
-                }</span>
+                <span style="width: 10%" class="userID">${ordersOfUser.IDuser}</span>
                 <div style="width: 5%; display: flex; justify-content: left;">
-                  <input type="checkbox" class="myCheckbox" onchange='setDH(${JSON.stringify(
-                    ordersOfUser
-                  )},${i})'/>
+                  <input type="checkbox" class="myCheckbox"/>
                 </div>
-                <span style="width: 10%" class="idProduct">${
-                  ordersOfUser.shopbagispayuser[i].obj.idproduct
-                }</span>
-                <img style="width: 20%" src="${
-                  ordersOfUser.shopbagispayuser[i].obj.img
-                }" class="imgProduct" alt="Ảnh lỗi">
-                <span style="width: 30%" class="nameProduct">${
-                  ordersOfUser.shopbagispayuser[i].obj.nameSP
-                }</span>
-                <span style="width: 5%" class="countProduct">${
-                  ordersOfUser.shopbagispayuser[i].soluong
-                }</span>
+                <span style="width: 10%" class="idProduct">${ordersOfUser.shopbagispayuser[i].obj.idproduct}</span>
+                <img style="width: 20%" src="${ordersOfUser.shopbagispayuser[i].obj.img}" class="imgProduct" alt="Ảnh lỗi">
+                <span style="width: 30%" class="nameProduct">${ordersOfUser.shopbagispayuser[i].obj.nameSP}</span>
+                <span style="width: 5%" class="countProduct">${ordersOfUser.shopbagispayuser[i].soluong}</span>
                 <span style="width: 10%" class="priceProduct">${Price}</span>
                 <span style="width: 10%" class="deliveryStatus">${stringStatus}</span>
             </div>
@@ -877,39 +1051,84 @@ function listDH(ordersOfUser) {
   }
   return s;
 }
-let mang = [];
-// tìm kiếm đơn hàng có trạng thái vận chuyển cần tìm
-function setDH(user, itemindex) {
-  let itemispay = {
-    userpay: user,
-    itemindexi: itemindex,
-  };
-  mang.push(itemispay);
-}
 
-function doYouAccept() {
-  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay"));
-  let input = document.querySelectorAll(".myCheckbox");
-  let getDeliveryStatus = document.querySelector(
-    "#deliveryStatusSelection"
+// set trạng thái vận chuyển cho những đơn hàng đang chọn
+function setDH() {
+  let getDeliveryStatusSelection = document.getElementById(
+    "deliveryStatusSelection"
   ).value;
-  for (let i = 0; i < shopbagispay.length; i++) {
-    for (let j = 0; j < mang.length; j++) {
-      if (shopbagispay[i].IDuser == mang[j].userpay.IDuser) {
-        shopbagispay[i].shopbagispayuser[mang[j].itemindexi].status =
-          getDeliveryStatus;
-        console.log(
-          shopbagispay[i].shopbagispayuser[mang[j].itemindexi].status
-        );
+  // mảng chứa các vị trí của những đơn hàng đang chọn
+  let checkboxPositionArray = [];
+  let getAllCheckbox = document.querySelectorAll(".myCheckbox");
+  for (let i = 0; i < getAllCheckbox.length; i++) {
+    if (getAllCheckbox[i].checked) {
+      checkboxPositionArray.push(i);
+    }
+  }
+  let filteredProducts = [];
+  let count = 0;
+  for (let i = 0; i < getShopBag.length; i++) {
+    for (let j = 0; j < getShopBag[i].shopbagispayuser.length; j++) {
+      if (checkboxPositionArray.includes(count)) {
+        let obj = {
+          IDuser: getShopBag[i].IDuser,
+          shopbagispayuser: [getShopBag[i].shopbagispayuser[j]],
+        };
+        filteredProducts.push(obj);
+      }
+      count++;
+    }
+  }
+  //set trạng thái vận chuyển cho những đơn hàng đang chọn
+  for (let i = 0; i < filteredProducts.length; i++) {
+    if (getDeliveryStatusSelection === "0") {
+      filteredProducts[i].shopbagispayuser[0].status = "1";
+    } else if (getDeliveryStatusSelection === "1") {
+      filteredProducts[i].shopbagispayuser[0].status = "2";
+    } else if (getDeliveryStatusSelection === "2") {
+      filteredProducts[i].shopbagispayuser[0].status = "3";
+    } else if (getDeliveryStatusSelection === "3") {
+      filteredProducts[i].shopbagispayuser[0].status = "4";
+    }
+  }
+  // push lên localStorage
+  let index = 0;
+  for (let i = 0; i < filteredProducts.length; i++) {
+    for (let j = 0; j < getShopBag[j].length; ) {
+      // tìm kiếm theo IDuser
+      if (filteredProducts[i].IDuser === getShopBag[j].IDuser) {
+        // duyệt qua hết shopbagispayuser của getShopBag[j] thì nhảy qua getShopBag[j + 1]
+        if (index === getShopBag[j].shopbagispayuser.length) {
+          j++;
+          continue;
+        }
+        // tìm kiếm theo idproduct
+        if (
+          filteredProducts[i].shopbagispayuser[0].obj.idproduct ===
+          getShopBag[j].shopbagispayuser[index].obj.idproduct
+        ) {
+          getShopBag[j].shopbagispayuser[index] =
+            filteredProducts[i].shopbagispayuser[0];
+          index = 0;
+          break;
+        }
+        index++;
       }
     }
   }
-  mang = [];
-  input.forEach((input) => {
-    input.checked = false;
-  });
-  localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
-  location.reload();
+  localStorage.setItem("shopbagispay", JSON.stringify(getShopBag));
+  // lấy tất cả đơn hàng
+  getShopBag = JSON.parse(localStorage.getItem("shopbagispay"));
+  let s = "";
+  for (let i = 0; i < getShopBag.length; i++) {
+    s += listDH(getShopBag[i]);
+  }
+  // console.log(s);
+  document.querySelector("#storage-body").innerHTML = s;
+}
+
+function doYouAccept() {
+  setDH();
 }
 
 function renderqldh() {
@@ -918,10 +1137,10 @@ function renderqldh() {
                 <div class="btnAdd"><div class="circle" onclick="btnAdd()"><i class="fa-solid fa-plus"></i></div></div>
                 <div class="groupOption">
                         <select name="" class="box" id="deliveryStatusSelection">
-                            <option value="1">Chờ xác nhận</option>
-                            <option value="2">Đang gói hàng</option>
-                            <option value="3">Vận chuyển</option>
-                            <option value="4">Hoàn thành</option>
+                            <option value="0">Chờ xác nhận</option>
+                            <option value="1">Đang gói hàng</option>
+                            <option value="2">Vận chuyển</option>
+                            <option value="3">Hoàn thành</option>
                         </select>
                         <button class="box" id="acceptChangeStatus" style="width: 10%;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.2);

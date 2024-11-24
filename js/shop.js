@@ -645,7 +645,7 @@ function hienSPTheoFilter(item) {
 function Sort(item) {
   let choice = parseInt(item.value);
   // Sử dụng bản sao của mảng gốc để khôi phục khi cần
-  filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts));
+  filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts_copy));
   switch (choice) {
     case 1:
       sapxeptang(filteredProducts_copy);
@@ -673,6 +673,7 @@ function Loc() {
       mang.push(filteredProducts_copy[i]);
     }
   }
+  filteredProducts_copy = mang;
   makeSP(1, sosptrongtrang, mang);
   makeselectpage(1, mang);
 }
