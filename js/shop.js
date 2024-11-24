@@ -992,7 +992,7 @@ function shopinginfo() {
 function giaodienthanhtoan() {
   let arrayproducts = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
   if (arrayproducts.length == 0) {
-    alert("Giỏ hàng rỗng");
+    alert("Không có sản phẩm trong giỏ hàng");
   } else {
     let tongtien = 0;
     getarrayshopbag();

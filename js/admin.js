@@ -15,7 +15,7 @@ let typeproducts = [
 // Hàm tạo id SP
 function makeIDproduct() {
   for (let i = 0; i < ArrProduct.length; i++) {
-    ArrProduct[i].idproduct = ArrProduct[i].nametag + (i + 1);
+    ArrProduct[i].idproduct = ArrProduct[i].nametag + i;
   }
 }
 
