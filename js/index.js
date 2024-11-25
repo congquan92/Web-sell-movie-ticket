@@ -488,13 +488,15 @@ login.forEach(function (e) {
     header_responsive.classList.remove("active");
     backgroud_menu_respon.style.display = "none";
     logregBox = document.querySelector(".logreg-box");
-    midcontent.style.padding="0px";
+    midcontent.style.padding = "0px";
   });
 });
 const home = document.querySelectorAll(".home"); //nut Home tren nav
 home.forEach(function (e) {
   e.addEventListener("click", () => {
     window.location.href = "index.html";
+    document.querySelector(".header .navbar .home").classList.add("active");
+    document.querySelector(".header .shop").classList.remove(active);
   });
 });
 
@@ -1126,6 +1128,7 @@ function hienthispindex(item) {
 }
 function hienthiblog() {
   let menurespon = document.querySelector(".header1");
+  document.title = "New Clothes | Blog";
   if (menurespon) {
     menurespon.classList.remove("active");
     document.querySelector(".backgroud-menu-respon").style.display = "none";

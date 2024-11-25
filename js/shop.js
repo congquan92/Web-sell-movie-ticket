@@ -395,17 +395,29 @@ function makeFilter() {
               <h3 id="totalResult"></h3>
             </div>
             <div class="ee"><h4>Thuộc</h4></div>`;
+
+  // Thêm các bộ lọc theo loại sản phẩm
   for (let i = 0; i < typeproducts.length; i++) {
     s += `<div class="type">
               <input type="radio" id="${
                 typeproducts[i].typeid
               }" onchange="hienSPTheoFilter(this);" class="radio-btn" name="filter-radio" value="${
       i + 1
-    }" /><span>${typeproducts[i].typename}</span>
+    }" />
+              <span>${typeproducts[i].typename}</span>
             </div>`;
   }
+
+  // Thêm ô tìm kiếm theo tên
+  s += `<div class="search">
+            <h5>Tìm kiếm theo tên</h5>
+            <input type="text" id="searchName" placeholder="Nhập tên sản phẩm" />
+            <button onclick="searchByName()">Tìm kiếm</button>
+          </div>`;
+
+  // Thêm bộ lọc theo giá
   s += `<div class="optionFilter">
-              <h5>KHOẢNG GIÁ</h5>
+              <h5>Khoảng giá</h5>
             </div>
             <div class="filterPrice">
               <input type="text" id="nodePrice_1" autocomplete="off" value=""/>
@@ -414,7 +426,9 @@ function makeFilter() {
             </div>
             <div class="loc"><a href="#" class="cc" onclick="Loc()">Lọc</a></div>
           </div>`;
+
   document.querySelector(".left").innerHTML = s;
+
   const radio_btn = document.querySelectorAll(".radio-btn");
   let radiochecked = "";
   radio_btn.forEach((item, i) => {
@@ -429,9 +443,22 @@ function makeFilter() {
         filteredProducts = ProductArrBoth;
       }
       makeSP(1, sosptrongtrang, filteredProducts); // Hiển thị sản phẩm
-      makeselectpage(1, filteredProducts); //Tạo phân trang
+      makeselectpage(1, filteredProducts); // Tạo phân trang
     });
   });
+}
+
+// Hàm tìm kiếm sản phẩm theo tên
+function searchByName() {
+  const searchName = document
+    .getElementById("searchName")
+    .value.trim()
+    .toLowerCase();
+  const filteredProducts = ProductArrBoth.filter((product) =>
+    product.nameSP.toLowerCase().includes(searchName)
+  );
+  makeSP(1, sosptrongtrang, filteredProducts); // Hiển thị sản phẩm
+  makeselectpage(1, filteredProducts); // Tạo phân trang
 }
 
 const sale = 0.5;
@@ -630,7 +657,20 @@ function mangproduct_radio(radio, arr) {
   return mang;
 }
 let filteredProducts = ProductArrBoth; // Khởi tạo mảng ban đầu
-let filteredProducts_copy = ProductArrBoth;
+let filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts));
+function searchByName() {
+  const searchName = document
+    .getElementById("searchName")
+    .value.trim()
+    .toLowerCase();
+  const filteredProducts = filteredProducts_copy.filter((product) =>
+    product.nameSP.toLowerCase().includes(searchName)
+  );
+  filteredProducts_copy = filteredProducts;
+  makeSP(1, sosptrongtrang, filteredProducts); // Hiển thị sản phẩm
+  makeselectpage(1, filteredProducts); // Tạo phân trang
+}
+
 function hienSPTheoFilter(item) {
   // x = item.id;
   filteredProducts = mangproduct_radio(item.id, ProductArrBoth);
@@ -1062,9 +1102,9 @@ function giaodienthanhtoan() {
       </div>
       <div class="methodPayment">
         <h4>Phương thức thanh toán</h4>
-        <div class="method">
+        <div class="method" >
           <input type="radio" name="radio" id="" checked />
-          <span>
+          <span class="creditcard" onclick="cartpayinfo()">
             <i class="now-ui-icons shopping_credit-card"></i>Thẻ tín dụng / Thẻ
             ghi nợ</span
           >
@@ -1091,6 +1131,9 @@ function giaodienthanhtoan() {
     </div>`;
     midcontent.innerHTML = s;
   }
+}
+function cartpayinfo() {
+  console.log("abc");
 }
 // Tính toán số lượng và tổng tiền của giỏ hàng
 function chitiethoadon() {

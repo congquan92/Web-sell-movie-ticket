@@ -125,7 +125,7 @@ ul {
   display: block; /* hiển thị phần tử là block */
   object-fit: fill; /* hiển thị hình ảnh mà không bị vỡ */
   display: block; /* hiển thị phần tử là block */
-  height: 650px; /* chiều cao */
+  height: 600px; /* chiều cao */
 }
 .carousel-control-next,
 .carousel-control-prev {
@@ -147,7 +147,8 @@ ul {
 }
 #title-god {
   text-align: center; /* căn chỉnh các phần tử theo chiều ngang */
-  margin-bottom: 30px; /* khoảng cách với phần tử bên dưới */
+  margin: 0;
+  padding: 15px;
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
@@ -238,9 +239,6 @@ ul {
 }
 
 /* Gạch chân cả hai h3 khi hover vào bất kỳ h3 nào hoặc toàn bộ .blog-item */
-.blog-item:hover h3 {
-  text-decoration: underline;
-}
 
 /*modal*/
 .modal {

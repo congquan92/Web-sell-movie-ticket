@@ -837,6 +837,7 @@ body {
   .container .logreg-box {
     width: calc(100% - 40%);
   }
+  
   /* footer */
   .footer {
     display: block;

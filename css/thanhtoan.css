@@ -84,6 +84,13 @@
 .contentTab {
   padding: 10px;
 }
+.thanhtien,
+.intomoney {
+  color: rgb(226, 65, 65);
+}
+.intomoney {
+  font-weight: 520;
+}
 #name,
 #phone,
 #address,
@@ -105,4 +112,21 @@
   display: flex;
   height: 100vh;
   flex-direction: column;
+}
+.creditcard {
+  cursor: pointer;
+}
+.creditcard:hover {
+  color: coral;
+}
+@media (min-width: 700px) and (max-width: 899px) {
+  .buttonsubmit {
+    width: 70%;
+  }
+  .rightpage {
+    width: 70%;
+  }
+  .leftpage {
+    width: 30%;
+  }
 }

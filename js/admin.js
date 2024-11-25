@@ -1,9 +1,9 @@
 let ArrProduct = JSON.parse(localStorage.getItem("arrayproducts"));
 let sell = JSON.parse(localStorage.getItem("shopbagispay")) || [];
-
-let Arrsell = sell.flatMap((i) => i.shopbagispayuser);
 let usercurrent = null;
 localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+let Arrsell = sell.flatMap((i) => i.shopbagispayuser);
+
 let typeproducts = [
   { typeid: "aothun#", typename: "Áo thun" },
   { typeid: "polo#", typename: "Polo" },
@@ -636,8 +636,24 @@ function renderqltk() {
   createChart(); // Tạo biểu đồ khi nhấp vào "QUẢN LÝ THỐNG KÊ"
   rankProfit(Arrsell);
 }
+function processProductList(Arrsell) {
+  let map = new Map();
+  for (let i of Arrsell) {
+    let key = i.obj.idproduct + i.obj.nameSP;
+    if (map.has(key)) {
+      // Nếu sản phẩm đã tồn tại, cộng dồn số lượng
+      map.get(key).soluong += i.soluong;
+    } else {
+      // Nếu chưa tồn tại, thêm sản phẩm vào Map
+      map.set(key, { ...i });
+    }
+  }
+  let resultArr = Array.from(map.values());
+  return resultArr;
+}
 //ham tao doanh thu
-function rankProfit(arr) {
+function rankProfit(arrs) {
+  let arr = processProductList(arrs);
   let s = "";
   const sortArrsell = arr.sort(
     (a, b) => b.soluong * b.obj.price - a.soluong * a.obj.price
@@ -799,7 +815,6 @@ window.onload = () => {
       break;
   }
 };
-
 // -----------------------------------------------
 
 //thuy

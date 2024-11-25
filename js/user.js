@@ -69,15 +69,6 @@ login.forEach(function (e) {
             readonly
           />
           </div>
-          <div class="contentTab point">
-            <span>Tích điểm</span>
-            <span>1000</span>
-          </div>
-          <div class="contentTab">
-            <span>Hạng</span>
-            <span>Vàng</span>
-          </div>
-        </div>
       </div>
       <div id="buttonEdit" onclick="chinhsuainfo()">Chỉnh sửa</div>
     </div>`;
@@ -132,14 +123,6 @@ function profile() {
             value="${user.diachi}"
             readonly
           />
-          </div>
-          <div class="contentTab point">
-            <span>Tích điểm</span>
-            <span>1000</span>
-          </div>
-          <div class="contentTab">
-            <span>Hạng</span>
-            <span>Vàng</span>
           </div>
         </div>
       </div>
