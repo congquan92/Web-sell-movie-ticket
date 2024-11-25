@@ -1,13 +1,15 @@
-let logout = document.querySelector(".logout");
+let logout = document.querySelectorAll(".logout");
 arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
-logout.addEventListener("click", () => {
-  user = null;
-  let mangrong = [];
-  let resetshopbag = 0;
-  localStorage.setItem("arrayshopbag", JSON.stringify(mangrong));
-  localStorage.setItem("countarrayshopbag", JSON.stringify(resetshopbag));
-  localStorage.setItem("currentUser", JSON.stringify(user));
-  location.reload();
+logout.forEach(function (e) {
+  e.addEventListener("click", () => {
+    user = null;
+    let mangrong = [];
+    let resetshopbag = 0;
+    localStorage.setItem("arrayshopbag", JSON.stringify(mangrong));
+    localStorage.setItem("countarrayshopbag", JSON.stringify(resetshopbag));
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    location.reload();
+  });
 });
 login.forEach(function (e) {
   let user = JSON.parse(localStorage.getItem("currentUser"));

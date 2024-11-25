@@ -6,7 +6,7 @@ let Productindex = [
     price: 370000,
     nametag: "aothun#",
     idproduct: "abc",
-    colorr1: "gray",
+    colorr1: "green",
     colorr2: "red",
     colorr3: "unset",
     quantity: {
@@ -25,7 +25,7 @@ let Productindex = [
     price: 450000,
     nametag: "aothun#",
     idproduct: "",
-    colorr1: "brown",
+    colorr1: "white",
     colorr2: "black",
     colorr3: "unset",
     quantity: {
@@ -50,7 +50,7 @@ let Productindex = [
       C: 6,
       D: 2,
     },
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "blue",
     img1: "./img/products/p3-1.jpg",
@@ -69,7 +69,7 @@ let Productindex = [
     },
     nametag: "aothun#",
     idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p4-1.jpg",
@@ -87,7 +87,7 @@ let Productindex = [
       C: 6,
       D: 2,
     },
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "unset",
     idproduct: "",
     colorr3: "unset",
@@ -108,7 +108,7 @@ let Productindex = [
       C: 6,
       D: 2,
     },
-    colorr2: "black",
+    colorr2: "green",
     colorr3: "unset",
     img1: "./img/products/p6-1.jpg",
     img2: "./img/products/p6.jpg",
@@ -145,7 +145,7 @@ let Productindex = [
       D: 2,
     },
     nametag: "aothun#",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p8-1.jpg",
@@ -164,7 +164,7 @@ let Productindex = [
       D: 2,
     },
     idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p9-1.jpg",
@@ -183,7 +183,7 @@ let Productindex = [
       D: 2,
     },
     idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p10-1.jpg",
@@ -202,7 +202,7 @@ let Productindex = [
       C: 6,
       D: 2,
     },
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p11-1.jpg",
@@ -240,7 +240,7 @@ let Productindex = [
       C: 6,
       D: 2,
     },
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p13-1.jpg",
@@ -259,7 +259,7 @@ let Productindex = [
       C: 6,
       D: 2,
     },
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "gray",
     colorr3: "unset",
     img1: "./img/products/p14-1.jpg",
@@ -271,8 +271,8 @@ let Productindex = [
     img: "./img/products/p15-1.jpg",
     price: 590000,
     nametag: "hoodie#",
-    colorr1: "yellow",
-    colorr2: "gray",
+    colorr1: "pink",
+    colorr2: "green",
     idproduct: "",
     quantity: {
       A: 5,
@@ -290,7 +290,7 @@ let Productindex = [
     img: "./img/products/p16-1.jpg",
     price: 620000,
     nametag: "hoodie#",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "gray",
     quantity: {
       A: 5,
@@ -309,7 +309,7 @@ let Productindex = [
     img: "./img/products/p17-1.jpg",
     price: 620000,
     nametag: "hoodie#",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     quantity: {
@@ -347,7 +347,7 @@ let Productindex = [
     img: "./img/products/p19-1.jpg",
     price: 490000,
     nametag: "sweater#",
-    colorr1: "brown",
+    colorr1: "green",
     quantity: {
       A: 5,
       B: 4,
@@ -380,8 +380,10 @@ if (user != null) {
   loginicon.forEach(function (e) {
     e.innerHTML = `<i class="fa-solid fa-user"></i>`;
   });
-  const logoutuser = document.querySelector(".logout");
-  logoutuser.style.display = "block";
+  const logoutuser = document.querySelectorAll(".logout");
+  logoutuser.forEach(function (e) {
+    e.style.display = "block";
+  });
 }
 
 // console.log(a);
@@ -486,7 +488,7 @@ login.forEach(function (e) {
     header_responsive.classList.remove("active");
     backgroud_menu_respon.style.display = "none";
     logregBox = document.querySelector(".logreg-box");
-    // console.log(logregBox);
+    midcontent.style.padding="0px";
   });
 });
 const home = document.querySelectorAll(".home"); //nut Home tren nav
@@ -1085,6 +1087,39 @@ function updateUserDetails(user) {
     }
   }
   localStorage.setItem("storageUsers", JSON.stringify(allUsers));
+}
+// Xóa sản phẩm khỏi giỏ hàng
+function removeItem(index) {
+  getarrayshopbag();
+  arrayshopbag.splice(index, 1);
+  let soluongspgiohang = arrayshopbag.length;
+
+  if (soluongspgiohang > 0) {
+    document.querySelector(".Shoping span").textContent = soluongspgiohang;
+    document.querySelector(".Shoping").style.color = "red";
+  } else {
+    document.querySelector(".Shoping span").textContent = 0;
+    document.querySelector(".Shoping").style.color = "black";
+  }
+  localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag));
+  updatecurrentuser();
+  localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
+  shopinginfo(); // Cập nhật lại giỏ hàng hiển thị
+}
+function updatecurrentuser() {
+  usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  usercurrent.shopbag = arrayshopbag;
+  localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+  updateAlluser(usercurrent);
+}
+function updateAlluser(user) {
+  let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+  for (let i = 0; i < alluser.length; i++) {
+    if (alluser[i].userID == user.userID) {
+      alluser[i].shopbag = user.shopbag;
+    }
+  }
+  localStorage.setItem("storageUsers", JSON.stringify(alluser));
 }
 function hienthispindex(item) {
   window.location.href = "shop.html";

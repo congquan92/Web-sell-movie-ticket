@@ -2,7 +2,8 @@ let ArrProduct = JSON.parse(localStorage.getItem("arrayproducts"));
 let sell = JSON.parse(localStorage.getItem("shopbagispay")) || [];
 
 let Arrsell = sell.flatMap((i) => i.shopbagispayuser);
-
+let usercurrent = null;
+localStorage.setItem("currentUser", JSON.stringify(usercurrent));
 let typeproducts = [
   { typeid: "aothun#", typename: "Áo thun" },
   { typeid: "polo#", typename: "Polo" },

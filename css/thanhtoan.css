@@ -101,3 +101,8 @@
 .imgsp {
   height: 200px;
 }
+.shoping-bag {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}

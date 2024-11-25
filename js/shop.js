@@ -5,7 +5,7 @@ let Products = [
     price: 370000,
     nametag: "aothun#",
     idproduct: "abc",
-    colorr1: "gray",
+    colorr1: "green",
     colorr2: "red",
     colorr3: "unset",
     quantity: {
@@ -24,7 +24,7 @@ let Products = [
     price: 450000,
     nametag: "aothun#",
     idproduct: "",
-    colorr1: "brown",
+    colorr1: "white",
     colorr2: "black",
     colorr3: "unset",
     quantity: {
@@ -49,7 +49,7 @@ let Products = [
       C: 6,
       D: 2,
     },
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "blue",
     img1: "./img/products/p3-1.jpg",
@@ -68,7 +68,7 @@ let Products = [
     },
     nametag: "aothun#",
     idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p4-1.jpg",
@@ -86,7 +86,7 @@ let Products = [
       C: 6,
       D: 2,
     },
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "unset",
     idproduct: "",
     colorr3: "unset",
@@ -107,7 +107,7 @@ let Products = [
       C: 6,
       D: 2,
     },
-    colorr2: "black",
+    colorr2: "green",
     colorr3: "unset",
     img1: "./img/products/p6-1.jpg",
     img2: "./img/products/p6.jpg",
@@ -144,7 +144,7 @@ let Products = [
       D: 2,
     },
     nametag: "aothun#",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p8-1.jpg",
@@ -163,7 +163,7 @@ let Products = [
       D: 2,
     },
     idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p9-1.jpg",
@@ -182,7 +182,7 @@ let Products = [
       D: 2,
     },
     idproduct: "",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p10-1.jpg",
@@ -201,7 +201,7 @@ let Products = [
       C: 6,
       D: 2,
     },
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p11-1.jpg",
@@ -239,7 +239,7 @@ let Products = [
       C: 6,
       D: 2,
     },
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p13-1.jpg",
@@ -258,7 +258,7 @@ let Products = [
       C: 6,
       D: 2,
     },
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "gray",
     colorr3: "unset",
     img1: "./img/products/p14-1.jpg",
@@ -270,8 +270,8 @@ let Products = [
     img: "./img/products/p15-1.jpg",
     price: 590000,
     nametag: "hoodie#",
-    colorr1: "yellow",
-    colorr2: "gray",
+    colorr1: "pink",
+    colorr2: "green",
     idproduct: "",
     quantity: {
       A: 5,
@@ -289,7 +289,7 @@ let Products = [
     img: "./img/products/p16-1.jpg",
     price: 620000,
     nametag: "hoodie#",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "gray",
     quantity: {
       A: 5,
@@ -308,7 +308,7 @@ let Products = [
     img: "./img/products/p17-1.jpg",
     price: 620000,
     nametag: "hoodie#",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     quantity: {
@@ -346,7 +346,7 @@ let Products = [
     img: "./img/products/p19-1.jpg",
     price: 490000,
     nametag: "sweater#",
-    colorr1: "brown",
+    colorr1: "green",
     quantity: {
       A: 5,
       B: 4,
@@ -456,6 +456,19 @@ function makeSP(trang, sosptrongtrang, arr) {
       style: "currency",
       currency: "VND",
     });
+
+    // Build listColor content conditionally
+    let listColorContent = "";
+    if (product.colorr1 !== "unset") {
+      listColorContent += `<div onclick="clickC1(this)" class="itemColor1" data-src="${product.img1}" style="background-color: ${product.colorr1};border:1px solid black;margin-right:3px;"></div>`;
+    }
+    if (product.colorr2 !== "unset") {
+      listColorContent += `<div onclick="clickC1(this)" class="itemColor2" data-src="${product.img2}" style="background-color: ${product.colorr2};border:1px solid black;margin-right:3px"></div>`;
+    }
+    if (product.colorr3 !== "unset") {
+      listColorContent += `<div onclick="clickC1(this)" class="itemColor3" data-src="${product.img3}" style="background-color: ${product.colorr3};border:1px solid black;margin-right:3px"></div>`;
+    }
+
     sp += `
       <div class="item_1" onclick='loadSingleProduct(${JSON.stringify(
         product
@@ -464,15 +477,7 @@ function makeSP(trang, sosptrongtrang, arr) {
           product.img
         }" alt=""></div>
         <div class="listColor" id="listColor_item1">
-          <div onclick="clickC1(this)" class="itemColor1" data-src="${
-            product.img1
-          }" style="background-color: ${product.colorr1};"></div>
-          <div onclick="clickC1(this)" class="itemColor2" data-src="${
-            product.img2
-          }" style="background-color: ${product.colorr2};"></div>
-          <div onclick="clickC1(this)" class="itemColor3" data-src="${
-            product.img3
-          }" style="background-color: ${product.colorr3};"></div>
+          ${listColorContent}
         </div>
         <div class="inf-item">
           <h4>${product.nameSP}</h4>
@@ -625,7 +630,7 @@ function mangproduct_radio(radio, arr) {
   return mang;
 }
 let filteredProducts = ProductArrBoth; // Khởi tạo mảng ban đầu
-let filteredProducts_copy = "";
+let filteredProducts_copy = ProductArrBoth;
 function hienSPTheoFilter(item) {
   // x = item.id;
   filteredProducts = mangproduct_radio(item.id, ProductArrBoth);
@@ -645,21 +650,21 @@ function hienSPTheoFilter(item) {
 function Sort(item) {
   let choice = parseInt(item.value);
   // Sử dụng bản sao của mảng gốc để khôi phục khi cần
-  filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts_copy));
+  filteredProducts_copy1 = JSON.parse(JSON.stringify(filteredProducts_copy));
   switch (choice) {
     case 1:
-      sapxeptang(filteredProducts_copy);
+      sapxeptang(filteredProducts_copy1);
       break;
     case 2:
-      sapxepgiam(filteredProducts_copy);
+      sapxepgiam(filteredProducts_copy1);
       break;
     case 3:
-      filteredProducts_copy = filteredProducts;
+      filteredProducts_copy1 = filteredProducts_copy;
       break;
   }
   // Hiển thị mảng sau khi sắp xếp hoặc khôi phục
-  makeSP(1, sosptrongtrang, filteredProducts_copy);
-  makeselectpage(1, filteredProducts_copy);
+  makeSP(1, sosptrongtrang, filteredProducts_copy1);
+  makeselectpage(1, filteredProducts_copy1);
 }
 function Loc() {
   let price1 = document.getElementById("nodePrice_1").value;
@@ -726,24 +731,22 @@ function loadSingleProduct(e) {
                             <h3>GIÁ GỐC : <span style="text-decoration: line-through; font-style: italic;">${originalPrice}</span></h3>
                             <h3>GIÁ KHUYẾN MÃI : <span style="font-weight: bolder; font-style: italic;">${salePrice}</span></h3>
                         </div>
-
-                        <h4 id="color">Màu sắc: XANH LÁ</h4>
                         <div id="listColor_pdt" class="listColor">
                             <div onclick="clickC_1(this,'${e.colorr1}','${
     e.img1
   }')" class="itemColor1" data-src="${e.img1}" style="background-color: ${
     e.colorr1
-  };"></div>
+  };border:1px solid black"></div>
                             <div onclick="clickC_1(this,'${e.colorr2}','${
     e.img2
   }')" class="itemColor2" data-src="${e.img2}" style="background-color: ${
     e.colorr2
-  };"></div>
+  };border:1px solid black"></div>
                             <div onclick="clickC_1(this,'${e.colorr3}','${
     e.img3
   }')" class="itemColor3" data-src="${e.img3}" style="background-color: ${
     e.colorr3
-  };"></div>
+  };border:1px solid black"></div>
                         </div>
                         <div class="countProduct">
                             <h4>Số lượng: </h4>

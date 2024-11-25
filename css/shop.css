@@ -6,6 +6,11 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
+#contentGuide,
+.content_infoProduct {
+  line-height: 1.5;
+}
+
 .toats-text a {
   text-decoration: none;
   padding: 5px;
@@ -290,6 +295,10 @@
 }
 .fa-arrow-left {
   padding: 10px;
+}
+.countProduct i {
+  display: flex;
+  align-items: center;
 }
 
 /* Responsive */
