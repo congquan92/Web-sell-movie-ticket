@@ -899,7 +899,7 @@ function increase(itemJSON) {
 }
 function resetsize() {
   let count = document.querySelector("#counteInp");
-  count.value = 0;
+  count.value = 1;
 }
 //doi mau sac quan ao trong chi textIndent
 function clickC_1(e, color, img) {
