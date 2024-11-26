@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+
     <link
       rel="apple-touch-icon"
       sizes="57x57"
@@ -76,17 +73,10 @@
       sizes="16x16"
       href="./img/logo/favicon-16x16.png"
     />
-    <link rel="manifest" href="./img/logo/manifest.json" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta
-      name="msapplication-TileImage"
-      content=".img/logo/ms-icon-144x144.png"
-    />
-    <meta name="theme-color" content="#ffffff" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    />
+    <!-- <link rel="manifest" href="./img/logo/manifest.json" /> -->
+    <!-- <meta name="msapplication-TileColor" content="#ffffff" /> -->
+    <!-- <meta name="msapplication-TileImage" content=".img/logo/ms-icon-144x144.png" /> -->
+    <!-- <meta name="theme-color" content="#ffffff" /> -->
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -101,29 +91,36 @@
       href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    
-    <title>New Clothes | Home</title>
+
+    <title>New Clothes | Shop</title>
+    <link rel="stylesheet" href="./css/contact.css" />
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/shopping.css" />
+    <link rel="stylesheet" href="./css/user.css" />
+    <link rel="stylesheet" href="./css/blog.css" />
+    <link rel="stylesheet" href="./css/thanhtoan.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
-
-    <link rel="stylesheet" href="./css/contact.css" />
-    <link rel="stylesheet" href="./css/index.css" />
   </head>
+
   <body>
-    <div class="backgroud-menu-respon"></div>
+    <div class="backgroud-menu-respon" onclick="closeall()"></div>
     <!-- Nav-login -->
     <div class="header">
       <div class="logo"><img src="./img/New Clothes.gif" alt="" /></div>
       <div class="navbar" id="navbar-responsive-close">
         <div class="home">Home</div>
         <div class="shop">Shop</div>
-        <div class="blog">Blog</div>
+        <div class="blog" onclick="hienthiblog()">Blog</div>
         <div class="contact">Contact</div>
-        <div class="Shoping">Shoping</div>
         <div class="login-btn">Login</div>
+        <div class="Shoping" onclick="shopinginfo();">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>0</span>
+        </div>
+        <div class="logout"><i class="fa-solid fa-right-from-bracket"></i></div>
       </div>
       <div class="menu"><i class="bx bx-menu"></i></div>
     </div>
@@ -132,9 +129,9 @@
       <div class="navbar">
         <div class="home">Home</div>
         <div class="shop">Shop</div>
-        <div class="blog">Blog</div>
+        <div class="blog" onclick="hienthiblog()">Blog</div>
         <div class="contact">Contact</div>
-        <div class="Shoping">Shoping</div>
+        <div class="Shoping" onclick="shopinginfo();">Shoping</div>
         <div class="login-btn">Login</div>
       </div>
     </div>
@@ -146,20 +143,20 @@
         </div>
         <div class="toats-text" style="font-weight: 100">/</div>
         <div class="toats-text">
-          <a href="#" class="toats-active">Contact</a>
+          <a href="#" class="toats-active" onclick="loadcontact()">Contact</a>
         </div>
       </div>
       <div class="wrapper">
-        <div class="contact">
+        <div class="conTact">
           <div class="left_contact">
             <div class="contact_section">
               <div class="header_contact_section">
-                <h1>Hệ thống cửa hàng New Clothes</h1>
+                <h1 class="newclothes">Hệ thống cửa hàng New Clothes</h1>
                 <p>Đăng bởi:</p>
               </div>
               <!-- Địa chỉ -->
               <div class="body_contact_section">
-                <h3>Chi nhánh Hồ Chí Minh:</h3>
+                <h3 class="city">Chi nhánh Hồ Chí Minh:</h3>
                 <p class="addr">
                   Tầng 2 TTTM Vincom Mega Mall Vinhomes GrandPark, Quận 9, Thủ
                   Đức
@@ -173,30 +170,30 @@
                 </p>
                 <p class="addr">326 Quang Trung, Phường 10, Quận Gò Vấp.</p>
                 <p>---</p>
-                <h3>Chi nhánh Đồng Nai:</h3>
+                <h3 class="city">Chi nhánh Đồng Nai:</h3>
                 <p class="addr">
                   151A Phan Trung, Phường Tân Mai, Tp. Biên Hòa, Tỉnh Đồng Nai.
                 </p>
                 <p>---</p>
-                <h3>Chi nhánh Bình Dương:</h3>
+                <h3 class="city">Chi nhánh Bình Dương:</h3>
                 <p class="addr">
                   28 Yersin, Phường Hiệp Thành, TP. Thủ Dầu Một
                 </p>
                 <p>---</p>
-                <h3>Chi nhánh Hà Nội:</h3>
+                <h3 class="city">Chi nhánh Hà Nội:</h3>
                 <p class="addr">
                   49-51 Hồ Đắc Di, Phường Nam Đồng, Quận Đống Đa.
                 </p>
                 <p>---</p>
-                <h3>Chi Nhánh Cần Thơ:</h3>
+                <h3 class="city">Chi Nhánh Cần Thơ:</h3>
                 <p class="addr">52 Mậu Thân, Phường An Phú, Quận Ninh Kiều</p>
                 <p>---</p>
-                <h3>Chi Nhánh Hưng Yên:</h3>
+                <h3 class="city">Chi Nhánh Hưng Yên:</h3>
                 <p class="addr">
                   PT.TV 136 - Mega Grand World - Ocean Park, Quận Văn Giang.
                 </p>
                 <p>---</p>
-                <h3>Chi Nhánh Hải Phòng:</h3>
+                <h3 class="city">Chi Nhánh Hải Phòng:</h3>
                 <p class="addr">
                   Tầng 2 TTTM Aeon Mall Hải Phòng Lê Chân số 10 Võ Nguyên Giáp,
                   Phường Kênh Dương, Quận Lê Chân.
@@ -214,146 +211,79 @@
             <hr />
             <div class="postOthers">
               <h4>Bài viết liên quan</h4>
-              <div class="pots_list">
-                <div class="col post_img">
+              <div class="post_list">
+                <div class="col_3 post_img">
                   <img
                     src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg"
                     alt=""
                   />
                 </div>
-                <div class="col post_img">
+                <div class="col_3 post_img">
                   <img
                     src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg"
                     alt=""
                   />
                 </div>
-                <div class="col post_img">
+                <div class="col_3 post_img">
                   <img
                     src="./img/123145878_1076154636180003_5653497440869614680_n.jpeg"
                     alt=""
                   />
                 </div>
+                <div style="clear: both"></div>
               </div>
             </div>
           </div>
           <div class="right_contact">
             <div class="right_contact_section">
               <div class="contact_infor">
-                  <h2 class="title">Thông tin liên hệ</h2>
-                  <hr>
-                  <div class="contact_infor-item">
-                    <div class="contact_infor-text">
-                      <h3 class="contact_infro-title">Hotline:</h3>
-                      <p class="contact_infor-description">19001512</p>
-                    </div>
-                    <div class="contact_infor-cta">
-                      <a href="tel:19001512" class="buttonCta">Gọi ngay</a>
-                    </div>
+                <h2 class="title">Thông tin liên hệ</h2>
+                <hr />
+                <div class="contact_infor-item">
+                  <div class="contact_infor-text">
+                    <h3 class="contact_infor-title">Hotline:</h3>
+                    <p class="contact_infor-description">19001512</p>
                   </div>
-                  <div class="contact_infor-item">
-                    <div class="contact_infor-text">
-                      <h3 class="contact_infro-title">Email:</h3>
-                      <p class="contact_infor-description">CustomerCare@gmail.com</p>
-                    </div>
-                      <div class="contact_infor-cta">
-                        <a href="mailto:CustomerCare@gmail.com" class="buttonCta">Gửi email</a>
-                      </div>
+                  <div class="contact_infor-cta">
+                    <a href="tel:19001512" class="buttonCta">Gọi ngay</a>
                   </div>
-                  <div class="contact_infor-item">
-                    <div class="contact_infor-text">
-                      <h3 class="contact_infro-title">Chatbox:</h3>
-                      <p class="contact_infor-description">Messenger</p>
-                    </div>
-                      <div class="contact_infor-cta">
-                        <a href="#" class="buttonCta">Gửi ngay</a>
-                      </div>
-                    </div>
-                    <hr>
+                </div>
+                <div class="contact_infor-item">
+                  <div class="contact_infor-text">
+                    <h3 class="contact_infor-title">Email:</h3>
+                    <p class="contact_infor-description">
+                      CustomerCare@gmail.com
+                    </p>
+                  </div>
+                  <div class="contact_infor-cta">
+                    <a href="mailto:CustomerCare@gmail.com" class="buttonCta"
+                      >Gửi email</a
+                    >
+                  </div>
+                </div>
+                <div class="contact_infor-item">
+                  <div class="contact_infor-text">
+                    <h3 class="contact_infor-title">Chatbox:</h3>
+                    <p class="contact_infor-description">Messenger</p>
+                  </div>
+                  <div class="contact_infor-cta">
+                    <a href="#" class="buttonCta">Gửi ngay</a>
+                  </div>
+                </div>
+                <hr />
               </div>
-              <!-- <div class="contact_comment">
-                <h2 class="title">
-                  Gửi cho tụi mình lời nhắn nhé!
-                  <i class='bx bxs-message-rounded-dots'></i>
-                </h2>
-                <form action="" id="contactForm" class="isolate">
-                  <h3>Vui lòng điền các mục sau:</h3>
-                  <div class="contact_field">
-                    <div>
-                      <div class="field mt_10">
-                        <label for="contactForm-name">Tên</label>
-                        <input type="text" name="" id="contactForm-name" class="field_input" placeholder="Tên">
-                      </div>
-                      <div class="field field-with-error mt_10">
-                        <label for="contactForm-email">Email *</label>
-                        <input type="email" name="" id="contactForm-email" class="field_input" placeholder="Email">
-                      </div>
-                      <div class="field mt_10">
-                        <label for="contactForm-phone">Số điện thoại</label>
-                        <input type="text" name="" id="contactForm-phone" class="field_input" placeholder="Số điện thoại">
-                      </div>
-                    </div>
-                    <div class="fieldForm">
-                      <label class="field_label" for="ContactForm-body">Lời nhắn</label>
-                      <textarea rows="10" id="ContactForm-body" class="text-area field_input" name="contact[Lời nhắn]" placeholder="Lời nhắn"></textarea>
-                    </div>
-                    <div class="contact_button">
-                      <button type="submit" class="buttonSubmit mt_10">Gửi</button>
-                    </div>
-                  </div>
-                </form>
-              </div> -->
             </div>
           </div>
         </div>
       </div>
-
-      <!-- xem cua hang -->
-      <!-- <div class="model js_model">
-        <div class="model_wrapper js_model_wrapper">
-          <div class="title_addr">
-            <h3>561 Sư Vạn Hạnh, Phường 13, Quận 10, HCM.</h3>
-          </div>
-          <div class="store_wrapper">
-            <div class="store_main">
-              <img src="./img/2fpsspc2.bmp" alt="" />
-            </div>
-            <div class="store_thumb">
-              <div class="store_lists">
-                <div class="store_list_item">
-                  <img src="./img/8goryxrx.bmp" alt="" />
-                </div>
-                <div class="store_list_item">
-                  <img src="./img/8goryxrx.bmp" alt="" />
-                </div>
-                <div class="store_list_item">
-                  <img src="./img/8goryxrx.bmp" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
+    <div class="cart"></div>
     <div class="footer"></div>
     <div id="bottom-footer"></div>
     <script src="./js/index.js"></script>
-    <!-- <script>
-      const model = document.querySelector('.js_model')
-      const address = document.querySelectorAll('.addr')
-
-      function showAddress() {
-        model.classList.add('open')
-      }
-      
-      function hideAddress() {
-        model.classList.remove('open')
-      }
-
-      address.forEach(a => {
-        a.addEventListener('click', function() {
-          // showAddress()
-        })
-      })
-    </script> -->
+    <script src="./js/contact.js"></script>
+    <script src="./js/policy.js"></script>
+    <script src="./js/blog.js"></script>
+    <script src="./js/user.js"></script>
   </body>
 </html>

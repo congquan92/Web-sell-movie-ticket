@@ -3,27 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <link rel="apple-touch-icon" sizes="57x57" href="./img/logo/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="./img/logo/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="./img/logo/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./img/logo/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="./img/logo/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="./img/logo/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="./img/logo/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="./img/logo/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/logo/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./img/logo/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/logo/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="./img/logo/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/logo/favicon-16x16.png" />
+    <!-- <link rel="manifest" href="./img/logo/manifest.json" /> -->
+    <!-- <meta name="msapplication-TileColor" content="#ffffff" /> -->
+    <!-- <meta name="msapplication-TileImage" content=".img/logo/ms-icon-144x144.png" /> -->
+    <!-- <meta name="theme-color" content="#ffffff" /> -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>New Clothes | Shop</title>
     <link rel="stylesheet" href="./css/shop.css" />
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/shopping.css">
+    <link rel="stylesheet" href="./css/user.css" />
+    <link rel="stylesheet" href="./css/blog.css">
+    <link rel="stylesheet" href="./css/thanhtoan.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
   </head>
-    <div class="backgroud-menu-respon"></div>
+  <div class="backgroud-menu-respon" onclick="closeall()"></div>
     <!-- Nav-login -->
     <div class="header">
       <div class="logo"><img src="./img/New Clothes.gif" alt="" /></div>
       <div class="navbar" id="navbar-responsive-close">
         <div class="home">Home</div>
         <div class="shop">Shop</div>
-        <div class="blog">Blog</div>
-        <div class="contact">Contact</div>
-        <div class="Shoping">Shoping</div>
+        <div class="blog" onclick="hienthiblog()">Blog</div>
+        <div class="contact" >Contact</div>
         <div class="login-btn">Login</div>
+        <div class="Shoping" onclick="shopinginfo();">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>0</span>
+        </div>
+        <div class="logout"><i class="fa-solid fa-right-from-bracket"></i></div>
       </div>
       <div class="menu"><i class="bx bx-menu"></i></div>
     </div>
@@ -39,56 +66,53 @@
       </div>
     </div>
     <!-- shope -->
-         <!-- login ghi vao mid content -->
-    <div class="mid-content">  
+    <div class="mid-content">
       <div class="toats">
         <div class="toats-text">
-          <a class="none" href="./index.html">Home</a>
+          <a class="none" href="./index.html">Trang Chu</a>
         </div>
-        <div class="toats-text" style="font-weight: 100">/</div>
+        <div class="toats-text" style="font-weight: 100"></div>
         <div class="toats-text">
-          <a href="#" class="toats-active">Product</a>
+          <a href="#" class="toats-active">San pham</a>
         </div>
       </div>
       <!-- quan ao---- -->
       <div class="both">
-            <div class="left"></div>
-
-            <div style="clear: both"></div>
-
-            <div class="right">
-                  <div class="cloth">
-
-                    <div class="sort">
-                          <label for="sort"><h4>Sắp xếp</h4></label>
-                          <select name="" id="sort" onchange="Sort(this);">
-                            <option value="Sắp xếp theo" disabled="disabled">
-                              Sắp xếp theo
-                            </option>
-                            <option value="3">Mặc định</option>
-                            <option value="1">Giá từ thấp đến cao</option>
-                            <option value="2">Giá từ cao đến thấp</option>
-                          </select>
-                    </div>
-
-                    <div class="all-item" id="all-item"></div>
-
-                    <div class="widePagination">
-                        <div id="body-widePagination"></div>
-                    </div>
-
-                  </div>
+        <div class="left">
+        </div>
+        <div style="clear: both"></div>
+        <div class="right">
+          <div class="cloth">
+            <div class="sort">
+              <label for="sort"><h4>Sắp xếp</h4></label>
+              <select name="" id="sort" onchange="Sort(this);">
+                <option value="Sắp xếp theo" disabled="disabled">
+                  Sắp xếp theo
+                </option>
+                <option value="3">Mặc định</option>
+                <option value="1">Giá từ thấp đến cao</option>
+                <option value="2">Giá từ cao đến thấp</option>
+              </select>
             </div>
+
+            <div class="all-item" id="all-item"></div>
+
+            <div class="widePagination">
+              <div id="body-widePagination"></div>
+            </div>
+            
+          </div>
+        </div>
       </div>
     </div>
-
+    <div class="cart"></div>
     <!-- Footer -->
     <div class="footer"></div>
     <div id="bottom-footer"></div>
-
-
     <script src="./js/index.js"></script>
     <script src="./js/shop.js"></script>
-    <script src="./js/loginadmin.js"></script>
+    <script src="./js/policy.js"></script>
+    <script src="./js/blog.js"></script>
+    <script src="./js/user.js"></script>
   </body>
 </html>

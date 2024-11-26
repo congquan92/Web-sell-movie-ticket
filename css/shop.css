@@ -1,7 +1,8 @@
 /* shop */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 * {
   box-sizing: border-box;
-  font-family: "Sour Gummy", serif !important;
+  font-family: "Sour Gummy", serif;
   margin: 0;
   padding: 0;
 }
@@ -12,18 +13,21 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
+#contentGuide,
+.content_infoProduct {
+  line-height: 1.5;
+}
+
 .toats-text a {
   text-decoration: none;
   padding: 5px;
   font-style: italic;
   font-weight: 300;
- 
 }
 .none:hover,
 .toats-active {
   border-bottom: 1px solid rgba(0, 0, 0, 0.24);
   transition: all 0.4s ease-out;
-  color: rgb(0, 0, 238);
 }
 
 /* quan ao */
@@ -55,47 +59,67 @@
   color: #fff;
 }
 .ee {
-  padding: 10px;
+  padding: 20px;
   font-size: 14px;
 }
 .type {
-  padding: 4px;
+  padding: 5px 20px;
 }
 .type span {
   margin: 10px;
-  font-size: 13px;
+  font-size: 15px;
 }
-.optionFilter {
-  padding: 10px;
-  text-align: center;
+/* CSS cho phần Khoảng giá */
+.optionFilter h5 {
+  padding: 20px;
+  font-size: 16px;
+  font-weight: bold;
 }
+
 .filterPrice {
   display: flex;
-  padding: 0px 10px;
-  justify-content: center;
+  padding: 0px 20px;
+  align-items: center;
+  margin-top: 10px;
 }
-.filterPrice input {
-  width: 40%;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #1a1a1a;
+
+.filterPrice input[type="text"] {
+  width: 100px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
-.cc {
-  display: inline-block;
-  padding: 20px 40px;
-  text-decoration: none;
-  border: 0.5px solid white;
-  border-radius: 30px;
-  color: black;
+
+.filterPrice span {
+  margin: 0 10px;
+  font-size: 16px;
 }
-.cc:hover {
-  border: 0.5px solid rgba(0, 0, 0, 0.445);
-  border-radius: 30px;
-}
+
 .loc {
-  padding: 15px 0px;
-  text-align: center;
+  margin-top: 20px;
+  padding: 0px 20px;
 }
+
+.loc .cc {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.loc .cc:hover {
+  background-color: #0056b3;
+}
+
 /* ////// */
 .sort {
   display: flex;
@@ -163,8 +187,8 @@
   border: 2px solid white;
   display: inline-block;
 }
-.bxs-wallet,
-.bx-info-circle {
+.fa-wallet,
+.fa-circle-info {
   margin: 0px 10px;
 }
 .buy:hover {
@@ -215,9 +239,7 @@
   clear: both;
   position: relative;
 }
-.bxs-chevrons-left{
-  margin-right: 10px;
-}
+
 .img_ {
   width: 100%;
   height: 100%;
@@ -256,10 +278,12 @@
   margin: 0px 10px;
 }
 .addToCart {
+  display: flex;
+  align-items: center;
   border: 0.5px solid #020202a4;
-  padding: 10px;
+  height: 40px;
   width: 50%;
-  text-align: center;
+  justify-content: center;
   color: #fff;
   background-color: black;
 }
@@ -300,6 +324,46 @@
 }
 .fa-arrow-left {
   padding: 10px;
+}
+.countProduct i {
+  display: flex;
+  align-items: center;
+}
+/* CSS cho phần tìm kiếm */
+.search {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.search h5 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.search input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.search button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search button:hover {
+  background-color: #0056b3;
 }
 
 /* Responsive */

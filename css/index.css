@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 * {
   box-sizing: border-box;
-  font-family: "Sour Gummy", serif !important;
+  font-family: "Sour Gummy", serif;
   margin: 0;
   padding: 0;
 }
@@ -10,6 +11,42 @@ ul {
 /* Header */
 body {
   position: relative;
+}
+.logout {
+  display: none;
+}
+.loadpage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #979ea3;
+  opacity: 0.7;
+  z-index: 999999;
+  justify-content: center;
+  display: none;
+}
+.loadpage.active {
+  display: flex;
+}
+.dot {
+  background-color: rgb(255, 255, 255);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: 500px;
+  margin-right: 5px;
+  display: inline-block;
+  animation: effect 1s ease-in-out infinite alternate;
+}
+
+@keyframes effect {
+  from {
+    transform: translateY(30px);
+    background-color: rgb(0, 0, 0);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 .backgroud-menu-respon {
   position: absolute;
@@ -27,13 +64,15 @@ body {
   align-content: center;
   justify-content: space-between;
   padding: 10px 10px;
-  background: 0pc;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
   background-color: white;
   z-index: 999;
   position: sticky;
   right: 0;
   top: 0;
+}
+.Shoping span {
+  margin-left: 5px;
 }
 .logo {
   width: 50px;
@@ -52,6 +91,7 @@ body {
 }
 .social-icons i {
   font-size: 20px;
+  color: white;
 }
 .social-icons i:hover {
   transform: scale(1.5);
@@ -65,7 +105,7 @@ body {
 }
 .navbar div {
   position: relative;
-  padding: 0 20px;
+  padding: 0 15px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
@@ -265,11 +305,14 @@ body {
   text-align: center;
   margin-top: 25px;
 }
-.login-register a {
+.login-register span {
+  cursor: pointer;
   font-size: 14.5px;
-  text-decoration: none;
   color: black;
   font-weight: 600;
+}
+.login-register span:hover {
+  text-decoration: underline;
 }
 
 .logreg-box .login {
@@ -295,38 +338,19 @@ body {
   transform: translateX(0);
   transition-delay: 0s;
 }
-
+.impromptu {
+  margin-top: 20px;
+}
 /* Policy */
-#privacy-policy {
-  display: none;
-}
-
-#FAQ-policy {
-  display: none;
-}
-
-#membership-card-policy {
-  display: none;
-}
-
-#exchange-card-policy {
-  display: none;
-}
-
-#ship-card-policy {
-  display: none;
-}
-
 .policy-content {
   line-height: 1.8;
-  margin-left: 80px;
+  padding: 30px;
 }
 
 #policy-contact {
   display: flex;
   background-color: #e6e6fa;
   height: 7vh;
-  display: none;
 }
 
 #policy-contact-h3 {
@@ -349,8 +373,8 @@ body {
 
 /* Footer */
 .footer {
+  background-color: rgb(27, 27, 27);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-  background-color: white;
   display: flex;
   justify-content: space-between;
   padding: 40px;
@@ -358,6 +382,7 @@ body {
 
 #footer-paragraph {
   line-height: 1.8;
+  color: white;
 }
 
 .location {
@@ -374,7 +399,9 @@ body {
 .footer-social-li {
   margin-right: 15px;
 }
-
+.footer-social-li a i {
+  color: white;
+}
 .footer-social-a {
   border: 2px solid black;
   border-radius: 50px;
@@ -384,14 +411,17 @@ body {
 #footer-policy-ul {
   line-height: 1.8;
 }
-
+#footer-policy-ul li {
+  color: white;
+}
 .footer-policy-a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .footer-policy-a:hover {
-  color: rgb(0, 0, 0, 0.7);
+  color: rgba(240, 62, 62, 0.7);
+  cursor: pointer;
 }
 
 #bottom-footer {
@@ -410,37 +440,20 @@ body {
 #left-footer h2,
 #right-footer h2 {
   margin-bottom: 5px;
+  color: white;
 }
 /* mid-content */
+.mid-content {
+  position: relative;
+}
 .mid-content-info {
   width: 80%;
   margin: 0 auto;
   margin-top: 5px;
 }
 .trend h2 {
-  font-family: "Yanone Kaffeesatz", sans-serif;
   text-align: center;
   padding: 6px;
-}
-.trend{
-  animation: leftoright .5s ease;
-  animation-timeline: view(60% auto);
-  /* animation-delay: .4s;   */
-  animation-range: entry 0 cover;
-}
-.impromptu{
-  animation: leftoright .5s ease;
-}
-
-@keyframes leftoright{
-  from{
-    opacity: 0;
-    transform: translateX(calc(-100% - 1000px));
-  }
-  to{
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 .content-trend {
   display: flex;
@@ -452,7 +465,7 @@ body {
 .content-trend-item {
   position: relative;
   width: calc(25% - 10px);
-  height: 400px;
+  height: 450px;
   object-fit: cover;
   margin: 5px;
 }
@@ -523,6 +536,37 @@ body {
   color: white;
   background-color: #1a1a1a;
 }
+
+/* amination */
+.trend {
+  margin-top: 20px;
+  animation: trend 2s ease;
+}
+@keyframes trend {
+  from {
+    opacity: 0;
+    transform: translateY(1000px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.content-impromptu-item,
+.content-impromptu-item {
+  animation: lefttoright 2s ease;
+}
+@keyframes lefttoright {
+  from {
+    opacity: 0;
+    transform: translateX(-900px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* Responsive */
 @media (min-width: 340px) and (max-width: 700px) {
   .logo {
@@ -686,6 +730,8 @@ body {
   #left-footer h2,
   #right-footer h2 {
     font-size: 13px;
+    display: flex;
+    justify-content: space-between;
   }
   #left-footer #footer-paragraph,
   #right-footer div,
@@ -795,9 +841,11 @@ body {
   .container .logreg-box {
     width: calc(100% - 40%);
   }
+
   /* footer */
   .footer {
     display: block;
+    padding: 15px;
   }
   .address-btn span i,
   .policy-btn span i,
@@ -886,6 +934,8 @@ body {
   #left-footer h2,
   #right-footer h2 {
     font-size: 15px;
+    display: flex;
+    justify-content: space-between;
   }
   #left-footer #footer-paragraph,
   #right-footer div,
@@ -928,5 +978,8 @@ body {
   .container {
     width: 100%;
     border-radius: 0%;
+  }
+  .img-content-impromptu {
+    height: 850px;
   }
 }
