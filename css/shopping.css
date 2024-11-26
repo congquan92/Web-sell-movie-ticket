@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Sour Gummy", serif;
+  margin: 0;
+  padding: 0;
+}
+.cart {
+  position: fixed;
+  z-index: 99999999;
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  transform: translateX(calc(-100% - 100px));
+  transition: 0.5s ease;
+  background-color: white;
+}
+.close-shopping {
+  cursor: pointer;
+}
+.cart.active {
+  height: 100vh;
+  overflow: visible;
+  transform: translateX(0);
+  transition: 0.5s ease;
+}
+.pay {
+  margin-top: 10px;
+  background-color: rgb(236, 236, 236);
+}
+.shoping-bag-header {
+  padding: 20px;
+  height: 10%;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.effect-for-btn {
+  cursor: pointer;
+}
+.shoping-bag-img {
+  width: 40%;
+  object-fit: contain;
+}
+.cart-info {
+  width: 100%;
+}
+.cart-info h6 {
+  padding: 5px;
+  font-size: 12px;
+}
+.shoping-bag-info-item {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.3);
+}
+.shoping-bag-img img {
+  width: 100%;
+  height: 100%;
+}
+.shoping-bag {
+  height: 100vh;
+}
+.count input {
+  width: 20px;
+}
+.shoping-bag-info {
+  overflow: auto;
+  height: 80%;
+}
+#counteInp {
+  border: none;
+  outline: 0;
+  text-align: center;
+  max-width: 50px;
+}
+.countProductbuy {
+  border: none;
+  outline: 0;
+  text-align: center;
+}
+.selected,
+.discount,
+.total,
+.priceAndCount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* .shoping-bag {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+} */
+.btn-pay {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+  padding: 2px;
+  font-size: 12px;
+}
+.main {
+  margin-top: 10px;
+  height: 30%;
+}
+.delete {
+  text-align: center;
+}
+.info_bill {
+  padding: 10px;
+  line-height: 1.5;
+}
+.info_bill div {
+  line-height: 2.5;
+}
+.delete {
+  width: 70%;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 10px;
+}
+.delete:hover {
+  background-color: #efefef;
+}
+/* Repsonsive */
+@media (min-width: 400px) and (max-width: 700px) {
+  .shoping-bag-info {
+    height: 700px;
+  }
+}
+@media (min-width: 700px) and (max-width: 899px) {
+  .shoping-bag-info {
+    height: 650px;
+  }
+}
+@media (min-width: 900px) and (max-width: 1500px) {
+  .logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  .embed-responsive {
+    width: 100%;
+    height: 400px;
+  }
+  .container {
+    width: 100%;
+    border-radius: 0%;
+  }
+  .shoping-bag-info {
+    height: 800px;
+  }
+  .btn-pay {
+    width: 70%;
+  }
+}

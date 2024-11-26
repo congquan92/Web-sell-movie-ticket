@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Sour Gummy", serif;
+  margin: 0;
+  padding: 0;
+}
+.box {
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  padding: 10px;
+}
+#buttonEdit,
+.buttonsubmit {
+  width: 50%;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid rgba(112, 112, 112, 0.3);
+  padding: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+#buttonEdit:hover,
+.buttonsubmit:hover {
+  background-color: #efefef;
+}
+.titleCol,
+.product {
+  display: flex;
+  align-items: center;
+}
+.idProduct {
+  width: 10%;
+}
+.imgProduct {
+  width: 30%;
+  text-align: center;
+}
+.imgProduct img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.nameProduct,
+.colorProduct,
+.countProduct {
+  width: 30%;
+  text-align: center;
+}
+.colorProduct,
+.countProduct,
+.priceProduct {
+  width: 10%;
+}
+#viewCart-body {
+  height: 250px;
+  overflow-y: auto;
+  border-top: 1px solid rgba(112, 112, 112, 0.3);
+  border-bottom: 1px solid rgba(112, 112, 112, 0.3);
+  padding: 0 10px;
+}
+.titleCol {
+  padding: 20px;
+}
+.product {
+  border-bottom: 1px solid rgba(112, 112, 112, 0.3);
+}
+.methodPayment,
+.infoBill {
+  margin: 20px 0px;
+}
+.methodPayment h4,
+.method {
+  padding: 10px;
+  font-size: 18px;
+}
+.method {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contentTab {
+  padding: 10px;
+}
+.thanhtien,
+.intomoney {
+  color: rgb(226, 65, 65);
+}
+.intomoney {
+  font-weight: 520;
+}
+#name,
+#phone,
+#address,
+#email {
+  border: none;
+  outline: 0;
+}
+#name.active,
+#phone.active,
+#address.active {
+  border: 1px solid rgba(122, 122, 122, 0.16);
+  padding: 10px;
+  border-radius: 10px;
+}
+.imgsp {
+  height: 200px;
+}
+.shoping-bag {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+.creditcard {
+  cursor: pointer;
+}
+.creditcard:hover {
+  color: coral;
+}
+@media (min-width: 700px) and (max-width: 899px) {
+  .buttonsubmit {
+    width: 70%;
+  }
+  .rightpage {
+    width: 70%;
+  }
+  .leftpage {
+    width: 30%;
+  }
+}
+
+.container_pay {
+  position: absolute;
+  scale: 0;
+  height: 0;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  z-index: 999999;
+  transition: transform 0.5s ease;
+  transform: translate(-50%, -50%);
+}
+.container_pay.active {
+  scale: 1;
+  height: max-content;
+  overflow: visible;
+  transition: transform 0.5s ease;
+}
+.container_pay form {
+  padding: 20px;
+  width: 700px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container_pay form .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.container_pay form .row .col {
+  flex: 1 1 250px;
+}
+
+.container_pay form .row .col .title {
+  font-size: 20px;
+  color: #333;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.container_pay form .row .col .inputBox {
+  margin: 15px 0;
+}
+
+.container_pay form .row .col .inputBox span {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.container_pay form .row .col .inputBox input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.container_pay form .row .col .inputBox input:focus {
+  border: 1px solid #000;
+}
+
+.container_pay form .row .col .flex {
+  display: flex;
+  gap: 15px;
+}
+
+.container_pay form .row .col .flex .inputBox {
+  margin-top: 5px;
+}
+
+.container_pay form .row .col .inputBox img {
+  height: 34px;
+  margin-top: 5px;
+  filter: drop-shadow(0 0 1px #000);
+}
+
+.container_pay form .submit-btn {
+  text-align: center;
+  width: 100%;
+  padding: 12px;
+  font-size: 17px;
+  background: #27ae60;
+  color: #fff;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.container_pay form .submit-btn:hover {
+  background: #2ecc71;
+}

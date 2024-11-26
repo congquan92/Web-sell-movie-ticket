@@ -1,12 +1,19 @@
-let ProductArrBoth = [
+let Products = [
   {
     nameSP: "LEVENTS® | DORAEMON FAMOUS CAT TEE",
     img: "./img/products/p1-1.png",
     price: 370000,
     nametag: "aothun#",
-    colorr1: "gray",
+    idproduct: "abc",
+    colorr1: "green",
     colorr2: "red",
     colorr3: "unset",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
     img1: "./img/products/p1-1.png",
     img2: "./img/products/p1-2.jpg",
     img3: "./img/products/p1-2.jpg",
@@ -16,9 +23,16 @@ let ProductArrBoth = [
     img: "./img/products/p2-1.png",
     price: 450000,
     nametag: "aothun#",
-    colorr1: " rgb(235, 232, 226)",
+    idproduct: "",
+    colorr1: "white",
     colorr2: "black",
     colorr3: "unset",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
     img1: "./img/products/p2-1.png",
     img2: "./img/products/p2-2.png",
     img3: "./img/products/p2-2.png",
@@ -28,7 +42,14 @@ let ProductArrBoth = [
     img: "./img/products/p3-1.jpg",
     price: 420000,
     nametag: "aothun#",
-    colorr1: " rgb(235, 232, 226)",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: " white",
     colorr2: "black",
     colorr3: "blue",
     img1: "./img/products/p3-1.jpg",
@@ -39,8 +60,15 @@ let ProductArrBoth = [
     nameSP: "LEVENTS® INSIDE OUT TEE",
     img: "./img/products/p4-1.jpg",
     price: 390000,
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
     nametag: "aothun#",
-    colorr1: " rgb(235, 232, 226)",
+    idproduct: "",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p4-1.jpg",
@@ -52,8 +80,15 @@ let ProductArrBoth = [
     img: "./img/products/p5-1.jpg",
     price: 300000,
     nametag: "aothun#",
-    colorr1: " rgb(235, 232, 226)",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: " white",
     colorr2: "unset",
+    idproduct: "",
     colorr3: "unset",
     img1: "./img/products/p5-1.jpg",
     img2: "./img/products/p5-1.jpg",
@@ -65,7 +100,14 @@ let ProductArrBoth = [
     price: 390000,
     nametag: "aothun#",
     colorr1: "blue",
-    colorr2: "black",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr2: "green",
     colorr3: "unset",
     img1: "./img/products/p6-1.jpg",
     img2: "./img/products/p6.jpg",
@@ -76,7 +118,14 @@ let ProductArrBoth = [
     img: "./img/products/p7-1.jpg",
     price: 890000,
     nametag: "aokhoac#",
-    colorr1: "brown",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: "green",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p7-1.jpg",
@@ -87,8 +136,15 @@ let ProductArrBoth = [
     nameSP: "LEVENTS® SELFLOVE BOXY TEE",
     img: "./img/products/p8-1.jpg",
     price: 380000,
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
     nametag: "aothun#",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p8-1.jpg",
@@ -100,7 +156,14 @@ let ProductArrBoth = [
     img: "./img/products/p9-1.jpg",
     price: 405000,
     nametag: "polo#",
-    colorr1: " rgb(235, 232, 226)",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    idproduct: "",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p9-1.jpg",
@@ -112,7 +175,14 @@ let ProductArrBoth = [
     img: "./img/products/p10-1.jpg",
     price: 370000,
     nametag: "polo#",
-    colorr1: " rgb(235, 232, 226)",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    idproduct: "",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p10-1.jpg",
@@ -123,8 +193,15 @@ let ProductArrBoth = [
     nameSP: "LEVENTS® STRIPE Polo",
     img: "./img/products/p11-1.jpg",
     price: 420000,
+    idproduct: "",
     nametag: "polo#",
-    colorr1: " rgb(235, 232, 226)",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p11-1.jpg",
@@ -136,7 +213,14 @@ let ProductArrBoth = [
     img: "./img/products/p12-1.jpg",
     price: 420000,
     nametag: "somi#",
-    colorr1: "brown",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    idproduct: "",
+    colorr1: "green",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p12-1.jpg",
@@ -148,7 +232,14 @@ let ProductArrBoth = [
     img: "./img/products/p13-1.jpg",
     price: 420000,
     nametag: "somi#",
-    colorr1: " rgb(235, 232, 226)",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p13-1.jpg",
@@ -160,7 +251,14 @@ let ProductArrBoth = [
     img: "./img/products/p14-1.jpg",
     price: 645000,
     nametag: "hoodie#",
-    colorr1: " rgb(235, 232, 226)",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    colorr1: " white",
     colorr2: "gray",
     colorr3: "unset",
     img1: "./img/products/p14-1.jpg",
@@ -172,8 +270,15 @@ let ProductArrBoth = [
     img: "./img/products/p15-1.jpg",
     price: 590000,
     nametag: "hoodie#",
-    colorr1: "yellow",
-    colorr2: "gray",
+    colorr1: "pink",
+    colorr2: "green",
+    idproduct: "",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
     colorr3: "black",
     img1: "./img/products/p15-1.jpg",
     img2: "./img/products/p15-2.jpg",
@@ -184,9 +289,16 @@ let ProductArrBoth = [
     img: "./img/products/p16-1.jpg",
     price: 620000,
     nametag: "hoodie#",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "gray",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
     colorr3: "unset",
+    idproduct: "",
     img1: "./img/products/p16-1.jpg",
     img2: "./img/products/p16-2.jpg",
     img3: "./img/products/p16-2.jpg",
@@ -196,9 +308,16 @@ let ProductArrBoth = [
     img: "./img/products/p17-1.jpg",
     price: 620000,
     nametag: "hoodie#",
-    colorr1: " rgb(235, 232, 226)",
+    colorr1: " white",
     colorr2: "black",
     colorr3: "unset",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    idproduct: "",
     img1: "./img/products/p17-1.jpg",
     img2: "./img/products/p17-2.jpg",
     img3: "./img/products/p17-2.jpg",
@@ -208,7 +327,14 @@ let ProductArrBoth = [
     img: "./img/products/p18-1.jpg",
     price: 490000,
     nametag: "sweater#",
+    idproduct: "",
     colorr1: "gray",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
     colorr2: "red",
     colorr3: "unset",
     img1: "./img/products/p18-1.jpg",
@@ -220,115 +346,14 @@ let ProductArrBoth = [
     img: "./img/products/p19-1.jpg",
     price: 490000,
     nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
-    colorr2: "black",
-    colorr3: "unset",
-    img1: "./img/products/p19-1.jpg",
-    img2: "./img/products/p19-2.jpg",
-    img3: "./img/products/p19-2.jpg",
-  },
-  {
-    nameSP: "LEVENTS® FUNNY CROCODILE Sweater",
-    img: "./img/products/p19-1sa.jpg",
-    price: 490000,
-    nametag: "sweater#",
-    colorr1: "brown",
+    colorr1: "green",
+    quantity: {
+      A: 5,
+      B: 4,
+      C: 6,
+      D: 2,
+    },
+    idproduct: "",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p19-1.jpg",
@@ -336,6 +361,23 @@ let ProductArrBoth = [
     img3: "./img/products/p19-2.jpg",
   },
 ];
+
+for (let i = 0; i < Products.length; i++) {
+  Products[i].idproduct = Products[i].nametag + i;
+}
+if (JSON.parse(localStorage.getItem("arrayproducts")) == null) {
+  localStorage.setItem("arrayproducts", JSON.stringify(Products));
+}
+function timkiemtheoID(ID) {
+  for (let i = 0; i < Products.length; i++) {
+    if (Products[i].idproduct == ID) {
+      return Products[i];
+    }
+  }
+  return null;
+}
+
+let ProductArrBoth = JSON.parse(localStorage.getItem("arrayproducts"));
 let typeproducts = [
   { typeid: "aothun#", typename: "Áo thun" },
   { typeid: "polo#", typename: "Polo" },
@@ -345,11 +387,7 @@ let typeproducts = [
   { typeid: "aokhoac#", typename: "Áo khoác" },
 ];
 //Hàm tạo id SP
-function makeIDproduct() {
-  for (let i = 0; i < ProductArrBoth.length; i++) {
-    ProductArrBoth[i].idproduct = ProductArrBoth[i].nametag + (i+1);
-  }
-}
+
 function makeFilter() {
   let s = `<div class="control">
             <div class="title">
@@ -357,26 +395,40 @@ function makeFilter() {
               <h3 id="totalResult"></h3>
             </div>
             <div class="ee"><h4>Thuộc</h4></div>`;
+
+  // Thêm các bộ lọc theo loại sản phẩm
   for (let i = 0; i < typeproducts.length; i++) {
     s += `<div class="type">
               <input type="radio" id="${
                 typeproducts[i].typeid
               }" onchange="hienSPTheoFilter(this);" class="radio-btn" name="filter-radio" value="${
       i + 1
-    }" /><span>${typeproducts[i].typename}</span>
+    }" />
+              <span>${typeproducts[i].typename}</span>
             </div>`;
   }
+
+  // Thêm ô tìm kiếm theo tên
+  s += `<div class="search">
+            <h5>Tìm kiếm theo tên</h5>
+            <input type="text" id="searchName" placeholder="Nhập tên sản phẩm" />
+            <button onclick="searchByName()">Tìm kiếm</button>
+          </div>`;
+
+  // Thêm bộ lọc theo giá
   s += `<div class="optionFilter">
-              <h5>KHOẢNG GIÁ</h5>
+              <h5>Khoảng giá</h5>
             </div>
             <div class="filterPrice">
-              <input type="text" id="nodePrice_1" autocomplete="off"/>
+              <input type="text" id="nodePrice_1" autocomplete="off" value=""/>
               <span style="margin: 5px">-</span>
-              <input type="text" id="nodePrice_2" autocomplete="off"/>
+              <input type="text" id="nodePrice_2" autocomplete="off" value=""/>
             </div>
-            <div class="loc"><a href="#" class="cc">Lọc</a></div>
+            <div class="loc"><a href="#" class="cc" onclick="Loc()">Lọc</a></div>
           </div>`;
+
   document.querySelector(".left").innerHTML = s;
+
   const radio_btn = document.querySelectorAll(".radio-btn");
   let radiochecked = "";
   radio_btn.forEach((item, i) => {
@@ -391,9 +443,22 @@ function makeFilter() {
         filteredProducts = ProductArrBoth;
       }
       makeSP(1, sosptrongtrang, filteredProducts); // Hiển thị sản phẩm
-      makeselectpage(1, filteredProducts); //Tạo phân trang
+      makeselectpage(1, filteredProducts); // Tạo phân trang
     });
   });
+}
+
+// Hàm tìm kiếm sản phẩm theo tên
+function searchByName() {
+  const searchName = document
+    .getElementById("searchName")
+    .value.trim()
+    .toLowerCase();
+  const filteredProducts = ProductArrBoth.filter((product) =>
+    product.nameSP.toLowerCase().includes(searchName)
+  );
+  makeSP(1, sosptrongtrang, filteredProducts); // Hiển thị sản phẩm
+  makeselectpage(1, filteredProducts); // Tạo phân trang
 }
 
 const sale = 0.5;
@@ -403,43 +468,49 @@ let max_page = 0;
 
 // Hàm tạo sản phẩm trên trang
 function makeSP(trang, sosptrongtrang, arr) {
-  sp = "";
+  let sp = "";
   for (let i = (trang - 1) * sosptrongtrang; i < trang * sosptrongtrang; i++) {
     if (i >= arr.length) break;
-    // console.log(i);
-    const originalPrice = (arr[i].price + arr[i].price * sale).toLocaleString(
-      "vi-VN",
-      { style: "currency", currency: "VND" }
-    );
-    const salePrice = arr[i].price.toLocaleString("vi-VN", {
+    const product = arr[i];
+
+    // Handle undefined or missing properties gracefully
+    const price = product.price ? product.price : 0;
+    const originalPrice = (price + price * sale).toLocaleString("vi-VN", {
       style: "currency",
       currency: "VND",
     });
+    const salePrice = price.toLocaleString("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    });
+
+    // Build listColor content conditionally
+    let listColorContent = "";
+    if (product.colorr1 !== "unset") {
+      listColorContent += `<div onclick="clickC1(this)" class="itemColor1" data-src="${product.img1}" style="background-color: ${product.colorr1};border:1px solid black;margin-right:3px;"></div>`;
+    }
+    if (product.colorr2 !== "unset") {
+      listColorContent += `<div onclick="clickC1(this)" class="itemColor2" data-src="${product.img2}" style="background-color: ${product.colorr2};border:1px solid black;margin-right:3px"></div>`;
+    }
+    if (product.colorr3 !== "unset") {
+      listColorContent += `<div onclick="clickC1(this)" class="itemColor3" data-src="${product.img3}" style="background-color: ${product.colorr3};border:1px solid black;margin-right:3px"></div>`;
+    }
+
     sp += `
-      <div class="item_1">
+      <div class="item_1" onclick='loadSingleProduct(${JSON.stringify(
+        product
+      )})'>
         <div class="img-item"><img class="srcimg" src="${
-          arr[i].img
+          product.img
         }" alt=""></div>
         <div class="listColor" id="listColor_item1">
-          <div onclick="clickC1(this)" class="itemColor1" data-src="${
-            arr[i].img1
-          }" style="background-color: ${arr[i].colorr1};"></div>
-          <div onclick="clickC1(this)" class="itemColor2" data-src="${
-            arr[i].img2
-          }" style="background-color: ${arr[i].colorr2};"></div>
-          <div onclick="clickC1(this)" class="itemColor3" data-src="${
-            arr[i].img3
-          }" style="background-color: ${arr[i].colorr3};"></div>
+          ${listColorContent}
         </div>
         <div class="inf-item">
-          <h4>${arr[i].nameSP}</h4>
+          <h4>${product.nameSP}</h4>
           <p style="font-style: italic;">Giá gốc: <span style="text-decoration: line-through; font-style: italic;">${originalPrice}</span></p>
           <p style="font-style: italic;">Giá khuyến mãi: <span style="font-size: larger; font-style: italic;">${salePrice}</span></p>
         </div>
-        <div class="buy"><i class="fa-solid fa-wallet"></i>Mua Ngay</div>
-        <a href="#" style="text-decoration: none; color: black;" onclick='loadSingleProduct(${JSON.stringify(
-          arr[i]
-        )})' class="buy"><i class="fa-solid fa-circle-info"></i>Chi Tiết</a>
       </div>
     `;
   }
@@ -547,12 +618,6 @@ function getCurrentPage() {
 }
 
 // Hàm chạy khi trang tải
-window.onload = function () {
-  makeIDproduct();
-  makeFilter();
-  makeSP(getCurrentPage(), sosptrongtrang, ProductArrBoth);
-  makeselectpage(getCurrentPage(), ProductArrBoth);
-};
 
 // sort
 function sapxeptang(arr) {
@@ -592,9 +657,24 @@ function mangproduct_radio(radio, arr) {
   return mang;
 }
 let filteredProducts = ProductArrBoth; // Khởi tạo mảng ban đầu
+let filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts));
+function searchByName() {
+  const searchName = document
+    .getElementById("searchName")
+    .value.trim()
+    .toLowerCase();
+  const filteredProducts = filteredProducts_copy.filter((product) =>
+    product.nameSP.toLowerCase().includes(searchName)
+  );
+  filteredProducts_copy = filteredProducts;
+  makeSP(1, sosptrongtrang, filteredProducts); // Hiển thị sản phẩm
+  makeselectpage(1, filteredProducts); // Tạo phân trang
+}
+
 function hienSPTheoFilter(item) {
   // x = item.id;
   filteredProducts = mangproduct_radio(item.id, ProductArrBoth);
+  filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts));
   makeSP(1, sosptrongtrang, filteredProducts);
 }
 // console.log(x);
@@ -609,24 +689,38 @@ function hienSPTheoFilter(item) {
 
 function Sort(item) {
   let choice = parseInt(item.value);
-
   // Sử dụng bản sao của mảng gốc để khôi phục khi cần
-  let filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts));
-  console.log(filteredProducts);
+  filteredProducts_copy1 = JSON.parse(JSON.stringify(filteredProducts_copy));
   switch (choice) {
     case 1:
-      sapxeptang(filteredProducts_copy);
+      sapxeptang(filteredProducts_copy1);
       break;
     case 2:
-      sapxepgiam(filteredProducts_copy);
+      sapxepgiam(filteredProducts_copy1);
       break;
     case 3:
-      filteredProducts_copy = filteredProducts;
+      filteredProducts_copy1 = filteredProducts_copy;
       break;
   }
   // Hiển thị mảng sau khi sắp xếp hoặc khôi phục
-  makeSP(1, sosptrongtrang, filteredProducts_copy);
-  makeselectpage(1, filteredProducts_copy);
+  makeSP(1, sosptrongtrang, filteredProducts_copy1);
+  makeselectpage(1, filteredProducts_copy1);
+}
+function Loc() {
+  let price1 = document.getElementById("nodePrice_1").value;
+  let price2 = document.getElementById("nodePrice_2").value;
+  let mang = [];
+  for (let i = 0; i < filteredProducts_copy.length; i++) {
+    if (
+      parseInt(filteredProducts_copy[i].price) >= price1 &&
+      parseInt(filteredProducts_copy[i].price) <= price2
+    ) {
+      mang.push(filteredProducts_copy[i]);
+    }
+  }
+  filteredProducts_copy = mang;
+  makeSP(1, sosptrongtrang, mang);
+  makeselectpage(1, mang);
 }
 
 //doi mau sac quan ao
@@ -635,9 +729,26 @@ function clickC1(e) {
   const imgElement = e.closest(".item_1").querySelector(".srcimg"); // tìm phần tử cha gần nhất có lớp item_1 ếp tục tìm phần tử ảnh bên trong phần tử cha item_1
   imgElement.setAttribute("src", newSrc);
 }
-
+let statusproductcurrent = [
+  { statusID: "1", statuscontent: "Chờ xác nhận" },
+  { statusID: "2", statuscontent: "Đang gói hàng" },
+  { statusID: "3", statuscontent: "Vận chuyển" },
+  { statusID: "4", statuscontent: "Hoàn thành" },
+];
+let objcolorcurrent = {
+  obj: "",
+  color: "",
+  img: "",
+  soluong: "",
+  size: "",
+  status: "1",
+};
 //chi tiet sp
 function loadSingleProduct(e) {
+  objcolorcurrent.obj = e;
+  objcolorcurrent.color = e.colorr1 || "";
+  objcolorcurrent.img = e.img1 || "";
+
   const originalPrice = (e.price + e.price * sale).toLocaleString("vi-VN", {
     style: "currency",
     currency: "VND",
@@ -646,13 +757,24 @@ function loadSingleProduct(e) {
     style: "currency",
     currency: "VND",
   });
+
+  let colorDivs = "";
+  if (e.colorr1 != "unset") {
+    colorDivs += `<div onclick="clickC_1(this,'${e.colorr1}','${e.img1}')" class="itemColor1" data-src="${e.img1}" style="background-color: ${e.colorr1};border:1px solid black;margin-right:3px"></div>`;
+  }
+  if (e.colorr2 != "unset") {
+    colorDivs += `<div onclick="clickC_1(this,'${e.colorr2}','${e.img2}')" class="itemColor2" data-src="${e.img2}" style="background-color: ${e.colorr2};border:1px solid black;margin-right:3px"></div>`;
+  }
+  if (e.colorr3 != "unset") {
+    colorDivs += `<div onclick="clickC_1(this,'${e.colorr3}','${e.img3}')" class="itemColor3" data-src="${e.img3}" style="background-color: ${e.colorr3};border:1px solid black;margin-right:3px"></div>`;
+  }
+
   const s = `<div class="both_">
                <div class="left_">
                     <div class="img_" id="imgMain">
                         <img class="srcimg" src="${e.img}" alt="">
                     </div>
                </div>
-
                 <div class="right_">
                     <div class="content_">
                         <h2 id="name">${e.nameSP}</h2>
@@ -660,23 +782,22 @@ function loadSingleProduct(e) {
                             <h3>GIÁ GỐC : <span style="text-decoration: line-through; font-style: italic;">${originalPrice}</span></h3>
                             <h3>GIÁ KHUYẾN MÃI : <span style="font-weight: bolder; font-style: italic;">${salePrice}</span></h3>
                         </div>
-
-                        <h4 id="color">Màu sắc: XANH LÁ</h4>
                         <div id="listColor_pdt" class="listColor">
-                            <div onclick="clickC_1(this)" class="itemColor1" data-src="${e.img1}" style="background-color: ${e.colorr1};"></div>
-                            <div onclick="clickC_1(this)" class="itemColor2" data-src="${e.img2}" style="background-color: ${e.colorr2};"></div>
-                            <div onclick="clickC_1(this)" class="itemColor3" data-src="${e.img3}" style="background-color: ${e.colorr3};"></div>
+                            ${colorDivs}
                         </div>
                         <div class="countProduct">
                             <h4>Số lượng: </h4>
-                            <li><i class="fa-solid fa-minus"></i></li>
-                            <input type="text" min="min" max="max" readonly="readonly" id="counteInp">
-                            <li><i class="fa-solid fa-plus"></i></li>
+                            <i class="fa-solid fa-minus" onclick='reduce(${JSON.stringify(
+                              e
+                            )});'></i>
+                            <input type="text" readonly="readonly" id="counteInp" value="1">
+                            <i class="fa-solid fa-plus" onclick='increase(${JSON.stringify(
+                              e
+                            )});'></i>
                         </div>
                         <div class="choiceSize">
                             <h3>Size: </h3>
                             <select name="" id="size">
-                                <option value="">Chọn size</option>
                                 <option value="A">A</option>
                                 <option value="B">B</option>
                                 <option value="C">C</option>
@@ -684,7 +805,7 @@ function loadSingleProduct(e) {
                             </select>
                         </div>
                         <div class="addToCart">
-                            <p>Thêm vào giỏ</p>
+                            <p onclick="addShopingBag(objcolorcurrent)">Thêm vào giỏ</p>
                         </div>
                         <div class="content_infoProduct">
                             <h3>THÔNG TIN SẢN PHẨM</h3>
@@ -714,6 +835,96 @@ function loadSingleProduct(e) {
                 </div>
             </div>`;
   document.getElementsByClassName("both")[0].innerHTML = s;
+  document.getElementById("size").addEventListener("click", resetsize);
+}
+
+let quantity = "";
+
+function reduce(itemJSON) {
+  let count = document.querySelector("#counteInp");
+  quantity = parseInt(count.value);
+  let size = document.querySelector("#size").value;
+  let Quantity = itemJSON.quantity;
+  // console.log(Quantity);
+  let maxQuantity = "";
+  switch (size) {
+    case "A":
+      maxQuantity = Quantity.A;
+      break;
+    case "B":
+      maxQuantity = Quantity.B;
+      break;
+    case "C":
+      maxQuantity = Quantity.C;
+      break;
+    case "D":
+      maxQuantity = Quantity.D;
+      break;
+  }
+  if (quantity > 0) {
+    quantity = quantity - 1;
+  } else {
+    quantity = maxQuantity;
+  }
+  count.value = quantity;
+}
+
+function increase(itemJSON) {
+  let count = document.querySelector("#counteInp");
+  quantity = parseInt(count.value);
+  let size = document.querySelector("#size").value;
+  let Quantity = itemJSON.quantity;
+  // console.log(Quantity);
+  let maxQuantity = "";
+  switch (size) {
+    case "A":
+      maxQuantity = Quantity.A;
+      break;
+    case "B":
+      maxQuantity = Quantity.B;
+      break;
+    case "C":
+      maxQuantity = Quantity.C;
+      break;
+    case "D":
+      maxQuantity = Quantity.D;
+      break;
+  }
+  if (quantity < maxQuantity) {
+    quantity = quantity + 1;
+  } else {
+    quantity = maxQuantity;
+  }
+  count.value = quantity;
+}
+function resetsize() {
+  let count = document.querySelector("#counteInp");
+  count.value = 1;
+}
+//doi mau sac quan ao trong chi textIndent
+function clickC_1(e, color, img) {
+  objcolorcurrent.color = color;
+  objcolorcurrent.img = img;
+  console.log(objcolorcurrent);
+  const dataimg = e.getAttribute("data-src");
+  const srcold = e.closest(".both_").querySelector(".srcimg"); //tim phan tu cha -> con co class srcimg
+  srcold.setAttribute("src", dataimg);
+}
+function timkiemSP(arr, id) {
+  for (let i = 0; i < arr.length; i++) {
+    if (id == arr[i].idproduct) {
+      return arr[i];
+    }
+  }
+  return null;
+}
+function reloadpage() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const productid = urlParams.get("productID");
+  const item = timkiemSP(ProductArrBoth, productid);
+  if (item) {
+    loadSingleProduct(item);
+  }
 }
 
 //nut tro lai
@@ -721,9 +932,643 @@ function goBack() {
   window.location.href = "shop.html";
 }
 
-//doi mau sac quan ao trong chi textIndent
-function clickC_1(e) {
-  const dataimg = e.getAttribute("data-src");
-  const srcold = e.closest(".both_").querySelector(".srcimg"); //tim phan tu cha -> con co class srcimg
-  srcold.setAttribute("src", dataimg);
+let Product = JSON.parse(localStorage.getItem("arrayproducts"));
+let arrayshopbag = [];
+function getarrayshopbag() {
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  if (usercurrent != null) {
+    let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+    for (let i = 0; i < alluser.length; i++) {
+      if (alluser[i].userID == usercurrent.userID) {
+        usercurrent = alluser[i];
+      }
+    }
+    localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+    arrayshopbag = usercurrent.shopbag || [];
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag));
+    localStorage.setItem(
+      "countarrayshopbag",
+      JSON.stringify(arrayshopbag.length)
+    );
+  }
 }
+getarrayshopbag();
+let soluong = 0; // Số lượng sản phẩm trong giỏ hàng
+let tongtien = 0; // Tổng tiền của giỏ hàng
+function updateAlluser(user) {
+  let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+  for (let i = 0; i < alluser.length; i++) {
+    if (alluser[i].userID == user.userID) {
+      alluser[i].shopbag = user.shopbag;
+    }
+  }
+  localStorage.setItem("storageUsers", JSON.stringify(alluser));
+}
+function updatecurrentuser() {
+  usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  usercurrent.shopbag = arrayshopbag;
+  localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+  updateAlluser(usercurrent);
+}
+// Hiển thị thông tin giỏ hàng
+function shopinginfo() {
+  let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
+  const cart = document.querySelector(".cart");
+  let s = `<div class="shoping-bag">
+        <div class="shoping-bag-header">
+          <h3>Giỏ hàng</h3>
+          <div class="close-shopping" onclick="closeall()">Đóng</div>
+        </div>
+        <div class="shoping-bag-info">`;
+
+  // Hiển thị các sản phẩm trong giỏ hàng
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    s += `<div class="shoping-bag-info-item">
+            <div class="shoping-bag-img">
+              <img src="${arrayshopbag[i].img}" alt="" />
+            </div>
+            <div class="cart-info">
+              <h4>${arrayshopbag[i].obj.nameSP}</h4>
+              <h6>${arrayshopbag[i].color}-${arrayshopbag[i].size}</h6>
+              <div class="priceAndCount">
+                <div class="count">
+                  <i class="fa-solid fa-minus sub" onclick='reduceShopBag(${i});'></i>
+                  <input type="text" readonly="readonly" class="countProductbuy" value="${arrayshopbag[i].soluong}" />
+                  <i class="fa-solid fa-plus add" onclick='increaseShopBag(${i},"${arrayshopbag[i].size}");'></i>
+                </div>
+                <div class="price">${arrayshopbag[i].obj.price}₫</div>
+              </div>
+              <div class="delete effect-for-btn" onclick="removeItem(${i})">Xoá</div>
+            </div>
+          </div>`;
+  }
+  s += `</div>
+        <div class="pay">
+          <div class="main">
+            <div class="info_bill">
+              <div class="selected">
+                <p>ĐÃ CHỌN:</p>
+                <p id="totalCount">${soluong}</p>
+              </div>
+              <div class="discount">
+                <p>KHUYẾN MÃI:</p>
+                <p id="discountPercent"></p>
+              </div>
+              <div class="total">
+                <p>TẠM TÍNH:</p>
+                <p id="totalBill">${tongtien}₫</p>
+              </div>
+            </div>
+            <div class="btn-pay">
+              <h3 class="effect-for-btn buttonsubmit" onclick="giaodienthanhtoan();" >Xác nhận</h3>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+  cart.innerHTML = s;
+  cart.classList.add("active");
+  chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
+}
+let ispayedshop = false;
+
+function creditcardform() {
+  const creditcard = document.querySelector(".container_pay");
+  creditcard.classList.add("active");
+  document.querySelector(".backgroud-menu-respon").style.display = "block";
+}
+
+function pay() {
+  ispayedshop = true;
+  const creditcard = document.querySelector(".container_pay");
+  creditcard.classList.remove("active");
+  document.querySelector(".backgroud-menu-respon").style.display = "none";
+  alert("Credit card details submitted successfully.");
+}
+
+function giaodienthanhtoan() {
+  let arrayproducts = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+  if (arrayproducts.length == 0) {
+    alert("Giỏ hàng rỗng");
+  } else {
+    let tongtien = 0;
+    getarrayshopbag();
+    let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+    document.querySelector(".cart").classList.remove("active");
+    document.querySelector(".backgroud-menu-respon").style.display = "none";
+    let s = `
+    <div class="container_pay">
+      <form action="javascript:void(0);" onsubmit="pay()">
+        <div class="row">
+          <div class="col">
+            <h3 class="title">billing address</h3>
+            <div class="inputBox">
+              <span>full name :</span>
+              <input type="text" placeholder="john deo" required />
+            </div>
+            <div class="inputBox">
+              <span>email :</span>
+              <input type="email" placeholder="example@example.com" required />
+            </div>
+            <div class="inputBox">
+              <span>address :</span>
+              <input type="text" placeholder="room - street - locality" required />
+            </div>
+            <div class="inputBox">
+              <span>city :</span>
+              <input type="text" placeholder="mumbai" required />
+            </div>
+            <div class="flex">
+              <div class="inputBox">
+                <span>state :</span>
+                <input type="text" placeholder="india" required />
+              </div>
+              <div class="inputBox">
+                <span>zip code :</span>
+                <input type="text" placeholder="123 456" required />
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <h3 class="title">payment</h3>
+            <div class="inputBox">
+              <span>cards accepted :</span>
+              <img src="./img/card_img.png" alt="" />
+            </div>
+            <div class="inputBox">
+              <span>name on card :</span>
+              <input type="text" placeholder="mr. john deo" required />
+            </div>
+            <div class="inputBox">
+              <span>credit card number :</span>
+              <input type="number" placeholder="1111-2222-3333-4444" required />
+            </div>
+            <div class="inputBox">
+              <span>exp month :</span>
+              <input type="text" placeholder="january" required />
+            </div>
+            <div class="flex">
+              <div class="inputBox">
+                <span>exp year :</span>
+                <input type="number" placeholder="2022" required />
+              </div>
+              <div class="inputBox">
+                <span>CVV :</span>
+                <input type="text" placeholder="1234" required />
+              </div>
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="proceed to checkout" class="submit-btn" />
+      </form>
+    </div>
+    <h1 class="tittleheader">THÔNG TIN GIAO HÀNG</h1>
+    <div class="infoCustomer box">
+      <div class="infoCustomer-body">
+        <div class="contentTab">
+          <span>Họ và tên: </span>
+          <input type="text" class="input" id="name" value="${usercurrent.name}" readonly />
+        </div>
+        <div class="contentTab">
+          <span>Số điện thoại: </span>
+          <input type="text" class="input" id="phone" value="${usercurrent.phone}" readonly />
+        </div>
+        <div class="contentTab">
+          <span>Địa chỉ : </span>
+          <input type="text" class="input" id="address" value="${usercurrent.diachi}" readonly />
+        </div>
+        <div id="buttonEdit" onclick="chinhsua();">Chỉnh sửa</div>
+      </div>
+    </div>
+    <div class="payment box">
+      <div class="viewCart">
+        <div class="titleCol">
+          <span class="idProduct">ID</span>
+          <span class="imgProduct">Hình ảnh</span>
+          <span class="nameProduct">Tên sản phẩm</span>
+          <span class="colorProduct">Màu sắc</span>
+          <span class="countProduct">Số lượng</span>
+          <span class="priceProduct">Đơn giá</span>
+        </div>
+        <div id="viewCart-body">`;
+    for (let i = 0; i < arrayproducts.length; i++) {
+      tongtien +=
+        parseInt(arrayproducts[i].obj.price) *
+        parseInt(arrayproducts[i].soluong);
+      s += `<div class="product">
+            <span class="idProduct">${arrayproducts[i].obj.idproduct}</span>
+            <span class="imgProduct imgsp"><img src="${arrayproducts[i].img}" alt="" /></span>
+            <span class="nameProduct">${arrayproducts[i].obj.nameSP}</span>
+            <span class="colorProduct">${arrayproducts[i].color}</span>
+            <span class="countProduct">${arrayproducts[i].soluong}</span>
+            <span class="priceProduct">${arrayproducts[i].obj.price}</span>
+          </div>`;
+    }
+    s += `</div>
+      </div>
+      <div class="methodPayment">
+        <h4>Phương thức thanh toán</h4>
+        <div class="method">
+          <input type="radio" name="radio" id="creditcard" checked />
+          <span onclick="creditcardform()">
+            <i class="now-ui-icons shopping_credit-card"></i>Thẻ tín dụng / Thẻ ghi nợ</span>
+        </div>
+        <div class="method">
+          <input type="radio" name="radio" id="cod" />
+          <span><i class="now-ui-icons shopping_delivery-fast"></i>Thanh toán khi nhận hàng</span>
+        </div>
+        <div class="infoBill">
+          <div class="contentTab">
+            <span>Tạm tính:</span>
+            <span id="valueTemporary">${tongtien}</span>
+          </div>
+          <div class="contentTab">
+            <span>Tổng:</span>
+            <span id="valueBill">${tongtien}</span>
+          </div>
+        </div>
+      </div>
+      <div class="buttonsubmit" onclick="thanhtoan()">Thanh toán</div>
+    </div>`;
+    midcontent.innerHTML = s;
+  }
+}
+// Tính toán số lượng và tổng tiền của giỏ hàng
+function chitiethoadon() {
+  let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
+  soluong = 0;
+  tongtien = 0;
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    soluong += parseInt(arrayshopbag[i].soluong);
+    tongtien +=
+      parseInt(arrayshopbag[i].obj.price) * parseInt(arrayshopbag[i].soluong);
+  }
+
+  const totalCountElement = document.getElementById("totalCount");
+  const totalBillElement = document.getElementById("totalBill");
+
+  if (totalCountElement) {
+    totalCountElement.textContent = soluong;
+  }
+  if (totalBillElement) {
+    totalBillElement.textContent = tongtien + "₫";
+  }
+}
+
+// Giảm số lượng sản phẩm trong giỏ hàng
+function reduceShopBag(index) {
+  let count = document.querySelectorAll(".countProductbuy")[index];
+  let quantity = parseInt(count.value);
+
+  if (quantity > 1) {
+    quantity--;
+    count.value = quantity;
+    arrayshopbag[index].soluong = quantity; // Cập nhật lại số lượng trong giỏ hàng
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
+    updatecurrentuser();
+    chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
+  }
+}
+
+// Tăng số lượng sản phẩm trong giỏ hàng
+function increaseShopBag(index, sizeproduct) {
+  let count = document.querySelectorAll(".countProductbuy")[index];
+  let quantity = parseInt(count.value);
+  // console.log(arrayshopbag[index].obj.quantity.A);
+  let Quantity = arrayshopbag[index].obj.quantity; // Giới hạn số lượng tối đa
+  let maxQuantity = "";
+  switch (sizeproduct) {
+    case "A":
+      maxQuantity = Quantity.A;
+      break;
+    case "B":
+      maxQuantity = Quantity.B;
+      break;
+    case "C":
+      maxQuantity = Quantity.C;
+      break;
+    case "D":
+      maxQuantity = Quantity.D;
+      break;
+  }
+  if (quantity < maxQuantity) {
+    quantity++;
+    count.value = quantity;
+    arrayshopbag[index].soluong = quantity; // Cập nhật lại số lượng trong giỏ hàng
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Lưu lại giỏ hàng
+    updatecurrentuser();
+    chitiethoadon(); // Cập nhật lại thông tin giỏ hàng
+  }
+}
+
+// Xóa sản phẩm khỏi giỏ hàng
+function removeItem(index) {
+  getarrayshopbag();
+  arrayshopbag.splice(index, 1);
+  let soluongspgiohang = arrayshopbag.length;
+
+  if (soluongspgiohang > 0) {
+    document.querySelector(".Shoping span").textContent = soluongspgiohang;
+    document.querySelector(".Shoping").style.color = "red";
+  } else {
+    document.querySelector(".Shoping span").textContent = 0;
+    document.querySelector(".Shoping").style.color = "black";
+  }
+  localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag));
+  updatecurrentuser();
+  localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
+  shopinginfo(); // Cập nhật lại giỏ hàng hiển thị
+}
+
+// Đóng giỏ hàng
+function closeall() {
+  document.querySelector(".cart").classList.remove("active");
+  document.querySelector(".backgroud-menu-respon").style.display = "none";
+  let menurespon = document.querySelector(".header1");
+  if (menurespon) {
+    menurespon.classList.remove("active");
+  }
+  let creditcard = document.querySelector(".container_pay");
+  if (creditcard != null) {
+    creditcard.classList.remove("active");
+  }
+}
+
+// Mở giỏ hàng
+const shoping = document.querySelectorAll(".Shoping");
+shoping.forEach(function (e) {
+  e.addEventListener("click", () => {
+    const bag = document.querySelector(".cart");
+    bag.classList.add("active");
+    document.querySelector(".backgroud-menu-respon").style.display = "block";
+    shopinginfo(); // Hiển thị thông tin giỏ hàng khi mở
+  });
+});
+
+// Thêm sản phẩm vào giỏ hàng
+function kiemtradangnhap() {
+  let user = JSON.parse(localStorage.getItem("currentUser"));
+  return user !== null;
+}
+let soluongspgiohang =
+  JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
+if (soluongspgiohang > 0) {
+  document.querySelector(".Shoping span").textContent = soluongspgiohang;
+  document.querySelector(".Shoping").style.color = "red";
+} else {
+  document.querySelector(".Shoping span").textContent = 0;
+  document.querySelector(".Shoping").style.color = "black";
+}
+function kiemtradacotronggiohang(item) {
+  arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
+  for (let i = 0; i < arrayshopbag.length; i++) {
+    if (
+      item.obj.idproduct == arrayshopbag[i].obj.idproduct &&
+      item.size == arrayshopbag[i].size &&
+      item.color == arrayshopbag[i].color
+    ) {
+      return arrayshopbag[i];
+    }
+  }
+  return null;
+}
+// Utility function to check stock availability
+function kiemtraconhang(item) {
+  let products = JSON.parse(localStorage.getItem("arrayproducts"));
+  for (let i = 0; i < products.length; i++) {
+    if (products[i].idproduct === item.obj.idproduct) {
+      switch (item.size) {
+        case "A":
+          return products[i].quantity.A > 0;
+        case "B":
+          return products[i].quantity.B > 0;
+        case "C":
+          return products[i].quantity.C > 0;
+        case "D":
+          return products[i].quantity.D > 0;
+      }
+    }
+  }
+  return false;
+}
+
+function addShopingBag(item) {
+  let toast = document.querySelector(".toast_info");
+  if (kiemtradangnhap() === true) {
+    item.size = document.querySelector("#size").value;
+    item.soluong = parseInt(document.querySelector("#counteInp").value);
+
+    // Check if the selected size is in stock
+    if (!kiemtraconhang(item)) {
+      alert("Size " + item.size + " đã hết hàng");
+      return;
+    }
+
+    getarrayshopbag();
+    soluongspgiohang = arrayshopbag.length;
+
+    // Check if the product already exists in the shopping bag
+    let existingItem = kiemtradacotronggiohang(item);
+    if (existingItem != null) {
+      // Check if adding the new quantity would exceed the available stock
+      let products = JSON.parse(localStorage.getItem("arrayproducts"));
+      let product = products.find((p) => p.idproduct === item.obj.idproduct);
+      let availableStock = product.quantity[item.size];
+      if (existingItem.soluong + item.soluong > availableStock) {
+        alert("Không đủ hàng trong kho");
+        return;
+      } else {
+        existingItem.soluong += item.soluong;
+      }
+    } else {
+      arrayshopbag.push(item);
+      soluongspgiohang++;
+    }
+
+    localStorage.setItem("arrayshopbag", JSON.stringify(arrayshopbag)); // Save the shopping bag
+    updatecurrentuser();
+    localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
+
+    // Update the display of the number of products in the shopping bag
+    updateshopingbag();
+    chitiethoadon(); // Update the shopping bag details
+  } else {
+    alert("Vui lòng đăng nhập");
+  }
+}
+
+// Update the display of the number of products in the shopping bag when the page is loaded
+function updateshopingbag() {
+  soluongspgiohang = JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
+  if (soluongspgiohang > 0) {
+    document.querySelector(".Shoping span").textContent = soluongspgiohang;
+    document.querySelector(".Shoping").style.color = "red";
+  } else {
+    document.querySelector(".Shoping span").textContent = "0";
+    document.querySelector(".Shoping").style.color = "black";
+  }
+}
+
+// Initial call to update the shopping bag display
+updateshopingbag();
+
+// Cập nhật số lượng sản phẩm trong giỏ hàng khi trang được tải
+function updateshopingbag() {
+  soluongspgiohang = JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
+  if (soluongspgiohang > 0) {
+    document.querySelector(".Shoping span").textContent = soluongspgiohang;
+    document.querySelector(".Shoping").style.color = "red";
+  } else {
+    document.querySelector(".Shoping span").textContent = "0";
+    document.querySelector(".Shoping").style.color = "black";
+  }
+}
+
+function dieuchinhsoluongtrongkho(arr) {
+  console.log(arr);
+  let products = JSON.parse(localStorage.getItem("arrayproducts"));
+  for (let i = 0; i < products.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j].obj.idproduct == products[i].idproduct) {
+        // console.log(arr[j].obj.idproduct, products[i].idproduct);
+        switch (arr[j].size) {
+          case "A":
+            products[i].quantity.A =
+              parseInt(products[i].quantity.A) - parseInt(arr[j].soluong);
+            break;
+          case "B":
+            products[i].quantity.B =
+              parseInt(products[i].quantity.B) - parseInt(arr[j].soluong);
+            break;
+          case "C":
+            products[i].quantity.C =
+              parseInt(products[i].quantity.C) - parseInt(arr[j].soluong);
+            break;
+          case "D":
+            products[i].quantity.D =
+              parseInt(products[i].quantity.D) - parseInt(arr[j].soluong);
+            break;
+        }
+      }
+    }
+  }
+  localStorage.setItem("arrayproducts", JSON.stringify(products));
+}
+
+function kiemtratontai(IDuser) {
+  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  for (let i = 0; i < shopbagispay.length; i++) {
+    if (shopbagispay[i].IDuser == IDuser) {
+      return i;
+    }
+  }
+  return null;
+}
+
+function thanhtoan() {
+  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  let userIndex = kiemtratontai(usercurrent.userID);
+  let creditcard = document.querySelector("#creditcard");
+
+  if (usercurrent.phone === "" || usercurrent.diachi === "") {
+    alert("Vui lòng nhập đầy đủ số điện thoại và địa chỉ");
+    chinhsua();
+  } else {
+    if (creditcard.checked && ispayedshop == false) {
+      creditcardform();
+    } else {
+      if (userIndex !== null) {
+        let arrayshopbag =
+          JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+        for (let i = 0; i < arrayshopbag.length; i++) {
+          shopbagispay[userIndex].shopbagispayuser.push(arrayshopbag[i]);
+        }
+      } else {
+        let shopbagitem = {
+          IDuser: usercurrent.userID,
+          shopbagispayuser:
+            JSON.parse(localStorage.getItem("arrayshopbag")) || [],
+        };
+        shopbagispay.push(shopbagitem);
+      }
+
+      localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
+
+      // Ensure the correct list of items is passed for inventory adjustment
+      let itemsToAdjust =
+        userIndex !== null
+          ? shopbagispay[userIndex].shopbagispayuser
+          : JSON.parse(localStorage.getItem("arrayshopbag"));
+      dieuchinhsoluongtrongkho(itemsToAdjust);
+
+      // Clear user's shopping bag after checkout
+      let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+      for (let i = 0; i < alluser.length; i++) {
+        if (alluser[i].userID == usercurrent.userID) {
+          alluser[i].shopbag = [];
+          usercurrent.shopbag = [];
+        }
+      }
+      localStorage.setItem("storageUsers", JSON.stringify(alluser));
+      localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+      location.reload();
+    }
+  }
+}
+
+let isEditing = false; // Flag to track edit state
+
+function chinhsua() {
+  const editButton = document.querySelector("#buttonEdit"); // Get the edit button
+  const inputEdit = document.querySelectorAll(".input"); // Get all input fields
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  const phone = document.querySelector("#phone");
+  const address = document.querySelector("#address");
+
+  if (editButton != null) {
+    editButton.addEventListener("click", () => {
+      if (isEditing) {
+        // Save mode
+        inputEdit.forEach(function (e) {
+          e.setAttribute("readonly", true);
+          e.classList.remove("active"); // Remove active class when saving
+        });
+        editButton.textContent = "Chỉnh sửa";
+        // Save updated user information
+        usercurrent.phone = phone.value;
+        usercurrent.diachi = address.value;
+        localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+        updateUserDetails(usercurrent); // Update the user details in storageUsers
+      } else {
+        // Edit mode
+        inputEdit.forEach(function (e) {
+          e.removeAttribute("readonly");
+          e.classList.add("active"); // Add active class when editing
+        });
+        editButton.textContent = "Lưu lại";
+      }
+      // Toggle edit state
+      isEditing = !isEditing;
+    });
+  }
+}
+
+// Function to update user details in storageUsers
+function updateUserDetails(user) {
+  let allUsers = JSON.parse(localStorage.getItem("storageUsers")) || [];
+  for (let i = 0; i < allUsers.length; i++) {
+    if (allUsers[i].userID == user.userID) {
+      allUsers[i] = user;
+      break;
+    }
+  }
+  localStorage.setItem("storageUsers", JSON.stringify(allUsers));
+}
+
+// Initialize the edit function
+chinhsua();
+makeFilter();
+makeSP(getCurrentPage(), sosptrongtrang, ProductArrBoth);
+makeselectpage(getCurrentPage(), ProductArrBoth);
+// saveArraytolocal();
