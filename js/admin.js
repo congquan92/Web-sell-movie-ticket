@@ -499,11 +499,13 @@ function btnAccept() {
     renderBtnadd();
     toggleConfirmationDialog(false);
     closeTabb();
+    location.reload();
   };
 
   document.getElementById("no").onclick = () => {
     toggleConfirmationDialog(false);
     closeTabb();
+    location.reload();
   };
 }
 
