@@ -593,9 +593,9 @@ function renderqltk() {
          <div class="boder">
               <div class="left-boder">
                   <h2 style="color: blue;">${Arrsell.reduce(
-                    (i, n) => i + n.soluong,
-                    0
-                  )}</h2>
+    (i, n) => i + n.soluong,
+    0
+  )}</h2>
                   <h2 style="font-weight: 200;">ĐÃ BÁN</h2> 
               </div>
               <div class="right-boder"><i style="font-size: 40px;font-weight: 200;" class='bx bx-cart-alt'></i></div>   
@@ -603,12 +603,12 @@ function renderqltk() {
          <div class="boder">
               <div class="left-boder">
                   <h2 style="color: blue;">${Arrsell.reduce(
-                    (i, n) => i + n.soluong * n.obj.price,
-                    0
-                  ).toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}</h2>
+    (i, n) => i + n.soluong * n.obj.price,
+    0
+  ).toLocaleString("vi-VN", {
+    style: "currency",
+    currency: "VND",
+  })}</h2>
                   <h2 style="font-weight: 200;">DOANH THU</h2>
               </div>
               <div class="right-boder"><i style="font-size: 40px;font-weight: 200;" class='bx bx-money-withdraw'></i></div>   
@@ -667,11 +667,11 @@ function rankProfit(arrs) {
             <span style="width: 30%;" class="name">${i.obj.nameSP}</span>
             <span style="width: 30%;" class="sold">${i.soluong}</span>
             <span style="width: 10%;  class="profits">${(
-              i.obj.price * i.soluong
-            ).toLocaleString("vi-VN", {
-              style: "currency",
-              currency: "VND",
-            })}</span>
+        i.obj.price * i.soluong
+      ).toLocaleString("vi-VN", {
+        style: "currency",
+        currency: "VND",
+      })}</span>
            </div>`;
   });
   document.getElementById("rankProfit-body").innerHTML = s;
@@ -838,18 +838,14 @@ function listAccounts() {
         <span class="nameAccount" style="width: 26%;">${account.name}</span>
         <span class="phoneAccount" style="width: 10%;">${account.phone}</span>
         <span class="emailAccount" style="width: 10%;">${account.email}</span>
-        <span class="addressAccount" style="width: 17%;">${
-          account.diachi
-        }</span>
-        <span class="passwordAccount" style="width: 12%;">${
-          account.password
-        }</span>
-        <span class="statusAccount" style="width: 10%;">${
-          account.statususer == "1" ? "Bình thường" : "Đã khoá"
-        }</span>
-        <button class="btnAccount" style="width: 10%;" onclick="toggleLockUser('${
-          account.userID
-        }')">${account.statususer == "0" ? "Mở khóa" : "Khóa"}</button>
+        <span class="addressAccount" style="width: 17%;">${account.diachi
+      }</span>
+        <span class="passwordAccount" style="width: 12%;">${account.password
+      }</span>
+        <span class="statusAccount" style="width: 10%;">${account.statususer == "1" ? "Bình thường" : "Đã khoá"
+      }</span>
+        <button class="btnAccount" style="width: 10%;" onclick="toggleLockUser('${account.userID
+      }')">${account.statususer == "0" ? "Mở khóa" : "Khóa"}</button>
       </div>`;
   });
   return s;
@@ -1350,7 +1346,7 @@ function setDH() {
   // push lên localStorage
   let index = 0;
   for (let i = 0; i < filteredProducts.length; i++) {
-    for (let j = 0; j < getShopBag[j].length; ) {
+    for (let j = 0; j < getShopBag[j].length;) {
       // tìm kiếm theo IDuser
       if (filteredProducts[i].IDuser === getShopBag[j].IDuser) {
         // duyệt qua hết shopbagispayuser của getShopBag[j] thì nhảy qua getShopBag[j + 1]
@@ -1502,13 +1498,59 @@ function renderqldh() {
   document.querySelector("#storage-body").innerHTML = s;
 }
 // login
-let adminAccount = {
-  email: "admin@gmail.com",
-  password: "admin",
-};
 let getSignInButton = "";
 let getEmailSignIn = "";
 let getPasswordSignIn = "";
+
+function saveAdminAccount(account) {
+  let storageAdminAccount = JSON.parse(localStorage.getItem("storageAdminAccount"));
+  if (storageAdminAccount === null) {
+    storageAdminAccount = [];
+  } else {
+    for (let i = 0; i < storageAdminAccount.length; i++) {
+      if (storageAdminAccount[i].email === account.email) {
+        alert("Email đã tồn tại");
+        return;
+      }
+    }
+  }
+  storageAdminAccount.push(account);
+  localStorage.setItem("storageAdminAccount", JSON.stringify(storageAdminAccount));
+}
+
+function checkSignInAdminAccount(email, password) {
+  let storageAdminAccount = JSON.parse(localStorage.getItem("storageAdminAccount"));
+  for (let i = 0; i < storageAdminAccount.length; i++) {
+    if (storageAdminAccount[i].email === email && storageAdminAccount[i].password === password) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function pushFirstAdminAccount() {
+  let storageAdminAccount = JSON.parse(localStorage.getItem("storageAdminAccount"));
+  let flagAdminAccount = JSON.parse(localStorage.getItem("flagAdminAccount"));
+  // nếu storageAdminAccount rỗng hoặc flag = null thì push adminAccout
+  if (flagAdminAccount === null || storageAdminAccount === null) {
+    localStorage.setItem("flagAdminAccount", JSON.stringify(false));
+    storageAdminAccount = [];
+    let adminAccount = {
+      email: "admin@gmail.com",
+      password: "admin",
+      type: "0"
+    };
+    storageAdminAccount.push(adminAccount);
+    localStorage.setItem("storageAdminAccount", JSON.stringify(storageAdminAccount));
+    localStorage.setItem("flagAdminAccount", JSON.stringify(true));
+  }
+  // nếu flag khác null => false/true => true thì return vì đã push
+  if (flagAdminAccount) {
+    return;
+  }
+}
+
+pushFirstAdminAccount();
 
 function checkEmail(str) {
   let idx = str.indexOf("@");
@@ -1539,10 +1581,7 @@ function signInButton(event) {
     getPasswordSignIn.focus();
     return;
   }
-  if (
-    getEmailSignIn.value === adminAccount.email &&
-    getPasswordSignIn.value === adminAccount.password
-  ) {
+  if (checkSignInAdminAccount(getEmailSignIn.value, getPasswordSignIn.value)) {
     let getPage = document.querySelector(".page");
     getPage.innerHTML = `
       <div class="page-left second-icon">
@@ -1586,6 +1625,9 @@ function signInButton(event) {
       </div>
         `;
     onload();
+    return;
+  } else {
+    alert("Email hoặc mật khẩu bị sai, vui lòng nhập lại!");
     return;
   }
 }
