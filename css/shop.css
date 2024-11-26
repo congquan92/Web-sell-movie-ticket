@@ -290,6 +290,7 @@
 .addToCart:hover {
   background-color: rgb(238, 180, 180);
   color: black;
+  cursor: pointer;
   transition: all 0.3;
 }
 .content_infoProduct {
