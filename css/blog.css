@@ -16,11 +16,12 @@ ul {
 }
 .trend h2 {
   text-align: center;
-  padding: 6px;
+  padding: 25px;
 }
 .content-trend {
   display: flex;
   justify-content: space-between;
+  border-radius: 15px;
   padding: 10px;
   flex-wrap: wrap;
   box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.16);
@@ -67,6 +68,7 @@ ul {
   opacity: 1;
 }
 .impromptu h2 {
+  padding: 25px;
   text-align: center;
 }
 .content-impromptu {

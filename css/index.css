@@ -539,6 +539,7 @@ body {
 
 /* amination */
 .trend {
+  margin-top: 20px;
   animation: trend 2s ease;
 }
 @keyframes trend {
