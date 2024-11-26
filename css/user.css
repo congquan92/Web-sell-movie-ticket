@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 * {
   box-sizing: border-box;
+  font-family: "Sour Gummy", serif;
   margin: 0;
   padding: 0;
 }
@@ -76,7 +78,9 @@
   justify-content: space-between;
 }
 .shoping-list-item {
-  margin: 5px 0px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  margin: 5px 4px;
   padding: 10px;
   border: 2px solid black;
 }

@@ -126,7 +126,7 @@ let Productindex = [
       C: 6,
       D: 2,
     },
-    colorr1: "brown",
+    colorr1: "green",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p7-1.jpg",
@@ -221,7 +221,7 @@ let Productindex = [
       D: 2,
     },
     idproduct: "",
-    colorr1: "brown",
+    colorr1: "green",
     colorr2: "black",
     colorr3: "unset",
     img1: "./img/products/p12-1.jpg",
@@ -859,6 +859,10 @@ function closeall() {
   if (menurespon) {
     menurespon.classList.remove("active");
   }
+  let creditcard = document.querySelector(".container_pay");
+  if (creditcard != null) {
+    creditcard.classList.remove("active");
+  }
 }
 updateshopingbag();
 
@@ -873,6 +877,22 @@ function updateshopingbag() {
     document.querySelector(".Shoping").style.color = "black";
   }
 }
+let ispayed = false;
+
+function creditcardform() {
+  const creditcard = document.querySelector(".container_pay");
+  creditcard.classList.add("active");
+  document.querySelector(".backgroud-menu-respon").style.display = "block";
+}
+
+function pay() {
+  ispayed = true;
+  const creditcard = document.querySelector(".container_pay");
+  creditcard.classList.remove("active");
+  document.querySelector(".backgroud-menu-respon").style.display = "none";
+  alert("Credit card details submitted successfully.");
+}
+
 function giaodienthanhtoan() {
   let arrayproducts = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
   if (arrayproducts.length == 0) {
@@ -883,28 +903,82 @@ function giaodienthanhtoan() {
     let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
     document.querySelector(".cart").classList.remove("active");
     document.querySelector(".backgroud-menu-respon").style.display = "none";
-    let s = `<h1 class="tittleheader">THÔNG TIN GIAO HÀNG</h1>
+    let s = `
+    <div class="container_pay">
+      <form action="javascript:void(0);" onsubmit="pay()">
+        <div class="row">
+          <div class="col">
+            <h3 class="title">billing address</h3>
+            <div class="inputBox">
+              <span>full name :</span>
+              <input type="text" placeholder="john deo" required />
+            </div>
+            <div class="inputBox">
+              <span>email :</span>
+              <input type="email" placeholder="example@example.com" required />
+            </div>
+            <div class="inputBox">
+              <span>address :</span>
+              <input type="text" placeholder="room - street - locality" required />
+            </div>
+            <div class="inputBox">
+              <span>city :</span>
+              <input type="text" placeholder="mumbai" required />
+            </div>
+            <div class="flex">
+              <div class="inputBox">
+                <span>state :</span>
+                <input type="text" placeholder="india" required />
+              </div>
+              <div class="inputBox">
+                <span>zip code :</span>
+                <input type="text" placeholder="123 456" required />
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <h3 class="title">payment</h3>
+            <div class="inputBox">
+              <span>cards accepted :</span>
+              <img src="./img/card_img.png" alt="" />
+            </div>
+            <div class="inputBox">
+              <span>name on card :</span>
+              <input type="text" placeholder="mr. john deo" required />
+            </div>
+            <div class="inputBox">
+              <span>credit card number :</span>
+              <input type="number" placeholder="1111-2222-3333-4444" required />
+            </div>
+            <div class="inputBox">
+              <span>exp month :</span>
+              <input type="text" placeholder="january" required />
+            </div>
+            <div class="flex">
+              <div class="inputBox">
+                <span>exp year :</span>
+                <input type="number" placeholder="2022" required />
+              </div>
+              <div class="inputBox">
+                <span>CVV :</span>
+                <input type="text" placeholder="1234" required />
+              </div>
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="proceed to checkout" class="submit-btn" />
+      </form>
+    </div>
+    <h1 class="tittleheader">THÔNG TIN GIAO HÀNG</h1>
     <div class="infoCustomer box">
       <div class="infoCustomer-body">
         <div class="contentTab">
           <span>Họ và tên: </span>
-          <input
-            type="text"
-            class="input"
-            id="name"
-            value="${usercurrent.name}"
-            readonly
-          />
+          <input type="text" class="input" id="name" value="${usercurrent.name}" readonly />
         </div>
         <div class="contentTab">
           <span>Số điện thoại: </span>
-          <input
-            type="text"
-            class="input"
-            id="phone"
-            value="${usercurrent.phone}"
-            readonly
-          />
+          <input type="text" class="input" id="phone" value="${usercurrent.phone}" readonly />
         </div>
         <div class="contentTab">
           <span>Địa chỉ : </span>
@@ -924,18 +998,17 @@ function giaodienthanhtoan() {
           <span class="priceProduct">Đơn giá</span>
         </div>
         <div id="viewCart-body">`;
-    for (let i = 0; i < arrayshopbag.length; i++) {
+    for (let i = 0; i < arrayproducts.length; i++) {
       tongtien +=
-        parseInt(arrayshopbag[i].obj.price) * parseInt(arrayshopbag[i].soluong);
+        parseInt(arrayproducts[i].obj.price) *
+        parseInt(arrayproducts[i].soluong);
       s += `<div class="product">
-            <span class="idProduct">${arrayshopbag[i].obj.idproduct}</span>
-            <span class="imgProduct imgsp"
-              ><img src="${arrayshopbag[i].img}" alt=""
-            /></span>
-            <span class="nameProduct">${arrayshopbag[i].obj.nameSP}</span>
-            <span class="colorProduct">${arrayshopbag[i].color}</span>
-            <span class="countProduct">${arrayshopbag[i].soluong}</span>
-            <span class="priceProduct">${arrayshopbag[i].obj.price}</span>
+            <span class="idProduct">${arrayproducts[i].obj.idproduct}</span>
+            <span class="imgProduct imgsp"><img src="${arrayproducts[i].img}" alt="" /></span>
+            <span class="nameProduct">${arrayproducts[i].obj.nameSP}</span>
+            <span class="colorProduct">${arrayproducts[i].color}</span>
+            <span class="countProduct">${arrayproducts[i].soluong}</span>
+            <span class="priceProduct">${arrayproducts[i].obj.price}</span>
           </div>`;
     }
     s += `</div>
@@ -943,18 +1016,13 @@ function giaodienthanhtoan() {
       <div class="methodPayment">
         <h4>Phương thức thanh toán</h4>
         <div class="method">
-          <input type="radio" name="radio" id="" checked />
-          <span>
-            <i class="now-ui-icons shopping_credit-card"></i>Thẻ tín dụng / Thẻ
-            ghi nợ</span
-          >
+          <input type="radio" name="radio" id="creditcard" checked />
+          <span onclick="creditcardform()">
+            <i class="now-ui-icons shopping_credit-card"></i>Thẻ tín dụng / Thẻ ghi nợ</span>
         </div>
         <div class="method">
-          <input type="radio" name="radio" id="" />
-          <span
-            ><i class="now-ui-icons shopping_delivery-fast"></i>Thanh toán khi
-            nhận hàng</span
-          >
+          <input type="radio" name="radio" id="cod" />
+          <span><i class="now-ui-icons shopping_delivery-fast"></i>Thanh toán khi nhận hàng</span>
         </div>
         <div class="infoBill">
           <div class="contentTab">
@@ -972,6 +1040,59 @@ function giaodienthanhtoan() {
     midcontent.innerHTML = s;
   }
 }
+
+function thanhtoan() {
+  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
+  let userIndex = kiemtratontai(usercurrent.userID);
+  let creditcard = document.querySelector("#creditcard");
+
+  if (usercurrent.phone === "" || usercurrent.diachi === "") {
+    alert("Vui lòng nhập đầy đủ số điện thoại và địa chỉ");
+    chinhsua();
+  } else {
+    if (creditcard.checked && ispayed == false) {
+      creditcardform();
+    } else {
+      if (userIndex !== null) {
+        let arrayshopbag =
+          JSON.parse(localStorage.getItem("arrayshopbag")) || [];
+        for (let i = 0; i < arrayshopbag.length; i++) {
+          shopbagispay[userIndex].shopbagispayuser.push(arrayshopbag[i]);
+        }
+      } else {
+        let shopbagitem = {
+          IDuser: usercurrent.userID,
+          shopbagispayuser:
+            JSON.parse(localStorage.getItem("arrayshopbag")) || [],
+        };
+        shopbagispay.push(shopbagitem);
+      }
+
+      localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
+
+      // Ensure the correct list of items is passed for inventory adjustment
+      let itemsToAdjust =
+        userIndex !== null
+          ? shopbagispay[userIndex].shopbagispayuser
+          : JSON.parse(localStorage.getItem("arrayshopbag"));
+      dieuchinhsoluongtrongkho(itemsToAdjust);
+
+      // Clear user's shopping bag after checkout
+      let alluser = JSON.parse(localStorage.getItem("storageUsers"));
+      for (let i = 0; i < alluser.length; i++) {
+        if (alluser[i].userID == usercurrent.userID) {
+          alluser[i].shopbag = [];
+          usercurrent.shopbag = [];
+        }
+      }
+      localStorage.setItem("storageUsers", JSON.stringify(alluser));
+      localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+      location.reload();
+    }
+  }
+}
+
 function getarrayshopbag() {
   let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
   if (usercurrent != null) {
@@ -990,56 +1111,10 @@ function getarrayshopbag() {
     );
   }
 }
+
 getarrayshopbag();
 updateshopingbag();
-function thanhtoan() {
-  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
-  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
-  let userIndex = kiemtratontai(usercurrent.userID);
 
-  if (usercurrent.phone === "" || usercurrent.diachi === "") {
-    alert("Vui lòng nhập đầy đủ số điện thoại và địa chỉ");
-    chinhsua();
-  } else {
-    if (userIndex !== null) {
-      let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
-      for (let i = 0; i < arrayshopbag.length; i++) {
-        shopbagispay[userIndex].shopbagispayuser.push(arrayshopbag[i]);
-      }
-    } else {
-      let shopbagitem = {
-        IDuser: usercurrent.userID,
-        shopbagispayuser:
-          JSON.parse(localStorage.getItem("arrayshopbag")) || [],
-      };
-      shopbagispay.push(shopbagitem);
-    }
-
-    localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
-
-    // Ensure the correct list of items is passed for inventory adjustment
-    let itemsToAdjust =
-      userIndex !== null
-        ? shopbagispay[userIndex].shopbagispayuser
-        : JSON.parse(localStorage.getItem("arrayshopbag"));
-
-    dieuchinhsoluongtrongkho(itemsToAdjust);
-
-    // Clear user's shopping bag after checkout
-    let alluser = JSON.parse(localStorage.getItem("storageUsers"));
-    for (let i = 0; i < alluser.length; i++) {
-      if (alluser[i].userID == usercurrent.userID) {
-        alluser[i].shopbag = [];
-        usercurrent.shopbag = [];
-      }
-    }
-    localStorage.setItem("storageUsers", JSON.stringify(alluser));
-    localStorage.setItem("currentUser", JSON.stringify(usercurrent));
-
-    // Reload the page to reflect changes
-    location.reload();
-  }
-}
 function kiemtratontai(IDuser) {
   let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
   for (let i = 0; i < shopbagispay.length; i++) {
@@ -1127,6 +1202,7 @@ function hienthispindex(item) {
   window.location.href = "shop.html";
 }
 function hienthiblog() {
+  window.scrollTo(0, 0);
   let menurespon = document.querySelector(".header1");
   document.title = "New Clothes | Blog";
   if (menurespon) {

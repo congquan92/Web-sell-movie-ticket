@@ -15,6 +15,7 @@ login.forEach(function (e) {
   let user = JSON.parse(localStorage.getItem("currentUser"));
   e.addEventListener("click", () => {
     if (user != null) {
+      window.scrollTo(0, 0);
       midcontent.innerHTML = `<div class="leftpage">
         <h1 class="tittleheader">Hồ sơ cá nhân</h1>
         <div class="buttonGroup">

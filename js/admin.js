@@ -1,9 +1,9 @@
 let ArrProduct = JSON.parse(localStorage.getItem("arrayproducts"));
 let sell = JSON.parse(localStorage.getItem("shopbagispay")) || [];
-let usercurrent = null;
-localStorage.setItem("currentUser", JSON.stringify(usercurrent));
+localStorage.setItem("currentUser", JSON.stringify(null));
 let Arrsell = sell.flatMap((i) => i.shopbagispayuser);
-
+localStorage.setItem("arrayshopbag", JSON.stringify(null));
+localStorage.setItem("countarrayshopbag", JSON.stringify(null));
 let typeproducts = [
   { typeid: "aothun#", typename: "Áo thun" },
   { typeid: "polo#", typename: "Polo" },
@@ -1076,10 +1076,154 @@ function renderqlnd() {
 // vinh render qldh
 let getShopBag = JSON.parse(localStorage.getItem("shopbagispay")) || [];
 
+function showDetailInformation(event, element) {
+  event.preventDefault();
+  // Lấy vị trí chuột
+  const posX = event.pageX;
+  const posY = event.pageY;
+  // Hiển thị menu ở vị trí chuột
+  contextMenu.style.display = "block";
+  contextMenu.style.left = `${posX}px`;
+  contextMenu.style.top = `${posY}px`;
+
+  let idProduct = element.querySelector(".idProduct").textContent;
+  let userID = element.querySelector(".userID").textContent;
+  let parseUserIDToInt = parseInt(userID);
+  let order;
+  let flag = false;
+  for (let i = 0; i < getShopBag.length; i++) {
+    if (flag) break;
+    if (parseUserIDToInt !== getShopBag[i].IDuser) continue;
+    for (let j = 0; j < getShopBag[i].shopbagispayuser.length; j++) {
+      if (idProduct === getShopBag[i].shopbagispayuser[j].obj.idproduct) {
+        order = {
+          IDuser: getShopBag[i].IDuser,
+          shopbagispayuser: [getShopBag[i].shopbagispayuser[j]],
+        };
+        flag = true;
+        break;
+      }
+    }
+  }
+  console.log(order);
+  let imgProduct = order.shopbagispayuser[0].obj.img;
+  let nameProduct = order.shopbagispayuser[0].obj.nameSP;
+  let colorProduct = order.shopbagispayuser[0].color;
+  let price = element.querySelector(".priceProduct").textContent;
+  let nametagProduct = order.shopbagispayuser[0].obj.nametag;
+  let quantity = order.shopbagispayuser[0].soluong;
+  let typeProduct = "";
+  let nameOfCustomer = "";
+  let addressOfCustomer = "";
+  let getStorageUsers = JSON.parse(localStorage.getItem("storageUsers"));
+  console.log(getStorageUsers);
+  for (let i = 0; i < getStorageUsers.length; i++) {
+    if (parseInt(userID) === getStorageUsers[i].userID) {
+      nameOfCustomer = getStorageUsers[i].name;
+      addressOfCustomer = getStorageUsers[i].diachi;
+      break;
+    }
+  }
+  switch (true) {
+    case nametagProduct.startsWith("hoodie#"):
+      typeProduct = "Hoodie";
+      break;
+    case nametagProduct.startsWith("sweater#"):
+      typeProduct = "Sweater";
+      break;
+    case nametagProduct.startsWith("somi#"):
+      typeProduct = "Sơ mi";
+      break;
+    case nametagProduct.startsWith("polo#"):
+      typeProduct = "Polo";
+      break;
+    case nametagProduct.startsWith("aothun#"):
+      typeProduct = "Áo thun";
+      break;
+    default:
+      typeProduct = "Không xác định";
+  }
+
+  //chi tiết đơn hàng
+  // Lấy phần tử chứa chữ "Chỉnh sửa"
+  let getButton1ContextMenu = document.getElementById(
+    "button1-contextMenu"
+  ).nextSibling;
+
+  // Thay đổi nội dung của phần tử đó thành "Chi tiết"
+  getButton1ContextMenu.nodeValue = "Chi tiết";
+
+  // Ẩn nút button khi chạy đoạn mã này
+  document.getElementById("deleteProduct").style.display = "none";
+
+  document.getElementById("viewDetails").addEventListener("click", () => {
+    getButton1ContextMenu.nodeValue = "Chỉnh sửa";
+    document.getElementById("deleteProduct").style.display = "block";
+    document.querySelector(".outbackround").classList.add("actoutbackground");
+    document.querySelector(".viewmenu").classList.add("actz");
+    document.querySelector(".viewmenu").classList.remove("nonez");
+
+    document.querySelector(".viewmenu").innerHTML = `<div id="tabAddProduct">
+      <div class="headTab">
+          <span class="title">THÔNG TIN CHI TIẾT</span>
+          <span onclick ="closeTabz()" class="closeTab">ĐÓNG</span>
+      </div>
+      <form action="">
+        <div class="bodyTab">
+          <div class="leftTab">
+            <div class="contentTab">
+              <span>ID: </span>
+              <span class="ID">${idProduct}</span>
+            </div>
+            <div class="contentTab">
+              <div id="imageContainer"> 
+                <img src="${imgProduct}" class="imgPreview">
+              </div>
+            </div>
+            <div class="contentTab"> 
+              <span>Tên sản phẩm: </span>
+              <input readonly style="width: 50%" type="text" placeholder="Tên sản phẩm" value="${nameProduct}" id="nameAddProduct">
+            </div>
+            <div class="contentTab colorInput">
+              <span>Màu sắc: </span>
+              <input readonly style="width: 25%" type="text" placeholder="[ĐEN, TRẮNG, ....]" value="${colorProduct}" id="colorAddProduct">
+            </div>
+            <div class="contentTab">
+              <span>Số lượng mua: </span>
+              <input readonly style="width: 20%" type="text" id="countAddProductA" placeholder="Số lượng" value="${quantity}">
+            </div>
+          </div>
+          <div class="rightTab">
+            <div class="contentTab">
+              <span>Tên khách hàng: </span>
+              <input readonly style="width: 20%" type="text" id="nameOfCustomer" placeholder="Số lượng" value="${nameOfCustomer}">
+            </div>
+            <div class="contentTab">
+              <span>Địa chỉ khách hàng: </span>
+              <input readonly style="width: 20%" type="text" id="addressOfCustomer" placeholder="Số lượng" value="${addressOfCustomer}">
+            </div>
+            <div class="contentTab">
+              <span>Đơn giá: </span>
+              <input readonly style="width: 30%" type="text" id="priceAddProduct" placeholder="Đơn giá" value="${price}">
+            </div>
+            <div class="contentTab">
+              <span>Name Tag </span>
+              <input readonly style="width: 30%" type="text" placeholder="Name Tag" value="${nametagProduct}" id="nameimgAddProduct">
+            </div>
+            <div class="contentTab">
+              <span>Loại </span>
+              <input readonly type="text" value="${typeProduct}" id="typeAddProduct">
+            </div>
+          </div>
+        </div>
+      </form>
+  </div>`;
+  });
+}
+
 // in đơn hàng
 function listDH(ordersOfUser) {
   let s = "";
-  console.log(ordersOfUser.shopbagispayuser);
   for (let i = 0; i < ordersOfUser.shopbagispayuser.length; i++) {
     let Price = ordersOfUser.shopbagispayuser[i].obj.price.toLocaleString(
       "vi-VN",
@@ -1095,7 +1239,7 @@ function listDH(ordersOfUser) {
     else if (ordersOfUser.shopbagispayuser[i].status === "4")
       stringStatus = "Hoàn thành";
     s += `
-                <div class="list">
+            <div oncontextmenu="showDetailInformation(event, this)" class="list">
                 <span style="width: 10%" class="userID">${ordersOfUser.IDuser}</span>
                 <div style="width: 5%; display: flex; justify-content: left;">
                   <input type="checkbox" class="myCheckbox"/>
@@ -1127,16 +1271,59 @@ function setDH() {
   }
   let filteredProducts = [];
   let count = 0;
+  let countOrder = 0;
+  // đếm số lượng đơn hàng
   for (let i = 0; i < getShopBag.length; i++) {
     for (let j = 0; j < getShopBag[i].shopbagispayuser.length; j++) {
-      if (checkboxPositionArray.includes(count)) {
-        let obj = {
-          IDuser: getShopBag[i].IDuser,
-          shopbagispayuser: [getShopBag[i].shopbagispayuser[j]],
-        };
-        filteredProducts.push(obj);
+      countOrder++;
+    }
+  }
+  if (getAllCheckbox.length === countOrder) {
+    for (let i = 0; i < getShopBag.length; i++) {
+      for (let j = 0; j < getShopBag[i].shopbagispayuser.length; j++) {
+        if (checkboxPositionArray.includes(count)) {
+          let obj = {
+            IDuser: getShopBag[i].IDuser,
+            shopbagispayuser: [getShopBag[i].shopbagispayuser[j]],
+          };
+          filteredProducts.push(obj);
+        }
+        count++;
       }
-      count++;
+    }
+  } else {
+    let getProductID = document.querySelectorAll(".idProduct");
+    let getUserID = document.querySelectorAll(".userID");
+    let storageTmp = [];
+    let obj = {};
+    for (let i = 1; i < getProductID.length; i++) {
+      obj = {
+        IDuser: getUserID[i].innerText,
+        idproduct: getProductID[i].innerText,
+      };
+      storageTmp.push(obj);
+    }
+    let indexOfStorageTmp = 0;
+    for (let i = 0; i < getShopBag.length; i++) {
+      if (indexOfStorageTmp === storageTmp.length) break;
+      if (
+        parseInt(storageTmp[indexOfStorageTmp].IDuser) === getShopBag[i].IDuser
+      ) {
+        for (let j = 0; j < getShopBag[i].shopbagispayuser.length; j++) {
+          if (
+            storageTmp[indexOfStorageTmp].idproduct ===
+            getShopBag[i].shopbagispayuser[j].obj.idproduct
+          ) {
+            obj = {
+              IDuser: getShopBag[i].IDuser,
+              shopbagispayuser: [getShopBag[i].shopbagispayuser[j]],
+            };
+            filteredProducts.push(obj);
+            indexOfStorageTmp++;
+            if (indexOfStorageTmp === storageTmp.length) break;
+          }
+        }
+      }
     }
   }
   //set trạng thái vận chuyển cho những đơn hàng đang chọn
@@ -1183,31 +1370,101 @@ function setDH() {
   for (let i = 0; i < getShopBag.length; i++) {
     s += listDH(getShopBag[i]);
   }
-  // console.log(s);
   document.querySelector("#storage-body").innerHTML = s;
+  // reset filteredDeliveryStatus
+  let getFilteredDeliveryStatus = document.querySelector(
+    "#filteredDeliveryStatus"
+  );
+  getFilteredDeliveryStatus.innerHTML = `
+    <option value="" disabled selected>Lọc trạng thái</option>
+    <option value="0">Chờ xác nhận</option>
+    <option value="1">Đang gói hàng</option>
+    <option value="2">Vận chuyển</option>
+    <option value="3">Hoàn thành</option>
+  `;
 }
 
 function doYouAccept() {
   setDH();
 }
 
+function filteredByDeliveryStatus() {
+  getShopBag = JSON.parse(localStorage.getItem("shopbagispay"));
+  let getFilteredDeliveryStatus = document.querySelector(
+    "#filteredDeliveryStatus"
+  ).value;
+  let number = parseInt(getFilteredDeliveryStatus) + 1;
+  let s = "";
+  for (let i = 0; i < getShopBag.length; i++) {
+    for (let j = 0; j < getShopBag[i].shopbagispayuser.length; j++) {
+      if (number !== parseInt(getShopBag[i].shopbagispayuser[j].status)) {
+        continue;
+      }
+      let Price = getShopBag[i].shopbagispayuser[j].obj.price.toLocaleString(
+        "vi-VN",
+        { style: "currency", currency: "VND" }
+      );
+      let stringStatus = "";
+      if (getFilteredDeliveryStatus === "0") stringStatus = "Chờ xác nhận";
+      else if (getFilteredDeliveryStatus === "1")
+        stringStatus = "Đang gói hàng";
+      else if (getFilteredDeliveryStatus === "2") stringStatus = "Vận chuyển";
+      else if (getFilteredDeliveryStatus === "3") stringStatus = "Hoàn thành";
+      s += `
+              <div class="list">
+                  <span style="width: 10%" class="userID">${getShopBag[i].IDuser}</span>
+                  <div style="width: 5%; display: flex; justify-content: left;">
+                    <input type="checkbox" class="myCheckbox"/>
+                  </div>
+                  <span style="width: 10%" class="idProduct">${getShopBag[i].shopbagispayuser[j].obj.idproduct}</span>
+                  <img style="width: 20%" src="${getShopBag[i].shopbagispayuser[j].obj.img}" class="imgProduct" alt="Ảnh lỗi">
+                  <span style="width: 30%" class="nameProduct">${getShopBag[i].shopbagispayuser[j].obj.nameSP}</span>
+                  <span style="width: 5%" class="countProduct">${getShopBag[i].shopbagispayuser[j].soluong}</span>
+                  <span style="width: 10%" class="priceProduct">${Price}</span>
+                  <span style="width: 10%" class="deliveryStatus">${stringStatus}</span>
+              </div>
+      `;
+    }
+  }
+  document.querySelector("#storage-body").innerHTML = s;
+  // reset filteredDeliveryStatus
+  let getDeliveryStatusSelection = document.getElementById(
+    "deliveryStatusSelection"
+  );
+  getDeliveryStatusSelection.innerHTML = `
+    <option value="" disabled selected>Chỉnh trạng thái</option>
+    <option value="0">Chờ xác nhận</option>
+    <option value="1">Đang gói hàng</option>
+    <option value="2">Vận chuyển</option>
+    <option value="3">Hoàn thành</option>
+  `;
+}
+
 function renderqldh() {
   document.querySelector(".page-right").innerHTML = `<div class="qldh">
                 <div class="title"><h1>QUẢN LÝ ĐƠN HÀNG</h1></div>
                 <div class="groupOption">
+                        <select name="" class="box" id="filteredDeliveryStatus" onchange="filteredByDeliveryStatus()">
+                            <option value="" disabled selected>Lọc trạng thái</option>
+                            <option value="0">Chờ xác nhận</option>
+                            <option value="1">Đang gói hàng</option>
+                            <option value="2">Vận chuyển</option>
+                            <option value="3">Hoàn thành</option>
+                        </select>
                         <select name="" class="box" id="deliveryStatusSelection">
+                            <option value="" disabled selected>Chỉnh trạng thái</option>
                             <option value="0">Chờ xác nhận</option>
                             <option value="1">Đang gói hàng</option>
                             <option value="2">Vận chuyển</option>
                             <option value="3">Hoàn thành</option>
                         </select>
                         <button class="box" id="acceptChangeStatus" style="width: 10%;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  margin-right: 200px;
-  border: none;
-  height: fit-content;
-  padding: 10px;" onclick="doYouAccept()">Xác nhận</button>
+                          box-shadow: 0 7px 25px rgba(0, 0, 0, 0.2);
+                          border-radius: 10px;
+                          margin-right: 200px;
+                          border: none;
+                          height: fit-content;
+                          padding: 10px;" onclick="doYouAccept()">Xác nhận</button>
                         <div class="box">
                             <div class="contentBox">
                                 <div class="leftBox">

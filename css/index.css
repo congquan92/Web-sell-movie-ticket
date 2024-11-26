@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 * {
   box-sizing: border-box;
-  font-family: "Spartan", sans-serif;
+  font-family: "Sour Gummy", serif;
   margin: 0;
   padding: 0;
 }
@@ -442,13 +443,15 @@ body {
   color: white;
 }
 /* mid-content */
+.mid-content {
+  position: relative;
+}
 .mid-content-info {
   width: 80%;
   margin: 0 auto;
   margin-top: 5px;
 }
 .trend h2 {
-  font-family: "Yanone Kaffeesatz", sans-serif;
   text-align: center;
   padding: 6px;
 }
@@ -837,7 +840,7 @@ body {
   .container .logreg-box {
     width: calc(100% - 40%);
   }
-  
+
   /* footer */
   .footer {
     display: block;
