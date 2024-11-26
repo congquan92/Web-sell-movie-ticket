@@ -1340,31 +1340,7 @@ function setDH() {
       filteredProducts[i].shopbagispayuser[0].status = "4";
     }
   }
-  // push lên localStorage
-  let index = 0;
-  for (let i = 0; i < filteredProducts.length; i++) {
-    for (let j = 0; j < getShopBag[j].length; ) {
-      // tìm kiếm theo IDuser
-      if (filteredProducts[i].IDuser === getShopBag[j].IDuser) {
-        // duyệt qua hết shopbagispayuser của getShopBag[j] thì nhảy qua getShopBag[j + 1]
-        if (index === getShopBag[j].shopbagispayuser.length) {
-          j++;
-          continue;
-        }
-        // tìm kiếm theo idproduct
-        if (
-          filteredProducts[i].shopbagispayuser[0].obj.idproduct ===
-          getShopBag[j].shopbagispayuser[index].obj.idproduct
-        ) {
-          getShopBag[j].shopbagispayuser[index] =
-            filteredProducts[i].shopbagispayuser[0];
-          index = 0;
-          break;
-        }
-        index++;
-      }
-    }
-  }
+
   localStorage.setItem("shopbagispay", JSON.stringify(getShopBag));
   // lấy tất cả đơn hàng
   getShopBag = JSON.parse(localStorage.getItem("shopbagispay"));
