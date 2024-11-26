@@ -346,8 +346,12 @@ function chinhsua() {
 }
 // Hàm ẩn menu
 function hideContextMenu() {
-  document.getElementById("contextMenu").style.display = "none";
+  let z = document.getElementById("contextMenu");
+  if (z != null) {
+    z.style.display = "none";
+  }
 }
+
 // Ẩn menu khi nhấp chuột ra ngoài
 window.addEventListener("click", hideContextMenu);
 // ---------------------------------------------------------------------------------
@@ -751,7 +755,7 @@ function savepage(n) {
   localStorage.setItem("currentadmin", n);
 }
 
-window.onload = () => {
+function onload() {
   const QLTK = document.querySelector(".b1");
   const QLDH = document.querySelector(".b2");
   const QLSP = document.querySelector(".b3");
@@ -782,6 +786,11 @@ window.onload = () => {
     QLDH.classList.remove("act");
     QLSP.classList.add("act");
     QLND.classList.remove("act");
+    let getButton1ContextMenu = document.getElementById(
+      "button1-contextMenu"
+    ).nextSibling;
+    getButton1ContextMenu.nodeValue = "Chỉnh sửa";
+    document.getElementById("deleteProduct").style.display = "block";
     savepage(3);
     renderqlsp();
   });
@@ -814,7 +823,7 @@ window.onload = () => {
       renderqlnd();
       break;
   }
-};
+}
 // -----------------------------------------------
 
 //thuy
@@ -827,16 +836,16 @@ function listAccounts() {
     s += `<div class="listAcc" style="text-align: center; border-bottom: 1px solid rgba(112, 112, 112, 0.3);">
         <span class="idAccount" style="width: 5%;">${account.userID}</span>
         <span class="nameAccount" style="width: 26%;">${account.name}</span>
-        <span class="phoneAccount" style="width: 10%;">${account.shopbag}</span>
+        <span class="phoneAccount" style="width: 10%;">${account.phone}</span>
         <span class="emailAccount" style="width: 10%;">${account.email}</span>
-        <span class="usernameAccount" style="width: 17%;">${
-          account.usernameAccount
+        <span class="addressAccount" style="width: 17%;">${
+          account.diachi
         }</span>
         <span class="passwordAccount" style="width: 12%;">${
           account.password
         }</span>
         <span class="statusAccount" style="width: 10%;">${
-          account.statususer == "1" ? "binh thuong" : "da khoa"
+          account.statususer == "1" ? "Bình thường" : "Đã khoá"
         }</span>
         <button class="btnAccount" style="width: 10%;" onclick="toggleLockUser('${
           account.userID
@@ -1411,7 +1420,7 @@ function filteredByDeliveryStatus() {
       else if (getFilteredDeliveryStatus === "2") stringStatus = "Vận chuyển";
       else if (getFilteredDeliveryStatus === "3") stringStatus = "Hoàn thành";
       s += `
-              <div class="list">
+              <div oncontextmenu="showDetailInformation(event, this)" class="list">
                   <span style="width: 10%" class="userID">${getShopBag[i].IDuser}</span>
                   <div style="width: 5%; display: flex; justify-content: left;">
                     <input type="checkbox" class="myCheckbox"/>
@@ -1491,4 +1500,92 @@ function renderqldh() {
     s += listDH(getShopBag[i]);
   }
   document.querySelector("#storage-body").innerHTML = s;
+}
+// login
+let adminAccount = {
+  email: "admin@gmail.com",
+  password: "admin",
+};
+let getSignInButton = "";
+let getEmailSignIn = "";
+let getPasswordSignIn = "";
+
+function checkEmail(str) {
+  let idx = str.indexOf("@");
+  let idxWhiteSpace = str.indexOf(" ");
+  if (idx === -1 || idxWhiteSpace !== -1) {
+    return false;
+  } else if (str.substring(idx) !== "@gmail.com") {
+    return false;
+  }
+  return true;
+}
+
+function signInButton(event) {
+  event.preventDefault();
+  getSignInButton = document.querySelector("#sign-in-button");
+  getEmailSignIn = document.querySelector("#Email");
+  getPasswordSignIn = document.querySelector("#Password");
+  if (
+    getEmailSignIn.value.trim() === "" ||
+    !getEmailSignIn.value.includes("@") ||
+    !checkEmail(getEmailSignIn.value)
+  ) {
+    alert("Vui lòng nhập đúng email");
+    getEmailSignIn.focus();
+    return;
+  } else if (getPasswordSignIn.value.trim() === "") {
+    alert("Vui lòng nhập mật khẩu");
+    getPasswordSignIn.focus();
+    return;
+  }
+  if (
+    getEmailSignIn.value === adminAccount.email &&
+    getPasswordSignIn.value === adminAccount.password
+  ) {
+    let getPage = document.querySelector(".page");
+    getPage.innerHTML = `
+      <div class="page-left second-icon">
+        <div style="height: 10%" class="F-L"><h1>Tình Hình Hoạt Động</h1></div>
+        <div style="height: 60%" class="box-l">
+          <div class="L b1">QUẢN LÝ THỐNG KÊ</div>
+          <div class="L b2">QUẢN LÝ ĐƠN HÀNG</div>
+          <div class="L b3">QUẢN LÝ SẢN PHẢM</div>
+          <div class="L b4">QUẢN LÝ NGƯỜI DÙNG</div>
+        </div>
+        <div>Đăng xuất</div>
+        <div class="L-e">
+          <a href="./index.html">
+            <i class="fa-solid fa-house"></i>TRỞ VỀ TRANG CHỦ</a
+          >
+        </div>
+      </div>
+      <div class="page-right"></div>
+
+      <div class="btnAddproduct nonez"></div>
+      <div class="outbackround"></div>
+
+      <div class="viewmenu nonez"></div>
+
+      <div id="contextMenu" class="context-menu">
+        <button id="viewDetails">
+          <i style="margin-right: 5px" class="bx bxs-edit" id="button1-contextMenu"></i>Chỉnh sửa
+        </button>
+        <hr />
+        <button id="deleteProduct">
+          <i style="margin-right: 5px" class="bx bx-trash" id="button2-contextMenu"></i>Xóa sản phẩm
+        </button>
+      </div>
+
+      <div class="sb nonesb">
+        <h3>XÁC NHẬN</h3>
+        <div class="sub">
+          <button id="yes">YES</button>
+          <button id="no">NO</button>
+        </div>
+      </div>
+        `;
+    onload();
+    return;
+  }
 }
