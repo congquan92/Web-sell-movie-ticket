@@ -1,9 +1,22 @@
 let ArrProduct = JSON.parse(localStorage.getItem("arrayproducts"));
 let sell = JSON.parse(localStorage.getItem("shopbagispay")) || [];
 localStorage.setItem("currentUser", JSON.stringify(null));
-let Arrsell = sell.flatMap((i) => i.shopbagispayuser);
+let Arrll = sell.flatMap((i) => i.shopbagispayuser);
 localStorage.setItem("arrayshopbag", JSON.stringify(null));
 localStorage.setItem("countarrayshopbag", JSON.stringify(null));
+let Arrsell = [];
+
+function Arrsells() {
+  Arrsell = [];
+  let sell = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  let Arrll = sell.flatMap((i) => i.shopbagispayuser);
+  for (let i = 0; i < Arrll.length; i++) {
+    if (Arrll[i].status === "4") {
+      Arrsell.push(Arrll[i]);
+    }
+  }
+}
+
 let typeproducts = [
   { typeid: "aothun#", typename: "Áo thun" },
   { typeid: "polo#", typename: "Polo" },
@@ -12,16 +25,47 @@ let typeproducts = [
   { typeid: "sweater#", typename: "Sweater" },
   { typeid: "aokhoac#", typename: "Áo khoác" },
 ];
+function toast({ title = "", message = "", type = "", duration = 5000 }) {
+  const main = document.getElementById("toast");
+  if (main) {
+    const toast = document.createElement("div");
+    toast.onclick = function (e) {
+      if (e.target.closest(".toast__close")) {
+        main.removeChild(toast);
+      }
+    };
 
+    const icons = {
+      success: "fa-solid fa-circle-check",
+      error: "fa-solid fa-circle-exclamation",
+    };
+    const icon = icons[type];
+
+    toast.classList.add("toast", `toast--${type}`);
+    toast.innerHTML = `
+        <div class="toast__icon">
+          <i class="${icon}"></i>
+        </div>
+        <div class="toast__body">
+          <h3 class="toast__title">${title}</h3>
+          <p class="toast__msg">${message}</p>
+        </div>
+        <div class="toast__close">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+    `;
+    main.appendChild(toast);
+  }
+}
 // Hàm tạo id SP
 function makeIDproduct() {
   for (let i = 0; i < ArrProduct.length; i++) {
-    ArrProduct[i].idproduct = ArrProduct[i].nametag + (i + 1);
+    ArrProduct[i].idproduct = ArrProduct[i].nametag + i;
   }
 }
 
 //----------------sp-------------------------
-// Hàm xác định trạng thái sản phẩm
+
 function productSatus() {
   ArrProduct.forEach((i) => {
     let count = i.quantity.A + i.quantity.B + i.quantity.C + i.quantity.D;
@@ -42,7 +86,7 @@ function productSatus() {
   });
 }
 
-// Hàm tạo danh sách sản phẩm
+
 function listSP(arr) {
   let s = "";
   makeIDproduct();
@@ -64,18 +108,18 @@ function listSP(arr) {
                 <span style="width: 30%" class="nameProduct">${product.nameSP}</span>
                 <span style="width: 10%" data="${product.colorr1}" class="colorProduct">${product.colorr1}</span>
                 <span style="width: 10%" dataA="${product.quantity.A}" dataB="${product.quantity.B}" dataC="${product.quantity.C}" dataD="${product.quantity.D}" class="countProduct">${count}</span>
-                <span style="width: 10%" class="priceProduct">${Price}</span>
+                <span style="width: 10%" dataPrice="${product.price}" class="priceProduct">${Price}</span>
                 <span style="width: 10%; color: ${product.colorStatus}" class="statusProduct" style="color:${product.colorStatus}">${product.status}</span>
             </div>
     `;
   });
   return s;
 }
-// Hàm đếm số lượng sản phẩm
+
 function countProduct(arr) {
   return arr.length;
 }
-// Hàm tìm kiếm sản phẩm
+
 function searchSP() {
   const comboType = document.getElementById("comboType").value;
   const comboStatus = document.getElementById("comboStatus").value;
@@ -96,7 +140,7 @@ function searchSP() {
   document.querySelector("#amountOfProduct").innerText =
     countProduct(filteredProducts);
 }
-// Hàm render quản lý san pham
+
 function renderqlsp() {
   document.querySelector(".page-right").innerHTML = `<div class="qlsp">
                 <div class="title"><h1>QUẢN LÝ SẢN PHẨM</h1></div>
@@ -141,14 +185,12 @@ function renderqlsp() {
 }
 
 // quan - chuot phai ------
-
-// Hàm hiển thị menu tùy chỉnh
 function showContextMenu(event, element) {
   event.preventDefault();
-  // Lấy vị trí chuột
+ 
   const posX = event.pageX;
   const posY = event.pageY;
-  // Hiển thị menu ở vị trí chuột
+  const contextMenu = document.getElementById('contextMenu');
   contextMenu.style.display = "block";
   contextMenu.style.left = `${posX}px`;
   contextMenu.style.top = `${posY}px`;
@@ -162,7 +204,7 @@ function showContextMenu(event, element) {
   const countB = element.querySelector(".countProduct").getAttribute("dataB");
   const countC = element.querySelector(".countProduct").getAttribute("dataC");
   const countD = element.querySelector(".countProduct").getAttribute("dataD");
-  const price = element.querySelector(".priceProduct").textContent;
+  const price = element.querySelector(".priceProduct").getAttribute("dataPrice");
   const nametag = element.querySelector(".idProduct").getAttribute("nametag");
   let typeProduct = "";
   switch (true) {
@@ -300,27 +342,13 @@ function chinhsua() {
 
   const nameProduct = document.getElementById("nameAddProduct").value.trim();
   const colorProduct = document.getElementById("colorAddProduct").value.trim();
-  const codecolorProduct = document
-    .getElementById("codecolorAddProduct")
-    .value.trim();
-  const countProductA = parseInt(
-    document.getElementById("countAddProductA").value.trim()
-  );
-  const countProductB = parseInt(
-    document.getElementById("countAddProductB").value.trim()
-  );
-  const countProductC = parseInt(
-    document.getElementById("countAddProductC").value.trim()
-  );
-  const countProductD = parseInt(
-    document.getElementById("countAddProductD").value.trim()
-  );
-  const priceProduct = parseFloat(
-    document.getElementById("priceAddProduct").value.trim()
-  );
-  const nametagProduct = document
-    .getElementById("nameimgAddProduct")
-    .value.trim();
+  const codecolorProduct = document.getElementById("codecolorAddProduct").value.trim();
+  const countProductA = parseInt(document.getElementById("countAddProductA").value.trim());
+  const countProductB = parseInt(document.getElementById("countAddProductB").value.trim());
+  const countProductC = parseInt(document.getElementById("countAddProductC").value.trim());
+  const countProductD = parseInt(document.getElementById("countAddProductD").value.trim());
+  const priceProduct = parseFloat(document.getElementById("priceAddProduct").value.trim());
+  const nametagProduct = document.getElementById("nameimgAddProduct").value.trim();
   const imgElement = document.querySelector(".imgPreview");
   const img = imgElement ? imgElement.src : ""; // Null check for imgPreview
   if (img.startsWith(".")) {
@@ -344,7 +372,7 @@ function chinhsua() {
   localStorage.setItem("arrayproducts", JSON.stringify(ArrProduct));
   renderqlsp();
 }
-// Hàm ẩn menu
+
 function hideContextMenu() {
   let z = document.getElementById("contextMenu");
   if (z != null) {
@@ -352,7 +380,6 @@ function hideContextMenu() {
   }
 }
 
-// Ẩn menu khi nhấp chuột ra ngoài
 window.addEventListener("click", hideContextMenu);
 // ---------------------------------------------------------------------------------
 // thong ke
@@ -368,30 +395,12 @@ function createChart() {
       {
         label: "Đã Bán",
         data: [
-          Arrsell.filter((i) => i.obj.nametag === "sweater#").reduce(
-            (i, n) => i + n.soluong,
-            0
-          ),
-          Arrsell.filter((i) => i.obj.nametag === "somi#").reduce(
-            (i, n) => i + n.soluong,
-            0
-          ),
-          Arrsell.filter((i) => i.obj.nametag === "hoodie#").reduce(
-            (i, n) => i + n.soluong,
-            0
-          ),
-          Arrsell.filter((i) => i.obj.nametag === "aokhoac#").reduce(
-            (i, n) => i + n.soluong,
-            0
-          ),
-          Arrsell.filter((i) => i.obj.nametag === "aothun#").reduce(
-            (i, n) => i + n.soluong,
-            0
-          ),
-          Arrsell.filter((i) => i.obj.nametag === "polo#").reduce(
-            (i, n) => i + n.soluong,
-            0
-          ),
+          Arrsell.filter((i) => i.obj.nametag === "sweater#").reduce((i, n) => i + n.soluong,0),
+          Arrsell.filter((i) => i.obj.nametag === "somi#").reduce((i, n) => i + n.soluong,0),
+          Arrsell.filter((i) => i.obj.nametag === "hoodie#").reduce((i, n) => i + n.soluong,0),
+          Arrsell.filter((i) => i.obj.nametag === "aokhoac#").reduce((i, n) => i + n.soluong,0),
+          Arrsell.filter((i) => i.obj.nametag === "aothun#").reduce((i, n) => i + n.soluong,0),
+          Arrsell.filter((i) => i.obj.nametag === "polo#").reduce((i, n) => i + n.soluong,0),
         ],
         backgroundColor: [
           "rgb(255, 99, 132)",
@@ -431,45 +440,21 @@ function closeTabb() {
 //chap nhan
 function btnAccept() {
   const nameAddProduct = document.getElementById("nameAddProduct").value.trim();
-  const colorAddProduct = document
-    .getElementById("colorAddProduct")
-    .value.trim();
-  const codecolorAddProduct = document
-    .getElementById("codecolorAddProduct")
-    .value.trim();
-  const countAddProductA = parseInt(
-    document.getElementById("countAddProductA").value.trim()
-  );
-  const countAddProductB = parseInt(
-    document.getElementById("countAddProductB").value.trim()
-  );
-  const countAddProductC = parseInt(
-    document.getElementById("countAddProductC").value.trim()
-  );
-  const countAddProductD = parseInt(
-    document.getElementById("countAddProductD").value.trim()
-  );
-  const priceAddProduct = parseFloat(
-    document.getElementById("priceAddProduct").value.trim()
-  );
+  const colorAddProduct = document.getElementById("colorAddProduct").value.trim();
+  const codecolorAddProduct = document.getElementById("codecolorAddProduct").value.trim();
+  const countAddProductA = parseInt(document.getElementById("countAddProductA").value.trim());
+  const countAddProductB = parseInt(document.getElementById("countAddProductB").value.trim());
+  const countAddProductC = parseInt(document.getElementById("countAddProductC").value.trim());
+  const countAddProductD = parseInt(document.getElementById("countAddProductD").value.trim());
+  const priceAddProduct = parseFloat(document.getElementById("priceAddProduct").value.trim());
   const nametagProduct = document.getElementById("nametagProduct").value.trim();
 
   // Validation dữ liệu
-  if (
-    !validateInputs(
-      nameAddProduct,
-      colorAddProduct,
-      priceAddProduct,
-      countAddProductA,
-      countAddProductB,
-      countAddProductC,
-      countAddProductD
-    )
-  ) {
+  if (!validateInputs(nameAddProduct,colorAddProduct,priceAddProduct,countAddProductA,countAddProductB,countAddProductC,countAddProductD)){
     alert("Vui lòng nhập đầy đủ và đúng dữ liệu.");
     return;
   }
-  // Tạo sản phẩm mới
+ 
   const id = `${nametagProduct}#${countProduct(ArrProduct) + 1}`;
   const imgElement = document.querySelector(".imgPreview");
   const img = imgElement ? imgElement.src : ""; // Null check cho imgPreview
@@ -478,7 +463,6 @@ function btnAccept() {
   // Hiển thị xác nhận
   toggleConfirmationDialog(true);
 
-  // Gắn sự kiện xác nhận
   document.getElementById("yes").onclick = () => {
     const newProduct = createProduct({
       idproduct: id,
@@ -495,8 +479,6 @@ function btnAccept() {
       nameColor1: colorAddProduct,
       colorr1: codecolorAddProduct,
     });
-
-    // Cập nhật danh sách sản phẩm
     ArrProduct.push(newProduct);
     localStorage.setItem("arrayproducts", JSON.stringify(ArrProduct));
     renderqlsp();
@@ -518,7 +500,6 @@ function validateInputs(name, color, price, ...counts) {
   return true;
 }
 
-// Hàm hiển thị/ẩn hộp thoại xác nhận
 function toggleConfirmationDialog(show) {
   const confirmationDialog = document.querySelector(".sb");
   if (show) {
@@ -551,26 +532,24 @@ function createProduct({
     colorr1: colorr1,
   };
 }
-// tai anh len
+
 function onloandimg(input) {
   const imageContainer = document.getElementById("imageContainer");
   const file = input.files[0]; // Lấy tệp đầu tiên
-
   if (file) {
     const reader = new FileReader();
-    // Khi đọc xong file, hiển thị ảnh
     reader.onload = function (e) {
       const img = document.createElement("img");
       img.src = e.target.result; // Gán URL ảnh vào thẻ <img>
       img.classList.add("imgPreview");
-      imageContainer.innerHTML = ""; // Xóa nội dung cũ
-      imageContainer.appendChild(img); // Thêm ảnh mới
+      imageContainer.innerHTML = ""; 
+      imageContainer.appendChild(img); 
     };
-    reader.readAsDataURL(file); // Đọc file dưới dạng Data URL
+    // Đọc file dưới dạng Data URL
+    reader.readAsDataURL(file); 
   }
 }
 
-//ham loc san tk
 function listSearch_tk() {
   let arr = [...Arrsell];
   let typeProduct = document.getElementById("typeProduct").value;
@@ -580,8 +559,8 @@ function listSearch_tk() {
   rankProfit(arr);
 }
 
-// Hàm render quản lý thống kê
 function renderqltk() {
+  Arrsells();
   document.querySelector(".page-right").innerHTML = `<div class = qltk>
   <h1>SỐ LIỆU THỐNG KÊ</h1>
   <div class="overview">
@@ -593,9 +572,9 @@ function renderqltk() {
          <div class="boder">
               <div class="left-boder">
                   <h2 style="color: blue;">${Arrsell.reduce(
-    (i, n) => i + n.soluong,
-    0
-  )}</h2>
+                    (i, n) => i + n.soluong,
+                    0
+                  )}</h2>
                   <h2 style="font-weight: 200;">ĐÃ BÁN</h2> 
               </div>
               <div class="right-boder"><i style="font-size: 40px;font-weight: 200;" class='bx bx-cart-alt'></i></div>   
@@ -603,16 +582,24 @@ function renderqltk() {
          <div class="boder">
               <div class="left-boder">
                   <h2 style="color: blue;">${Arrsell.reduce(
-    (i, n) => i + n.soluong * n.obj.price,
-    0
-  ).toLocaleString("vi-VN", {
-    style: "currency",
-    currency: "VND",
-  })}</h2>
+                    (i, n) => i + n.soluong * n.obj.price,
+                    0
+                  ).toLocaleString("vi-VN", {
+                    style: "currency",
+                    currency: "VND",
+                  })}</h2>
                   <h2 style="font-weight: 200;">DOANH THU</h2>
               </div>
               <div class="right-boder"><i style="font-size: 40px;font-weight: 200;" class='bx bx-money-withdraw'></i></div>   
          </div> 
+         <div class="boder __m">
+            <div class="m">
+              <span style="width: 10%">ID</span>
+              <span style="width: 50%">Tên</span>
+              <span style="width: 40%">Số Tiền</span>
+            </div>
+            <div class="boder_KH"></div>        
+         </div>
       </div>
    </div>
 </div>
@@ -639,7 +626,45 @@ function renderqltk() {
 </div>`;
   createChart(); // Tạo biểu đồ khi nhấp vào "QUẢN LÝ THỐNG KÊ"
   rankProfit(Arrsell);
+  renderlistKH();
 }
+
+function nameuser(id) {
+  let namez = JSON.parse(localStorage.getItem("storageUsers"));
+  let nameID = "";
+  namez.forEach((i) => {
+    if (i.userID === id) {
+      nameID = i.name;
+    }
+  });
+  return nameID;
+}
+
+function renderlistKH() {
+  let sell = JSON.parse(localStorage.getItem("shopbagispay")) || []; //cập nhật `sell`.
+  let s = "";
+  const sortsell = sell.filter((i) => i.shopbagispayuser?.[0]?.status === "4").sort((a, b) => {
+      const aQuantity = a.shopbagispayuser[0]?.soluong || 0; // Truy cập phần tử đầu tiên
+      const aPrice = a.shopbagispayuser[0]?.obj?.price || 0;
+      const bQuantity = b.shopbagispayuser[0]?.soluong || 0;
+      const bPrice = b.shopbagispayuser[0]?.obj?.price || 0;
+      return bQuantity * bPrice - aQuantity * aPrice;
+    });
+  sortsell.forEach((i) => {
+    const quantity = i.shopbagispayuser[0]?.soluong || 0;
+    const price = i.shopbagispayuser[0]?.obj?.price || 0;
+    const pricevnd = (price * quantity).toLocaleString("vi-VN",{style : "currency",currency :"VND",})
+    s += `
+      <div class="list__KH">
+        <span style="width: 10%" class="ID_KH">${i.IDuser}</span>
+        <span style="width: 50%" class="name_KH">${nameuser(i.IDuser)}</span>
+        <span style="width: 40%" class="price_KH">${pricevnd}</span>
+      </div>
+    `;
+  });
+  document.querySelector(".boder_KH").innerHTML = s;
+}
+
 function processProductList(Arrsell) {
   let map = new Map();
   for (let i of Arrsell) {
@@ -655,7 +680,7 @@ function processProductList(Arrsell) {
   let resultArr = Array.from(map.values());
   return resultArr;
 }
-//ham tao doanh thu
+
 function rankProfit(arrs) {
   let arr = processProductList(arrs);
   let s = "";
@@ -667,11 +692,11 @@ function rankProfit(arrs) {
             <span style="width: 30%;" class="name">${i.obj.nameSP}</span>
             <span style="width: 30%;" class="sold">${i.soluong}</span>
             <span style="width: 10%;  class="profits">${(
-        i.obj.price * i.soluong
-      ).toLocaleString("vi-VN", {
-        style: "currency",
-        currency: "VND",
-      })}</span>
+              i.obj.price * i.soluong
+            ).toLocaleString("vi-VN", {
+              style: "currency",
+              currency: "VND",
+            })}</span>
            </div>`;
   });
   document.getElementById("rankProfit-body").innerHTML = s;
@@ -744,7 +769,7 @@ function renderBtnadd() {
   document.querySelector(".btnAddproduct").innerHTML = s;
 }
 
-//dong tap cua view
+//dong tap cua view  (chinh sua)
 function closeTabz() {
   document.querySelector(".outbackround").classList.remove("actoutbackground");
   document.querySelector(".viewmenu").classList.remove("actz");
@@ -830,25 +855,111 @@ function onload() {
 // tao danh sach nguoi dung
 function listAccounts() {
   let accounts = JSON.parse(localStorage.getItem("storageUsers")) || [];
-  // console.log(accounts);
   let s = "";
   accounts.forEach((account) => {
+    const classPrefix = `user-${account.userID}`; // Tạo tiền tố lớp hợp lệ
+
     s += `<div class="listAcc" style="text-align: center; border-bottom: 1px solid rgba(112, 112, 112, 0.3);">
         <span class="idAccount" style="width: 5%;">${account.userID}</span>
-        <span class="nameAccount" style="width: 26%;">${account.name}</span>
-        <span class="phoneAccount" style="width: 10%;">${account.phone}</span>
-        <span class="emailAccount" style="width: 10%;">${account.email}</span>
-        <span class="addressAccount" style="width: 17%;">${account.diachi
-      }</span>
-        <span class="passwordAccount" style="width: 12%;">${account.password
-      }</span>
-        <span class="statusAccount" style="width: 10%;">${account.statususer == "1" ? "Bình thường" : "Đã khoá"
-      }</span>
-        <button class="btnAccount" style="width: 10%;" onclick="toggleLockUser('${account.userID
-      }')">${account.statususer == "0" ? "Mở khóa" : "Khóa"}</button>
+        <span class="nameAccount" style="width: 15%;"><input type="text" class="${classPrefix}-name" readonly="readonly" value="${
+      account.name
+    }" /></span>
+        <span class="phoneAccount" style="width: 10%;"><input type="text" class="${classPrefix}-phone" readonly="readonly" value="${
+      account.phone
+    }" /></span>
+        <span class="emailAccount" style="width: 16%;"><input type="text" class="${classPrefix}-email" readonly="readonly" value="${
+      account.email
+    }" /></span>
+        <span class="addressAccount" style="width: 17%;">${
+          account.diachi
+        }</span>
+        <span class="passwordAccount" style="width: 12%;"><input type="text" class="${classPrefix}-password" readonly="readonly" value="${
+      account.password
+    }" /></span>
+        <span class="statusAccount" style="width: 10%;">${
+          account.statususer == "1" ? "Bình thường" : "Đã khoá"
+        }</span>
+        <button class="btnAccount" style="width: 10%;" onclick="toggleLockUser('${
+          account.userID
+        }')">${account.statususer == "0" ? "Mở khóa" : "Khóa"}</button>
+        <button class="change" style="width: 5%;" onclick='changeuserinfo("${
+          account.userID
+        }")'>Sửa</button>
       </div>`;
   });
   return s;
+}
+
+let isEditingaccountuser = false;
+
+function changeuserinfo(userID) {
+  console.log(userID);
+  const nameInput = document.querySelector(`.user-${userID}-name`);
+  const phoneInput = document.querySelector(`.user-${userID}-phone`);
+  const passwordInput = document.querySelector(`.user-${userID}-password`);
+  const emailInput = document.querySelector(`.user-${userID}-email`);
+  const editButton = document.querySelector(
+    `button.change[onclick*='${userID}']`
+  );
+
+  // Lấy danh sách tài khoản từ localStorage
+  let accounts = JSON.parse(localStorage.getItem("storageUsers")) || [];
+
+  // Kiểm tra xem email mới có trùng với bất kỳ tài khoản nào không
+  let isEmailDuplicate = false; // Biến để kiểm tra nếu email trùng
+
+  // Duyệt qua tất cả tài khoản trong localStorage
+  for (let i = 0; i < accounts.length; i++) {
+    const account = accounts[i];
+
+    // Kiểm tra nếu email của tài khoản khác trùng với email người dùng nhập vào
+    // Và kiểm tra tài khoản đó không phải là tài khoản hiện tại đang chỉnh sửa
+    if (account.userID != userID && account.email === emailInput.value) {
+      isEmailDuplicate = true; // Nếu trùng thì đặt biến thành true
+      break; // Không cần kiểm tra tiếp, dừng vòng lặp
+    }
+  }
+
+  if (isEditingaccountuser) {
+    // Nếu có email trùng, hiển thị cảnh báo và không lưu
+    if (isEmailDuplicate) {
+      toast({
+        title: "ERROR",
+        message: "Email đã tồn tại",
+        type: "error",
+        duration: 5000,
+      });
+      return; // Dừng lại nếu email bị trùng
+    }
+
+    // Nếu không có email trùng, tiếp tục lưu thay đổi
+    [nameInput, phoneInput, passwordInput, emailInput].forEach((input) => {
+      input.setAttribute("readonly", true);
+      input.classList.remove("active");
+    });
+    editButton.textContent = "Sửa";
+
+    // Cập nhật thông tin người dùng vào localStorage
+    let account = accounts.find((acc) => acc.userID == userID);
+    if (account) {
+      console.log("tim thay");
+      account.name = nameInput.value;
+      account.phone = phoneInput.value;
+      account.password = passwordInput.value;
+      account.email = emailInput.value;
+      localStorage.setItem("storageUsers", JSON.stringify(accounts));
+    }
+  } else {
+    // Chế độ chỉnh sửa
+    [nameInput, phoneInput, passwordInput, emailInput].forEach((input) => {
+      input.removeAttribute("readonly");
+      input.classList.add("active");
+    });
+    editButton.textContent = "Lưu lại";
+  }
+
+  // Toggle trạng thái chỉnh sửa
+  isEditingaccountuser = !isEditingaccountuser;
 }
 
 function timkiemTheoID(id) {
@@ -932,13 +1043,14 @@ function renderqlnd() {
                     </div>
                     <div class="titleCol" style="text-align: center;">
                         <span class="idAccount" style="width: 5%;">ID</span>
-                        <span class="nameAccount" style="width: 26%;">Tên</span>
+                        <span class="nameAccount" style="width: 15%;">Tên</span>
                         <span class="phoneAccount" style="width: 10%;">SĐT</span>
-                        <span class="emailAccount" style="width: 10%;">Email</span>
+                        <span class="emailAccount" style="width: 16%;">Email</span>
                         <span class="usernameAccoutn" style="width: 17%;">Địa chỉ</span>
                         <span class="passwordAccount" style="width: 12%;">Mật khẩu</span>
                         <span class="statusAccount" style="width: 10%;">Trạng thái</span>
                         <span class="Chitiet" style="width: 10%;">Chi tiết</span>
+                        <span style="width:5%;"></span>
                     </div>
                     <div id="manageCustomer-body">
                         
@@ -1103,7 +1215,11 @@ function showDetailInformation(event, element) {
       if (idProduct === getShopBag[i].shopbagispayuser[j].obj.idproduct) {
         order = {
           IDuser: getShopBag[i].IDuser,
+          diachi: getShopBag[i].shopbagispayuser[j].diachi,
           shopbagispayuser: [getShopBag[i].shopbagispayuser[j]],
+          time: getShopBag[i].shopbagispayuser[j].time,
+          paymenttype: getShopBag[i].shopbagispayuser[j].paymenttype,
+          size: getShopBag[i].shopbagispayuser[j].size,
         };
         flag = true;
         break;
@@ -1119,13 +1235,19 @@ function showDetailInformation(event, element) {
   let quantity = order.shopbagispayuser[0].soluong;
   let typeProduct = "";
   let nameOfCustomer = "";
-  let addressOfCustomer = "";
+  let timeOfOrder = order.time;
+  let addressOfCustomer = order.diachi;
   let getStorageUsers = JSON.parse(localStorage.getItem("storageUsers"));
-  console.log(getStorageUsers);
+  let getSize = order.size;
+  let typeOfPayment = "";
+  if (order.paymenttype === 0) {
+    typeOfPayment = "Nhận hàng";
+  } else if (order.paymenttype === 1) {
+    typeOfPayment = "Chuyển khoản";
+  }
   for (let i = 0; i < getStorageUsers.length; i++) {
     if (parseInt(userID) === getStorageUsers[i].userID) {
       nameOfCustomer = getStorageUsers[i].name;
-      addressOfCustomer = getStorageUsers[i].diachi;
       break;
     }
   }
@@ -1149,21 +1271,17 @@ function showDetailInformation(event, element) {
       typeProduct = "Không xác định";
   }
 
-  //chi tiết đơn hàng
-  // Lấy phần tử chứa chữ "Chỉnh sửa"
+  // Chi tiết đơn hàng
+  // Lấy phần tử chứa "Chỉnh sửa"
   let getButton1ContextMenu = document.getElementById(
     "button1-contextMenu"
   ).nextSibling;
-
-  // Thay đổi nội dung của phần tử đó thành "Chi tiết"
+  // Thay đổi "Chỉnh sửa" thành "Chi tiết"
   getButton1ContextMenu.nodeValue = "Chi tiết";
-
-  // Ẩn nút button khi chạy đoạn mã này
+  // Ẩn button deleteProduct khi chạy đoạn mã này
   document.getElementById("deleteProduct").style.display = "none";
 
   document.getElementById("viewDetails").addEventListener("click", () => {
-    getButton1ContextMenu.nodeValue = "Chỉnh sửa";
-    document.getElementById("deleteProduct").style.display = "block";
     document.querySelector(".outbackround").classList.add("actoutbackground");
     document.querySelector(".viewmenu").classList.add("actz");
     document.querySelector(".viewmenu").classList.remove("nonez");
@@ -1187,37 +1305,49 @@ function showDetailInformation(event, element) {
             </div>
             <div class="contentTab"> 
               <span>Tên sản phẩm: </span>
-              <input readonly style="width: 50%" type="text" placeholder="Tên sản phẩm" value="${nameProduct}" id="nameAddProduct">
+              <input readonly style="width: 50%" type="text" value="${nameProduct}" id="nameAddProduct">
             </div>
             <div class="contentTab colorInput">
               <span>Màu sắc: </span>
-              <input readonly style="width: 25%" type="text" placeholder="[ĐEN, TRẮNG, ....]" value="${colorProduct}" id="colorAddProduct">
+              <input readonly style="width: 25%" type="text" value="${colorProduct}" id="colorAddProduct">
             </div>
             <div class="contentTab">
               <span>Số lượng mua: </span>
-              <input readonly style="width: 20%" type="text" id="countAddProductA" placeholder="Số lượng" value="${quantity}">
+              <input readonly style="width: 20%" type="text" id="countAddProductA" value="${quantity}">
+            </div>
+            <div class="contentTab">
+              <span>Đơn giá: </span>
+              <input readonly style="width: 30%" type="text" id="priceAddProduct" value="${price}">
+            </div>
+            <div class="contentTab">
+              <span>Size: </span>
+              <input readonly style="width: 20%" type="text" id="sizeOfProduct" value="${getSize}">
             </div>
           </div>
           <div class="rightTab">
             <div class="contentTab">
+              <span>Name Tag: </span>
+              <input readonly style="width: 30%" type="text" value="${nametagProduct}" id="nameimgAddProduct">
+            </div>
+            <div class="contentTab">
+              <span>Loại: </span>
+              <input readonly type="text" value="${typeProduct}" id="typeAddProduct">
+            </div>
+            <div class="contentTab">
               <span>Tên khách hàng: </span>
-              <input readonly style="width: 20%" type="text" id="nameOfCustomer" placeholder="Số lượng" value="${nameOfCustomer}">
+              <input readonly style="width: 20%" type="text" id="nameOfCustomer" value="${nameOfCustomer}">
             </div>
             <div class="contentTab">
               <span>Địa chỉ khách hàng: </span>
-              <input readonly style="width: 20%" type="text" id="addressOfCustomer" placeholder="Số lượng" value="${addressOfCustomer}">
+              <input readonly style="width: 20%" type="text" id="addressOfCustomer" value="${addressOfCustomer}">
             </div>
             <div class="contentTab">
-              <span>Đơn giá: </span>
-              <input readonly style="width: 30%" type="text" id="priceAddProduct" placeholder="Đơn giá" value="${price}">
+              <span>Thời gian mua: </span>
+              <input readonly type="text" value="${timeOfOrder}" id="timeOfOrder">
             </div>
             <div class="contentTab">
-              <span>Name Tag </span>
-              <input readonly style="width: 30%" type="text" placeholder="Name Tag" value="${nametagProduct}" id="nameimgAddProduct">
-            </div>
-            <div class="contentTab">
-              <span>Loại </span>
-              <input readonly type="text" value="${typeProduct}" id="typeAddProduct">
+              <span>Loại thanh toán: </span>
+              <input readonly style="width: 28%" type="text" id="typeOfPayment" value="${typeOfPayment}">
             </div>
           </div>
         </div>
@@ -1225,7 +1355,6 @@ function showDetailInformation(event, element) {
   </div>`;
   });
 }
-
 // in đơn hàng
 function listDH(ordersOfUser) {
   let s = "";
@@ -1243,6 +1372,8 @@ function listDH(ordersOfUser) {
       stringStatus = "Vận chuyển";
     else if (ordersOfUser.shopbagispayuser[i].status === "4")
       stringStatus = "Hoàn thành";
+    else if (ordersOfUser.shopbagispayuser[i].status === "5")
+      stringStatus = "Đã hủy";
     s += `
             <div oncontextmenu="showDetailInformation(event, this)" class="list">
                 <span style="width: 10%" class="userID">${ordersOfUser.IDuser}</span>
@@ -1297,16 +1428,25 @@ function setDH() {
       }
     }
   } else {
+    checkboxPositionArray = [];
+    getAllCheckbox = document.querySelectorAll(".myCheckbox");
+    for (let i = 0; i < getAllCheckbox.length; i++) {
+      if (getAllCheckbox[i].checked) {
+        checkboxPositionArray.push(i + 1);
+      }
+    }
     let getProductID = document.querySelectorAll(".idProduct");
     let getUserID = document.querySelectorAll(".userID");
     let storageTmp = [];
     let obj = {};
     for (let i = 1; i < getProductID.length; i++) {
-      obj = {
-        IDuser: getUserID[i].innerText,
-        idproduct: getProductID[i].innerText,
-      };
-      storageTmp.push(obj);
+      if (checkboxPositionArray.includes(i)) {
+        let obj = {
+          IDuser: getUserID[i].innerText,
+          idproduct: getProductID[i].innerText,
+        };
+        storageTmp.push(obj);
+      }
     }
     let indexOfStorageTmp = 0;
     for (let i = 0; i < getShopBag.length; i++) {
@@ -1341,33 +1481,11 @@ function setDH() {
       filteredProducts[i].shopbagispayuser[0].status = "3";
     } else if (getDeliveryStatusSelection === "3") {
       filteredProducts[i].shopbagispayuser[0].status = "4";
+    } else if (getDeliveryStatusSelection === "4") {
+      filteredProducts[i].shopbagispayuser[0].status = "5";
     }
   }
   // push lên localStorage
-  let index = 0;
-  for (let i = 0; i < filteredProducts.length; i++) {
-    for (let j = 0; j < getShopBag[j].length;) {
-      // tìm kiếm theo IDuser
-      if (filteredProducts[i].IDuser === getShopBag[j].IDuser) {
-        // duyệt qua hết shopbagispayuser của getShopBag[j] thì nhảy qua getShopBag[j + 1]
-        if (index === getShopBag[j].shopbagispayuser.length) {
-          j++;
-          continue;
-        }
-        // tìm kiếm theo idproduct
-        if (
-          filteredProducts[i].shopbagispayuser[0].obj.idproduct ===
-          getShopBag[j].shopbagispayuser[index].obj.idproduct
-        ) {
-          getShopBag[j].shopbagispayuser[index] =
-            filteredProducts[i].shopbagispayuser[0];
-          index = 0;
-          break;
-        }
-        index++;
-      }
-    }
-  }
   localStorage.setItem("shopbagispay", JSON.stringify(getShopBag));
   // lấy tất cả đơn hàng
   getShopBag = JSON.parse(localStorage.getItem("shopbagispay"));
@@ -1386,6 +1504,7 @@ function setDH() {
     <option value="1">Đang gói hàng</option>
     <option value="2">Vận chuyển</option>
     <option value="3">Hoàn thành</option>
+    <option value="4">Đã hủy</option>
   `;
 }
 
@@ -1415,6 +1534,7 @@ function filteredByDeliveryStatus() {
         stringStatus = "Đang gói hàng";
       else if (getFilteredDeliveryStatus === "2") stringStatus = "Vận chuyển";
       else if (getFilteredDeliveryStatus === "3") stringStatus = "Hoàn thành";
+      else if (getFilteredDeliveryStatus === "4") stringStatus = "Đã hủy";
       s += `
               <div oncontextmenu="showDetailInformation(event, this)" class="list">
                   <span style="width: 10%" class="userID">${getShopBag[i].IDuser}</span>
@@ -1442,19 +1562,98 @@ function filteredByDeliveryStatus() {
     <option value="1">Đang gói hàng</option>
     <option value="2">Vận chuyển</option>
     <option value="3">Hoàn thành</option>
+    <option value="4">Đã hủy</option>
   `;
 }
+function getDistrict(district) {
+  let tmpArray = district.split(", ");
+  return tmpArray[2];
+}
 
+function createDistrictOption() {
+  let districtArray = [];
+  getShopBag = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  for (let i = 0; i < getShopBag.length; i++) {
+    for (let j = 0; j < getShopBag[i].shopbagispayuser.length; j++) {
+      if (
+        !districtArray.includes(
+          getDistrict(getShopBag[i].shopbagispayuser[j].diachi)
+        )
+      ) {
+        districtArray.push(
+          getDistrict(getShopBag[i].shopbagispayuser[j].diachi)
+        );
+      }
+    }
+  }
+  let getFilteredDistrictSelection =
+    document.querySelector("#filteredDistrict");
+  let s = `<option value="" disabled selected>Lọc theo quận</option>`;
+  console.log(districtArray);
+  for (let i = 0; i < districtArray.length; i++) {
+    s += `<option value="">${districtArray[i]}</option>`;
+  }
+  getFilteredDistrictSelection.innerHTML = s;
+  console.log(s);
+}
+
+function filteredByDistrict() {
+  getShopBag = JSON.parse(localStorage.getItem("shopbagispay")) || [];
+  let selectElement = document.getElementById("filteredDistrict");
+  let selectedText = selectElement.options[selectElement.selectedIndex].text;
+  let s = "";
+  for (let i = 0; i < getShopBag.length; i++) {
+    for (let j = 0; j < getShopBag[i].shopbagispayuser.length; j++) {
+      if (
+        getDistrict(getShopBag[i].shopbagispayuser[j].diachi) === selectedText
+      ) {
+        let Price = getShopBag[i].shopbagispayuser[j].obj.price.toLocaleString(
+          "vi-VN",
+          { style: "currency", currency: "VND" }
+        );
+        let stringStatus = "";
+        if (getShopBag[i].shopbagispayuser[j].status === "1")
+          stringStatus = "Chờ xác nhận";
+        else if (getShopBag[i].shopbagispayuser[j].status === "2")
+          stringStatus = "Đang gói hàng";
+        else if (getShopBag[i].shopbagispayuser[j].status === "3")
+          stringStatus = "Vận chuyển";
+        else if (getShopBag[i].shopbagispayuser[j].status === "4")
+          stringStatus = "Hoàn thành";
+        else if (getShopBag[i].shopbagispayuser[j].status === "5")
+          stringStatus = "Đã hủy";
+        s += `
+                <div oncontextmenu="showDetailInformation(event, this)" class="list">
+                    <span style="width: 10%" class="userID">${getShopBag[i].IDuser}</span>
+                    <div style="width: 5%; display: flex; justify-content: left;">
+                      <input type="checkbox" class="myCheckbox"/>
+                    </div>
+                    <span style="width: 10%" class="idProduct">${getShopBag[i].shopbagispayuser[j].obj.idproduct}</span>
+                    <img style="width: 20%" src="${getShopBag[i].shopbagispayuser[j].obj.img}" class="imgProduct" alt="Ảnh lỗi">
+                    <span style="width: 30%" class="nameProduct">${getShopBag[i].shopbagispayuser[j].obj.nameSP}</span>
+                    <span style="width: 5%" class="countProduct">${getShopBag[i].shopbagispayuser[j].soluong}</span>
+                    <span style="width: 10%" class="priceProduct">${Price}</span>
+                    <span style="width: 10%" class="deliveryStatus">${stringStatus}</span>
+                </div>
+        `;
+      }
+    }
+  }
+  document.querySelector("#storage-body").innerHTML = s;
+}
 function renderqldh() {
   document.querySelector(".page-right").innerHTML = `<div class="qldh">
                 <div class="title"><h1>QUẢN LÝ ĐƠN HÀNG</h1></div>
                 <div class="groupOption">
+                        <select name="" class="box" id="filteredDistrict" onchange="filteredByDistrict()" >
+                        </select>
                         <select name="" class="box" id="filteredDeliveryStatus" onchange="filteredByDeliveryStatus()">
                             <option value="" disabled selected>Lọc trạng thái</option>
                             <option value="0">Chờ xác nhận</option>
                             <option value="1">Đang gói hàng</option>
                             <option value="2">Vận chuyển</option>
                             <option value="3">Hoàn thành</option>
+                            <option value="4">Đã hủy</option>
                         </select>
                         <select name="" class="box" id="deliveryStatusSelection">
                             <option value="" disabled selected>Chỉnh trạng thái</option>
@@ -1462,6 +1661,7 @@ function renderqldh() {
                             <option value="1">Đang gói hàng</option>
                             <option value="2">Vận chuyển</option>
                             <option value="3">Hoàn thành</option>
+                            <option value="4">Đã hủy</option>
                         </select>
                         <button class="box" id="acceptChangeStatus" style="width: 10%;
                           box-shadow: 0 7px 25px rgba(0, 0, 0, 0.2);
@@ -1491,60 +1691,46 @@ function renderqldh() {
                     <span style="width: 10%" class="deliveryStatus">Vận chuyển</span>
                 </div>
                 <div id="storage-body"></div>`;
+  createDistrictOption();
   let s = "";
   for (let i = 0; i < getShopBag.length; i++) {
     s += listDH(getShopBag[i]);
   }
   document.querySelector("#storage-body").innerHTML = s;
+  let countOrder = 0;
+  for (let i = 0; i < getShopBag.length; i++) {
+    for (let j = 0; j < getShopBag[i].shopbagispayuser.length; j++) {
+      countOrder++;
+    }
+  }
+  document.querySelector("#amountOfProduct").innerText = countOrder;
 }
 // login
 let getSignInButton = "";
 let getEmailSignIn = "";
 let getPasswordSignIn = "";
-
-function saveAdminAccount(account) {
-  let storageAdminAccount = JSON.parse(localStorage.getItem("storageAdminAccount"));
-  if (storageAdminAccount === null) {
-    storageAdminAccount = [];
-  } else {
-    for (let i = 0; i < storageAdminAccount.length; i++) {
-      if (storageAdminAccount[i].email === account.email) {
-        alert("Email đã tồn tại");
-        return;
-      }
-    }
-  }
-  storageAdminAccount.push(account);
-  localStorage.setItem("storageAdminAccount", JSON.stringify(storageAdminAccount));
-}
-
 function checkSignInAdminAccount(email, password) {
-  let storageAdminAccount = JSON.parse(localStorage.getItem("storageAdminAccount"));
-  for (let i = 0; i < storageAdminAccount.length; i++) {
-    if (storageAdminAccount[i].email === email && storageAdminAccount[i].password === password) {
-      return true;
-    }
+  let adminAccount = JSON.parse(localStorage.getItem("adminAccount"));
+  if (adminAccount.email === email && adminAccount.password === password) {
+    return true;
   }
   return false;
 }
-
 function pushFirstAdminAccount() {
-  let storageAdminAccount = JSON.parse(localStorage.getItem("storageAdminAccount"));
+  let adminAccount = JSON.parse(localStorage.getItem("adminAccount"));
   let flagAdminAccount = JSON.parse(localStorage.getItem("flagAdminAccount"));
-  // nếu storageAdminAccount rỗng hoặc flag = null thì push adminAccout
-  if (flagAdminAccount === null || storageAdminAccount === null) {
+  // nếu adminAccount bị xóa hoặc flag = null (chưa put lần nào) thì push adminAccount
+  if (flagAdminAccount === null || adminAccount === null) {
     localStorage.setItem("flagAdminAccount", JSON.stringify(false));
-    storageAdminAccount = [];
-    let adminAccount = {
+    adminAccount = {
       email: "admin@gmail.com",
       password: "admin",
-      type: "0"
+      typeuser: "0",
     };
-    storageAdminAccount.push(adminAccount);
-    localStorage.setItem("storageAdminAccount", JSON.stringify(storageAdminAccount));
+    localStorage.setItem("adminAccount", JSON.stringify(adminAccount));
     localStorage.setItem("flagAdminAccount", JSON.stringify(true));
   }
-  // nếu flag khác null => false/true => true thì return vì đã push
+  // nếu flag khác null => true => return vì đã push
   if (flagAdminAccount) {
     return;
   }
@@ -1562,7 +1748,16 @@ function checkEmail(str) {
   }
   return true;
 }
+function loadpage() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  const loader = document.querySelector(".loader");
+  // Start the loader animation
+  loader.classList.add("active");
 
+  setTimeout(function () {
+    loader.classList.remove("active");
+  }, 1000); // Duration should match the time for loader animation
+}
 function signInButton(event) {
   event.preventDefault();
   getSignInButton = document.querySelector("#sign-in-button");
@@ -1573,15 +1768,31 @@ function signInButton(event) {
     !getEmailSignIn.value.includes("@") ||
     !checkEmail(getEmailSignIn.value)
   ) {
-    alert("Vui lòng nhập đúng email");
+    toast({
+      title: "ERROR",
+      message: "Vui lòng nhập đúng Email !",
+      type: "error",
+      duration: 5000,
+    });
     getEmailSignIn.focus();
     return;
   } else if (getPasswordSignIn.value.trim() === "") {
-    alert("Vui lòng nhập mật khẩu");
+    toast({
+      title: "ERROR",
+      message: "Vui lòng nhập mật khẩu !",
+      type: "error",
+      duration: 5000,
+    });
     getPasswordSignIn.focus();
     return;
   }
+  console.log(getEmailSignIn.value);
+  console.log(getPasswordSignIn.value);
+  console.log(
+    checkSignInAdminAccount(getEmailSignIn.value, getPasswordSignIn.value)
+  );
   if (checkSignInAdminAccount(getEmailSignIn.value, getPasswordSignIn.value)) {
+    loadpage();
     let getPage = document.querySelector(".page");
     getPage.innerHTML = `
       <div class="page-left second-icon">
@@ -1592,7 +1803,6 @@ function signInButton(event) {
           <div class="L b3">QUẢN LÝ SẢN PHẢM</div>
           <div class="L b4">QUẢN LÝ NGƯỜI DÙNG</div>
         </div>
-        <div>Đăng xuất</div>
         <div class="L-e">
           <a href="./index.html">
             <i class="fa-solid fa-house"></i>TRỞ VỀ TRANG CHỦ</a
@@ -1627,7 +1837,12 @@ function signInButton(event) {
     onload();
     return;
   } else {
-    alert("Email hoặc mật khẩu bị sai, vui lòng nhập lại!");
+    toast({
+      title: "ERROR",
+      message: "Sai email hoặc mật khẩu !",
+      type: "error",
+      duration: 5000,
+    });
     return;
   }
 }
