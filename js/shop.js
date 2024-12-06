@@ -362,6 +362,7 @@ let Products = [
   },
 ];
 loadpage();
+console.log(Products[0].quantity["A"]);
 for (let i = 0; i < Products.length; i++) {
   Products[i].idproduct = Products[i].nametag + i;
 }
@@ -375,38 +376,6 @@ function timkiemtheoID(ID) {
     }
   }
   return null;
-}
-function toast({ title = "", message = "", type = "", duration = 5000 }) {
-  const main = document.getElementById("toast");
-  if (main) {
-    const toast = document.createElement("div");
-    toast.onclick = function (e) {
-      if (e.target.closest(".toast__close")) {
-        main.removeChild(toast);
-      }
-    };
-
-    const icons = {
-      success: "fa-solid fa-circle-check",
-      error: "fa-solid fa-circle-exclamation",
-    };
-    const icon = icons[type];
-
-    toast.classList.add("toast", `toast--${type}`);
-    toast.innerHTML = `
-        <div class="toast__icon">
-          <i class="${icon}"></i>
-        </div>
-        <div class="toast__body">
-          <h3 class="toast__title">${title}</h3>
-          <p class="toast__msg">${message}</p>
-        </div>
-        <div class="toast__close">
-          <i class="fa-solid fa-xmark"></i>
-        </div>
-    `;
-    main.appendChild(toast);
-  }
 }
 let ProductArrBoth = JSON.parse(localStorage.getItem("arrayproducts"));
 let typeproducts = [
@@ -555,7 +524,10 @@ function makeSP(trang, sosptrongtrang, arr) {
 function makeselectpage(index, arr) {
   const max_length_arrayproduct = arr.length;
   max_page = Math.ceil(max_length_arrayproduct / sosptrongtrang);
-
+  if (max_page <= 1) {
+    document.querySelector("#body-widePagination").innerHTML = "";
+    return;
+  }
   let s = `<a href="#" class="pagination_item" id="before"><span><i class='bx bx-left-arrow-alt'></i></span></a>`;
 
   if (index > 1) {
@@ -692,13 +664,27 @@ function mangproduct_radio(radio, arr) {
 }
 let filteredProducts = ProductArrBoth; // Khởi tạo mảng ban đầu
 let filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts));
+let arrsearch = JSON.parse(JSON.stringify(filteredProducts));
+let arrfilterprice = JSON.parse(JSON.stringify(filteredProducts));
 function searchByName() {
   loadpage();
+  let sort = document.querySelectorAll("#sort");
+  sort.forEach((select) => {
+    select.selectedIndex = 1;
+  });
   const searchName = document
     .getElementById("searchName")
     .value.trim()
     .toLowerCase();
-  const filteredProducts = filteredProducts_copy.filter((product) =>
+  let nodePrice_1 = document.querySelector("#nodePrice_1");
+  let nodePrice_2 = document.querySelector("#nodePrice_2");
+  let arr = "";
+  if (nodePrice_1.value == "" && nodePrice_2.value == "") {
+    arr = arrsearch;
+  } else {
+    arr = filteredProducts_copy;
+  }
+  const filteredProducts = arr.filter((product) =>
     product.nameSP.toLowerCase().includes(searchName)
   );
   filteredProducts_copy = filteredProducts;
@@ -720,7 +706,9 @@ function hienSPTheoFilter(item) {
     select.selectedIndex = 1;
   });
   filteredProducts = mangproduct_radio(item.id, ProductArrBoth);
+  arrsearch = JSON.parse(JSON.stringify(filteredProducts));
   filteredProducts_copy = JSON.parse(JSON.stringify(filteredProducts));
+  arrfilterprice = JSON.parse(JSON.stringify(filteredProducts));
   makeSP(1, sosptrongtrang, filteredProducts);
 }
 
@@ -745,16 +733,35 @@ function Sort(item) {
   makeselectpage(1, filteredProducts_copy1);
 }
 function Loc() {
-  loadpage();
+  let sort = document.querySelectorAll("#sort");
+  sort.forEach((select) => {
+    select.selectedIndex = 1;
+  });
+  let search = document.querySelector("#searchName");
   let price1 = document.getElementById("nodePrice_1").value;
   let price2 = document.getElementById("nodePrice_2").value;
+  let price1_value = parseFloat(price1);
+  let price2_value = parseFloat(price2);
+  if (isNaN(price1_value) || isNaN(price2_value)) {
+    toast({
+      title: "ERROR",
+      message: "Vui lòng nhập số !",
+      type: "error",
+      duration: 5000,
+    });
+    return;
+  }
+  loadpage();
+  let arr = "";
+  if (search.value == "") {
+    arr = arrfilterprice;
+  } else {
+    arr = filteredProducts_copy;
+  }
   let mang = [];
-  for (let i = 0; i < filteredProducts_copy.length; i++) {
-    if (
-      parseInt(filteredProducts_copy[i].price) >= price1 &&
-      parseInt(filteredProducts_copy[i].price) <= price2
-    ) {
-      mang.push(filteredProducts_copy[i]);
+  for (let i = 0; i < arr.length; i++) {
+    if (parseInt(arr[i].price) >= price1 && parseInt(arr[i].price) <= price2) {
+      mang.push(arr[i]);
     }
   }
   filteredProducts_copy = mang;
@@ -948,27 +955,10 @@ function resetsize() {
 function clickC_1(e, color, img) {
   objcolorcurrent.color = color;
   objcolorcurrent.img = img;
-  console.log(objcolorcurrent);
   const dataimg = e.getAttribute("data-src");
   const srcold = e.closest(".both_").querySelector(".srcimg"); //tim phan tu cha -> con co class srcimg
   srcold.setAttribute("src", dataimg);
 }
-// function timkiemSP(arr, id) {
-//   for (let i = 0; i < arr.length; i++) {
-//     if (id == arr[i].idproduct) {
-//       return arr[i];
-//     }
-//   }
-//   return null;
-// }
-// function reloadpage() {
-//   const urlParams = new URLSearchParams(window.location.search);
-//   const productid = urlParams.get("productID");
-//   const item = timkiemSP(ProductArrBoth, productid);
-//   if (item) {
-//     loadSingleProduct(item);
-//   }
-// }
 
 //nut tro lai
 function goBack() {
@@ -1013,254 +1003,7 @@ function updatecurrentuser() {
   localStorage.setItem("currentUser", JSON.stringify(usercurrent));
   updateAlluser(usercurrent);
 }
-// Hiển thị thông tin giỏ hàng
-function shopinginfo() {
-  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  if (currentUser != null) {
-    let menurespon = document.querySelector(".header1");
-    document.querySelector(".backgroud-menu-respon").style.display = "block";
-    if (menurespon) {
-      menurespon.classList.remove("active");
-    }
-    let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
-    const cart = document.querySelector(".cart");
-    let s = `<div class="shoping-bag">
-        <div class="shoping-bag-header">
-          <h3>Giỏ hàng</h3>
-          <div class="close-shopping" onclick="closeall()">Đóng</div>
-        </div>
-        <div class="shoping-bag-info">`;
 
-    // Hiển thị các sản phẩm trong giỏ hàng
-    for (let i = 0; i < arrayshopbag.length; i++) {
-      s += `<div class="shoping-bag-info-item">
-            <div class="shoping-bag-img">
-              <img src="${arrayshopbag[i].img}" alt="" />
-            </div>
-            <div class="cart-info">
-              <h4>${arrayshopbag[i].obj.nameSP}</h4>
-              <h6>${arrayshopbag[i].color}-${arrayshopbag[i].size}</h6>
-              <div class="priceAndCount">
-                <div class="count">
-                  <i class="fa-solid fa-minus sub" onclick='reduceShopBag(${i});'></i>
-                  <input type="text" readonly="readonly" class="countProductbuy" value="${arrayshopbag[i].soluong}" />
-                  <i class="fa-solid fa-plus add" onclick='increaseShopBag(${i},"${arrayshopbag[i].size}");'></i>
-                </div>
-                <div class="price">${arrayshopbag[i].obj.price}₫</div>
-              </div>
-              <div class="delete effect-for-btn" onclick="removeItem(${i})">Xoá</div>
-            </div>
-          </div>`;
-    }
-    s += `</div>
-        <div class="pay">
-          <div class="main">
-            <div class="info_bill">
-              <div class="selected">
-                <p>ĐÃ CHỌN:</p>
-                <p id="totalCount">${soluong1}</p>
-              </div>
-              <div class="discount">
-                <p>KHUYẾN MÃI:</p>
-                <p id="discountPercent"></p>
-              </div>
-              <div class="total">
-                <p>TẠM TÍNH:</p>
-                <p id="totalBill">${tongtien1}₫</p>
-              </div>
-            </div>
-            <div class="btn-pay">
-              <h3 class="effect-for-btn buttonsubmit" onclick="giaodienthanhtoan();" >Xác nhận</h3>
-            </div>
-          </div>
-        </div>
-      </div>`;
-
-    cart.innerHTML = s;
-    cart.classList.add("active");
-    chitiethoadon1(); // Cập nhật lại thông tin giỏ hàng
-  } else {
-    toast({
-      title: "ERROR",
-      message: "Vui lòng đăng nhập !",
-      type: "error",
-      duration: 5000,
-    });
-  }
-}
-let ispayedshop = false;
-
-function creditcardform() {
-  const creditcard = document.querySelector(".container_pay");
-  creditcard.classList.add("active");
-  document.querySelector(".backgroud-menu-respon").style.display = "block";
-}
-
-function pay() {
-  ispayedshop = true;
-  const creditcard = document.querySelector(".container_pay");
-  creditcard.classList.remove("active");
-  document.querySelector(".backgroud-menu-respon").style.display = "none";
-  toast({
-    title: "SUCCESS",
-    message: "Chi tiết thẻ tín dụng đã được gửi thành công.",
-    type: "success",
-    duration: 5000,
-  });
-}
-
-function giaodienthanhtoan() {
-  let arrayproducts = JSON.parse(localStorage.getItem("arrayshopbag")) || [];
-  if (arrayproducts.length == 0) {
-    toast({
-      title: "ERROR",
-      message: "Giỏ hàng rỗng",
-      type: "error",
-      duration: 5000,
-    });
-  } else {
-    let tongtien = 0;
-    getarrayshopbag();
-    let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
-    document.querySelector(".cart").classList.remove("active");
-    document.querySelector(".backgroud-menu-respon").style.display = "none";
-    let s = `
-    <div class="container_pay">
-      <form action="javascript:void(0);" onsubmit="pay()">
-        <div class="row">
-          <div class="col">
-            <h3 class="title">billing address</h3>
-            <div class="inputBox">
-              <span>full name :</span>
-              <input type="text" placeholder="john deo" required />
-            </div>
-            <div class="inputBox">
-              <span>email :</span>
-              <input type="email" placeholder="example@example.com" required />
-            </div>
-            <div class="inputBox">
-              <span>address :</span>
-              <input type="text" placeholder="room - street - locality" required />
-            </div>
-            <div class="inputBox">
-              <span>city :</span>
-              <input type="text" placeholder="mumbai" required />
-            </div>
-            <div class="flex">
-              <div class="inputBox">
-                <span>state :</span>
-                <input type="text" placeholder="india" required />
-              </div>
-              <div class="inputBox">
-                <span>zip code :</span>
-                <input type="text" placeholder="123 456" required />
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <h3 class="title">payment</h3>
-            <div class="inputBox">
-              <span>cards accepted :</span>
-              <img src="./img/card_img.png" alt="" />
-            </div>
-            <div class="inputBox">
-              <span>name on card :</span>
-              <input type="text" placeholder="mr. john deo" required />
-            </div>
-            <div class="inputBox">
-              <span>credit card number :</span>
-              <input type="number" placeholder="1111-2222-3333-4444" required />
-            </div>
-            <div class="inputBox">
-              <span>exp month :</span>
-              <input type="text" placeholder="january" required />
-            </div>
-            <div class="flex">
-              <div class="inputBox">
-                <span>exp year :</span>
-                <input type="number" placeholder="2022" required />
-              </div>
-              <div class="inputBox">
-                <span>CVV :</span>
-                <input type="text" placeholder="1234" required />
-              </div>
-            </div>
-          </div>
-        </div>
-        <input type="submit" value="proceed to checkout" class="submit-btn" />
-      </form>
-    </div>
-    <h1 class="tittleheader">THÔNG TIN GIAO HÀNG</h1>
-    <div class="infoCustomer box">
-      <div class="infoCustomer-body">
-        <div class="contentTab">
-          <span>Họ và tên: </span>
-          <input type="text" class="input" id="name" value="${usercurrent.name}" readonly />
-        </div>
-        <div class="contentTab">
-          <span>Số điện thoại: </span>
-          <input type="text" class="input" id="phone" value="${usercurrent.phone}" readonly />
-        </div>
-        <div class="contentTab">
-          <span>Địa chỉ : </span>
-         <div class="contentTab-address">${usercurrent.diachi}</div>
-        </div>
-        <div id="buttonEdit" onclick="chinhsua();">Chỉnh sửa</div>
-      </div>
-    </div>
-    <div class="payment box">
-      <div class="viewCart">
-        <div class="titleCol">
-          <span class="idProduct">ID</span>
-          <span class="imgProduct">Hình ảnh</span>
-          <span class="nameProduct">Tên sản phẩm</span>
-          <span class="colorProduct">Màu sắc</span>
-          <span class="countProduct">Số lượng</span>
-          <span class="priceProduct">Đơn giá</span>
-        </div>
-        <div id="viewCart-body">`;
-    for (let i = 0; i < arrayproducts.length; i++) {
-      tongtien +=
-        parseInt(arrayproducts[i].obj.price) *
-        parseInt(arrayproducts[i].soluong);
-      s += `<div class="product">
-            <span class="idProduct">${arrayproducts[i].obj.idproduct}</span>
-            <span class="imgProduct imgsp"><img src="${arrayproducts[i].img}" alt="" /></span>
-            <span class="nameProduct">${arrayproducts[i].obj.nameSP}</span>
-            <span class="colorProduct">${arrayproducts[i].color}</span>
-            <span class="countProduct">${arrayproducts[i].soluong}</span>
-            <span class="priceProduct">${arrayproducts[i].obj.price}</span>
-          </div>`;
-    }
-    s += `</div>
-      </div>
-      <div class="methodPayment">
-        <h4>Phương thức thanh toán</h4>
-        <div class="method">
-          <input type="radio" name="radio" id="creditcard" checked />
-          <span onclick="creditcardform()">
-            <i class="now-ui-icons shopping_credit-card"></i>Thẻ tín dụng / Thẻ ghi nợ</span>
-        </div>
-        <div class="method">
-          <input type="radio" name="radio" id="cod" />
-          <span><i class="now-ui-icons shopping_delivery-fast"></i>Thanh toán khi nhận hàng</span>
-        </div>
-        <div class="infoBill">
-          <div class="contentTab">
-            <span>Tạm tính:</span>
-            <span id="valueTemporary">${tongtien}</span>
-          </div>
-          <div class="contentTab">
-            <span>Tổng:</span>
-            <span id="valueBill">${tongtien}</span>
-          </div>
-        </div>
-      </div>
-      <div class="buttonsubmit" onclick="thanhtoan()">Thanh toán</div>
-    </div>`;
-    midcontent.innerHTML = s;
-  }
-}
 // Tính toán số lượng và tổng tiền của giỏ hàng
 function chitiethoadon() {
   let arrayshopbag = JSON.parse(localStorage.getItem("arrayshopbag"));
@@ -1346,20 +1089,6 @@ function removeItem(index) {
   updatecurrentuser();
   localStorage.setItem("countarrayshopbag", JSON.stringify(soluongspgiohang));
   shopinginfo(); // Cập nhật lại giỏ hàng hiển thị
-}
-
-// Đóng giỏ hàng
-function closeall() {
-  document.querySelector(".cart").classList.remove("active");
-  document.querySelector(".backgroud-menu-respon").style.display = "none";
-  let menurespon = document.querySelector(".header1");
-  if (menurespon) {
-    menurespon.classList.remove("active");
-  }
-  let creditcard = document.querySelector(".container_pay");
-  if (creditcard != null) {
-    creditcard.classList.remove("active");
-  }
 }
 
 // Thêm sản phẩm vào giỏ hàng
@@ -1480,18 +1209,6 @@ function addShopingBag(item) {
   }
 }
 
-// Update the display of the number of products in the shopping bag when the page is loaded
-function updateshopingbag() {
-  soluongspgiohang = JSON.parse(localStorage.getItem("countarrayshopbag")) || 0;
-  if (soluongspgiohang > 0) {
-    document.querySelector(".Shoping span").textContent = soluongspgiohang;
-    document.querySelector(".Shoping").style.color = "red";
-  } else {
-    document.querySelector(".Shoping span").textContent = "0";
-    document.querySelector(".Shoping").style.color = "black";
-  }
-}
-
 // Initial call to update the shopping bag display
 updateshopingbag();
 
@@ -1552,175 +1269,6 @@ function kiemtratontai(IDuser) {
   }
   return null;
 }
-
-function thanhtoan() {
-  let shopbagispay = JSON.parse(localStorage.getItem("shopbagispay")) || [];
-  let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
-  let userIndex = kiemtratontai(usercurrent.userID);
-  let creditcard = document.querySelector("#creditcard");
-  let paymentType = creditcard.checked ? 1 : 0;
-
-  // Lấy thời gian hiện tại và chuyển thành chuỗi
-  let currentTime = new Date().toLocaleString(); // Lấy thời gian dưới dạng chuỗi
-
-  if (usercurrent.phone === "" || usercurrent.diachi === "") {
-    toast({
-      title: "ERROR",
-      message: "Vui lòng nhập đầy đủ số điện thoại và địa chỉ",
-      type: "error",
-      duration: 5000,
-    });
-    chinhsua();
-  } else {
-    if (creditcard.checked && ispayedshop === false) {
-      creditcardform();
-    } else {
-      if (userIndex !== null) {
-        let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
-        let arrayshopbag =
-          JSON.parse(localStorage.getItem("arrayshopbag")) || [];
-        for (let i = 0; i < arrayshopbag.length; i++) {
-          arrayshopbag[i].diachi = usercurrent.diachi;
-          arrayshopbag[i].paymenttype = paymentType;
-          arrayshopbag[i].time = currentTime; // Thêm thời gian vào mỗi mặt hàng
-          shopbagispay[userIndex].shopbagispayuser.push(arrayshopbag[i]);
-        }
-      } else {
-        let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
-        let shopbagitem = {
-          IDuser: usercurrent.userID,
-          shopbagispayuser:
-            JSON.parse(localStorage.getItem("arrayshopbag")) || [],
-        };
-        for (let i = 0; i < shopbagitem.shopbagispayuser.length; i++) {
-          shopbagitem.shopbagispayuser[i].diachi = usercurrent.diachi;
-          shopbagitem.shopbagispayuser[i].paymenttype = paymentType;
-          shopbagitem.shopbagispayuser[i].time = currentTime; // Thêm thời gian vào mỗi mặt hàng
-        }
-        shopbagispay.push(shopbagitem);
-      }
-
-      // Cập nhật lại danh sách giỏ hàng đã thanh toán vào localStorage
-      localStorage.setItem("shopbagispay", JSON.stringify(shopbagispay));
-
-      // Đảm bảo danh sách mặt hàng được điều chỉnh trong kho
-      let itemsToAdjust =
-        JSON.parse(localStorage.getItem("arrayshopbag")) || [];
-      dieuchinhsoluongtrongkho(itemsToAdjust);
-
-      // Xóa giỏ hàng của người dùng sau khi thanh toán
-      let alluser = JSON.parse(localStorage.getItem("storageUsers")) || [];
-      for (let i = 0; i < alluser.length; i++) {
-        if (alluser[i].userID === usercurrent.userID) {
-          alluser[i].shopbag = [];
-        }
-      }
-
-      // Cập nhật lại thông tin người dùng vào localStorage
-      localStorage.setItem("storageUsers", JSON.stringify(alluser));
-      localStorage.setItem("currentUser", JSON.stringify(usercurrent));
-
-      toast({
-        title: "SUCCESS",
-        message: "Thanh toán thành công",
-        type: "success",
-        duration: 5000,
-      });
-
-      // Tùy chọn: Tải lại trang sau khi thanh toán thành công
-      setTimeout(function () {
-        location.reload();
-      }, 1000);
-    }
-  }
-}
-
-// let isEditing = false; // Flag to track edit state
-
-// function chinhsua() {
-//   const editButton = document.querySelector("#buttonEdit"); // Get the edit button
-//   const inputEdit = document.querySelectorAll(".input"); // Get all input fields
-//   let usercurrent = JSON.parse(localStorage.getItem("currentUser"));
-//   const phone = document.querySelector("#phone");
-//   const address = document.querySelector(".contentTab-address");
-
-//   if (editButton != null) {
-//     editButton.addEventListener("click", () => {
-//       if (isEditing) {
-//         console.log(isEditing);
-//         // Save mode
-//         inputEdit.forEach(function (e) {
-//           e.setAttribute("readonly", true);
-//           e.classList.remove("active"); // Remove active class when saving
-//         });
-//         let sonha = document.querySelector("#numberaddress");
-//         let thanhpho = document.querySelector("#city");
-//         let quan = document.querySelector("#district");
-//         let huyen = document.querySelector("#ward");
-//         if (sonha && thanhpho && quan && huyen) {
-//           sonha = sonha.value.trim();
-//           thanhpho = thanhpho.value.trim();
-//           quan = quan.value.trim();
-//           huyen = huyen.value.trim();
-
-//           if (sonha && thanhpho && quan && huyen) {
-//             let s = `${sonha}, ${huyen}, ${quan}, ${thanhpho}`;
-
-//             // Cập nhật thông tin người dùng
-//             usercurrent.phone = phone.value;
-//             usercurrent.diachi = s;
-
-//             // Cập nhật localStorage và sử dụng setTimeout để trì hoãn việc thay đổi giao diện
-//             setTimeout(() => {
-//               localStorage.setItem("currentUser", JSON.stringify(usercurrent));
-
-//               // Cập nhật lại giao diện
-
-//               address.innerHTML = s;
-//               // Đổi nút thành "Chỉnh sửa"
-//               buttonEdit.textContent = "Chỉnh sửa";
-//             }, 500); // Thêm thời gian trì hoãn (500ms)
-//           } else {
-//             toast({
-//               title: "ERROR",
-//               message: "Các trường địa chỉ chưa đầy đủ!",
-//               type: "error",
-//               duration: 5000,
-//             });
-//           }
-//         }
-//         updateUserDetails(usercurrent); // Update the user details in storageUsers
-//       } else {
-//         // Edit mode
-//         inputEdit.forEach(function (e) {
-//           e.removeAttribute("readonly");
-//           e.classList.add("active"); // Add active class when editing
-//         });
-//         // Thay thế phần address_user với các input/select mới
-//         address.innerHTML = `
-//           <input type="text" id="numberaddress" placeholder="Nhập số nhà & tên đường" />
-//           <label for="city">Thành phố:</label>
-//           <select id="city" onchange="populateDistricts()">
-//             <option value="">Chọn Thành phố</option>
-//           </select>
-//           <label for="district">Quận/Huyện:</label>
-//           <select id="district" onchange="populateWards()">
-//             <option value="">Chọn Quận/Huyện</option>
-//           </select>
-//           <label for="ward">Phường/Xã:</label>
-//           <select id="ward">
-//             <option value="">Chọn Phường/Xã</option>
-//           </select>`;
-
-//         // Đảm bảo dữ liệu được hiển thị trong các select
-//         populateCities();
-//         editButton.textContent = "Lưu lại";
-//       }
-//       // Toggle edit state
-//       isEditing = !isEditing;
-//     });
-//   }
-// }
 
 // Function to update user details in storageUsers
 function updateUserDetails(user) {

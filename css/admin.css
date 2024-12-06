@@ -22,6 +22,7 @@
   top: 0;
 }
 .page-right {
+  position: relative;
   float: right;
   width: 80%;
 }
@@ -34,9 +35,7 @@
 .list .colorProduct {
   width: 10%;
 }
-.page-left .F-L {
-  /* justify-content: flex-start; */
-}
+
 .page-left .L-e {
   display: flex;
   height: 20%;
@@ -890,9 +889,7 @@
 .list .colorProduct {
   width: 10%;
 }
-.page-left .F-L {
-  /* justify-content: flex-start; */
-}
+
 .page-left .L-e {
   display: flex;
   height: 20%;
@@ -1702,4 +1699,167 @@
 }
 .list__KH span {
   text-align: center;
+}
+/* Hoc */
+.backgroud-menu-respon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+  display: none;
+}
+.block-container,
+.tool-address {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 0px;
+  overflow: hidden;
+  scale: 0;
+  z-index: 99999;
+}
+.block-container.active,
+.tool-address.active {
+  height: max-content;
+  overflow: visible;
+  scale: 1;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+}
+
+input,
+select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus {
+  border-color: #4a90e2;
+}
+
+span {
+  font-size: 12px;
+  color: #666666;
+}
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.confirm-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-button:hover {
+  background-color: #357ab7;
+}
+.spanaddress {
+  margin: 0 10px;
+  border: 2px solid black;
+  padding: 3px;
+  color: white;
+  background-color: #1a1a1a;
+}
+.spanaddress:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu đen mờ */
+}
+.back:hover {
+  color: red;
+  cursor: pointer;
+}
+/* Container chứa phần xác nhận xóa */
+.remove {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Phần văn bản xác nhận */
+.remove div {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Định dạng phần text cho câu hỏi xác nhận */
+.confirmation-text {
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Container chứa các nút Yes và No */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Định dạng cho các nút Yes và No */
+.action-button {
+  padding: 10px 20px;
+  background-color: #d9534f;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect cho nút Yes */
+.action-button.yes:hover {
+  background-color: #c9302c;
+}
+
+/* Định dạng cho nút No */
+.action-button.no {
+  background-color: #5bc0de;
+}
+
+/* Hover effect cho nút No */
+.action-button.no:hover {
+  background-color: #31b0d5;
 }
